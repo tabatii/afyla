@@ -1,6 +1,6 @@
 <template>
 	<footer class="bg-primary">
-		<div class="container"> 
+		<div class="container">
 			<div class="row gy-4">
 				<div class="col-md-6 col-lg-3">
 					<ul class="nav flex-column">
