@@ -1,0 +1,51 @@
+@import './variables';
+@import '~bootstrap/scss/bootstrap';
+@import '~bootstrap-icons';
+
+body {
+	padding-top: 100px;
+}
+
+section {
+	padding: 100px 0;
+}
+
+label[for] {
+	cursor: pointer;
+	user-select: none;
+}
+
+.pointer {
+	cursor: pointer !important;
+}
+
+.fw-medium {
+	font-weight: 500 !important;
+}
+
+.dropdown-hover:hover .dropdown-menu {
+	display: block;
+}
+
+@media (min-width: 992px) {
+	.dropdown-lg-hover:hover .dropdown-menu {
+		display: block;
+	}
+}
+
+@media (max-width: 991px) {
+	.js-image-zoom__zoomed-area,
+	.js-image-zoom__zoomed-image {
+		display: none !important;
+	}
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+input[type=number] {
+	-moz-appearance: textfield;
+}
