@@ -1,6 +1,6 @@
 <template>
 	<div class="d-flex">
-		<input type="number" class="form-control border border-end-0 shadow-none" v-model.number="number" />
+		<input type="number" class="form-control bg-white border border-end-0 shadow-none" v-model.number="number" readonly />
 		<div class="border border-start-0">
 			<span class="border-start border-bottom" @click="plus">+</span>
 			<span class="border-start border-top" @click="minus">-</span>
@@ -18,6 +18,9 @@
 			},
 		},
 		watch: {
+			value() {
+				this.number = this.value
+			},
 			number() {
 				this.$emit('input', this.number)
 			}

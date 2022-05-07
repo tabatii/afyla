@@ -2,12 +2,17 @@
 
 namespace App\Http\Controllers\Voyager;
 
-use TCG\Voyager\Events\BreadDataDeleted;
+use Illuminate\Support\Arr;
 use TCG\Voyager\Events\BreadDataUpdated;
 use TCG\Voyager\Events\BreadDataAdded;
 use TCG\Voyager\Facades\Voyager;
 use Illuminate\Http\Request;
+use App\Models\ProductSubCategory;
+use App\Models\ProductCollection;
 use App\Models\ProductCategory;
+use App\Models\ProductMaterial;
+use App\Models\Recommendation;
+use App\Models\SubCategory;
 use App\Models\ProductColor;
 use App\Models\ProductSize;
 
@@ -102,12 +107,25 @@ class ProductBreadController extends \TCG\Voyager\Http\Controllers\VoyagerBaseCo
 
     public function storeRelatedData($data, $id)
     {
-        $categories = $colors = $stock = [];
-        if (isset($data['categories'])) {
-            foreach ($data['categories'] as $i => $category) {
-                $categories[$i]['product_id'] = $id;
-                $categories[$i]['category_id'] = $category;
+        $collections = $categories = $subCategories = $colors = $materials = $stock = $recommendations = [];
+        if (isset($data['collections'])) {
+            foreach ($data['collections'] as $i => $collection) {
+                $collections[$i]['product_id'] = $id;
+                $collections[$i]['collection_id'] = $collection;
             }
+            ProductCollection::insert($collections);
+        }
+        if (isset($data['subCategories'])) {
+            foreach ($data['subCategories'] as $i => $sub) {
+                $category = SubCategory::with('category')->where('id', $sub)->first()->category;
+                $subCategories[$i]['product_id'] = $id;
+                $subCategories[$i]['sub_category_id'] = $sub;
+                if (count(Arr::where($categories, fn ($value) => $value['category_id'] === $category->id)) === 0) {
+                    $categories[$i]['product_id'] = $id;
+                    $categories[$i]['category_id'] = $category->id;
+                }
+            }
+            ProductSubCategory::insert($subCategories);
             ProductCategory::insert($categories);
         }
         if (isset($data['colors'])) {
@@ -117,6 +135,13 @@ class ProductBreadController extends \TCG\Voyager\Http\Controllers\VoyagerBaseCo
             }
             ProductColor::insert($colors);
         }
+        if (isset($data['materials'])) {
+            foreach ($data['materials'] as $i => $material) {
+                $materials[$i]['product_id'] = $id;
+                $materials[$i]['material_id'] = $material;
+            }
+            ProductMaterial::insert($materials);
+        }
         if (isset($data['stock'])) {
             foreach ($data['stock'] as $i => $item) {
                 $stock[$i]['product_id'] = $id;
@@ -125,17 +150,39 @@ class ProductBreadController extends \TCG\Voyager\Http\Controllers\VoyagerBaseCo
             }
             ProductSize::insert($stock);
         }
+        if (isset($data['recommendations'])) {
+            foreach ($data['recommendations'] as $i => $product) {
+                $recommendations[$i]['product_id'] = $id;
+                $recommendations[$i]['recommendation_id'] = $product;
+            }
+            Recommendation::insert($recommendations);
+        }
     }
 
     public function updateRelatedData($data, $id)
     {
-        $categories = $colors = $stock = [];
-        if (isset($data['categories'])) {
-            foreach ($data['categories'] as $i => $category) {
-                $categories[$i]['product_id'] = $id;
-                $categories[$i]['category_id'] = $category;
+        $collections = $categories = $subCategories = $colors = $materials = $stock = $recommendations = [];
+        if (isset($data['collections'])) {
+            foreach ($data['collections'] as $i => $collection) {
+                $collections[$i]['product_id'] = $id;
+                $collections[$i]['collection_id'] = $collection;
             }
+            ProductCollection::where('product_id', $id)->delete();
+            ProductCollection::insert($collections);
+        }
+        if (isset($data['subCategories'])) {
+            foreach ($data['subCategories'] as $i => $sub) {
+                $category = SubCategory::with('category')->where('id', $sub)->first()->category;
+                $subCategories[$i]['product_id'] = $id;
+                $subCategories[$i]['sub_category_id'] = $sub;
+                if (count(Arr::where($categories, fn ($value) => $value['category_id'] === $category->id)) === 0) {
+                    $categories[$i]['product_id'] = $id;
+                    $categories[$i]['category_id'] = $category->id;
+                }
+            }
+            ProductSubCategory::where('product_id', $id)->delete();
             ProductCategory::where('product_id', $id)->delete();
+            ProductSubCategory::insert($subCategories);
             ProductCategory::insert($categories);
         }
         if (isset($data['colors'])) {
@@ -146,6 +193,14 @@ class ProductBreadController extends \TCG\Voyager\Http\Controllers\VoyagerBaseCo
             ProductColor::where('product_id', $id)->delete();
             ProductColor::insert($colors);
         }
+        if (isset($data['materials'])) {
+            foreach ($data['materials'] as $i => $material) {
+                $materials[$i]['product_id'] = $id;
+                $materials[$i]['material_id'] = $material;
+            }
+            ProductMaterial::where('product_id', $id)->delete();
+            ProductMaterial::insert($materials);
+        }
         if (isset($data['stock'])) {
             foreach ($data['stock'] as $i => $item) {
                 $stock[$i]['product_id'] = $id;
@@ -154,6 +209,14 @@ class ProductBreadController extends \TCG\Voyager\Http\Controllers\VoyagerBaseCo
             }
             ProductSize::where('product_id', $id)->delete();
             ProductSize::insert($stock);
+        }
+        if (isset($data['recommendations'])) {
+            foreach ($data['recommendations'] as $i => $product) {
+                $recommendations[$i]['product_id'] = $id;
+                $recommendations[$i]['recommendation_id'] = $product;
+            }
+            Recommendation::where('product_id', $id)->delete();
+            Recommendation::insert($recommendations);
         }
     }
 }

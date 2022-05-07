@@ -21,9 +21,12 @@ class AddressController extends Controller
 
     public function store(AddressRequest $request)
     {
+        if ($request->default === true) {
+            Address::where('user_id', auth()->id())->update(['default' => false]);
+        }
         $address = new Address;
         $address->user_id = auth()->id();
-        $address->name = $request->name;
+        $address->name = $request->firstname .' '. $request->lastname;
         $address->phone = $request->phone;
         $address->street = $request->street;
         $address->details = $request->details;
@@ -31,14 +34,18 @@ class AddressController extends Controller
         $address->state = $request->state;
         $address->zip = $request->zip;
         $address->country = $request->country;
+        $address->default = $request->default;
         $address->save();
         return back();
     }
 
     public function update(AddressRequest $request, $id)
     {
+        if ($request->default === true) {
+            Address::where('user_id', auth()->id())->update(['default' => false]);
+        }
         $address = Address::findOrFail($id);
-        $address->name = $request->name;
+        $address->name = $request->firstname .' '. $request->lastname;
         $address->phone = $request->phone;
         $address->street = $request->street;
         $address->details = $request->details;
@@ -46,6 +53,7 @@ class AddressController extends Controller
         $address->state = $request->state;
         $address->zip = $request->zip;
         $address->country = $request->country;
+        $address->default = $request->default;
         $address->save();
         return back();
     }

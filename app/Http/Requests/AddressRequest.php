@@ -24,7 +24,8 @@ class AddressRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|max:100',
+            'firstname' => 'required|string|max:50',
+            'lastname' => 'required|string|max:50',
             'phone' => 'required|string|max:20',
             'street' => 'required|string|max:190',
             'details' => 'nullable|max:190',
@@ -32,6 +33,7 @@ class AddressRequest extends FormRequest
             'state' => 'required|string|max:50',
             'zip' => 'required|string|max:10',
             'country' => 'required|string|max:50',
+            'default' => 'required|boolean',
         ];
     }
 }

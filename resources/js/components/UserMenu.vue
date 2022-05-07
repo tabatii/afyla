@@ -1,43 +1,35 @@
 <template>
 	<AppLayout>
-		<section>
-			<div class="container">
-				<div class="row gy-4">
-					<div class="col-md-4 col-lg-3">
-						<div class="sticky">
-							<div class="bg-primary p-3" style="margin-bottom:1px">
-								<div v-text="auth.name"></div>
-								<div v-text="auth.email"></div>
-							</div>
-							<ul class="nav flex-column bg-primary py-2">
-								<li class="nav-item" v-if="admin">
-									<l :href="route('voyager.dashboard')" class="nav-link">DASHBOARD</l>
-								</li>
-								<li class="nav-item">
-									<l :href="route('profile')" class="nav-link">PROFILE</l>
-								</li>
-								<li class="nav-item">
-									<l :href="route('orders')" class="nav-link">ORDERS</l>
-								</li>
-								<li class="nav-item">
-									<l :href="route('wishlist')" class="nav-link">WISHLIST</l>
-								</li>
-								<li class="nav-item">
-									<l :href="route('addresses')" class="nav-link">ADDRESS BOOK</l>
-								</li>
-								<li class="nav-item">
-									<l :href="route('logout')" class="nav-link">SIGN OUT</l>
-								</li>
-							</ul>
-						</div>
+		<section class="bg-primary border-bottom border-secondary">
+			<div class="row gx-0">
+				<div class="col-md-4 col-lg-3 border-end border-secondary">
+					<div class="py-5">
+						<ul class="nav flex-column">
+							<li class="nav-item" v-if="admin">
+								<a :href="route('voyager.dashboard')" class="nav-link px-3 px-sm-5" target="_blank">DASHBOARD</a>
+							</li>
+							<li class="nav-item" :class="{'bg-secondary': route().current() === 'profile'}">
+								<l :href="route('profile')" class="nav-link px-3 px-sm-5">PROFILE</l>
+							</li>
+							<li class="nav-item" :class="{'bg-secondary': route().current() === 'password'}">
+								<l :href="route('password')" class="nav-link px-3 px-sm-5">CHANGE YOUR PASSWORD</l>
+							</li>
+							<li class="nav-item" :class="{'bg-secondary': route().current() === 'orders'}">
+								<l :href="route('orders')" class="nav-link px-3 px-sm-5">ORDERS</l>
+							</li>
+							<li class="nav-item" :class="{'bg-secondary': route().current() === 'addresses'}">
+								<l :href="route('addresses')" class="nav-link px-3 px-sm-5">ADDRESS BOOK</l>
+							</li>
+						</ul>
 					</div>
-					<div class="col-md-8 col-lg-9">
+				</div>
+				<div class="col-md-8 col-lg-9">
+					<div class="py-5" style="min-height:60vh">
 						<slot></slot>
 					</div>
 				</div>
 			</div>
 		</section>
-		<section></section>
 	</AppLayout>
 </template>
 
@@ -59,10 +51,3 @@
 		}
 	}
 </script>
-
-<style scoped>
-	.sticky {
-		position: sticky;
-		top: calc(100px + 1.5rem);
-	}
-</style>

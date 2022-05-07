@@ -24,15 +24,24 @@ class FilterRequest extends FormRequest
     public function rules()
     {
         return [
+            'ids' => 'nullable|array',
+            'ids.*' => 'integer',
+            'collections' => 'nullable|array',
+            'collections.*' => 'integer',
             'categories' => 'nullable|array',
             'categories.*' => 'integer',
+            'subs' => 'nullable|array',
+            'subs.*' => 'integer',
             'colors' => 'nullable|array',
             'colors.*' => 'integer',
+            'materials' => 'nullable|array',
+            'materials.*' => 'integer',
             'sizes' => 'nullable|array',
             'sizes.*' => 'integer',
             'sort' => 'nullable|string|max:10',
             'page' => 'nullable|integer',
             'search' => 'nullable|string|max:100',
+            'discounts' => 'nullable|integer|size:1',
         ];
     }
 }

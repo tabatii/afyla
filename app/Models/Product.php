@@ -11,11 +11,21 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $appends = ['gallery', 'wishlist'];
+    protected $appends = ['gallery'];
+
+    public function collections()
+    {
+        return $this->hasMany(ProductCollection::class);
+    }
 
     public function categories()
     {
         return $this->hasMany(ProductCategory::class);
+    }
+
+    public function subCategories()
+    {
+        return $this->hasMany(ProductSubCategory::class);
     }
 
     public function colors()
@@ -28,6 +38,16 @@ class Product extends Model
         return $this->hasMany(ProductSize::class);
     }
 
+    public function materials()
+    {
+        return $this->hasMany(ProductMaterial::class);
+    }
+
+    public function recommendations()
+    {
+        return $this->hasMany(Recommendation::class);
+    }
+
     public function getGalleryAttribute()
     {
         $array = [];
@@ -37,17 +57,9 @@ class Product extends Model
         return $array;
     }
 
-    public function getWishlistAttribute()
-    {
-        if (auth()->check() && Wishlist::where('user_id', auth()->id())->where('product_id', $this->attributes['id'])->exists()) {
-            return true;
-        }
-        return false;
-    }
-
     public function scopePublic($query)
     {
-        return $query->where('status', true);
+        return $query->where('public', true);
     }
 
     public function scopeFilter($query, $data)
@@ -62,9 +74,25 @@ class Product extends Model
                 $query->orWhere('title', 'like', '%'.$value.'%');
             }
         }
+        if (isset($data['discounts'])) {
+            $query->whereNotNull('discount');
+        }
+        if (isset($data['ids']) && is_array($data['ids'])) {
+            $query->whereIn('id', $data['ids']);
+        }
+        if (isset($data['collections']) && is_array($data['collections'])) {
+            $query->whereHas('collections', function (Builder $q) use ($data) {
+                $q->whereIn('collection_id', $data['collections']);
+            });
+        }
         if (isset($data['categories']) && is_array($data['categories'])) {
             $query->whereHas('categories', function (Builder $q) use ($data) {
                 $q->whereIn('category_id', $data['categories']);
+            });
+        }
+        if (isset($data['subs']) && is_array($data['subs'])) {
+            $query->whereHas('subCategories', function (Builder $q) use ($data) {
+                $q->whereIn('sub_category_id', $data['subs']);
             });
         }
         if (isset($data['colors']) && is_array($data['colors'])) {
@@ -72,15 +100,17 @@ class Product extends Model
                 $q->whereIn('color_id', $data['colors']);
             });
         }
+        if (isset($data['materials']) && is_array($data['materials'])) {
+            $query->whereHas('materials', function (Builder $q) use ($data) {
+                $q->whereIn('material_id', $data['materials']);
+            });
+        }
         if (isset($data['sizes']) && is_array($data['sizes'])) {
             $query->whereHas('sizes', function (Builder $q) use ($data) {
                 $q->whereIn('size_id', $data['sizes'])->whereNotNull('qty');
             });
         }
-        switch ($data['sort'] ?? 'r') {
-            case 'r':
-                $query->orderBy('id', 'asc');
-                break;
+        switch ($data['sort'] ?? 'n') {
             case 'n':
                 $query->orderBy('id', 'desc');
                 break;
@@ -89,6 +119,12 @@ class Product extends Model
                 break;
             case 'hp':
                 $query->orderBy('price', 'desc');
+                break;
+            case 'az':
+                $query->orderBy('title', 'asc');
+                break;
+            case 'za':
+                $query->orderBy('title', 'desc');
                 break;
         }
         return $query;

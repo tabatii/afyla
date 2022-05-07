@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\LoginRequest;
+use App\Models\Subscription;
 use App\Models\User;
+use Carbon\Carbon;
 
 class AuthController extends Controller
 {
@@ -21,9 +23,17 @@ class AuthController extends Controller
         $user->name = $request->firstname.' '.$request->lastname;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
+        $user->country = $request->country;
+        $user->birthday = Carbon::parse($request->birthday);
         $user->save();
 
-        //$user->sendEmailVerificationNotification();
+        if ($request->subscribe) {
+            $subscription = new Subscription;
+            $subscription->email = $request->email;
+            $subscription->save();
+        }
+
+        $user->sendEmailVerificationNotification();
         auth()->login($user);
 
         return redirect()->route('profile');
@@ -42,11 +52,6 @@ class AuthController extends Controller
     {
         auth()->logout();
         return redirect()->route('home');
-    }
-
-    public function profile()
-    {
-        return inertia('Profile');
     }
 
     public function redirect()

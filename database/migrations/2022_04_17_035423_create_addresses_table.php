@@ -19,11 +19,11 @@ return new class extends Migration
             $table->string('name');
             $table->string('phone');
             $table->string('street');
-            $table->string('details')->nullable();
             $table->string('city');
             $table->string('state');
             $table->string('zip');
             $table->string('country');
+            $table->boolean('default');
             $table->timestamps();
         });
     }

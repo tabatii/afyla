@@ -4,6 +4,10 @@ namespace App\Http\Middleware;
 
 use Illuminate\Http\Request;
 use Inertia\Middleware;
+use App\Models\Collection;
+use App\Models\Category;
+use App\Models\Wishlist;
+use App\Models\Bag;
 
 class HandleInertiaRequests extends Middleware
 {
@@ -36,11 +40,31 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request): array
     {
+        $fields = ['name', 'email', 'email_verified_at', 'country', 'birthday', 'phone', 'sub', 'created_at'];
         return array_merge(parent::share($request), [
-            'auth' => $request->user() ? $request->user()->only(['name', 'email', 'email_verified_at', 'created_at']) : null,
             'admin' => $request->user() && $request->user()->hasRole('admin') ? true : false,
-            'bag' => \App\Models\Bag::where('bag_id', $request->cookie('bag_id'))->with('product', 'size')->get(),
-            'categories' => \App\Models\Category::all(),
+            'auth' => $request->user() ? $request->user()->only($fields) : null,
+            'categories' => Category::with('subCategories')->get(),
+            'collections' => Collection::all(),
+            'bag' => Bag::where('cookie_id', $request->cookie('cookie_id'))
+                        ->with('product.sizes.size', 'size')->get(),
+            'wishlist' => Wishlist::where('cookie_id', $request->cookie('cookie_id'))
+                                  ->with('product.colors.color', 'product.materials.material', 'product.sizes.size')->get(),
+            'settings' => [
+                'description' => setting('site.description'),
+                'phone' => setting('contact.phone'),
+                'email' => setting('contact.email'),
+                'whatsapp' => setting('contact.whatsapp'),
+                'wechat' => setting('contact.wechat'),
+                'instagram' => setting('social.instagram'),
+                'facebook' => setting('social.facebook'),
+                'twitter' => setting('social.twitter'),
+                'youtube' => setting('social.youtube'),
+                'linkedin' => setting('social.linkedin'),
+            ],
+            'flash' => [
+                'auth' => $request->session()->get('auth'),
+            ]
         ]);
     }
 }

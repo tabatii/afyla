@@ -1,30 +1,78 @@
+@import './fonts';
 @import './variables';
-@import '~bootstrap/scss/bootstrap';
 @import '~bootstrap-icons';
+@import '~bootstrap/scss/bootstrap';
+@import '~glider-js/glider.css';
 
 body {
-	padding-top: 100px;
+	padding-top: 120px;
 }
 
-section {
-	padding: 100px 0;
+a {
+	user-select: none;
 }
-
 label[for] {
 	cursor: pointer;
 	user-select: none;
 }
 
+.underline {
+	text-decoration: underline;
+}
+.underline-hover:hover {
+	text-decoration: underline;
+}
 .pointer {
 	cursor: pointer !important;
+	user-select: none;
+}
+.fw-medium {
+	font-weight: 600 !important;
 }
 
-.fw-medium {
-	font-weight: 500 !important;
+.input {
+	padding-top: .5rem;
+	padding-bottom: .5rem;
+	border: 0;
+	border-bottom: 2px solid var(--bs-dark) !important;
+	background-color: transparent !important;
+	box-shadow: none !important;
 }
 
 .dropdown-hover:hover .dropdown-menu {
 	display: block;
+}
+
+.arrows.carousel-control-prev,
+.arrows.carousel-control-next {
+	top: calc(50% - 28px);
+	bottom: auto;
+	width: 56px;
+	height: 56px;
+	background-color: var(--bs-light);
+}
+
+.btn-close {
+	box-shadow: none !important;
+}
+
+.ac .ac-panel {
+	overflow: hidden;
+}
+.ac.js-enabled .ac-panel {
+	visibility: hidden;
+}
+.ac.is-active .ac-panel {
+	visibility: visible;
+}
+.ac .ac-panel .ac-text {
+	padding: .5rem 1rem;
+}
+.ac .ac-panel .ac-text p {
+	margin-bottom: .5rem;
+}
+.ac .ac-panel .ac-text p:last-child {
+	margin-bottom: 0;
 }
 
 @media (min-width: 992px) {
@@ -39,7 +87,6 @@ label[for] {
 		display: none !important;
 	}
 }
-
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

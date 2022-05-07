@@ -1,8 +1,16 @@
-$enable-rounded: false;
-$link-decoration: none;
-$dropdown-border-width: 0;
-$link-color: rgba(0, 0, 0, 0.55);
-$link-hover-color: rgba(0, 0, 0, 0.7);
-$form-check-input-checked-color: #000;
-
 $primary: #ece7df;
+$secondary: #d9d4d0;
+
+$enable-rounded: false;
+
+$font-family-sans-serif: 'Avenir-Book';
+$link-decoration: none;
+$link-color: #6c757d;
+
+$dropdown-border-width: 0;
+$form-check-input-checked-color: #000;
+$accordion-icon-color: var(--bs-dark);
+$accordion-icon-active-color: var(--bs-dark);
+$btn-close-color: var(--bs-dark);
+$btn-close-hover-opacity: 1;
+$btn-close-opacity: 1;

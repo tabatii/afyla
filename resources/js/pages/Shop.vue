@@ -1,21 +1,30 @@
 <template>
 	<AppLayout>
-		<section>
-			<div class="offcanvas offcanvas-end" id="categories" tabindex="-1" data-bs-scroll="true">
+		<h title="Our Products"></h>
+		<section style="margin-bottom:200px">
+			<div class="offcanvas offcanvas-end" id="categories" tabindex="-1" data-bs-scroll="true" data-bs-touch="true">
 				<div class="offcanvas-header">
 					<h5 class="fs-2 fw-light mb-0">Categories</h5>
 					<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 				</div>
 				<div class="offcanvas-body">
 					<div class="px-1">
-						<div class="mb-4">
+						<div class="mb-4" v-if="selected.categories.length === 0">
 							<div class="form-check mb-2" v-for="category in categories" :key="category.id">
 								<input type="checkbox" class="form-check-input" :id="category.slug" :value="category.id" v-model="params.categories" />
 								<label class="form-check-label" :for="category.slug" v-text="category.name"></label>
 							</div>
 						</div>
+						<div class="mb-4" v-else>
+							<div v-for="id in selected.categories" :key="id">
+								<div class="form-check mb-2" v-for="sub in categories.find(item => item.id == id).sub_categories" :key="sub.id">
+									<input type="checkbox" class="form-check-input" :id="sub.slug" :value="sub.id" v-model="params.subs" />
+									<label class="form-check-label" :for="sub.slug" v-text="sub.name"></label>
+								</div>
+							</div>
+						</div>
 						<div class="d-grid gap-2">
-							<button type="button" class="btn btn-primary py-3" @click="result">SEE RESULTS</button>
+							<button type="button" class="btn btn-primary py-3" @click="filter">SEE RESULTS</button>
 							<button type="button" class="btn btn-light py-3" @click="reset(['categories'])">RESET</button>
 						</div>
 					</div>
@@ -28,7 +37,7 @@
 				</div>
 				<div class="offcanvas-body">
 					<div>
-						<h6 class="fs-4 fw-light mb-2">Colors</h6>
+						<h6 class="fs-4 fw-light mb-2">Color</h6>
 						<div class="row g-0 px-1 mb-4">
 							<div class="col-6" v-for="color in colors" :key="color.id">
 								<div class="form-check mb-2">
@@ -37,50 +46,150 @@
 								</div>
 							</div>
 						</div>
-						<h6 class="fs-4 fw-light mb-2">Sizes</h6>
+						<h6 class="fs-4 fw-light mb-2">Material</h6>
+						<div class="row px-1 g-0 mb-4">
+							<div class="col-6" v-for="material in materials" :key="material.id">
+								<div class="form-check mb-2">
+									<input type="checkbox" class="form-check-input" :id="material.slug" :value="material.id" v-model="params.materials" />
+									<label class="form-check-label" :for="material.slug" v-text="material.name"></label>
+								</div>
+							</div>
+						</div>
+						<h6 class="fs-4 fw-light mb-2">Collection</h6>
+						<div class="row px-1 g-0 mb-4">
+							<div class="col-12" v-for="collection in collections" :key="collection.id">
+								<div class="form-check mb-2">
+									<input type="checkbox" class="form-check-input" :id="collection.id" :value="collection.id" v-model="params.collections" />
+									<label class="form-check-label" :for="collection.id" v-text="collection.title"></label>
+								</div>
+							</div>
+						</div>
+						<h6 class="fs-4 fw-light mb-2">Size</h6>
 						<div class="row px-1 g-0 mb-4">
 							<div class="col-6" v-for="size in sizes" :key="size.id">
 								<div class="form-check mb-2">
-									<input type="checkbox" class="form-check-input" :id="size.number" :value="size.id" v-model="params.sizes" />
-									<label class="form-check-label" :for="size.number" v-text="size.number"></label>
+									<input type="checkbox" class="form-check-input" :id="size.slug" :value="size.id" v-model="params.sizes" />
+									<label class="form-check-label" :for="size.slug" v-text="size.name"></label>
 								</div>
 							</div>
 						</div>
 						<div class="d-grid gap-2">
-							<button type="button" class="btn btn-primary py-3" @click="result">SEE RESULTS</button>
-							<button type="button" class="btn btn-light py-3" @click="reset(['colors', 'sizes'])">RESET</button>
+							<button type="button" class="btn btn-primary py-3" @click="filter">SEE RESULTS</button>
+							<button type="button" class="btn btn-light py-3" @click="reset(['colors', 'sizes', 'materials', 'collections'])">RESET</button>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="container">
-				<div class="d-flex pb-5">
-					<button type="button" class="btn btn-primary px-4 me-2" data-bs-toggle="offcanvas" data-bs-target="#categories">
-						<i class="bi bi-list-check"></i> CATEGORIES
-					</button>
-					<button type="button" class="btn btn-primary px-4 me-auto" data-bs-toggle="offcanvas" data-bs-target="#filters">
-						<i class="bi bi-sliders"></i> FILTERS
-					</button>
-					<div class="dropdown">
-						<button type="button" class="btn btn-primary shadow-none" data-bs-toggle="dropdown" style="min-width:10rem">
-							<i class="bi bi-sort-down"></i> SORT BY
-						</button>
-						<ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="dropdownMenuButton1">
-							<li v-for="(text, key) in sort" :key="key">
-								<span class="dropdown-item text-dark pointer" :class="{active: key === params.sort}" v-text="text" @click="sortBy(key)"></span>
-							</li>
-						</ul>
-					</div>
+			<div class="offcanvas offcanvas-end" id="sort" tabindex="-1" data-bs-scroll="true">
+				<div class="offcanvas-header">
+					<h5 class="fs-2 fw-light mb-0">Sort by</h5>
+					<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 				</div>
-				<div class="row gy-4">
-					<div class="col-sm-6 col-lg-4 col-xl-3" v-for="product in products.data" :key="product.id">
-						<ProductCard :product="product"></ProductCard>
+				<div class="offcanvas-body">
+					<div class="px-1">
+						<div class="mb-4">
+							<div class="" v-for="(text, key) in sort" :key="key">
+								<span class="pointer fs-5" :class="{'fw-bold': params.sort === key}" v-text="text" @click="sortBy(key)"></span>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-		</section>
-		<section class="py-0">
-			<div class="container">
+			<div class="container mb-5">
+				<div class="py-5">
+					<h1 class="fs-2 text-center mb-4">OUR PRODUCTS</h1>
+					<div class="d-flex justify-content-sm-end flex-wrap mb-3">
+						<span class="pointer fw-medium me-3 me-sm-5" data-bs-toggle="offcanvas" data-bs-target="#categories">
+							<i class="bi bi-list-check"></i> CATEGORIES <i class="bi bi-caret-down-fill"></i>
+						</span>
+						<span class="pointer fw-medium me-3 me-sm-5" data-bs-toggle="offcanvas" data-bs-target="#filters">
+							<i class="bi bi-sliders"></i> FILTERS <i class="bi bi-caret-down-fill"></i>
+						</span>
+						<span class="pointer fw-medium" data-bs-toggle="offcanvas" data-bs-target="#sort">
+							<i class="bi bi-sort-up"></i> SORT BY <i class="bi bi-caret-down-fill"></i>
+						</span>
+					</div>
+					<div class="d-flex flex-wrap">
+						<span class="badge bg-primary text-dark py-2 me-2 mb-2" v-if="params.search">
+							<span style="font-size:.8rem">{{ params.search }}</span>
+							<span class="pointer fs-6" @click="remove('search')">&times;</span>
+						</span>
+						<span class="badge bg-primary text-dark py-2 me-2 mb-2" v-if="params.discounts">
+							<span style="font-size:.8rem">SPECIAL PRICES</span>
+							<span class="pointer fs-6" @click="remove('discounts')">&times;</span>
+						</span>
+						<span class="badge bg-primary text-dark py-2 me-2 mb-2" v-for="(category, i) in selected.categories" :key="category">
+							<span style="font-size:.8rem">{{ getNameById('categories.name', category) }}</span>
+							<span class="pointer fs-6" @click="remove('categories', i)">&times;</span>
+						</span>
+						<span class="badge bg-primary text-dark py-2 me-2 mb-2" v-for="(color, i) in selected.colors" :key="color">
+							<span style="font-size:.8rem">{{ getNameById('colors.name', color) }}</span>
+							<span class="pointer fs-6" @click="remove('colors', i)">&times;</span>
+						</span>
+						<span class="badge bg-primary text-dark py-2 me-2 mb-2" v-for="(material, i) in selected.materials" :key="material">
+							<span style="font-size:.8rem">{{ getNameById('materials.name', material) }}</span>
+							<span class="pointer fs-6" @click="remove('materials', i)">&times;</span>
+						</span>
+						<span class="badge bg-primary text-dark py-2 me-2 mb-2" v-for="(collection, i) in selected.collections" :key="collection">
+							<span style="font-size:.8rem">{{ getNameById('collections.title', collection) }}</span>
+							<span class="pointer fs-6" @click="remove('collections', i)">&times;</span>
+						</span>
+						<span class="badge bg-primary text-dark py-2 me-2 mb-2" v-for="(size, i) in selected.sizes" :key="size">
+							<span style="font-size:.8rem">{{ getNameById('sizes.name', size) }}</span>
+							<span class="pointer fs-6" @click="remove('sizes', i)">&times;</span>
+						</span>
+					</div>
+				</div>
+				<div class="row gy-4">
+					<div class="col-sm-6 col-lg-4" v-for="product in products.data" :key="product.id">
+						<div class="product">
+							<div class="gallery">
+								<div :id="'gallery'+product.id" class="carousel carousel-dark slide" data-bs-ride="carousel" data-bs-interval="false">
+									<div class="carousel-inner">
+										<div class="carousel-item" :class="{active: i===0}" v-for="(img, i) in product.gallery">
+											<l :href="route('product', product.id)"><img :src="img" class="d-block w-100" /></l>
+										</div>
+									</div>
+									<button class="arrows carousel-control-prev" type="button" :data-bs-target="'#gallery'+product.id" data-bs-slide="prev">
+										<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+										<span class="visually-hidden">Previous</span>
+									</button>
+									<button class="arrows carousel-control-next" type="button" :data-bs-target="'#gallery'+product.id" data-bs-slide="next">
+										<span class="carousel-control-next-icon" aria-hidden="true"></span>
+										<span class="visually-hidden">Next</span>
+									</button>
+								</div>
+								<span class="wishlist" @click="addToWishlist(product.id)">
+									<i class="bi fs-3" :class="[searchWishlist(product.id) ? 'bi-heart-fill text-danger' : 'bi-heart']"></i>
+								</span>
+								<div class="colors">
+									<span class="me-2 shadow" :style="{backgroundColor:c.color.hex}" v-for="c in product.colors" :key="c.id"></span>
+								</div>
+							</div>
+							<div class="py-3">
+								<div class="d-flex">
+									<l :href="route('product', product.id)" class="h6 text-dark me-auto" v-text="product.title"></l>
+									<div class="flex-shrink-0 fw-medium">
+										<del class="text-muted me-1" v-text="getFormatedPrice(product.price)" v-if="product.discount"></del>
+										<span class="text-danger" v-text="getFormatedPrice(product.price, product.discount)" v-if="product.discount"></span>
+										<span v-text="getFormatedPrice(product.price)" v-else></span>
+									</div>
+								</div>
+								<div class="d-flex">
+									<div class="d-flex me-auto">
+										<div class="text-dark me-2" v-for="s in product.sizes" :key="s.id" v-if="s.qty !== null">
+											<del class="text-muted" v-text="s.size.name" v-if="s.qty === 0"></del>
+											<span v-text="s.size.name" v-else></span>
+										</div>
+									</div>
+									<span class="flex-shrink-0 fw-medium text-danger" v-if="product.discount">save {{ product.discount }}%</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container" v-if="products.last_page > 1">
 				<ul class="pagination justify-content-center">
 					<li class="page-item">
 						<span class="page-link text-dark pointer disabled" @click="paginate(products.current_page - 1)">&laquo;</span>
@@ -94,40 +203,73 @@
 				</ul>
 			</div>
 		</section>
-		<section></section>
 	</AppLayout>
 </template>
 
 <script>
 	import AppLayout from '../components/AppLayout'
-	import ProductCard from '../components/ProductCard'
+	import { Head } from '@inertiajs/inertia-vue'
 	import { Link } from '@inertiajs/inertia-vue'
 	export default {
 		props: {
 			products: Object,
 			colors: Array,
+			materials: Array,
 			sizes: Array,
 		},
 		components: {
-			ProductCard,
 			AppLayout,
+			h: Head,
 			l: Link,
 		},
 		computed: {
+			collections() {
+				return this.$page.props.collections
+			},
 			categories() {
 				return this.$page.props.categories
+			},
+			wishlist() {
+				return this.$page.props.wishlist
 			}
 		},
 		methods: {
+			searchWishlist(id) {
+				return this.wishlist.find(item => item.product.id === id)
+			},
+			addToWishlist(id) {
+				if (this.loading === false) {
+					this.loading = true
+					this.$inertia.post(this.route('wishlist.toggle', id), {}, {
+						preserveScroll: true,
+						onSuccess: () => {
+							this.loading = false
+						}
+					})
+				}
+			},
 			result() {
 				this.$inertia.get(this.route('shop', this.params))
+			},
+			filter() {
+				this.params.page = null
+				this.result()
 			},
 			paginate(page) {
 				this.params.page = (page > 0 && page <= this.products.last_page) ? page : this.params.page
 				this.result()
 			},
 			sortBy(key) {
+				this.params.page = null
 				this.params.sort = key
+				this.result()
+			},
+			remove(target, index = null) {
+				if (index === null) {
+					this.params[target] = null
+				} else {
+					this.params[target].splice(index, 1)
+				}
 				this.result()
 			},
 			reset(targets) {
@@ -135,33 +277,85 @@
 					this.params[target] = []
 				})
 				this.result()
+			},
+			getNameById(target, id) {
+				return this[target.split('.')[0]].find(item => item.id == id)[target.split('.')[1]]
 			}
 		},
 		data() {
 			return {
+				loading: false,
+				selected: {},
 				params: {
+					ids: [],
+					collections: [],
 					categories: [],
+					subs: [],
 					colors: [],
+					materials: [],
 					sizes: [],
 					sort: null,
 					page: null,
 					search: null,
+					discounts: null,
 				},
 				sort: {
-					r: 'Recommended',
 					n: 'Newest',
-					lp: 'Lowest price',
-					hp: 'Highest price',
+					lp: 'Lowest to highest price',
+					hp: 'Highest to lowest price',
+					az: 'Name A-Z',
+					za: 'Name Z-A',
 				}
 			}
 		},
 		created() {
+			this.params.ids = this.route().params.ids || []
+			this.params.collections = this.route().params.collections || []
 			this.params.categories = this.route().params.categories || []
+			this.params.subs = this.route().params.subs || []
 			this.params.colors = this.route().params.colors || []
+			this.params.materials = this.route().params.materials || []
 			this.params.sizes = this.route().params.sizes || []
 			this.params.sort = this.route().params.sort || null
 			this.params.page = this.route().params.page || null
 			this.params.search = this.route().params.search || null
+			this.params.discounts = this.route().params.discounts || null
+			Object.assign(this.selected, this.params)
 		}
 	}
 </script>
+
+<style scoped>
+	.product .gallery {
+		position: relative;
+		overflow: hidden;
+	}
+	.product .carousel-control-prev,
+	.product .carousel-control-next {
+		visibility: hidden;
+		opacity: 0;
+		transition: .3s;
+	}
+	.product:hover .carousel-control-prev,
+	.product:hover .carousel-control-next {
+		visibility: visible;
+		opacity: 1;
+	}
+	.product .wishlist {
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+		cursor: pointer;
+	}
+	.product .colors {
+		position: absolute;
+		left: 1rem;
+		bottom: 1rem;
+		display: flex;
+	}
+	.product .colors span {
+		display: block;
+		height: 20px;
+		width: 20px;
+	}
+</style>

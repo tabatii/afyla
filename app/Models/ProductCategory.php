@@ -10,8 +10,9 @@ class ProductCategory extends Model
     use HasFactory;
 
     public $timestamps = false;
-    protected $fillable = [
-        'product_id',
-        'category_id',
-    ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

@@ -2,33 +2,50 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProfileRequest;
 use App\Http\Requests\PasswordRequest;
-use Illuminate\Http\Request;
-use App\Models\User;
+use App\Models\Subscription;
+use Carbon\Carbon;
 
 class UserController extends Controller
 {
 
-    public function firstname(Request $request)
+    public function __construct()
     {
-        $request->validate(['firstname' => 'required|alpha']);
+        $this->middleware('auth');
+    }
+
+    public function profile()
+    {
+        return inertia('Profile');
+    }
+
+    public function editProfile(ProfileRequest $request)
+    {
         $user = auth()->user();
-        $name = explode(' ', $user->name);
-        $user->name = $request->firstname .' '. end($name);
+        $user->name = $request->firstname.' '.$request->lastname;
+        $user->country = $request->country;
+        $user->birthday = Carbon::parse($request->birthday);
+        $user->phone = $request->phone;
         $user->save();
+
+        if ($request->subscribe && !$user->sub) {
+            $subscription = new Subscription;
+            $subscription->email = $user->email;
+            $subscription->save();
+        } elseif (!$request->subscribe && $user->sub) {
+            Subscription::where('email', $user->email)->delete();
+        }
+
         return back();
     }
 
-    public function lastname(Request $request)
+    public function password()
     {
-        $request->validate(['lastname' => 'required|alpha']);
-        $user = auth()->user();
-        $user->name = explode(' ', $user->name)[0] .' '. $request->lastname;
-        $user->save();
-        return back();
+        return inertia('PasswordChange');
     }
 
-    public function password(PasswordRequest $request)
+    public function editPassword(PasswordRequest $request)
     {
         $user = auth()->user();
         $user->password = bcrypt($request->new_password);

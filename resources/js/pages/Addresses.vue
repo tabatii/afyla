@@ -1,119 +1,121 @@
 <template>
 	<UserMenu>
-		<div class="row gy-4" v-if="tab === 1">
-			<div class="col-lg-6 col-xl-4">
-				<div class="d-flex justify-content-center align-items-center pointer bg-light h-100" style="min-height:200px" @click="tab = 2">
-					<i class="bi bi-plus display-1"></i>
-				</div>
-			</div>
-			<div class="col-lg-6 col-xl-4" v-for="(address, i) in addresses" :key="address.id">
-				<div class="d-flex flex-column justify-content-between bg-light h-100 p-4" style="min-height:200px">
-					<div class="row g-0">
-						<div class="col-1">
-							<i class="bi bi-person-fill"></i>
-						</div>
-						<div class="col-11">
-							<span v-text="address.name"></span>
-						</div>
-						<div class="col-1">
-							<i class="bi bi-telephone-fill"></i>
-						</div>
-						<div class="col-11">
-							<span v-text="address.phone"></span>
-						</div>
-						<div class="col-1">
-							<i class="bi bi-geo-alt-fill"></i>
-						</div>
-						<div class="col-11">
-							<span>{{ address.street }},</span>
-							<span v-if="address.details">{{ address.details }},</span>
-							<span>{{ address.city }},</span>
-							<span>{{ address.state }},</span>
-							<span>{{ address.zip }},</span>
-							<span>{{ address.country }}</span>
-						</div>
+		<h title="Address Book"></h>
+		<div class="d-flex align-items-center px-3 px-sm-5">
+			<p class="fw-medium me-auto mb-0">ADDRESS BOOK</p>
+			<button type="button" class="btn btn-secondary fw-medium px-4" @click="formshow = true">ADD A NEW ADDRESS</button>
+		</div>
+		<hr />
+		<div v-if="formshow === false">
+			<p class="px-3 px-sm-5" v-if="addresses.length === 0">NO SAVED ADDRESSES</p>
+			<div v-for="(address, i) in addresses" :key="address.id" v-else>
+				<p class="fw-medium px-3 px-sm-5" v-if="address.default">DEFAULT</p>
+				<div class="row g-0 px-3 px-sm-5">
+					<div class="col-sm-3 mb-4 mb-sm-0">
+						<p class="mb-0" v-text="address.name"></p>
+						<p class="mb-0" v-text="address.phone"></p>
 					</div>
-					<div class="d-flex justify-content-end">
-						<u class="pointer text-muted" @click="fill(i)">Edit</u>
-						<u class="pointer text-muted ms-3" @click="remove(address.id)">Delete</u>
+					<div class="col-sm-5 mb-4 mb-sm-0">
+						<span>{{ address.street }},</span>
+						<span>{{ address.city }},</span><br />
+						<span>{{ address.state }},</span>
+						<span>{{ address.zip }},</span>
+						<span>{{ address.country }}.</span>
+					</div>
+					<div class="col-sm-4 mb-4 mb-sm-0">
+						<u class="pointer text-muted me-5" @click="fill(i)">Edit</u>
+						<u class="pointer text-muted" @click="remove(address.id)">Delete</u>
 					</div>
 				</div>
+				<hr />
 			</div>
 		</div>
-		<div class="row" v-else>
-			<div class="col-xl-8">
-				<form class="shadow p-3 p-sm-5" @submit.prevent="addOrEdit">
-					<div class="row gx-2">
-						<div class="col-sm-6">
-							<div class="form-floating mb-3">
-								<input type="text" class="form-control" v-model="form.name" placeholder="Full name" />
-								<label>Full name</label><small class="text-danger" v-text="form.errors.name"></small>
-							</div>
-						</div>
-						<div class="col-sm-6">
-							<div class="form-floating mb-3">
-								<input type="text" class="form-control" v-model="form.phone" placeholder="Phone number" />
-								<label>Phone number</label><small class="text-danger" v-text="form.errors.phone"></small>
-							</div>
+		<div v-else>
+			<form class="p-3 p-sm-5" @submit.prevent="addOrEdit">
+				<div class="row gx-2">
+					<div class="col-sm-6">
+						<div class="mb-3">
+							<input type="text" class="form-control border shadow-none py-3" v-model="form.firstname" placeholder="FIRST NAME" />
+							<small class="text-danger" v-text="form.errors.firstname"></small>
 						</div>
 					</div>
-					<div class="form-floating mb-3">
-						<input type="text" class="form-control" v-model="form.street" placeholder="Street address" />
-						<label>Street address</label><small class="text-danger" v-text="form.errors.street"></small>
-					</div>
-					<div class="form-floating mb-3">
-						<input type="text" class="form-control" v-model="form.details" placeholder="Apt, Suite, Floor, etc. (optional)" />
-						<label>Apt, Suite, Floor, etc. (optional)</label><small class="text-danger" v-text="form.errors.details"></small>
-					</div>
-					<div class="row gx-2">
-						<div class="col-sm-6">
-							<div class="form-floating mb-3">
-								<input type="text" class="form-control" v-model="form.city" placeholder="City" />
-								<label>City</label><small class="text-danger" v-text="form.errors.city"></small>
-							</div>
-						</div>
-						<div class="col-sm-6">
-							<div class="form-floating mb-3">
-								<input type="text" class="form-control" v-model="form.state" placeholder="State" />
-								<label>State</label><small class="text-danger" v-text="form.errors.state"></small>
-							</div>
+					<div class="col-sm-6">
+						<div class="mb-3">
+							<input type="text" class="form-control border shadow-none py-3" v-model="form.lastname" placeholder="LAST NAME" />
+							<small class="text-danger" v-text="form.errors.lastname"></small>
 						</div>
 					</div>
-					<div class="row gx-2">
-						<div class="col-sm-6">
-							<div class="form-floating mb-3">
-								<input type="text" class="form-control" v-model="form.zip" placeholder="Zip code" />
-								<label>Zip code</label><small class="text-danger" v-text="form.errors.zip"></small>
-							</div>
-						</div>
-						<div class="col-sm-6">
-							<div class="form-floating mb-3">
-								<select class="form-select" v-model="form.country">
-									<option :value="null">Select a country</option>
-									<option value="morocco">Morocco</option>
-								</select>
-								<label>Country</label><small class="text-danger" v-text="form.errors.country"></small>
-							</div>
+				</div>
+				<div class="mb-3">
+					<input type="text" class="form-control border shadow-none py-3" v-model="form.street" placeholder="YOUR ADDRESS" />
+					<small class="text-danger" v-text="form.errors.street"></small>
+				</div>
+				<div class="row gx-2">
+					<div class="col-sm-4">
+						<div class="mb-3">
+							<input type="text" class="form-control border shadow-none py-3" v-model="form.city" placeholder="CITY" />
+							<small class="text-danger" v-text="form.errors.city"></small>
 						</div>
 					</div>
-					<div class="d-grid gap-2">
-						<button type="submit" class="btn btn-primary py-3" :disabled="form.processing">SAVE ADDRESS</button>
-						<button type="button" class="btn btn-light py-3" @click="reset">CANCEL</button>
+					<div class="col-sm-4">
+						<div class="mb-3">
+							<input type="text" class="form-control border shadow-none py-3" v-model="form.zip" placeholder="ZIP CODE" />
+							<small class="text-danger" v-text="form.errors.zip"></small>
+						</div>
 					</div>
-				</form>
-			</div>
+					<div class="col-sm-4">
+						<div class="mb-3">
+							<input type="text" class="form-control border shadow-none py-3" v-model="form.state" placeholder="STATE" />
+							<small class="text-danger" v-text="form.errors.state"></small>
+						</div>
+					</div>
+				</div>
+				<div class="row gx-2">
+					<div class="col-sm-6">
+						<div class="mb-3">
+							<select class="form-select border shadow-none py-3" v-model="form.country">
+								<option :value="null">COUNTRY</option>
+								<option :value="country.name" v-text="country.name" v-for="(country, code) in countries" :key="code"></option>
+							</select>
+							<small class="text-danger" v-text="form.errors.country"></small>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="mb-3">
+							<input type="text" class="form-control border shadow-none py-3" v-model="form.phone" placeholder="PHONE NUMBER" />
+							<small class="text-danger" v-text="form.errors.phone"></small>
+						</div>
+					</div>
+				</div>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input shadow-none bg-white border-0" id="default" v-model="form.default" />
+					<label class="form-check-label" for="default" style="user-select:none">THIS IS MY DEFAULT ADDRESS</label>
+				</div>
+				<div class="d-flex justify-content-end">
+					<button type="button" class="btn px-5 py-3 me-3" @click="reset" style="background:#d5cdc5">CANCEL</button>
+					<button type="submit" class="btn btn-secondary px-5 py-3" :disabled="form.processing">SAVE ADDRESS</button>
+				</div>
+			</form>
 		</div>
 	</UserMenu>
 </template>
 
 <script>
 	import UserMenu from '../components/UserMenu'
+	import { Head } from '@inertiajs/inertia-vue'
+	import { countries } from 'countries-list'
 	export default {
 		props: {
 			addresses: Array,
 		},
 		components: {
 			UserMenu,
+			h: Head,
+		},
+		computed: {
+			countries() {
+				return countries
+			}
 		},
 		methods: {
 			addOrEdit() {
@@ -123,21 +125,22 @@
 				return this.edit()
 			},
 			reset() {
-				this.tab = 1
+				this.formshow = false
 				this.selected = false
 				this.form.reset()
 			},
 			fill(i) {
 				this.selected = i
-				this.form.name = this.addresses[i].name
+				this.form.firstname = this.addresses[i].name.split(' ')[0]
+				this.form.lastname = this.addresses[i].name.split(' ')[1]
 				this.form.phone = this.addresses[i].phone
 				this.form.street = this.addresses[i].street
-				this.form.details = this.addresses[i].details
 				this.form.city = this.addresses[i].city
 				this.form.state = this.addresses[i].state
 				this.form.zip = this.addresses[i].zip
 				this.form.country = this.addresses[i].country
-				this.tab = 2
+				this.form.default = this.addresses[i].default
+				this.formshow = true
 			},
 			add() {
 				this.form.post(route('address.add'), {
@@ -156,22 +159,25 @@
 				})
 			},
 			remove(id) {
-				this.$inertia.delete(this.route('address.delete', id))
+				this.$inertia.delete(this.route('address.delete', id), {
+					preserveScroll: true,
+				})
 			}
 		},
 		data() {
 			return {
-				tab: 1,
+				formshow: false,
 				selected: false,
 				form: this.$inertia.form({
-					name: null,
+					firstname: null,
+					lastname: null,
 					phone: null,
 					street: null,
-					details: null,
 					city: null,
 					state: null,
 					zip: null,
 					country: null,
+					default: false,
 				}),
 			}
 		}

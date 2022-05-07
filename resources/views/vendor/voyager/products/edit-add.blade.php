@@ -96,23 +96,42 @@
 
                             <!-- my section (start) -->
                                 @php
-                                    $categories = \App\Models\Category::all();
+                                    $products = \App\Models\Product::whereNot('id', $dataTypeContent->id)->get();
+                                    $collections = \App\Models\Collection::all();
+                                    $categories = \App\Models\Category::with('subCategories')->get();
                                     $colors = \App\Models\Color::all();
+                                    $materials = \App\Models\Material::all();
                                     $sizes = \App\Models\Size::all();
                                 @endphp
-                                <div class="form-group col-md-6">
-                                    <label class="control-label">Categories</label>
-                                    <select class="form-control select2" name="categories[]" multiple>
-                                        @foreach ($categories as $category)
-                                            @if($edit && $dataTypeContent->categories->contains('category_id', $category->id))
-                                                <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
+                                <div class="form-group col-md-3">
+                                    <label class="control-label">Collections</label>
+                                    <select class="form-control select2" name="collections[]" multiple>
+                                        @foreach ($collections as $collection)
+                                            @if($edit && $dataTypeContent->collections->contains('collection_id', $collection->id))
+                                                <option value="{{ $collection->id }}" selected>{{ $collection->title }}</option>
                                             @else
-                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                <option value="{{ $collection->id }}">{{ $collection->title }}</option>
                                             @endif
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-3">
+                                    <label class="control-label">Categories</label>
+                                    <select class="form-control select2" name="subCategories[]" multiple>
+                                        @foreach ($categories as $category)
+                                            <optgroup label="{{ $category->name }}">
+                                                @foreach ($category->subCategories as $sub)
+                                                    @if($edit && $dataTypeContent->subCategories->contains('sub_category_id', $sub->id))
+                                                        <option value="{{ $sub->id }}" selected>{{ $sub->name }}</option>
+                                                    @else
+                                                        <option value="{{ $sub->id }}">{{ $sub->name }}</option>
+                                                    @endif
+                                                @endforeach
+                                            </optgroup>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-3">
                                     <label class="control-label">Colors</label>
                                     <select class="form-control select2" name="colors[]" multiple>
                                         @foreach ($colors as $color)
@@ -124,6 +143,18 @@
                                         @endforeach
                                     </select>
                                 </div>
+                                <div class="form-group col-md-3">
+                                    <label class="control-label">Materials</label>
+                                    <select class="form-control select2" name="materials[]" multiple>
+                                        @foreach ($materials as $material)
+                                            @if($edit && $dataTypeContent->materials->contains('material_id', $material->id))
+                                                <option value="{{ $material->id }}" selected>{{ $material->name }}</option>
+                                            @else
+                                                <option value="{{ $material->id }}">{{ $material->name }}</option>
+                                            @endif
+                                        @endforeach
+                                    </select>
+                                </div>
                                 <div class="form-group col-md-12">
                                     <label class="control-label">Stock</label>
                                     <div class="row">
@@ -131,13 +162,25 @@
                                             <div class="col-md-2">
                                                 <div class="input-group">
                                                     @php($qty = $edit ? $dataTypeContent->sizes->firstWhere('size_id', $size->id)->qty : null)
-                                                    <div class="input-group-addon" style="border-color:#e4eaec">{{ $size->number }}</div>
+                                                    <div class="input-group-addon" style="border-color:#e4eaec">{{ $size->name }}</div>
                                                     <input type="number" class="form-control" name="stock[{{ $i }}][qty]" placeholder="Quantity" value="{{ $qty }}" />
                                                     <input type="hidden" name="stock[{{ $i }}][size]" value="{{ $size->id }}" />
                                                 </div>
                                             </div>
                                         @endforeach
                                     </div>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label class="control-label">Recommendations</label>
+                                    <select class="form-control select2" name="recommendations[]" multiple>
+                                        @foreach ($products as $product)
+                                            @if($edit && $dataTypeContent->recommendations->contains('recommendation_id', $product->id))
+                                                <option value="{{ $product->id }}" selected>{{ $product->title }}</option>
+                                            @else
+                                                <option value="{{ $product->id }}">{{ $product->title }}</option>
+                                            @endif
+                                        @endforeach
+                                    </select>
                                 </div>
                             <!-- my section (end) -->
 

@@ -12,6 +12,8 @@ class User extends \TCG\Voyager\Models\User
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    protected $appends = ['sub'];
+
     /**
      * The attributes that are mass assignable.
      *
@@ -41,4 +43,17 @@ class User extends \TCG\Voyager\Models\User
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function social()
+    {
+        return $this->hasOne(Social::class);
+    }
+
+    public function getSubAttribute()
+    {
+        if (Subscription::where('email', $this->attributes['email'])->exists()) {
+            return true;
+        }
+        return false;
+    }
 }

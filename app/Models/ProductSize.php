@@ -10,11 +10,6 @@ class ProductSize extends Model
     use HasFactory;
 
     public $timestamps = false;
-    protected $fillable = [
-        'product_id',
-        'size_id',
-        'qty',
-    ];
 
     public function size()
     {

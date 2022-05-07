@@ -28,6 +28,17 @@ class RegisterRequest extends FormRequest
             'lastname' => 'required|alpha|max:50',
             'email' => 'required|email|max:100|unique:users',
             'password' => 'required|string|min:6|max:100|confirmed',
+            'country' => 'required|alpha|max:50',
+            'birthday' => 'required|date',
+            'subscribe' => 'required|boolean',
+            'agree' => 'required|accepted',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'agree.accepted' => 'You must agree to our terms and conditions.',
         ];
     }
 }

@@ -1,125 +1,169 @@
 <template>
 	<header>
 
-		<nav class="navbar navbar-expand-lg navbar-light bg-white shadow">
-			<div class="container">
-				<l href="/" class="navbar-brand fs-3 fw-bold">AFYLA</l>
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-expanded="false">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarContent">
-					<ul class="navbar-nav mx-auto">
-						<li class="nav-item">
-							<l :href="route('shop', {sort: 'n'})" class="nav-link mx-lg-2">WHAT'S NEW</l>
+		<div class="fixed-navbar" :class="{shadow: scroll > 60}">
+			<nav class="top-navbar navbar navbar-expand-lg navbar-light bg-white py-0" :class="{hide: scroll !== 0}">
+				<div class="container-fluid">
+					<ul class="nav ms-auto">
+						<li class="nav-item d-none d-sm-block">
+							<l :href="route('page', 'shipping-returns-policy')" class="nav-link text-dark mx-2" style="padding: 7px 0">
+								<img src="/img/icons/truck.png" class="align-text-top" height="24px" />
+								<small class="underline">Free shipping & returns</small>
+							</l>
 						</li>
-						<li class="nav-item dropdown dropdown-lg-hover">
-							<l :href="route('shop')" class="nav-link mx-lg-2">SHOP</l>
-							<ul class="dropdown-menu shadow">
-								<li v-for="category in categories" :key="category.id">
-									<l :href="route('shop', {categories: [category.id]})" class="dropdown-item text-dark py-2" v-text="category.name"></l>
-								</li>
-							</ul>
+						<li class="nav-item d-none d-sm-block">
+							<a :href="'tel:'+settings.phone" class="nav-link text-dark mx-2" style="padding: 7px 0">
+								<img src="/img/icons/mobile.png" class="align-text-top" height="19px" style="opacity:.7" />
+								<small class="underline">+212666700661</small>
+							</a>
 						</li>
 						<li class="nav-item">
-							<l href="#" class="nav-link mx-lg-2">COLLECTIONS</l>
-						</li>
-						<li class="nav-item">
-							<l href="#" class="nav-link mx-lg-2">AFYLA WORLD</l>
-						</li>
-						<li class="nav-item">
-							<l href="#" class="nav-link mx-lg-2">SUSTAINABILITY</l>
-						</li>
-					</ul>
-					<ul class="navbar-nav">
-						<li class="nav-item">
-							<div class="d-flex align-items-center mx-lg-2 pointer" data-bs-toggle="modal" data-bs-target="#search">
-								<i class="bi bi-search fs-3"></i>
-								<span class="d-block d-lg-none ms-2">SEARCH</span>
+							<div class="d-flex align-items-center p-1 mx-2 pointer" data-bs-toggle="modal" data-bs-target="#search">
+								<i class="bi bi-search fs-5" style="line-height:1.55"></i>
 							</div>
 						</li>
 						<li class="nav-item">
-							<div class="d-flex align-items-center mx-lg-2 pointer" data-bs-toggle="offcanvas" data-bs-target="#bag">
-								<i class="bi bi-bag fs-3"></i>
-								<span class="d-block d-lg-none ms-2">BAG</span>
+							<div class="d-flex align-items-center p-1 mx-2 pointer" data-bs-toggle="offcanvas" :data-bs-target="auth ? '#menu' : '#forms'">
+								<i class="bi bi-person fs-5 user-icon"></i>
+								<span class="ms-2" v-text="auth.name.split(' ')[0]" v-if="auth"></span>
 							</div>
 						</li>
-						<li class="nav-item">
-							<div class="d-flex align-items-center mx-lg-2 pointer" data-bs-toggle="offcanvas" :data-bs-target="auth ? '#menu' : '#forms'">
-								<i class="bi bi-person-circle fs-3"></i>
-								<span class="d-block d-lg-none ms-2">{{ auth ? 'ACCOUNT' : 'SIGN IN' }}</span>
+						<li class="nav-item position-relative">
+							<div class="d-flex align-items-center p-1 mx-2 pointer" data-bs-toggle="offcanvas" data-bs-target="#wishlist">
+								<img src="/img/icons/heart.png" height="23px" />
+								<small class="counter" v-text="wishlist.length"></small>
+							</div>
+						</li>
+						<li class="nav-item position-relative">
+							<div class="d-flex align-items-center p-1 mx-2 pointer" data-bs-toggle="offcanvas" data-bs-target="#bag">
+								<img src="/img/icons/bag.png" height="23px" />
+								<small class="counter" v-text="bag.length"></small>
 							</div>
 						</li>
 					</ul>
 				</div>
-			</div>
-		</nav>
+			</nav>
+			<nav class="navbar navbar-expand-lg navbar-light bg-white py-lg-0">
+				<div class="container-fluid">
+					<l href="/" class="navbar-brand fs-1 fw-bold py-0">AFYLA</l>
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-expanded="false">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse pb-3 pb-lg-0" id="navbarContent">
+						<ul class="navbar-nav me-auto">
+							<li class="nav-item">
+								<l :href="route('shop', {sort: 'n'})" class="nav-link text-dark underline-hover mx-lg-2">WHAT'S NEW</l>
+							</li>
+							<li class="nav-item dropdown dropdown-hover">
+								<l :href="route('shop')" class="nav-link text-dark underline-hover mx-lg-2" @click.prevent>SHOP</l>
+								<ul class="dropdown-menu">
+									<li><l :href="route('shop')" class="dropdown-item underline-hover">VIEW ALL</l></li>
+									<li v-for="category in categories" :key="category.id">
+										<l :href="route('shop', {categories: [category.id]})" class="dropdown-item underline-hover">
+											{{ category.name }}
+										</l>
+									</li>
+									<li>
+										<l :href="route('shop', {discounts: 1})" class="dropdown-item text-danger underline-hover">SPECIAL PRICES</l>
+									</li>
+								</ul>
+							</li>
+							<li class="nav-item dropdown dropdown-hover">
+								<l :href="route('shop')" class="nav-link text-dark underline-hover mx-lg-2" @click.prevent>COLLECTIONS</l>
+								<ul class="dropdown-menu">
+									<li v-for="collection in collections" :key="collection.id">
+										<l :href="route('collection', collection.id)" class="dropdown-item underline-hover">
+											{{ collection.title }}
+										</l>
+									</li>
+								</ul>
+							</li>
+							<li class="nav-item">
+								<l :href="route('about')" class="nav-link text-dark underline-hover mx-lg-2">AFYLA WORLD</l>
+							</li>
+							<li class="nav-item">
+								<l :href="route('sustainability')" class="nav-link text-dark underline-hover mx-lg-2">SUSTAINABILITY</l>
+							</li>
+						</ul>
+						<ul class="navbar-nav" v-show="scroll !== 0">
+							<li class="nav-item">
+								<div class="d-flex align-items-center p-1 mx-lg-2 pointer" data-bs-toggle="modal" data-bs-target="#search">
+									<i class="bi bi-search fs-5"></i>
+									<span class="d-block d-lg-none ms-2">SEARCH</span>
+								</div>
+							</li>
+							<li class="nav-item">
+								<div class="d-flex align-items-center p-1 mx-lg-2 pointer" data-bs-toggle="offcanvas" :data-bs-target="auth ? '#menu' : '#forms'">
+									<i class="bi bi-person fs-5 user-icon"></i>
+									<span class="d-none d-lg-block ms-2" v-text="auth.name.split(' ')[0]" v-if="auth"></span>
+									<span class="d-block d-lg-none ms-2">{{ auth ? auth.name.split(' ')[0] : 'SIGN IN' }}</span>
+								</div>
+							</li>
+							<li class="nav-item position-relative">
+								<div class="d-flex align-items-center p-1 mx-lg-2 pointer" data-bs-toggle="offcanvas" data-bs-target="#wishlist">
+									<img src="/img/icons/heart.png" height="23px" />
+									<span class="d-block d-lg-none ms-2">WISHLIST ({{ wishlist.length }})</span>
+									<small class="counter d-none d-lg-block" v-text="wishlist.length"></small>
+								</div>
+							</li>
+							<li class="nav-item position-relative">
+								<div class="d-flex align-items-center p-1 mx-lg-2 pointer" data-bs-toggle="offcanvas" data-bs-target="#bag">
+									<img src="/img/icons/bag.png" height="23px" />
+									<span class="d-block d-lg-none ms-2">BAG ({{ bag.length }})</span>
+									<small class="counter d-none d-lg-block" v-text="bag.length"></small>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</div>
 
-		<div class="offcanvas offcanvas-end" id="bag" tabindex="-1" data-bs-scroll="true">
+		<div class="offcanvas offcanvas-end" id="bag" tabindex="-1" data-bs-scroll="true" style="width:500px">
 			<div class="offcanvas-header">
 				<h5 class="fs-2 fw-light mb-0">Shopping bag</h5>
 				<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 			</div>
-			<div class="offcanvas-body p-4">
-				<div class="fs-4 fw-light text-center" v-if="bag.length === 0">
-					<p>Your shopping bag is empty.</p>
-					<p>Go shopping!</p>
-				</div>
-				<div v-else>
-					<div class="d-flex mb-3" v-for="(item, i) in bag" :key="i">
-						<div style="width:12%">
-							<img :src="item.product.gallery[0]" class="d-block w-100" />
-						</div>
-						<div class="ps-2" style="width:88%">
-							<p class="text-truncate fw-medium mb-2" v-text="item.product.title"></p>
-							<div class="d-flex">
-								<div class="me-auto">
-									<span>{{ item.size.number }}</span>
-									<span class="text-muted">x{{ item.qty }}</span>
-								</div>
-								<div>
-									<span v-text="getFormatedPrice(item.product.price)"></span>
-								</div>
-							</div>
-						</div>
-					</div>
-					<hr />
-					<div class="d-flex mb-3">
-						<span class="me-auto">{{ bag.length }} item(s)</span>
-						<span>{{ getFormatedPrice(getBagTotal) }}</span>
-					</div>
-					<div class="d-grid">
-						<l :href="route('bag')" class="btn btn-primary py-3">VIEW MY BAG</l>
-					</div>
-				</div>
+			<div class="offcanvas-body p-0">
+				<BagMenu></BagMenu>
 			</div>
 		</div>
 
-		<div class="modal" id="search" tabindex="-1">
-			<div class="modal-dialog modal-lg">
-				<div class="modal-content rounded">
+		<div class="offcanvas offcanvas-end" id="wishlist" tabindex="-1" data-bs-scroll="true" style="width:500px">
+			<div class="offcanvas-header">
+				<h5 class="fs-2 fw-light mb-0"><i class="bi bi-heart fs-4"></i> Your wishlist</h5>
+				<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+			</div>
+			<div class="offcanvas-body p-0">
+				<WishlistMenu></WishlistMenu>
+			</div>
+		</div>
+
+		<div class="modal fade" id="search" tabindex="-1">
+			<div class="modal-dialog modal-fullscreen">
+				<div class="modal-content">
 					<div class="modal-body p-4">
-						<div class="input-group">
-							<span class="input-group-text bg-light rounded-start border-0 ps-4 pe-2">
-								<a :href="route('shop', {search})">
-									<i class="bi bi-search fs-4 text-dark"></i>
-								</a>
-							</span>
-							<input type="text" class="form-control form-control-lg bg-light rounded-end border-0 shadow-none py-3" v-model="search" placeholder="Search for products..." />
-						</div>
+						<SearchForm></SearchForm>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<div class="offcanvas offcanvas-end" id="menu" tabindex="-1" data-bs-scroll="true" style="width:300px" v-if="auth">
-			<div class="offcanvas-body">
+		<div class="offcanvas offcanvas-end" id="menu" tabindex="-1" data-bs-scroll="true" v-if="auth">
+			<div class="offcanvas-header pb-0">
+				<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+			</div>
+			<div class="offcanvas-body d-flex flex-column justify-content-between">
 				<ul class="nav flex-column">
-					<li class="nav-item">
-						<p class="px-3 mb-0">Hello, {{ auth.name.split(' ')[0] }}!</p>
-						<p class="px-3 mb-4">We hope you're doing well.</p>
+					<li class="nav-item text-center fw-medium">
+						<p class="px-3 mb-0">HELLO, {{ auth.name.split(' ')[0].toUpperCase() }}!</p>
+						<p class="px-3 mb-4">WE HOPE YOU'RE DOING WELL.</p>
 					</li>
 					<li class="nav-item" v-if="admin">
-						<l :href="route('voyager.dashboard')" class="nav-link">DASHBOARD</l>
+						<a :href="route('voyager.dashboard')" class="nav-link" target="_blank">DASHBOARD</a>
+					</li>
+					<li class="nav-item">
+						<l :href="route('profile')" class="nav-link underline">MY AFYLA ACCOUNT</l>
 					</li>
 					<li class="nav-item">
 						<l :href="route('profile')" class="nav-link">PROFILE</l>
@@ -128,81 +172,33 @@
 						<l :href="route('orders')" class="nav-link">ORDERS</l>
 					</li>
 					<li class="nav-item">
-						<l :href="route('wishlist')" class="nav-link">WISHLIST</l>
-					</li>
-					<li class="nav-item">
 						<l :href="route('addresses')" class="nav-link">ADDRESS BOOK</l>
 					</li>
-					<li class="nav-item">
-						<l :href="route('logout')" class="nav-link">SIGN OUT</l>
-					</li>
 				</ul>
+				<div class="px-3 mb-4">
+					<p>If you have any queries or need further assistance, please <l :href="route('contact')" class="underline">Contact Us</l>.</p>
+					<l :href="route('logout')" class="btn btn-primary py-3">SIGN OUT</l>
+				</div>
 			</div>
 		</div>
 
 		<div class="offcanvas offcanvas-end" id="forms" tabindex="-1" data-bs-scroll="true" v-else>
+			<div class="offcanvas-header">
+				<h5 class="fs-2 fw-light mb-0"></h5>
+				<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+			</div>
 			<div class="offcanvas-body">
-				<ul class="nav nav-pills nav-fill mb-5">
+				<ul class="nav justify-content-between mb-3">
 					<li class="nav-item">
-						<button type="button" class="nav-link text-dark active py-3" data-bs-toggle="pill" data-bs-target="#login">SIGN IN</button>
+						<a href="#login" class="nav-link text-dark active px-0" data-bs-toggle="pill">SIGN IN</a>
 					</li>
 					<li class="nav-item">
-						<button type="button" class="nav-link text-dark py-3" data-bs-toggle="pill" data-bs-target="#register">SIGN UP</button>
+						<a href="#register" class="nav-link text-dark px-0" data-bs-toggle="pill">CREATE AN ACCOUNT</a>
 					</li>
 				</ul>
 				<div class="tab-content">
-					<form class="tab-pane fade show active" id="login" @submit.prevent="login.post(route('login'))">
-						<div class="alert alert-danger" role="alert" v-text="login.errors.auth" v-if="login.errors.auth"></div>
-						<div class="form-floating mb-3">
-							<input type="email" class="form-control" v-model="login.email" placeholder="Email" />
-							<label>Email</label><small class="text-danger" v-text="login.errors.email"></small>
-						</div>
-						<div class="form-floating mb-1">
-							<input type="password" class="form-control" v-model="login.password" placeholder="Password" />
-							<label>Password</label><small class="text-danger" v-text="login.errors.password"></small>
-						</div>
-						<div class="d-flex mb-3">
-							<div class="form-check me-auto">
-								<input type="checkbox" class="form-check-input shadow-none" id="remember" v-model="login.remember" />
-								<label class="form-check-label" for="remember" style="user-select:none">Remember me</label>
-							</div>
-							<l href="#">Forgot password ?</l>
-						</div>
-						<div class="d-grid">
-							<button type="submit" class="btn btn-primary py-3" :disabled="login.processing">SIGN IN</button>
-						</div>
-					</form>
-					<form class="tab-pane fade" id="register" @submit.prevent="register.post(route('register'))">
-						<div class="row gx-2">
-							<div class="col">
-								<div class="form-floating mb-3">
-									<input type="text" class="form-control" v-model="register.firstname" placeholder="First name" />
-									<label>First name</label><small class="text-danger" v-text="register.errors.firstname"></small>
-								</div>
-							</div>
-							<div class="col">
-								<div class="form-floating mb-3">
-									<input type="text" class="form-control" v-model="register.lastname" placeholder="Last name" />
-									<label>Last name</label><small class="text-danger" v-text="register.errors.lastname"></small>
-								</div>
-							</div>
-						</div>
-						<div class="form-floating mb-3">
-							<input type="text" class="form-control" v-model="register.email" placeholder="Email" />
-							<label>Email</label><small class="text-danger" v-text="register.errors.email"></small>
-						</div>
-						<div class="form-floating mb-3">
-							<input type="password" class="form-control" v-model="register.password" placeholder="Password" />
-							<label>Password</label><small class="text-danger" v-text="register.errors.password"></small>
-						</div>
-						<div class="form-floating mb-3">
-							<input type="password" class="form-control" v-model="register.password_confirmation" placeholder="Confirm password" />
-							<label>Confirm password</label>
-						</div>
-						<div class="d-grid">
-							<button type="submit" class="btn btn-primary py-3" :disabled="register.processing">CREATE AN ACCOUNT</button>
-						</div>
-					</form>
+					<LoginForm></LoginForm>
+					<RegisterForm></RegisterForm>
 				</div>
 			</div>
 		</div>
@@ -211,9 +207,19 @@
 </template>
 
 <script>
+	import WishlistMenu from '../components/WishlistMenu'
+	import RegisterForm from '../components/RegisterForm'
+	import LoginForm from '../components/LoginForm'
+	import SearchForm from '../components/SearchForm'
+	import BagMenu from '../components/BagMenu'
 	import { Link } from '@inertiajs/inertia-vue'
 	export default {
 		components: {
+			WishlistMenu,
+			RegisterForm,
+			LoginForm,
+			SearchForm,
+			BagMenu,
 			l: Link,
 		},
 		computed: {
@@ -223,40 +229,70 @@
 			admin() {
 				return this.$page.props.admin
 			},
-			bag() {
-				return this.$page.props.bag
+			settings() {
+				return this.$page.props.settings
 			},
 			categories() {
 				return this.$page.props.categories
+			},
+			collections() {
+				return this.$page.props.collections
+			},
+			wishlist() {
+				return this.$page.props.wishlist
+			},
+			bag() {
+				return this.$page.props.bag
 			}
 		},
 		data() {
 			return {
+				scroll: null,
 				search: null,
-				register: this.$inertia.form({
-					firstname: null,
-					lastname: null,
-					email: null,
-					password: null,
-					password_confirmation: null,
-				}),
-				login: this.$inertia.form({
-					email: null,
-					password: null,
-					remember: false,
-				})
 			}
+		},
+		mounted() {
+			this.scroll = pageYOffset
+			addEventListener('scroll', () => {
+				this.scroll = pageYOffset
+			})
 		}
 	}
 </script>
 
 <style scoped>
-	.navbar {
+	.fixed-navbar {
 		position: fixed;
 		top: 0;
 		left: 0;
 		right: 0;
 		z-index: 9;
-		min-height: 100px;
+	}
+	.top-navbar {
+		height: 60px;
+		overflow: hidden;
+	}
+	.top-navbar.hide {
+		display: none;
+	}
+	.navbar-brand {
+		font-family: 'Avenir-Heavy';
+	}
+	.dropdown-item {
+		padding-top: .5rem;
+		padding-bottom: .5rem;
+		background-color: transparent;
+		color: var(--bs-dark);
+	}
+	.counter {
+		position: absolute;
+		top: -5px;
+		right: 3px;
+		color: var(--bs-danger);
+		font-weight: 600;
+	}
+	.user-icon {
+		line-height: 1.4;
+		transform:scale(1.4);
 	}
 </style>

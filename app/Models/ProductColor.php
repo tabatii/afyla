@@ -10,10 +10,6 @@ class ProductColor extends Model
     use HasFactory;
 
     public $timestamps = false;
-    protected $fillable = [
-        'product_id',
-        'color_id',
-    ];
 
     public function color()
     {

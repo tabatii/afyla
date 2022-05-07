@@ -1,0 +1,11 @@
+Wishlist page (copy link, email when available, login alert, save on login)
+Bag page (save on login)
+
+Slider Control
+Product page (zoom)
+Seo changes (including ssr)
+Print
+
+Order system
+Reviews system
+Customer care (follow order, follow return)
