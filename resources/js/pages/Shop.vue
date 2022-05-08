@@ -25,7 +25,7 @@
 						</div>
 						<div class="d-grid gap-2">
 							<button type="button" class="btn btn-primary py-3" @click="filter">SEE RESULTS</button>
-							<button type="button" class="btn btn-light py-3" @click="reset(['categories'])">RESET</button>
+							<button type="button" class="btn btn-light py-3" @click="reset(['categories', 'subs'])">RESET</button>
 						</div>
 					</div>
 				</div>
@@ -122,6 +122,10 @@
 							<span style="font-size:.8rem">{{ getNameById('categories.name', category) }}</span>
 							<span class="pointer fs-6" @click="remove('categories', i)">&times;</span>
 						</span>
+						<span class="badge bg-primary text-dark py-2 me-2 mb-2" v-for="(sub, i) in selected.subs" :key="sub">
+							<span style="font-size:.8rem">{{ getNameById('subs.name', sub) }}</span>
+							<span class="pointer fs-6" @click="remove('subs', i)">&times;</span>
+						</span>
 						<span class="badge bg-primary text-dark py-2 me-2 mb-2" v-for="(color, i) in selected.colors" :key="color">
 							<span style="font-size:.8rem">{{ getNameById('colors.name', color) }}</span>
 							<span class="pointer fs-6" @click="remove('colors', i)">&times;</span>
@@ -213,6 +217,7 @@
 	export default {
 		props: {
 			products: Object,
+			subs: Array,
 			colors: Array,
 			materials: Array,
 			sizes: Array,

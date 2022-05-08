@@ -37,7 +37,7 @@
 			<div class="modal-dialog">
 				<div class="modal-content bg-primary">
 					<div class="modal-header border-0 pb-0">
-						<h5 class="modal-title">Share this product</h5>
+						<h5 class="modal-title">Share your wishlist</h5>
 						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					</div>
 					<div class="modal-body">

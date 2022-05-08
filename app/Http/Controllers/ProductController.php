@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\FilterRequest;
+use App\Models\SubCategory;
 use App\Models\Material;
 use App\Models\Product;
 use App\Models\Color;
@@ -14,10 +15,11 @@ class ProductController extends Controller
     public function index(FilterRequest $request)
     {
         $products = Product::with('colors.color', 'sizes.size', 'materials.material')->public()->filter($request->validated())->paginate(15);
+        $subs = SubCategory::all();
         $colors = Color::all();
         $sizes = Size::all();
         $materials = Material::all();
-        return inertia('Shop', compact('products', 'colors', 'sizes', 'materials'));
+        return inertia('Shop', compact('products', 'subs', 'colors', 'sizes', 'materials'));
     }
 
     public function show($id)

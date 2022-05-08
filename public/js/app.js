@@ -10324,12 +10324,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     products: Object,
+    subs: Array,
     colors: Array,
     materials: Array,
     sizes: Array
@@ -57600,7 +57605,7 @@ var render = function () {
                       attrs: { type: "button" },
                       on: {
                         click: function ($event) {
-                          return _vm.reset(["categories"])
+                          return _vm.reset(["categories", "subs"])
                         },
                       },
                     },
@@ -58155,6 +58160,34 @@ var render = function () {
                           on: {
                             click: function ($event) {
                               return _vm.remove("categories", i)
+                            },
+                          },
+                        },
+                        [_vm._v("×")]
+                      ),
+                    ]
+                  )
+                }),
+                _vm._v(" "),
+                _vm._l(_vm.selected.subs, function (sub, i) {
+                  return _c(
+                    "span",
+                    {
+                      key: sub,
+                      staticClass: "badge bg-primary text-dark py-2 me-2 mb-2",
+                    },
+                    [
+                      _c("span", { staticStyle: { "font-size": ".8rem" } }, [
+                        _vm._v(_vm._s(_vm.getNameById("subs.name", sub))),
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "span",
+                        {
+                          staticClass: "pointer fs-6",
+                          on: {
+                            click: function ($event) {
+                              return _vm.remove("subs", i)
                             },
                           },
                         },
@@ -59209,7 +59242,7 @@ var render = function () {
             _c("div", { staticClass: "modal-content bg-primary" }, [
               _c("div", { staticClass: "modal-header border-0 pb-0" }, [
                 _c("h5", { staticClass: "modal-title" }, [
-                  _vm._v("Share this product"),
+                  _vm._v("Share your wishlist"),
                 ]),
                 _vm._v(" "),
                 _c("button", {
