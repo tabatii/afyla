@@ -263,7 +263,7 @@
 			deleteFromWishlist(id) {
 				if (this.loading === false) {
 					this.loading = true
-					this.$inertia.post(this.route('wishlist.toggle', id), {}, {
+					this.$inertia.post(route('wishlist.toggle', id), {}, {
 						preserveScroll: true,
 						onSuccess: () => {
 							this.del = null
@@ -276,7 +276,7 @@
 			addToBag(id) {
 				if (this.getSizeQty) {
 					this.loading = true
-					return this.$inertia.post(this.route('bag.add'), this.bag, {
+					return this.$inertia.post(route('bag.add'), this.bag, {
 						preserveScroll: true,
 						onSuccess: () => {
 							this.loading = false

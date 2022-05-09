@@ -4,9 +4,9 @@
 		<section class="mb-5">
 			<div class="container py-5">
 				<p class="fs-2">MY SHOPPING BAG</p>
-				<div class="d-flex mb-3">
+				<div class="d-flex align-items-stretch align-items-sm-end mb-3">
 					<img src="/img/icons/tree.png" class="me-2" height="36px" />
-					<p class="text-success fw-medium mb-0" style="padding-top:12px">For each purchase, we plant a tree for Forest Fire Recovery.</p>
+					<p class="text-success fw-medium mb-0">For each purchase, we plant a tree for Forest Fire Recovery.</p>
 				</div>
 				<div class="display-6 text-center mt-5" v-if="bag.length === 0">
 					<p>Your shopping bag is empty.</p>
@@ -96,7 +96,7 @@
 		methods: {
 			deleteFromBag(id) {
 				this.loading = true
-				this.$inertia.delete(this.route('bag.delete', id), {
+				this.$inertia.delete(route('bag.delete', id), {
 					preserveScroll: true,
 					onSuccess: () => {
 						this.loading = false
@@ -106,7 +106,7 @@
 			plus(id) {
 				if (this.loading === false) {
 					this.loading = true
-					this.$inertia.patch(this.route('bag.plus', id), {}, {
+					this.$inertia.patch(route('bag.plus', id), {}, {
 						preserveScroll: true,
 						onSuccess: () => {
 							this.loading = false
@@ -117,7 +117,7 @@
 			minus(id) {
 				if (this.loading === false) {
 					this.loading = true
-					this.$inertia.patch(this.route('bag.minus', id), {}, {
+					this.$inertia.patch(route('bag.minus', id), {}, {
 						preserveScroll: true,
 						onSuccess: () => {
 							this.loading = false
@@ -128,7 +128,7 @@
 			size(id, event) {
 				if (this.loading === false) {
 					this.loading = true
-					this.$inertia.patch(this.route('bag.size', id), {size: event.target.value}, {
+					this.$inertia.patch(route('bag.size', id), {size: event.target.value}, {
 						preserveScroll: true,
 						onSuccess: () => {
 							this.loading = false

@@ -245,7 +245,7 @@
 			addToWishlist(id) {
 				if (this.loading === false) {
 					this.loading = true
-					this.$inertia.post(this.route('wishlist.toggle', id), {}, {
+					this.$inertia.post(route('wishlist.toggle', id), {}, {
 						preserveScroll: true,
 						onSuccess: () => {
 							this.loading = false
@@ -254,7 +254,7 @@
 				}
 			},
 			result() {
-				this.$inertia.get(this.route('shop', this.params))
+				this.$inertia.get(route('shop', this.params))
 			},
 			filter() {
 				this.params.page = null
@@ -314,17 +314,17 @@
 			}
 		},
 		created() {
-			this.params.ids = this.route().params.ids || []
-			this.params.collections = this.route().params.collections || []
-			this.params.categories = this.route().params.categories || []
-			this.params.subs = this.route().params.subs || []
-			this.params.colors = this.route().params.colors || []
-			this.params.materials = this.route().params.materials || []
-			this.params.sizes = this.route().params.sizes || []
-			this.params.sort = this.route().params.sort || null
-			this.params.page = this.route().params.page || null
-			this.params.search = this.route().params.search || null
-			this.params.discounts = this.route().params.discounts || null
+			this.params.ids = route().params.ids || []
+			this.params.collections = route().params.collections || []
+			this.params.categories = route().params.categories || []
+			this.params.subs = route().params.subs || []
+			this.params.colors = route().params.colors || []
+			this.params.materials = route().params.materials || []
+			this.params.sizes = route().params.sizes || []
+			this.params.sort = route().params.sort || null
+			this.params.page = route().params.page || null
+			this.params.search = route().params.search || null
+			this.params.discounts = route().params.discounts || null
 			Object.assign(this.selected, this.params)
 		}
 	}

@@ -48,8 +48,8 @@
 				form: this.$inertia.form({
 					password: null,
 					password_confirmation: null,
-					email: this.route().params.email,
-					token: this.route().params.token,
+					email: route().params.email,
+					token: route().params.token,
 				})
 			}
 		}

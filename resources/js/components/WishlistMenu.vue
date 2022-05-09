@@ -82,7 +82,7 @@
 					this.loading = true
 					this.bag.size = this.sizes[index]
 					this.bag.product = this.wishlist[index].product.id
-					return this.$inertia.post(this.route('bag.add'), this.bag, {
+					return this.$inertia.post(route('bag.add'), this.bag, {
 						onSuccess: () => {
 							this.loading = false
 							this.bag.product = null

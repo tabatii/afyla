@@ -131,9 +131,9 @@
 								</button>
 							</div>
 						</div>
-						<div class="d-flex">
+						<div class="d-flex align-items-stretch align-items-sm-end">
 							<img src="/img/icons/tree.png" class="me-2" height="36px" />
-							<p class="text-success fw-medium mb-0" style="padding-top:12px">For each purchase, we plant a tree for Forest Fire Recovery.</p>
+							<p class="text-success fw-medium mb-0">For each purchase, we plant a tree for Forest Fire Recovery.</p>
 						</div>
 					</div>
 				</div>
@@ -149,7 +149,7 @@
 					<div class="text-end">
 						<span class="pointer text-muted underline me-2" data-bs-toggle="modal" data-bs-target="#helpModal">Need help ?</span>
 						<span class="pointer" @click="social = !social"><i class="bi bi-share-fill"></i></span>
-						<SocialShare :url="route('product', product.id)" :title="product.title" v-show="social"></SocialShare>
+						<SocialShare :id="product.id" :title="product.title" v-show="social"></SocialShare>
 					</div>
 				</div>
 			</div>
@@ -390,7 +390,7 @@
 			addToBag() {
 				if (this.getSizeQty) {
 					this.loading = true
-					return this.$inertia.post(this.route('bag.add'), {
+					return this.$inertia.post(route('bag.add'), {
 						product: this.product.id,
 						size: this.size,
 						qty: this.qty,
@@ -407,7 +407,7 @@
 			addToWishlist(id) {
 				if (this.loading === false) {
 					this.loading = true
-					this.$inertia.post(this.route('wishlist.toggle', id), {}, {
+					this.$inertia.post(route('wishlist.toggle', id), {}, {
 						preserveScroll: true,
 						onSuccess: () => {
 							this.loading = false

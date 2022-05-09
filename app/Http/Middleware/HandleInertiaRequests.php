@@ -40,8 +40,10 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request): array
     {
+        //$ziggy = new \Tightenco\Ziggy\Ziggy($group = null, $request->url());
         $fields = ['name', 'email', 'email_verified_at', 'country', 'birthday', 'phone', 'sub', 'created_at'];
         return array_merge(parent::share($request), [
+            //'ziggy' => $ziggy->toArray(),
             'admin' => $request->user() && $request->user()->hasRole('admin') ? true : false,
             'auth' => $request->user() ? $request->user()->only($fields) : null,
             'categories' => Category::with('subCategories')->get(),

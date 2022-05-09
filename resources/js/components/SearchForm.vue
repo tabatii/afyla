@@ -16,9 +16,9 @@
 			<div v-if="search.length === 0">
 				<p class="fw-medium mb-4">SUGGESTIONS</p>
 				<div class="row gy-4">
-					<div class="col-2" v-for="category in categories" :key="category.id">
-						<l :href="route('shop', {categories: [category.id]})" class="text-center underline" v-text="category.name"></l>
-						<img :src="category.img" class="d-block w-100" />
+					<div class="col-2 text-center" v-for="category in categories" :key="category.id">
+						<l :href="route('shop', {categories: [category.id]})" class="underline" v-text="category.name"></l>
+						<img :src="category.img" class="d-block w-100 mt-3" />
 					</div>
 				</div>
 			</div>
@@ -69,7 +69,8 @@
 				<div v-else>
 					<div class="mb-5">
 						<p class="fw-medium">Categories :</p>
-						<ul class="nav flex-column">
+						<p v-if="cats.length === 0 && subs.length === 0">No results were found for the keyword "{{ search }}" in categories</p>
+						<ul class="nav flex-column" v-else>
 							<li class="nav-item" v-for="cat in cats" :key="cat.id">
 								<l :href="route('shop', {categories: [cat.id]})" class="underline" v-text="cat.name"></l>
 							</li>
@@ -80,7 +81,8 @@
 					</div>
 					<div class="mb-5">
 						<p class="fw-medium">Products :</p>
-						<div class="row gy-3">
+						<p v-if="products.length === 0">No results were found for the keyword "{{ search }}" in products</p>
+						<div class="row gy-3" v-else>
 							<div class="col-md-6 col-lg-4 col-xl-3" v-for="product in products" :key="product.id">
 								<a :href="route('product', product.id)" class="row g-0">
 									<div class="col-md-4 col-xl-3">
@@ -95,6 +97,7 @@
 					</div>
 					<div class="colors">
 						<p class="fw-medium">Colors :</p>
+						<p v-if="colors.length === 0">No results were found for the keyword "{{ search }}" in colors</p>
 						<ul class="nav flex-column">
 							<li class="nav-item d-flex align-items-center mb-1" v-for="color in colors" :key="color.id">
 								<span class="me-2" :style="{backgroundColor: color.hex}"></span>

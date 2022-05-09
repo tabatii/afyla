@@ -159,7 +159,7 @@
 				})
 			},
 			remove(id) {
-				this.$inertia.delete(this.route('address.delete', id), {
+				this.$inertia.delete(route('address.delete', id), {
 					preserveScroll: true,
 				})
 			}

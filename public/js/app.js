@@ -7781,7 +7781,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     remove: function remove(id) {
-      this.$inertia["delete"](this.route('address.delete', id), {
+      this.$inertia["delete"](route('address.delete', id), {
         preserveScroll: true
       });
     }
@@ -7919,7 +7919,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.loading = true;
-      this.$inertia["delete"](this.route('bag.delete', id), {
+      this.$inertia["delete"](route('bag.delete', id), {
         preserveScroll: true,
         onSuccess: function onSuccess() {
           _this.loading = false;
@@ -7931,7 +7931,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.loading === false) {
         this.loading = true;
-        this.$inertia.patch(this.route('bag.plus', id), {}, {
+        this.$inertia.patch(route('bag.plus', id), {}, {
           preserveScroll: true,
           onSuccess: function onSuccess() {
             _this2.loading = false;
@@ -7944,7 +7944,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.loading === false) {
         this.loading = true;
-        this.$inertia.patch(this.route('bag.minus', id), {}, {
+        this.$inertia.patch(route('bag.minus', id), {}, {
           preserveScroll: true,
           onSuccess: function onSuccess() {
             _this3.loading = false;
@@ -7957,7 +7957,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.loading === false) {
         this.loading = true;
-        this.$inertia.patch(this.route('bag.size', id), {
+        this.$inertia.patch(route('bag.size', id), {
           size: event.target.value
         }, {
           preserveScroll: true,
@@ -9409,8 +9409,8 @@ __webpack_require__.r(__webpack_exports__);
       form: this.$inertia.form({
         password: null,
         password_confirmation: null,
-        email: this.route().params.email,
-        token: this.route().params.token
+        email: route().params.email,
+        token: route().params.token
       })
     };
   }
@@ -9834,7 +9834,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.getSizeQty) {
         this.loading = true;
-        return this.$inertia.post(this.route('bag.add'), {
+        return this.$inertia.post(route('bag.add'), {
           product: this.product.id,
           size: this.size,
           qty: this.qty
@@ -9854,7 +9854,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.loading === false) {
         this.loading = true;
-        this.$inertia.post(this.route('wishlist.toggle', id), {}, {
+        this.$inertia.post(route('wishlist.toggle', id), {}, {
           preserveScroll: true,
           onSuccess: function onSuccess() {
             _this3.loading = false;
@@ -10366,7 +10366,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.loading === false) {
         this.loading = true;
-        this.$inertia.post(this.route('wishlist.toggle', id), {}, {
+        this.$inertia.post(route('wishlist.toggle', id), {}, {
           preserveScroll: true,
           onSuccess: function onSuccess() {
             _this.loading = false;
@@ -10375,7 +10375,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     result: function result() {
-      this.$inertia.get(this.route('shop', this.params));
+      this.$inertia.get(route('shop', this.params));
     },
     filter: function filter() {
       this.params.page = null;
@@ -10442,17 +10442,17 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   created: function created() {
-    this.params.ids = this.route().params.ids || [];
-    this.params.collections = this.route().params.collections || [];
-    this.params.categories = this.route().params.categories || [];
-    this.params.subs = this.route().params.subs || [];
-    this.params.colors = this.route().params.colors || [];
-    this.params.materials = this.route().params.materials || [];
-    this.params.sizes = this.route().params.sizes || [];
-    this.params.sort = this.route().params.sort || null;
-    this.params.page = this.route().params.page || null;
-    this.params.search = this.route().params.search || null;
-    this.params.discounts = this.route().params.discounts || null;
+    this.params.ids = route().params.ids || [];
+    this.params.collections = route().params.collections || [];
+    this.params.categories = route().params.categories || [];
+    this.params.subs = route().params.subs || [];
+    this.params.colors = route().params.colors || [];
+    this.params.materials = route().params.materials || [];
+    this.params.sizes = route().params.sizes || [];
+    this.params.sort = route().params.sort || null;
+    this.params.page = route().params.page || null;
+    this.params.search = route().params.search || null;
+    this.params.discounts = route().params.discounts || null;
     Object.assign(this.selected, this.params);
   }
 });
@@ -10941,7 +10941,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
       if (this.loading === false) {
         this.loading = true;
-        this.$inertia.post(this.route('wishlist.toggle', id), {}, {
+        this.$inertia.post(route('wishlist.toggle', id), {}, {
           preserveScroll: true,
           onSuccess: function onSuccess() {
             _this2.del = null;
@@ -10956,7 +10956,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
       if (this.getSizeQty) {
         this.loading = true;
-        return this.$inertia.post(this.route('bag.add'), this.bag, {
+        return this.$inertia.post(route('bag.add'), this.bag, {
           preserveScroll: true,
           onSuccess: function onSuccess() {
             _this3.loading = false;
@@ -11622,7 +11622,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.loading === false) {
         this.loading = true;
-        this.$inertia["delete"](this.route('bag.delete', id), {
+        this.$inertia["delete"](route('bag.delete', id), {
           onSuccess: function onSuccess() {
             _this.loading = false;
           }
@@ -11634,7 +11634,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.loading === false) {
         this.loading = true;
-        this.$inertia.patch(this.route('bag.plus', id), {}, {
+        this.$inertia.patch(route('bag.plus', id), {}, {
           onSuccess: function onSuccess() {
             _this2.loading = false;
           }
@@ -11646,7 +11646,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.loading === false) {
         this.loading = true;
-        this.$inertia.patch(this.route('bag.minus', id), {}, {
+        this.$inertia.patch(route('bag.minus', id), {}, {
           onSuccess: function onSuccess() {
             _this3.loading = false;
           }
@@ -12252,6 +12252,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -12381,14 +12384,14 @@ __webpack_require__.r(__webpack_exports__);
     facebook: function facebook() {
       var site = 'https://www.facebook.com/sharer.php?';
       var query = query_string__WEBPACK_IMPORTED_MODULE_0__.stringify({
-        u: this.route('product', this.id)
+        u: route('product', this.id)
       });
       return site + query;
     },
     twitter: function twitter() {
       var site = 'https://www.twitter.com/intent/tweet?';
       var query = query_string__WEBPACK_IMPORTED_MODULE_0__.stringify({
-        url: this.route('product', this.id),
+        url: route('product', this.id),
         text: this.title
       });
       return site + query;
@@ -12397,7 +12400,7 @@ __webpack_require__.r(__webpack_exports__);
       var site = 'https://www.linkedin.com/sharing/share-offsite?';
       var query = query_string__WEBPACK_IMPORTED_MODULE_0__.stringify({
         mini: true,
-        url: this.route('product', this.id),
+        url: route('product', this.id),
         text: this.title
       });
       return site + query;
@@ -12405,7 +12408,7 @@ __webpack_require__.r(__webpack_exports__);
     pinterest: function pinterest() {
       var site = 'https://www.pinterest.com/pin/create/button?';
       var query = query_string__WEBPACK_IMPORTED_MODULE_0__.stringify({
-        url: this.route('product', this.id),
+        url: route('product', this.id),
         description: this.title
       });
       return site + query;
@@ -12600,7 +12603,7 @@ __webpack_require__.r(__webpack_exports__);
         this.loading = true;
         this.bag.size = this.sizes[index];
         this.bag.product = this.wishlist[index].product.id;
-        return this.$inertia.post(this.route('bag.add'), this.bag, {
+        return this.$inertia.post(route('bag.add'), this.bag, {
           onSuccess: function onSuccess() {
             _this2.loading = false;
             _this2.bag.product = null;
@@ -51576,25 +51579,25 @@ var render = function () {
           [
             _c("p", { staticClass: "fs-2" }, [_vm._v("MY SHOPPING BAG")]),
             _vm._v(" "),
-            _c("div", { staticClass: "d-flex mb-3" }, [
-              _c("img", {
-                staticClass: "me-2",
-                attrs: { src: "/img/icons/tree.png", height: "36px" },
-              }),
-              _vm._v(" "),
-              _c(
-                "p",
-                {
-                  staticClass: "text-success fw-medium mb-0",
-                  staticStyle: { "padding-top": "12px" },
-                },
-                [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "d-flex align-items-stretch align-items-sm-end mb-3",
+              },
+              [
+                _c("img", {
+                  staticClass: "me-2",
+                  attrs: { src: "/img/icons/tree.png", height: "36px" },
+                }),
+                _vm._v(" "),
+                _c("p", { staticClass: "text-success fw-medium mb-0" }, [
                   _vm._v(
                     "For each purchase, we plant a tree for Forest Fire Recovery."
                   ),
-                ]
-              ),
-            ]),
+                ]),
+              ]
+            ),
             _vm._v(" "),
             _vm.bag.length === 0
               ? _c("div", { staticClass: "display-6 text-center mt-5" }, [
@@ -56047,25 +56050,24 @@ var render = function () {
                 ),
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "d-flex" }, [
-                _c("img", {
-                  staticClass: "me-2",
-                  attrs: { src: "/img/icons/tree.png", height: "36px" },
-                }),
-                _vm._v(" "),
-                _c(
-                  "p",
-                  {
-                    staticClass: "text-success fw-medium mb-0",
-                    staticStyle: { "padding-top": "12px" },
-                  },
-                  [
+              _c(
+                "div",
+                {
+                  staticClass: "d-flex align-items-stretch align-items-sm-end",
+                },
+                [
+                  _c("img", {
+                    staticClass: "me-2",
+                    attrs: { src: "/img/icons/tree.png", height: "36px" },
+                  }),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "text-success fw-medium mb-0" }, [
                     _vm._v(
                       "For each purchase, we plant a tree for Forest Fire Recovery."
                     ),
-                  ]
-                ),
-              ]),
+                  ]),
+                ]
+              ),
             ]),
           ]),
         ]),
@@ -56148,10 +56150,7 @@ var render = function () {
                       expression: "social",
                     },
                   ],
-                  attrs: {
-                    url: _vm.route("product", _vm.product.id),
-                    title: _vm.product.title,
-                  },
+                  attrs: { id: _vm.product.id, title: _vm.product.title },
                 }),
               ],
               1
@@ -62968,10 +62967,10 @@ var render = function () {
               _vm._l(_vm.categories, function (category) {
                 return _c(
                   "div",
-                  { key: category.id, staticClass: "col-2" },
+                  { key: category.id, staticClass: "col-2 text-center" },
                   [
                     _c("l", {
-                      staticClass: "text-center underline",
+                      staticClass: "underline",
                       attrs: {
                         href: _vm.route("shop", { categories: [category.id] }),
                       },
@@ -62979,7 +62978,7 @@ var render = function () {
                     }),
                     _vm._v(" "),
                     _c("img", {
-                      staticClass: "d-block w-100",
+                      staticClass: "d-block w-100 mt-3",
                       attrs: { src: category.img },
                     }),
                   ],
@@ -63122,48 +63121,58 @@ var render = function () {
                       _vm._v("Categories :"),
                     ]),
                     _vm._v(" "),
-                    _c(
-                      "ul",
-                      { staticClass: "nav flex-column" },
-                      [
-                        _vm._l(_vm.cats, function (cat) {
-                          return _c(
-                            "li",
-                            { key: cat.id, staticClass: "nav-item" },
-                            [
-                              _c("l", {
-                                staticClass: "underline",
-                                attrs: {
-                                  href: _vm.route("shop", {
-                                    categories: [cat.id],
+                    _vm.cats.length === 0 && _vm.subs.length === 0
+                      ? _c("p", [
+                          _vm._v(
+                            'No results were found for the keyword "' +
+                              _vm._s(_vm.search) +
+                              '" in categories'
+                          ),
+                        ])
+                      : _c(
+                          "ul",
+                          { staticClass: "nav flex-column" },
+                          [
+                            _vm._l(_vm.cats, function (cat) {
+                              return _c(
+                                "li",
+                                { key: cat.id, staticClass: "nav-item" },
+                                [
+                                  _c("l", {
+                                    staticClass: "underline",
+                                    attrs: {
+                                      href: _vm.route("shop", {
+                                        categories: [cat.id],
+                                      }),
+                                    },
+                                    domProps: { textContent: _vm._s(cat.name) },
                                   }),
-                                },
-                                domProps: { textContent: _vm._s(cat.name) },
-                              }),
-                            ],
-                            1
-                          )
-                        }),
-                        _vm._v(" "),
-                        _vm._l(_vm.subs, function (sub) {
-                          return _c(
-                            "li",
-                            { key: sub.id, staticClass: "nav-item" },
-                            [
-                              _c("l", {
-                                staticClass: "underline",
-                                attrs: {
-                                  href: _vm.route("shop", { subs: [sub.id] }),
-                                },
-                                domProps: { textContent: _vm._s(sub.name) },
-                              }),
-                            ],
-                            1
-                          )
-                        }),
-                      ],
-                      2
-                    ),
+                                ],
+                                1
+                              )
+                            }),
+                            _vm._v(" "),
+                            _vm._l(_vm.subs, function (sub) {
+                              return _c(
+                                "li",
+                                { key: sub.id, staticClass: "nav-item" },
+                                [
+                                  _c("l", {
+                                    staticClass: "underline",
+                                    attrs: {
+                                      href: _vm.route("shop", {
+                                        subs: [sub.id],
+                                      }),
+                                    },
+                                    domProps: { textContent: _vm._s(sub.name) },
+                                  }),
+                                ],
+                                1
+                              )
+                            }),
+                          ],
+                          2
+                        ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "mb-5" }, [
@@ -63171,64 +63180,82 @@ var render = function () {
                       _vm._v("Products :"),
                     ]),
                     _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "row gy-3" },
-                      _vm._l(_vm.products, function (product) {
-                        return _c(
+                    _vm.products.length === 0
+                      ? _c("p", [
+                          _vm._v(
+                            'No results were found for the keyword "' +
+                              _vm._s(_vm.search) +
+                              '" in products'
+                          ),
+                        ])
+                      : _c(
                           "div",
-                          {
-                            key: product.id,
-                            staticClass: "col-md-6 col-lg-4 col-xl-3",
-                          },
-                          [
-                            _c(
-                              "a",
+                          { staticClass: "row gy-3" },
+                          _vm._l(_vm.products, function (product) {
+                            return _c(
+                              "div",
                               {
-                                staticClass: "row g-0",
-                                attrs: {
-                                  href: _vm.route("product", product.id),
-                                },
+                                key: product.id,
+                                staticClass: "col-md-6 col-lg-4 col-xl-3",
                               },
                               [
                                 _c(
-                                  "div",
-                                  { staticClass: "col-md-4 col-xl-3" },
-                                  [
-                                    _c("img", {
-                                      staticClass: "d-block w-100",
-                                      attrs: { src: product.gallery[0] },
-                                    }),
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
+                                  "a",
                                   {
-                                    staticClass:
-                                      "col-md-8 col-xl-9 d-flex align-items-center bg-primary",
+                                    staticClass: "row g-0",
+                                    attrs: {
+                                      href: _vm.route("product", product.id),
+                                    },
                                   },
                                   [
-                                    _c("p", {
-                                      staticClass:
-                                        "text-dark fw-medium px-3 py-2 mb-0",
-                                      domProps: {
-                                        textContent: _vm._s(product.title),
+                                    _c(
+                                      "div",
+                                      { staticClass: "col-md-4 col-xl-3" },
+                                      [
+                                        _c("img", {
+                                          staticClass: "d-block w-100",
+                                          attrs: { src: product.gallery[0] },
+                                        }),
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "col-md-8 col-xl-9 d-flex align-items-center bg-primary",
                                       },
-                                    }),
+                                      [
+                                        _c("p", {
+                                          staticClass:
+                                            "text-dark fw-medium px-3 py-2 mb-0",
+                                          domProps: {
+                                            textContent: _vm._s(product.title),
+                                          },
+                                        }),
+                                      ]
+                                    ),
                                   ]
                                 ),
                               ]
-                            ),
-                          ]
-                        )
-                      }),
-                      0
-                    ),
+                            )
+                          }),
+                          0
+                        ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "colors" }, [
                     _c("p", { staticClass: "fw-medium" }, [_vm._v("Colors :")]),
+                    _vm._v(" "),
+                    _vm.colors.length === 0
+                      ? _c("p", [
+                          _vm._v(
+                            'No results were found for the keyword "' +
+                              _vm._s(_vm.search) +
+                              '" in colors'
+                          ),
+                        ])
+                      : _vm._e(),
                     _vm._v(" "),
                     _c(
                       "ul",
