@@ -7763,7 +7763,7 @@ __webpack_require__.r(__webpack_exports__);
     add: function add() {
       var _this = this;
 
-      this.form.post(route('address.add'), {
+      this.form.post(this.route('address.add'), {
         preserveScroll: true,
         onSuccess: function onSuccess() {
           _this.reset();
@@ -7773,7 +7773,7 @@ __webpack_require__.r(__webpack_exports__);
     edit: function edit() {
       var _this2 = this;
 
-      this.form.put(route('address.edit', this.addresses[this.selected].id), {
+      this.form.put(this.route('address.edit', this.addresses[this.selected].id), {
         preserveScroll: true,
         onSuccess: function onSuccess() {
           _this2.reset();
@@ -7781,7 +7781,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     remove: function remove(id) {
-      this.$inertia["delete"](route('address.delete', id), {
+      this.$inertia["delete"](this.route('address.delete', id), {
         preserveScroll: true
       });
     }
@@ -7919,7 +7919,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.loading = true;
-      this.$inertia["delete"](route('bag.delete', id), {
+      this.$inertia["delete"](this.route('bag.delete', id), {
         preserveScroll: true,
         onSuccess: function onSuccess() {
           _this.loading = false;
@@ -7931,7 +7931,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.loading === false) {
         this.loading = true;
-        this.$inertia.patch(route('bag.plus', id), {}, {
+        this.$inertia.patch(this.route('bag.plus', id), {}, {
           preserveScroll: true,
           onSuccess: function onSuccess() {
             _this2.loading = false;
@@ -7944,7 +7944,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.loading === false) {
         this.loading = true;
-        this.$inertia.patch(route('bag.minus', id), {}, {
+        this.$inertia.patch(this.route('bag.minus', id), {}, {
           preserveScroll: true,
           onSuccess: function onSuccess() {
             _this3.loading = false;
@@ -7957,7 +7957,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.loading === false) {
         this.loading = true;
-        this.$inertia.patch(route('bag.size', id), {
+        this.$inertia.patch(this.route('bag.size', id), {
           size: event.target.value
         }, {
           preserveScroll: true,
@@ -8154,7 +8154,7 @@ __webpack_require__.r(__webpack_exports__);
     send: function send() {
       var _this = this;
 
-      this.form.post(route('contact'), {
+      this.form.post(this.route('contact'), {
         preserveScroll: true,
         onSuccess: function onSuccess() {
           return _this.form.reset();
@@ -9326,7 +9326,7 @@ __webpack_require__.r(__webpack_exports__);
     change: function change() {
       var _this = this;
 
-      this.form.patch(route('password'), {
+      this.form.patch(this.route('password'), {
         preserveScroll: true,
         onSuccess: function onSuccess() {
           _this.form.reset();
@@ -9399,7 +9399,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     reset: function reset() {
-      this.form.post(route('password.update'), {
+      this.form.post(this.route('password.update'), {
         preserveScroll: true
       });
     }
@@ -9407,12 +9407,16 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       form: this.$inertia.form({
+        token: null,
+        email: null,
         password: null,
-        password_confirmation: null,
-        email: route().params.email,
-        token: route().params.token
+        password_confirmation: null
       })
     };
+  },
+  created: function created() {
+    this.form.token = this.route().params.token;
+    this.form.email = this.route().params.email;
   }
 });
 
@@ -9834,7 +9838,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.getSizeQty) {
         this.loading = true;
-        return this.$inertia.post(route('bag.add'), {
+        return this.$inertia.post(this.route('bag.add'), {
           product: this.product.id,
           size: this.size,
           qty: this.qty
@@ -9854,7 +9858,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.loading === false) {
         this.loading = true;
-        this.$inertia.post(route('wishlist.toggle', id), {}, {
+        this.$inertia.post(this.route('wishlist.toggle', id), {}, {
           preserveScroll: true,
           onSuccess: function onSuccess() {
             _this3.loading = false;
@@ -10062,7 +10066,7 @@ __webpack_require__.r(__webpack_exports__);
     edit: function edit() {
       var _this = this;
 
-      this.form.put(route('profile'), {
+      this.form.put(this.route('profile'), {
         preserveScroll: true,
         onSuccess: function onSuccess() {
           _this.showform = false;
@@ -10366,7 +10370,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.loading === false) {
         this.loading = true;
-        this.$inertia.post(route('wishlist.toggle', id), {}, {
+        this.$inertia.post(this.route('wishlist.toggle', id), {}, {
           preserveScroll: true,
           onSuccess: function onSuccess() {
             _this.loading = false;
@@ -10375,7 +10379,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     result: function result() {
-      this.$inertia.get(route('shop', this.params));
+      this.$inertia.get(this.route('shop', this.params));
     },
     filter: function filter() {
       this.params.page = null;
@@ -10442,17 +10446,17 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   created: function created() {
-    this.params.ids = route().params.ids || [];
-    this.params.collections = route().params.collections || [];
-    this.params.categories = route().params.categories || [];
-    this.params.subs = route().params.subs || [];
-    this.params.colors = route().params.colors || [];
-    this.params.materials = route().params.materials || [];
-    this.params.sizes = route().params.sizes || [];
-    this.params.sort = route().params.sort || null;
-    this.params.page = route().params.page || null;
-    this.params.search = route().params.search || null;
-    this.params.discounts = route().params.discounts || null;
+    this.params.ids = this.route().params.ids || [];
+    this.params.collections = this.route().params.collections || [];
+    this.params.categories = this.route().params.categories || [];
+    this.params.subs = this.route().params.subs || [];
+    this.params.colors = this.route().params.colors || [];
+    this.params.materials = this.route().params.materials || [];
+    this.params.sizes = this.route().params.sizes || [];
+    this.params.sort = this.route().params.sort || null;
+    this.params.page = this.route().params.page || null;
+    this.params.search = this.route().params.search || null;
+    this.params.discounts = this.route().params.discounts || null;
     Object.assign(this.selected, this.params);
   }
 });
@@ -10886,6 +10890,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       return size ? size.qty : null;
     },
     shareAllLink: function shareAllLink() {
+      var _this2 = this;
+
       var body = "Dear,\n\n" + "I'd like to share my AFYLA wishlist with you. I thought you might be interested in the following products.\n\n\n";
       this.wishlist.forEach(function (item) {
         body += "".concat(item.product.title, "\n");
@@ -10899,7 +10905,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
           var comma = i + 1 !== item.product.materials.length ? ', ' : '\n';
           body += m.material.name + comma;
         });
-        body += "Link: ".concat(route('product', item.product.id), "\n\n\n");
+        body += "Link: ".concat(_this2.route('product', item.product.id), "\n\n\n");
       });
       return 'mailto:?' + query_string__WEBPACK_IMPORTED_MODULE_5__.stringify({
         subject: 'Discover my AFYLA wishlist',
@@ -10937,31 +10943,31 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       this.bag.product = this.sorted[i].product.id;
     },
     deleteFromWishlist: function deleteFromWishlist(id) {
-      var _this2 = this;
+      var _this3 = this;
 
       if (this.loading === false) {
         this.loading = true;
-        this.$inertia.post(route('wishlist.toggle', id), {}, {
+        this.$inertia.post(this.route('wishlist.toggle', id), {}, {
           preserveScroll: true,
           onSuccess: function onSuccess() {
-            _this2.del = null;
-            _this2.loading = false;
-            _this2.sorted = _toConsumableArray(_this2.wishlist);
+            _this3.del = null;
+            _this3.loading = false;
+            _this3.sorted = _toConsumableArray(_this3.wishlist);
           }
         });
       }
     },
     addToBag: function addToBag(id) {
-      var _this3 = this;
+      var _this4 = this;
 
       if (this.getSizeQty) {
         this.loading = true;
-        return this.$inertia.post(route('bag.add'), this.bag, {
+        return this.$inertia.post(this.route('bag.add'), this.bag, {
           preserveScroll: true,
           onSuccess: function onSuccess() {
-            _this3.loading = false;
-            _this3.card = null;
-            _this3.done = true;
+            _this4.loading = false;
+            _this4.card = null;
+            _this4.done = true;
           }
         });
       }
@@ -10972,7 +10978,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       this.form.ids = this.wishlist.map(function (item) {
         return item.product.id;
       });
-      this.form.post(route('share.all'));
+      this.form.post(this.route('share.all'));
     }
   },
   data: function data() {
@@ -11115,7 +11121,7 @@ __webpack_require__.r(__webpack_exports__);
     subscribe: function subscribe() {
       var _this = this;
 
-      this.subscription.post(route('subscription.add'), {
+      this.subscription.post(this.route('subscription.add'), {
         preserveScroll: true,
         onSuccess: function onSuccess() {
           _this.subscription.reset();
@@ -11521,7 +11527,7 @@ __webpack_require__.r(__webpack_exports__);
     subscribe: function subscribe() {
       var _this = this;
 
-      this.form.post(route('subscription.add'), {
+      this.form.post(this.route('subscription.add'), {
         onSuccess: function onSuccess() {
           _this.form.reset();
 
@@ -11532,13 +11538,17 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      newsletter: js_cookie__WEBPACK_IMPORTED_MODULE_4__["default"].get('newsletter-popup'),
-      cookies: js_cookie__WEBPACK_IMPORTED_MODULE_4__["default"].get('cookies-popup'),
+      newsletter: null,
+      cookies: null,
       popup: true,
       form: this.$inertia.form({
         email: null
       })
     };
+  },
+  mounted: function mounted() {
+    this.newsletter = js_cookie__WEBPACK_IMPORTED_MODULE_4__["default"].get('newsletter-popup');
+    this.cookies = js_cookie__WEBPACK_IMPORTED_MODULE_4__["default"].get('cookies-popup');
   }
 });
 
@@ -11622,7 +11632,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.loading === false) {
         this.loading = true;
-        this.$inertia["delete"](route('bag.delete', id), {
+        this.$inertia["delete"](this.route('bag.delete', id), {
           onSuccess: function onSuccess() {
             _this.loading = false;
           }
@@ -11634,7 +11644,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.loading === false) {
         this.loading = true;
-        this.$inertia.patch(route('bag.plus', id), {}, {
+        this.$inertia.patch(this.route('bag.plus', id), {}, {
           onSuccess: function onSuccess() {
             _this2.loading = false;
           }
@@ -11646,7 +11656,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.loading === false) {
         this.loading = true;
-        this.$inertia.patch(route('bag.minus', id), {}, {
+        this.$inertia.patch(this.route('bag.minus', id), {}, {
           onSuccess: function onSuccess() {
             _this3.loading = false;
           }
@@ -11860,7 +11870,7 @@ __webpack_require__.r(__webpack_exports__);
     send: function send() {
       var _this = this;
 
-      this.forgot.post(route('password.send'), {
+      this.forgot.post(this.route('password.send'), {
         onSuccess: function onSuccess() {
           _this.tab = false;
           _this.sent = true;
@@ -12277,7 +12287,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       var search = newValue;
-      axios__WEBPACK_IMPORTED_MODULE_1___default().get(route('search', {
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get(this.route('search', {
         search: search
       })).then(function (response) {
         _this.products = response.data.products;
@@ -12384,14 +12394,14 @@ __webpack_require__.r(__webpack_exports__);
     facebook: function facebook() {
       var site = 'https://www.facebook.com/sharer.php?';
       var query = query_string__WEBPACK_IMPORTED_MODULE_0__.stringify({
-        u: route('product', this.id)
+        u: this.route('product', this.id)
       });
       return site + query;
     },
     twitter: function twitter() {
       var site = 'https://www.twitter.com/intent/tweet?';
       var query = query_string__WEBPACK_IMPORTED_MODULE_0__.stringify({
-        url: route('product', this.id),
+        url: this.route('product', this.id),
         text: this.title
       });
       return site + query;
@@ -12400,7 +12410,7 @@ __webpack_require__.r(__webpack_exports__);
       var site = 'https://www.linkedin.com/sharing/share-offsite?';
       var query = query_string__WEBPACK_IMPORTED_MODULE_0__.stringify({
         mini: true,
-        url: route('product', this.id),
+        url: this.route('product', this.id),
         text: this.title
       });
       return site + query;
@@ -12408,7 +12418,7 @@ __webpack_require__.r(__webpack_exports__);
     pinterest: function pinterest() {
       var site = 'https://www.pinterest.com/pin/create/button?';
       var query = query_string__WEBPACK_IMPORTED_MODULE_0__.stringify({
-        url: route('product', this.id),
+        url: this.route('product', this.id),
         description: this.title
       });
       return site + query;
@@ -12417,7 +12427,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     email: function email() {
       this.form.id = this.id;
-      this.form.post(route('share.one'));
+      this.form.post(this.route('share.one'));
     }
   },
   data: function data() {
@@ -12603,7 +12613,7 @@ __webpack_require__.r(__webpack_exports__);
         this.loading = true;
         this.bag.size = this.sizes[index];
         this.bag.product = this.wishlist[index].product.id;
-        return this.$inertia.post(route('bag.add'), this.bag, {
+        return this.$inertia.post(this.route('bag.add'), this.bag, {
           onSuccess: function onSuccess() {
             _this2.loading = false;
             _this2.bag.product = null;
@@ -12686,8 +12696,30 @@ _inertiajs_progress__WEBPACK_IMPORTED_MODULE_1__.InertiaProgress.init();
         app = _ref.app,
         props = _ref.props,
         plugin = _ref.plugin;
-    vue__WEBPACK_IMPORTED_MODULE_3__["default"].use(plugin).mixin(mixin);
-    new vue__WEBPACK_IMPORTED_MODULE_3__["default"]({
+    vue__WEBPACK_IMPORTED_MODULE_3__["default"].use(plugin).mixin({
+      computed: {
+        getBagTotal: function getBagTotal() {
+          var total = 0;
+          this.$page.props.bag.forEach(function (item) {
+            var price = item.product.discount ? item.product.price * item.product.discount / 100 : item.product.price;
+            total += price * item.qty;
+          });
+          return total;
+        }
+      },
+      methods: {
+        route: route,
+        getFormatedPrice: function getFormatedPrice(price) {
+          var discount = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+          var value = discount ? price * discount / 100 : price;
+          return new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'USD'
+          }).format(value);
+        }
+      }
+    });
+    return new vue__WEBPACK_IMPORTED_MODULE_3__["default"]({
       render: function render(h) {
         return h(app, props);
       }
@@ -60983,10 +61015,7 @@ var render = function () {
                           "a",
                           {
                             staticClass: "nav-link",
-                            attrs: {
-                              href: _vm.route("voyager.dashboard"),
-                              target: "_blank",
-                            },
+                            attrs: { href: "/admin", target: "_blank" },
                           },
                           [_vm._v("DASHBOARD")]
                         ),
@@ -63601,10 +63630,7 @@ var render = function () {
                           "a",
                           {
                             staticClass: "nav-link px-3 px-sm-5",
-                            attrs: {
-                              href: _vm.route("voyager.dashboard"),
-                              target: "_blank",
-                            },
+                            attrs: { href: "/admin", target: "_blank" },
                           },
                           [_vm._v("DASHBOARD")]
                         ),

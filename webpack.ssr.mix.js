@@ -5,14 +5,15 @@ const webpackNodeExternals = require('webpack-node-externals')
 mix.options({ manifest: false })
 	.js('resources/js/ssr.js', 'public/js')
 	.vue({
+		useVueStyleLoader: true,
 		version: 2,
 		options: {
 			optimizeSSR: true
 		}
 	})
 	.alias({
-		'@': path.resolve('resources/js'),
 		ziggy: path.resolve('vendor/tightenco/ziggy/src/js'),
+		'@': path.resolve('resources/js'),
 	})
 	.webpackConfig({
 		target: 'node',

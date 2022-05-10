@@ -71,14 +71,14 @@
 			facebook() {
 				var site = 'https://www.facebook.com/sharer.php?'
 				var query = qs.stringify({
-					u: route('product', this.id),
+					u: this.route('product', this.id),
 				})
 				return site + query
 			},
 			twitter() {
 				var site = 'https://www.twitter.com/intent/tweet?'
 				var query = qs.stringify({
-					url: route('product', this.id),
+					url: this.route('product', this.id),
 					text: this.title,
 				})
 				return site + query
@@ -87,7 +87,7 @@
 				var site = 'https://www.linkedin.com/sharing/share-offsite?'
 				var query = qs.stringify({
 					mini: true,
-					url: route('product', this.id),
+					url: this.route('product', this.id),
 					text: this.title,
 				})
 				return site + query
@@ -95,7 +95,7 @@
 			pinterest() {
 				var site = 'https://www.pinterest.com/pin/create/button?'
 				var query = qs.stringify({
-					url: route('product', this.id),
+					url: this.route('product', this.id),
 					description: this.title,
 				})
 				return site + query
@@ -104,7 +104,7 @@
 		methods: {
 			email() {
 				this.form.id = this.id
-				this.form.post(route('share.one'))
+				this.form.post(this.route('share.one'))
 			}
 		},
 		data() {

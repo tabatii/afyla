@@ -1,31 +1,9 @@
 import Vue from 'vue'
+import route from 'ziggy'
+import createServer from '@inertiajs/server'
 import { createInertiaApp } from '@inertiajs/inertia-vue'
 import { createRenderer } from 'vue-server-renderer'
-import createServer from '@inertiajs/server'
-import route from 'ziggy'
 
-var mixin = {
-	computed: {
-		getBagTotal() {
-			var total = 0;
-			this.$page.props.bag.forEach(item => {
-				var price = item.product.discount ? (item.product.price * item.product.discount) / 100 : item.product.price
-				total += price * item.qty
-			})
-			return total
-		}
-	},
-	methods: {
-		route: (name, params, absolute, config = Ziggy) => route(name, params, absolute, config),
-		getFormatedPrice(price, discount = null) {
-			var value = discount ? (price * discount) / 100 : price
-			return new Intl.NumberFormat('en-US', {
-				style: 'currency',
-				currency: 'USD',
-			}).format(value)
-		}
-	}
-}
 
 createServer((page) => createInertiaApp({
 	page,
@@ -34,10 +12,31 @@ createServer((page) => createInertiaApp({
 	resolve: name => require(`./Pages/${name}`),
 	setup({ app, props, plugin }) {
 		const Ziggy = { 
-            ...props.initialPage.props.ziggy,
-            location: new URL(props.initialPage.props.ziggy.url)
+            ...props.props.initialPage.props.ziggy,
+            location: new URL(props.props.initialPage.props.ziggy.url)
         }
-		Vue.use(plugin).mixin(mixin)
+		Vue.use(plugin).mixin({
+			computed: {
+				getBagTotal() {
+					var total = 0;
+					this.$page.props.bag.forEach(item => {
+						var price = item.product.discount ? (item.product.price * item.product.discount) / 100 : item.product.price
+						total += price * item.qty
+					})
+					return total
+				}
+			},
+			methods: {
+				route: (name, params, absolute, config = Ziggy) => route(name, params, absolute, config),
+				getFormatedPrice(price, discount = null) {
+					var value = discount ? (price * discount) / 100 : price
+					return new Intl.NumberFormat('en-US', {
+						style: 'currency',
+						currency: 'USD',
+					}).format(value)
+				}
+			}
+		})
 		return new Vue({
 			render: h => h(app, props),
 		})

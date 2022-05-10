@@ -6,7 +6,7 @@
 					<div class="py-5">
 						<ul class="nav flex-column">
 							<li class="nav-item" v-if="admin">
-								<a :href="route('voyager.dashboard')" class="nav-link px-3 px-sm-5" target="_blank">DASHBOARD</a>
+								<a href="/admin" class="nav-link px-3 px-sm-5" target="_blank">DASHBOARD</a>
 							</li>
 							<li class="nav-item" :class="{'bg-secondary': route().current() === 'profile'}">
 								<l :href="route('profile')" class="nav-link px-3 px-sm-5">PROFILE</l>

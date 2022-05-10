@@ -127,7 +127,7 @@
 				}).toISOString()
 			},
 			edit() {
-				this.form.put(route('profile'), {
+				this.form.put(this.route('profile'), {
 					preserveScroll: true,
 					onSuccess: () => {
 						this.showform = false

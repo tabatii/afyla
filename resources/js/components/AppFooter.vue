@@ -86,7 +86,7 @@
 		},
 		methods: {
 			subscribe() {
-				this.subscription.post(route('subscription.add'), {
+				this.subscription.post(this.route('subscription.add'), {
 					preserveScroll: true,
 					onSuccess: () => {
 						this.subscription.reset()

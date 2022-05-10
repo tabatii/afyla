@@ -160,7 +160,7 @@
 						<p class="px-3 mb-4">WE HOPE YOU'RE DOING WELL.</p>
 					</li>
 					<li class="nav-item" v-if="admin">
-						<a :href="route('voyager.dashboard')" class="nav-link" target="_blank">DASHBOARD</a>
+						<a href="/admin" class="nav-link" target="_blank">DASHBOARD</a>
 					</li>
 					<li class="nav-item">
 						<l :href="route('profile')" class="nav-link underline">MY AFYLA ACCOUNT</l>

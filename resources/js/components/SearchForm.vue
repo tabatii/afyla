@@ -136,7 +136,7 @@
 		watch: {
 			search(newValue) {
 				var search = newValue
-				axios.get(route('search', {search})).then(response => {
+				axios.get(this.route('search', {search})).then(response => {
 					this.products = response.data.products
 					this.colors = response.data.colors
 					this.cats = response.data.categories

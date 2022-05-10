@@ -90,7 +90,7 @@
 		},
 		methods: {
 			send() {
-				this.form.post(route('contact'), {
+				this.form.post(this.route('contact'), {
 					preserveScroll: true,
 					onSuccess: () => this.form.reset()
 				})

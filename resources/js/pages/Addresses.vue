@@ -143,7 +143,7 @@
 				this.formshow = true
 			},
 			add() {
-				this.form.post(route('address.add'), {
+				this.form.post(this.route('address.add'), {
 					preserveScroll: true,
 					onSuccess: () => {
 						this.reset()
@@ -151,7 +151,7 @@
 				})
 			},
 			edit() {
-				this.form.put(route('address.edit', this.addresses[this.selected].id), {
+				this.form.put(this.route('address.edit', this.addresses[this.selected].id), {
 					preserveScroll: true,
 					onSuccess: () => {
 						this.reset()
@@ -159,7 +159,7 @@
 				})
 			},
 			remove(id) {
-				this.$inertia.delete(route('address.delete', id), {
+				this.$inertia.delete(this.route('address.delete', id), {
 					preserveScroll: true,
 				})
 			}

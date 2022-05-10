@@ -63,7 +63,7 @@
 			deleteFromBag(id) {
 				if (this.loading === false) {
 					this.loading = true
-					this.$inertia.delete(route('bag.delete', id), {
+					this.$inertia.delete(this.route('bag.delete', id), {
 						onSuccess: () => {
 							this.loading = false
 						}
@@ -73,7 +73,7 @@
 			plus(id) {
 				if (this.loading === false) {
 					this.loading = true
-					this.$inertia.patch(route('bag.plus', id), {}, {
+					this.$inertia.patch(this.route('bag.plus', id), {}, {
 						onSuccess: () => {
 							this.loading = false
 						}
@@ -83,7 +83,7 @@
 			minus(id) {
 				if (this.loading === false) {
 					this.loading = true
-					this.$inertia.patch(route('bag.minus', id), {}, {
+					this.$inertia.patch(this.route('bag.minus', id), {}, {
 						onSuccess: () => {
 							this.loading = false
 						}

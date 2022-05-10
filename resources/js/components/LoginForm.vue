@@ -50,7 +50,7 @@
 		},
 		methods: {
 			send() {
-				this.forgot.post(route('password.send'), {
+				this.forgot.post(this.route('password.send'), {
 					onSuccess: () => {
 						this.tab = false
 						this.sent = true

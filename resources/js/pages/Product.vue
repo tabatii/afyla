@@ -390,7 +390,7 @@
 			addToBag() {
 				if (this.getSizeQty) {
 					this.loading = true
-					return this.$inertia.post(route('bag.add'), {
+					return this.$inertia.post(this.route('bag.add'), {
 						product: this.product.id,
 						size: this.size,
 						qty: this.qty,
@@ -407,7 +407,7 @@
 			addToWishlist(id) {
 				if (this.loading === false) {
 					this.loading = true
-					this.$inertia.post(route('wishlist.toggle', id), {}, {
+					this.$inertia.post(this.route('wishlist.toggle', id), {}, {
 						preserveScroll: true,
 						onSuccess: () => {
 							this.loading = false

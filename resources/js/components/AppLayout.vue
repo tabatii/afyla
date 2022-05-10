@@ -83,7 +83,7 @@
 				this.cookies = Cookies.get('cookies-popup')
 			},
 			subscribe() {
-				this.form.post(route('subscription.add'), {
+				this.form.post(this.route('subscription.add'), {
 					onSuccess: () => {
 						this.form.reset()
 						this.closeNewsletter()
@@ -93,13 +93,17 @@
 		},
 		data() {
 			return {
-				newsletter: Cookies.get('newsletter-popup'),
-				cookies: Cookies.get('cookies-popup'),
+				newsletter: null,
+				cookies: null,
 				popup: true,
 				form: this.$inertia.form({
 					email: null,
 				})
 			}
+		},
+		mounted() {
+			this.newsletter = Cookies.get('newsletter-popup')
+			this.cookies = Cookies.get('cookies-popup')
 		}
 	}
 </script>

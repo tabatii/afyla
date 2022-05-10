@@ -96,7 +96,7 @@
 		methods: {
 			deleteFromBag(id) {
 				this.loading = true
-				this.$inertia.delete(route('bag.delete', id), {
+				this.$inertia.delete(this.route('bag.delete', id), {
 					preserveScroll: true,
 					onSuccess: () => {
 						this.loading = false
@@ -106,7 +106,7 @@
 			plus(id) {
 				if (this.loading === false) {
 					this.loading = true
-					this.$inertia.patch(route('bag.plus', id), {}, {
+					this.$inertia.patch(this.route('bag.plus', id), {}, {
 						preserveScroll: true,
 						onSuccess: () => {
 							this.loading = false
@@ -117,7 +117,7 @@
 			minus(id) {
 				if (this.loading === false) {
 					this.loading = true
-					this.$inertia.patch(route('bag.minus', id), {}, {
+					this.$inertia.patch(this.route('bag.minus', id), {}, {
 						preserveScroll: true,
 						onSuccess: () => {
 							this.loading = false
@@ -128,7 +128,7 @@
 			size(id, event) {
 				if (this.loading === false) {
 					this.loading = true
-					this.$inertia.patch(route('bag.size', id), {size: event.target.value}, {
+					this.$inertia.patch(this.route('bag.size', id), {size: event.target.value}, {
 						preserveScroll: true,
 						onSuccess: () => {
 							this.loading = false

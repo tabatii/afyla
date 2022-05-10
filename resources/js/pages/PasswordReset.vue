@@ -38,7 +38,7 @@
 		},
 		methods: {
 			reset() {
-				this.form.post(route('password.update'), {
+				this.form.post(this.route('password.update'), {
 					preserveScroll: true,
 				})
 			}
@@ -46,12 +46,16 @@
 		data() {
 			return {
 				form: this.$inertia.form({
+					token: null,
+					email: null,
 					password: null,
 					password_confirmation: null,
-					email: route().params.email,
-					token: route().params.token,
 				})
 			}
+		},
+		created() {
+			this.form.token = this.route().params.token
+			this.form.email = this.route().params.email
 		}
 	}
 </script>

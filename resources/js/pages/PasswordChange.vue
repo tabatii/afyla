@@ -34,7 +34,7 @@
 		},
 		methods: {
 			change() {
-				this.form.patch(route('password'), {
+				this.form.patch(this.route('password'), {
 					preserveScroll: true,
 					onSuccess: () => {
 						this.form.reset()

@@ -1,8 +1,9 @@
 Wishlist page (copy link, email when available, login alert, save on login)
 Bag page (save on login)
+Product page (zoom)
+PopUp scroll
 
 Slider Control
-Product page (zoom)
 Seo changes (including ssr)
 Print
 
