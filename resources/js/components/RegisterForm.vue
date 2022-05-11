@@ -23,7 +23,7 @@
 			<div class="mb-3">
 				<select class="form-select input" v-model="register.country">
 					<option :value="null" selected>Country</option>
-					<option :value="country.name" v-text="country.name" v-for="(country, code) in countries" :key="code"></option>
+					<option :value="country.name" v-text="country.name" v-for="(country, code) in countries" :key="Math.random()"></option>
 				</select>
 				<small class="text-danger" v-text="register.errors.country"></small>
 			</div>
@@ -32,22 +32,22 @@
 					<div class="col-12">
 						<small class="fw-medium">WE WOULD LOVE TO KNOW YOUR BIRTHDAY</small>
 					</div>
-					<div class="col-4">
+					<div class="col-sm-4 mb-1 mb-sm-0">
 						<select class="form-select" v-model="date.day" @change="setBirthday">
 							<option :value="null" selected>Day</option>
-							<option :value="n" v-text="n" v-for="n in 31" :key="n"></option>
+							<option :value="n" v-text="n" v-for="n in 31" :key="Math.random()"></option>
 						</select>
 					</div>
-					<div class="col-4">
+					<div class="col-sm-4 mb-1 mb-sm-0">
 						<select class="form-select" v-model="date.month" @change="setBirthday">
 							<option :value="null" selected>Month</option>
-							<option :value="n-1" v-text="n" v-for="n in 12" :key="n"></option>
+							<option :value="n-1" v-text="n" v-for="n in 12" :key="Math.random()"></option>
 						</select>
 					</div>
-					<div class="col-4">
+					<div class="col-sm-4 mb-1 mb-sm-0">
 						<select class="form-select" v-model="date.year" @change="setBirthday">
 							<option :value="null" selected>Year</option>
-							<option :value="n" v-text="n" v-for="n in years" :key="n"></option>
+							<option :value="n" v-text="n" v-for="n in years" :key="Math.random()"></option>
 						</select>
 					</div>
 				</div>

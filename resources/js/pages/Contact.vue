@@ -20,7 +20,7 @@
 						<div class="col-sm-6">
 							<label>TOPIC*</label>
 							<select class="form-select border shadow-none py-3" v-model="form.topic">
-								<option :value="t" v-text="t" v-for="t in topics" :key="t"></option>
+								<option :value="t" v-text="t" v-for="t in topics" :key="Math.random()"></option>
 							</select>
 							<small class="text-danger" v-text="form.errors.topic"></small>
 						</div>

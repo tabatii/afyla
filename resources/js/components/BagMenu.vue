@@ -6,7 +6,7 @@
 		</div>
 		<div v-else>
 			<div class="p-4">
-				<div class="d-flex mb-3" v-for="(item, i) in bag" :key="i">
+				<div class="d-flex mb-3" v-for="(item, i) in bag" :key="Math.random()">
 					<div style="width:20%">
 						<img :src="item.product.gallery[0]" class="d-block w-100" />
 					</div>

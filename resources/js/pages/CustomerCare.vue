@@ -89,7 +89,7 @@
 						<div class="tab-pane fade" id="follow-order">
 							<p class="fw-medium mb-2">Enter your order number to see all the details and information.</p>
 							<div class="row">
-								<div class="col-sm-10">
+								<div class="col-sm-10 mb-2 mb-sm-0">
 									<input type="text" class="form-control bg-primary border-dark" />
 								</div>
 								<div class="col-sm-2">

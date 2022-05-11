@@ -10,14 +10,14 @@
 				<div class="offcanvas-body">
 					<div class="px-1">
 						<div class="mb-4" v-if="selected.categories.length === 0">
-							<div class="form-check mb-2" v-for="category in categories" :key="category.id">
+							<div class="form-check mb-2" v-for="category in categories" :key="Math.random()">
 								<input type="checkbox" class="form-check-input" :id="category.slug" :value="category.id" v-model="params.categories" />
 								<label class="form-check-label" :for="category.slug" v-text="category.name"></label>
 							</div>
 						</div>
 						<div class="mb-4" v-else>
-							<div v-for="id in selected.categories" :key="id">
-								<div class="form-check mb-2" v-for="sub in categories.find(item => item.id == id).sub_categories" :key="sub.id">
+							<div v-for="id in selected.categories" :key="Math.random()">
+								<div class="form-check mb-2" v-for="sub in categories.find(item => item.id == id).sub_categories" :key="Math.random()">
 									<input type="checkbox" class="form-check-input" :id="sub.slug" :value="sub.id" v-model="params.subs" />
 									<label class="form-check-label" :for="sub.slug" v-text="sub.name"></label>
 								</div>
@@ -39,7 +39,7 @@
 					<div>
 						<h6 class="fs-4 fw-light mb-2">Color</h6>
 						<div class="row g-0 px-1 mb-4">
-							<div class="col-6" v-for="color in colors" :key="color.id">
+							<div class="col-6" v-for="color in colors" :key="Math.random()">
 								<div class="form-check mb-2">
 									<input type="checkbox" class="form-check-input" :id="color.slug" :value="color.id" v-model="params.colors" style="border-color:rgba(0, 0, 0, 0.25)" :style="{backgroundColor:color.hex}" />
 									<label class="form-check-label" :for="color.slug" v-text="color.name"></label>
@@ -48,7 +48,7 @@
 						</div>
 						<h6 class="fs-4 fw-light mb-2">Material</h6>
 						<div class="row px-1 g-0 mb-4">
-							<div class="col-6" v-for="material in materials" :key="material.id">
+							<div class="col-6" v-for="material in materials" :key="Math.random()">
 								<div class="form-check mb-2">
 									<input type="checkbox" class="form-check-input" :id="material.slug" :value="material.id" v-model="params.materials" />
 									<label class="form-check-label" :for="material.slug" v-text="material.name"></label>
@@ -57,7 +57,7 @@
 						</div>
 						<h6 class="fs-4 fw-light mb-2">Collection</h6>
 						<div class="row px-1 g-0 mb-4">
-							<div class="col-12" v-for="collection in collections" :key="collection.id">
+							<div class="col-12" v-for="collection in collections" :key="Math.random()">
 								<div class="form-check mb-2">
 									<input type="checkbox" class="form-check-input" :id="collection.id" :value="collection.id" v-model="params.collections" />
 									<label class="form-check-label" :for="collection.id" v-text="collection.title"></label>
@@ -66,7 +66,7 @@
 						</div>
 						<h6 class="fs-4 fw-light mb-2">Size</h6>
 						<div class="row px-1 g-0 mb-4">
-							<div class="col-6" v-for="size in sizes" :key="size.id">
+							<div class="col-6" v-for="size in sizes" :key="Math.random()">
 								<div class="form-check mb-2">
 									<input type="checkbox" class="form-check-input" :id="size.slug" :value="size.id" v-model="params.sizes" />
 									<label class="form-check-label" :for="size.slug" v-text="size.name"></label>
@@ -88,7 +88,7 @@
 				<div class="offcanvas-body">
 					<div class="px-1">
 						<div class="mb-4">
-							<div class="" v-for="(text, key) in sort" :key="key">
+							<div class="" v-for="(text, key) in sort" :key="Math.random()">
 								<span class="pointer fs-5" :class="{'fw-bold': params.sort === key}" v-text="text" @click="sortBy(key)"></span>
 							</div>
 						</div>
@@ -98,7 +98,7 @@
 			<div class="container mb-5">
 				<div class="py-5">
 					<h1 class="fs-2 text-center mb-4">OUR PRODUCTS</h1>
-					<div class="d-flex justify-content-sm-end flex-wrap mb-3">
+					<div class="d-flex justify-content-sm-end flex-column flex-sm-row mb-3">
 						<span class="pointer fw-medium me-3 me-sm-5" data-bs-toggle="offcanvas" data-bs-target="#categories">
 							<i class="bi bi-list-check"></i> CATEGORIES <i class="bi bi-caret-down-fill"></i>
 						</span>
@@ -118,34 +118,34 @@
 							<span style="font-size:.8rem">SPECIAL PRICES</span>
 							<span class="pointer fs-6" @click="remove('discounts')">&times;</span>
 						</span>
-						<span class="badge bg-primary text-dark py-2 me-2 mb-2" v-for="(category, i) in selected.categories" :key="category">
+						<span class="badge bg-primary text-dark py-2 me-2 mb-2" v-for="(category, i) in selected.categories" :key="Math.random()">
 							<span style="font-size:.8rem">{{ getNameById('categories.name', category) }}</span>
 							<span class="pointer fs-6" @click="remove('categories', i)">&times;</span>
 						</span>
-						<span class="badge bg-primary text-dark py-2 me-2 mb-2" v-for="(sub, i) in selected.subs" :key="sub">
+						<span class="badge bg-primary text-dark py-2 me-2 mb-2" v-for="(sub, i) in selected.subs" :key="Math.random()">
 							<span style="font-size:.8rem">{{ getNameById('subs.name', sub) }}</span>
 							<span class="pointer fs-6" @click="remove('subs', i)">&times;</span>
 						</span>
-						<span class="badge bg-primary text-dark py-2 me-2 mb-2" v-for="(color, i) in selected.colors" :key="color">
+						<span class="badge bg-primary text-dark py-2 me-2 mb-2" v-for="(color, i) in selected.colors" :key="Math.random()">
 							<span style="font-size:.8rem">{{ getNameById('colors.name', color) }}</span>
 							<span class="pointer fs-6" @click="remove('colors', i)">&times;</span>
 						</span>
-						<span class="badge bg-primary text-dark py-2 me-2 mb-2" v-for="(material, i) in selected.materials" :key="material">
+						<span class="badge bg-primary text-dark py-2 me-2 mb-2" v-for="(material, i) in selected.materials" :key="Math.random()">
 							<span style="font-size:.8rem">{{ getNameById('materials.name', material) }}</span>
 							<span class="pointer fs-6" @click="remove('materials', i)">&times;</span>
 						</span>
-						<span class="badge bg-primary text-dark py-2 me-2 mb-2" v-for="(collection, i) in selected.collections" :key="collection">
+						<span class="badge bg-primary text-dark py-2 me-2 mb-2" v-for="(collection, i) in selected.collections" :key="Math.random()">
 							<span style="font-size:.8rem">{{ getNameById('collections.title', collection) }}</span>
 							<span class="pointer fs-6" @click="remove('collections', i)">&times;</span>
 						</span>
-						<span class="badge bg-primary text-dark py-2 me-2 mb-2" v-for="(size, i) in selected.sizes" :key="size">
+						<span class="badge bg-primary text-dark py-2 me-2 mb-2" v-for="(size, i) in selected.sizes" :key="Math.random()">
 							<span style="font-size:.8rem">{{ getNameById('sizes.name', size) }}</span>
 							<span class="pointer fs-6" @click="remove('sizes', i)">&times;</span>
 						</span>
 					</div>
 				</div>
 				<div class="row gy-4">
-					<div class="col-sm-6 col-lg-4" v-for="product in products.data" :key="product.id">
+					<div class="col-sm-6 col-lg-4" v-for="product in products.data" :key="Math.random()">
 						<div class="product">
 							<div class="gallery">
 								<div :id="'gallery'+product.id" class="carousel carousel-dark slide" data-bs-ride="carousel" data-bs-interval="false">
@@ -167,7 +167,7 @@
 									<i class="bi fs-3" :class="[searchWishlist(product.id) ? 'bi-heart-fill text-danger' : 'bi-heart']"></i>
 								</span>
 								<div class="colors">
-									<span class="me-2 shadow" :style="{backgroundColor:c.color.hex}" v-for="c in product.colors" :key="c.id"></span>
+									<span class="me-2 shadow" :style="{backgroundColor:c.color.hex}" v-for="c in product.colors" :key="Math.random()"></span>
 								</div>
 							</div>
 							<div class="py-3">
@@ -181,7 +181,7 @@
 								</div>
 								<div class="d-flex">
 									<div class="d-flex me-auto">
-										<div class="text-dark me-2" v-for="s in product.sizes" :key="s.id" v-if="s.qty !== null">
+										<div class="text-dark me-2" v-for="s in product.sizes" :key="Math.random()" v-if="s.qty !== null">
 											<del class="text-muted" v-text="s.size.name" v-if="s.qty === 0"></del>
 											<span v-text="s.size.name" v-else></span>
 										</div>
@@ -198,7 +198,7 @@
 					<li class="page-item">
 						<span class="page-link text-dark pointer disabled" @click="paginate(products.current_page - 1)">&laquo;</span>
 					</li>
-					<li class="page-item" :class="{active: (params.page === null && p === 1) || p == params.page}" v-for="p in products.last_page" :key="p">
+					<li class="page-item" :class="{active: (params.page === null && p === 1) || p == params.page}" v-for="p in products.last_page" :key="Math.random()">
 						<span class="page-link text-dark pointer pointer" v-text="p" @click="paginate(p)"></span>
 					</li>
 					<li class="page-item">

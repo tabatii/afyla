@@ -58,7 +58,7 @@
 								<l :href="route('shop')" class="nav-link text-dark underline-hover mx-lg-2" @click.prevent>SHOP</l>
 								<ul class="dropdown-menu">
 									<li><l :href="route('shop')" class="dropdown-item underline-hover">VIEW ALL</l></li>
-									<li v-for="category in categories" :key="category.id">
+									<li v-for="category in categories" :key="Math.random()">
 										<l :href="route('shop', {categories: [category.id]})" class="dropdown-item underline-hover">
 											{{ category.name }}
 										</l>
@@ -71,7 +71,7 @@
 							<li class="nav-item dropdown dropdown-hover">
 								<l :href="route('shop')" class="nav-link text-dark underline-hover mx-lg-2" @click.prevent>COLLECTIONS</l>
 								<ul class="dropdown-menu">
-									<li v-for="collection in collections" :key="collection.id">
+									<li v-for="collection in collections" :key="Math.random()">
 										<l :href="route('collection', collection.id)" class="dropdown-item underline-hover">
 											{{ collection.title }}
 										</l>

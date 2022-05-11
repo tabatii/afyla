@@ -8,7 +8,8 @@
         "hot": "mix watch --hot",
         "prod": "npm run production",
         "production": "mix --production && mix --production --mix-config=webpack.ssr.mix.js",
-        "ssr": "mix && mix --mix-config=webpack.ssr.mix.js"
+        "ssr": "mix && mix --mix-config=webpack.ssr.mix.js",
+        "server": "node public/js/ssr.js"
     },
     "devDependencies": {
         "axios": "^0.25",

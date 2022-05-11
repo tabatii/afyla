@@ -19,7 +19,7 @@
 				<div class="col-sm-6">
 					<select class="form-select border shadow-none py-3" v-model="form.country">
 						<option :value="null">COUNTRY</option>
-						<option :value="country.name" v-text="country.name" v-for="(country, code) in countries" :key="code"></option>
+						<option :value="country.name" v-text="country.name" v-for="(country, code) in countries" :key="Math.random()"></option>
 					</select>
 				</div>
 				<div class="col-sm-8">
@@ -27,19 +27,19 @@
 						<div class="col-sm-4">
 							<select class="form-select border shadow-none py-3" v-model="date.day" @change="setBirthday">
 								<option :value="null" selected>Day</option>
-								<option :value="n" v-text="n" v-for="n in 31" :key="n"></option>
+								<option :value="n" v-text="n" v-for="n in 31" :key="Math.random()"></option>
 							</select>
 						</div>
 						<div class="col-sm-4">
 							<select class="form-select border shadow-none py-3" v-model="date.month" @change="setBirthday">
 								<option :value="null" selected>Month</option>
-								<option :value="n-1" v-text="n" v-for="n in 12" :key="n"></option>
+								<option :value="n-1" v-text="n" v-for="n in 12" :key="Math.random()"></option>
 							</select>
 						</div>
 						<div class="col-sm-4">
 							<select class="form-select border shadow-none py-3" v-model="date.year" @change="setBirthday">
 								<option :value="null" selected>Year</option>
-								<option :value="n" v-text="n" v-for="n in years" :key="n"></option>
+								<option :value="n" v-text="n" v-for="n in years" :key="Math.random()"></option>
 							</select>
 						</div>
 					</div>

@@ -25,7 +25,7 @@
 				<input type="password" class="form-control input" v-model="login.password" placeholder="Password" />
 				<small class="text-danger" v-text="login.errors.password"></small>
 			</div>
-			<div class="d-flex mb-3">
+			<div class="d-flex flex-column flex-sm-row mb-3">
 				<div class="form-check me-auto">
 					<input type="checkbox" class="form-check-input shadow-none" id="remember" v-model="login.remember" />
 					<label class="form-check-label" for="remember" style="user-select:none">REMEMBER ME</label>

@@ -16,7 +16,7 @@
 			<div v-if="search.length === 0">
 				<p class="fw-medium mb-4">SUGGESTIONS</p>
 				<div class="row gy-4">
-					<div class="col-2 text-center" v-for="category in categories" :key="category.id">
+					<div class="col-sm-4 col-lg-2 text-center" v-for="category in categories" :key="Math.random()">
 						<l :href="route('shop', {categories: [category.id]})" class="underline" v-text="category.name"></l>
 						<img :src="category.img" class="d-block w-100 mt-3" />
 					</div>
@@ -31,7 +31,7 @@
 					<div class="mb-5">
 						<p>You can also search here:</p>
 						<ul class="nav flex-column">
-							<li class="nav-item" v-for="category in categories" :key="category.id">
+							<li class="nav-item" v-for="category in categories" :key="Math.random()">
 								<l :href="route('shop', {categories: [category.id]})" class="underline" v-text="category.name"></l>
 							</li>
 						</ul>
@@ -71,10 +71,10 @@
 						<p class="fw-medium">Categories :</p>
 						<p v-if="cats.length === 0 && subs.length === 0">No results were found for the keyword "{{ search }}" in categories</p>
 						<ul class="nav flex-column" v-else>
-							<li class="nav-item" v-for="cat in cats" :key="cat.id">
+							<li class="nav-item" v-for="cat in cats" :key="Math.random()">
 								<l :href="route('shop', {categories: [cat.id]})" class="underline" v-text="cat.name"></l>
 							</li>
-							<li class="nav-item" v-for="sub in subs" :key="sub.id">
+							<li class="nav-item" v-for="sub in subs" :key="Math.random()">
 								<l :href="route('shop', {subs: [sub.id]})" class="underline" v-text="sub.name"></l>
 							</li>
 						</ul>
@@ -83,7 +83,7 @@
 						<p class="fw-medium">Products :</p>
 						<p v-if="products.length === 0">No results were found for the keyword "{{ search }}" in products</p>
 						<div class="row gy-3" v-else>
-							<div class="col-md-6 col-lg-4 col-xl-3" v-for="product in products" :key="product.id">
+							<div class="col-md-6 col-lg-4 col-xl-3" v-for="product in products" :key="Math.random()">
 								<a :href="route('product', product.id)" class="row g-0">
 									<div class="col-md-4 col-xl-3">
 										<img :src="product.gallery[0]" class="d-block w-100" />
@@ -99,7 +99,7 @@
 						<p class="fw-medium">Colors :</p>
 						<p v-if="colors.length === 0">No results were found for the keyword "{{ search }}" in colors</p>
 						<ul class="nav flex-column">
-							<li class="nav-item d-flex align-items-center mb-1" v-for="color in colors" :key="color.id">
+							<li class="nav-item d-flex align-items-center mb-1" v-for="color in colors" :key="Math.random()">
 								<span class="me-2" :style="{backgroundColor: color.hex}"></span>
 								<l :href="route('shop', {colors: [color.id]})" class="fw-medium" v-text="color.name"></l>
 							</li>

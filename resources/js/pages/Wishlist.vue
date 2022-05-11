@@ -76,38 +76,40 @@
 				<div class="pt-5 pb-3">
 					<div class="d-flex align-items-center flex-wrap mb-3">
 						<span class="fw-medium fs-5 me-auto">{{ wishlist.length }} Item(s)</span>
-						<div class="me-4">
-							<span class="pointer" v-if="!share" @click="share = true">
-								<i class="bi bi-share-fill fs-4"></i>
-							</span>
-							<div class="d-flex align-items-center rounded shadow-sm bg-light px-3 py-1" v-else>
-								<span class="pointer text-muted underline me-4">COPY LINK</span>
-								<span class="pointer me-2" data-bs-toggle="modal" data-bs-target="#shareAll">
-									<i class="bi bi-envelope pointer fs-5"></i>
+						<div class="d-flex align-items-center flex-wrap">
+							<div class="me-4">
+								<span class="pointer" v-if="!share" @click="share = true">
+									<i class="bi bi-share-fill fs-4"></i>
 								</span>
-								<button type="button" class="btn-close" @click="share = false"></button>
+								<div class="d-flex align-items-center rounded shadow-sm bg-light px-3 py-1" v-else>
+									<span class="pointer text-muted underline me-4">COPY LINK</span>
+									<span class="pointer me-2" data-bs-toggle="modal" data-bs-target="#shareAll">
+										<i class="bi bi-envelope pointer fs-5"></i>
+									</span>
+									<button type="button" class="btn-close" @click="share = false"></button>
+								</div>
 							</div>
-						</div>
-						<div class="d-flex align-items-center">
-							<span class="fw-medium me-2">Sort by</span>
-							<div class="dropdown">
-								<button type="button" class="btn btn-primary shadow-none" data-bs-toggle="dropdown" aria-expanded="false">
-									<span v-text="sort[params.sort]"></span>
-									<i class="bi bi-caret-down-fill"></i>
-								</button>
-								<ul class="dropdown-menu dropdown-menu-end shadow-sm">
-									<li v-for="(text, key) in sort">
-										<span class="dropdown-item pointer text-dark" @click="params.sort = key">
-											<i class="bi bi-check" :class="{show: params.sort === key}"></i> {{ text }}
-										</span>
-									</li>
-								</ul>
+							<div class="d-flex align-items-center">
+								<span class="fw-medium me-2">Sort by</span>
+								<div class="dropdown">
+									<button type="button" class="btn btn-primary shadow-none" data-bs-toggle="dropdown" aria-expanded="false">
+										<span v-text="sort[params.sort]"></span>
+										<i class="bi bi-caret-down-fill"></i>
+									</button>
+									<ul class="dropdown-menu dropdown-menu-end shadow-sm">
+										<li v-for="(text, key) in sort">
+											<span class="dropdown-item pointer text-dark" @click="params.sort = key">
+												<i class="bi bi-check" :class="{show: params.sort === key}"></i> {{ text }}
+											</span>
+										</li>
+									</ul>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="row gy-4">
-					<div class="col-sm-6 col-lg-4 col-xl-3" v-for="(item, i) in sorted" :key="item.product.id">
+					<div class="col-sm-6 col-lg-4 col-xl-3" v-for="(item, i) in sorted" :key="Math.random()">
 						<div class="product position-relative">
 							<img :src="item.product.gallery[0]" class="d-block w-100 pointer" @click="open(i)" />
 							<div class="bag shadow" :class="{show: card === i}">
@@ -123,20 +125,20 @@
 								<div class="mb-4">
 									<div class="d-flex mb-1">
 										<span class="me-2">Color:</span>
-										<span class="text-muted me-1" v-for="(c, i) in item.product.colors" :key="c.id">
+										<span class="text-muted me-1" v-for="(c, i) in item.product.colors" :key="Math.random()">
 											{{ c.color.name }}<span v-if="i+1 !== item.product.colors.length">,</span>
 										</span>
 									</div>
 									<div class="d-flex mb-1">
 										<span class="me-2">Material:</span>
-										<span class="text-muted me-1" v-for="(c, i) in item.product.materials" :key="c.id">
+										<span class="text-muted me-1" v-for="(c, i) in item.product.materials" :key="Math.random()">
 											{{ c.material.name }}<span v-if="i+1 !== item.product.materials.length">,</span>
 										</span>
 									</div>
 									<div class="d-flex align-items-center flex-wrap">
 										<span class="me-2">Size:</span>
 										<select class="form-select input py-0 me-3" style="max-width:70px" v-model="bag.size">
-											<option :value="s.size_id" v-if="s.qty !== null" v-for="s in item.product.sizes" :key="s.id">
+											<option :value="s.size_id" v-if="s.qty !== null" v-for="s in item.product.sizes" :key="Math.random()">
 												{{ s.size.name }}
 											</option>
 										</select>

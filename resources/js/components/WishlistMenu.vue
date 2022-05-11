@@ -18,7 +18,7 @@
 		</div>
 		<div v-else>
 			<div class="p-4">
-				<div class="d-flex mb-3" v-for="(item, i) in wishlist" :key="i">
+				<div class="d-flex mb-3" v-for="(item, i) in wishlist" :key="Math.random()">
 					<div style="width:20%">
 						<img :src="item.product.gallery[0]" class="d-block w-100" />
 					</div>
@@ -34,7 +34,7 @@
 						<div class="d-flex mb-3">
 							<span class="me-2">Size:</span>
 							<select class="form-select input py-0" style="max-width:70px" v-model="sizes[i]">
-								<option :value="s.size_id" v-if="s.qty !== null" v-for="s in item.product.sizes" :key="s.id">
+								<option :value="s.size_id" v-if="s.qty !== null" v-for="s in item.product.sizes" :key="Math.random()">
 									{{ s.size.name }}
 								</option>
 							</select>

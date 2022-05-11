@@ -76,7 +76,7 @@
 					<div class="col-lg-5">
 						<div class="carousel carousel-dark slide" id="gallery" data-bs-ride="carousel" data-bs-interval="false">
 							<div class="carousel-inner">
-								<div class="carousel-item" :class="{active: i===0}" v-for="(img, i) in product.gallery" :key="i">
+								<div class="carousel-item" :class="{active: i===0}" v-for="(img, i) in product.gallery" :key="Math.random()">
 									<img :src="img" class="d-block w-100 mx-auto" />
 								</div>
 							</div>
@@ -91,10 +91,10 @@
 						</div>
 					</div>
 					<div class="col-lg-7 col-xl-6">
-						<div class="d-flex align-items-baseline flex-column flex-sm-row">
-							<h1 class="fs-2 me-auto" v-text="product.title"></h1>
-							<div class="flex-shrink-0">
-								<span class="text-muted me-3">REF: PRODUCT1288556</span>
+						<div class="d-flex flex-column flex-sm-row">
+							<h1 class="fs-2 me-sm-auto mb-0" v-text="product.title"></h1>
+							<div class="d-flex align-items-baseline flex-shrink-0">
+								<span class="text-muted me-auto me-sm-3">REF: {{ product.sku }}</span>
 								<span class="pointer" @click="addToWishlist(product.id)">
 									<i class="bi fs-3" :class="searchWishlist(product.id) ? 'bi-heart-fill text-danger' : 'bi-heart'"></i>
 								</span>
@@ -104,7 +104,7 @@
 						<p class="mb-5" v-text="product.overview"></p>
 						<div class="d-flex align-items-baseline flex-wrap mb-4">
 							<span class="fw-medium me-sm-3">Size:</span>
-							<button type="button" class="btn text-dark" :class="[s.size_id === size ? 'btn-primary' : 'btn-link']" v-for="s in product.sizes" :key="s.id" v-if="s.qty !== null" @click="size = s.size_id">
+							<button type="button" class="btn text-dark" :class="[s.size_id === size ? 'btn-primary' : 'btn-link']" v-for="s in product.sizes" :key="Math.random()" v-if="s.qty !== null" @click="size = s.size_id">
 								<del class="text-muted" v-if="s.qty === 0">{{ s.size.name }}</del>
 								<span v-else>{{ s.size.name }}</span>
 							</button>
@@ -142,7 +142,7 @@
 				<div class="d-flex py-4">
 					<div class="me-auto">
 						<l :href="route('shop')" class="underline me-2">VIEW ALL</l>
-						<l :href="route('shop', {categories: [c.category_id]})" class="underline me-2" v-for="c in product.categories" :key="c.category_id">
+						<l :href="route('shop', {categories: [c.category_id]})" class="underline me-2" v-for="c in product.categories" :key="Math.random()">
 							{{ c.category.name }}
 						</l>
 					</div>
@@ -277,23 +277,25 @@
 		<section class="bg-primary position-relative carousel-dark p-0 p-sm-5">
 			<p class="fs-2 text-center mb-4">YOU MAY ALSO LIKE</p>
 			<div class="glider">
-				<div class="recommendation px-3" v-for="item in product.recommendations" :key="item.product.id">
-					<div class="position-relative">
-						<l :href="route('product', item.product.id)">
-							<img :src="item.product.gallery[0]" class="d-block w-100" />
-						</l>
-						<span class="wishlist" @click="addToWishlist(item.product.id)">
-							<i class="bi fs-3" :class="[searchWishlist(item.product.id) ? 'bi-heart-fill text-danger' : 'bi-heart']"></i>
-						</span>
-					</div>
-					<div class="text-center py-3">
-						<p class="text-dark mb-1" v-text="item.product.title"></p>
-						<p class="fw-medium mb-3">
-							<del class="text-muted me-1" v-text="getFormatedPrice(item.product.price)" v-if="item.product.discount"></del>
-							<span class="text-danger" v-text="getFormatedPrice(item.product.price, item.product.discount)" v-if="item.product.discount"></span>
-							<span v-text="getFormatedPrice(item.product.price)" v-else></span>
-						</p>
-						<l :href="route('product', item.product.id)" class="btn btn-outline-dark">SHOP</l>
+				<div class="glider-track mx-auto">
+					<div class="recommendation px-3" v-for="item in product.recommendations" :key="item.id">
+						<div class="position-relative">
+							<l :href="route('product', item.product.id)">
+								<img :src="item.product.gallery[0]" class="d-block w-100" />
+							</l>
+							<span class="wishlist" @click="addToWishlist(item.product.id)">
+								<i class="bi fs-3" :class="[searchWishlist(item.product.id) ? 'bi-heart-fill text-danger' : 'bi-heart']"></i>
+							</span>
+						</div>
+						<div class="text-center py-3">
+							<p class="text-dark mb-1" v-text="item.product.title"></p>
+							<p class="fw-medium mb-3">
+								<del class="text-muted me-1" v-text="getFormatedPrice(item.product.price)" v-if="item.product.discount"></del>
+								<span class="text-danger" v-text="getFormatedPrice(item.product.price, item.product.discount)" v-if="item.product.discount"></span>
+								<span v-text="getFormatedPrice(item.product.price)" v-else></span>
+							</p>
+							<l :href="route('product', item.product.id)" class="btn btn-outline-dark">SHOP</l>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -433,6 +435,7 @@
 			new Glider(document.querySelector('.glider'), {
 				slidesToScroll: 1,
 				slidesToShow: 1,
+				skipTrack: true,
 				arrows: {
 					prev: '.prev',
 					next: '.next'

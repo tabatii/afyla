@@ -4,7 +4,7 @@
 		<section class="py-5" style="margin-bottom:120px">
 			<div class="container">
 				<div class="row gy-4">
-					<div class="col-4" v-for="item in looks" :key="item.id">
+					<div class="col-sm-6 col-lg-4" v-for="item in looks" :key="Math.random()">
 						<img :src="item.img" class="d-block w-100" />
 						<div class="d-flex align-items-center py-3">
 							<span class="me-auto" v-text="item.title"></span>

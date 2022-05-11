@@ -12,7 +12,7 @@
 					<p>Your shopping bag is empty.</p>
 					<p>Go shopping!</p>
 				</div>
-				<div class="row g-0 mb-3" v-for="item in bag" :key="item.id" v-else>
+				<div class="row g-0 mb-3" v-for="item in bag" :key="Math.random()" v-else>
 					<div class="col-lg-8 col-xl-7 border">
 						<div class="row g-0">
 							<div class="col-sm-4 col-xl-3 p-3">
@@ -28,7 +28,7 @@
 											<span v-text="getFormatedPrice(item.product.price)" v-else></span>
 										</div>
 									</div>
-									<span class="text-muted">reference</span>
+									<span class="text-muted" v-text="item.product.sku"></span>
 								</div>
 								<div class="d-flex align-items-center mb-4">
 									<span class="me-3">Size:</span>
@@ -55,19 +55,19 @@
 						<div class="p-3">
 							<div class="d-flex">
 								<span class="text-muted me-auto">Subtotal:</span>
-								<span class="fw-medium" v-text="getFormatedPrice(getBagTotal)"></span>
+								<span class="fw-medium text-end" v-text="getFormatedPrice(getBagTotal)"></span>
 							</div>
 							<div class="d-flex">
 								<span class="text-muted me-auto">Shipping:</span>
-								<span class="fw-medium">{{ getFormatedPrice(shipping) }} (via FedEx Express Worldwide)</span>
+								<span class="fw-medium text-end">{{ getFormatedPrice(shipping) }} (via FedEx Express Worldwide)</span>
 							</div>
 							<div class="d-flex mb-2">
 								<span class="text-muted me-auto">VAT:</span>
-								<span class="fw-medium" v-text="getFormatedPrice(vat)"></span>
+								<span class="fw-medium text-end" v-text="getFormatedPrice(vat)"></span>
 							</div>
 							<div class="d-flex mb-3">
 								<span class="text-muted me-auto">Total:</span>
-								<span class="text-danger fw-medium" v-text="getFormatedPrice(getBagTotal + shipping + vat)"></span>
+								<span class="text-danger fw-medium text-end" v-text="getFormatedPrice(getBagTotal + shipping + vat)"></span>
 							</div>
 							<div class="d-grid">
 								<button type="button" class="btn btn-primary py-3">CHECKOUT</button>

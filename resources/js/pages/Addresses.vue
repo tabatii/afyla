@@ -8,7 +8,7 @@
 		<hr />
 		<div v-if="formshow === false">
 			<p class="px-3 px-sm-5" v-if="addresses.length === 0">NO SAVED ADDRESSES</p>
-			<div v-for="(address, i) in addresses" :key="address.id" v-else>
+			<div v-for="(address, i) in addresses" :key="Math.random()" v-else>
 				<p class="fw-medium px-3 px-sm-5" v-if="address.default">DEFAULT</p>
 				<div class="row g-0 px-3 px-sm-5">
 					<div class="col-sm-3 mb-4 mb-sm-0">

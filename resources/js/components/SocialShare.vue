@@ -1,5 +1,5 @@
 <template>
-	<div class="bg-light">
+	<div class="bg-light text-start">
 		<div class="modal fade" :id="`shareOne${id}`" tabindex="-1">
 			<div class="modal-dialog">
 				<div class="modal-content bg-primary">
