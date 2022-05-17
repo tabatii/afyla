@@ -42,16 +42,13 @@ class HandleInertiaRequests extends Middleware
     {
         $ziggy = new \Tightenco\Ziggy\Ziggy($group = null, $request->url());
         $fields = ['name', 'email', 'email_verified_at', 'country', 'birthday', 'phone', 'sub', 'created_at'];
+        $cookie = $request->cookie('cookie_id');
         return array_merge(parent::share($request), [
             'ziggy' => $ziggy->toArray(),
             'admin' => $request->user() && $request->user()->hasRole('admin') ? true : false,
             'auth' => $request->user() ? $request->user()->only($fields) : null,
             'categories' => Category::with('subCategories')->get(),
             'collections' => Collection::all(),
-            'bag' => Bag::where('cookie_id', $request->cookie('cookie_id'))
-                        ->with('product.sizes.size', 'size')->get(),
-            'wishlist' => Wishlist::where('cookie_id', $request->cookie('cookie_id'))
-                                  ->with('product.colors.color', 'product.materials.material', 'product.sizes.size')->get(),
             'settings' => [
                 'description' => setting('site.description'),
                 'phone' => setting('contact.phone'),
@@ -66,7 +63,17 @@ class HandleInertiaRequests extends Middleware
             ],
             'flash' => [
                 'auth' => $request->session()->get('auth'),
-            ]
+            ],
+            'bag' => Bag::when(auth()->check(), function ($query) {
+                            $query->where('user_id', auth()->id());
+                        }, function ($query) use ($cookie) {
+                            $query->whereNotNull('cookie_id')->where('cookie_id', $cookie);
+                        })->with('product.sizes.size', 'size')->get(),
+            'wishlist' => Wishlist::when(auth()->check(), function ($query) {
+                            $query->where('user_id', auth()->id());
+                        }, function ($query) use ($cookie) {
+                            $query->whereNotNull('cookie_id')->where('cookie_id', $cookie);
+                        })->with('product.colors.color', 'product.materials.material', 'product.sizes.size')->get(),
         ]);
     }
 }

@@ -1,74 +1,70 @@
 <template>
-	<div class="row">
-		<div class="col-3">
-			<div class="d-grid" style="padding-bottom:2px">
-				<button type="button" class="btn btn-primary shadow-none py-0" :disabled="index < 1" @click="up">
-					<i class="bi bi-caret-up-fill"></i>
-				</button>
-			</div>
-			<img :src="gallery[index]" class="image my-1" @click="active(gallery[index])" />
-			<img :src="gallery[index+1]" class="image my-1" @click="active(gallery[index+1])" />
-			<img :src="gallery[index+2]" class="image my-1" @click="active(gallery[index+2])" />
-			<div class="d-grid" style="padding-top:2px">
-				<button type="button" class="btn btn-primary shadow-none py-0" :disabled="index+3 === gallery.length" @click="down">
-					<i class="bi bi-caret-down-fill"></i>
-				</button>
+	<div class="carousel carousel-dark slide" id="gallery" data-bs-interval="false" data-bs-touch="true" data-bs-ride="carousel">
+		<div class="carousel-inner" id="photoswipe">
+			<div class="carousel-item" :class="{active: i===0}" v-for="(img, i) in gallery" :key="Math.random()">
+				<a :href="img" target="_blank" :data-pswp-height="getHeight(i)" :data-pswp-width="getWidth(i)">
+					<img :src="img" class="d-block w-100 mx-auto" />
+				</a>
 			</div>
 		</div>
-		<div class="col-9">
-			<div ref="zoom">
-				<img :src="gallery[0]" class="d-block w-100" ref="image" />
-			</div>
-		</div>
+		<button type="button" class="carousel-control-prev" data-bs-target="#gallery" data-bs-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="visually-hidden">Previous</span>
+		</button>
+		<button type="button" class="carousel-control-next" data-bs-target="#gallery" data-bs-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="visually-hidden">Next</span>
+		</button>
 	</div>
 </template>
 
 <script>
-	import ImageZoom from 'js-image-zoom'
+	import PhotoSwipeLightbox from 'photoswipe/lightbox'
 	export default {
 		props: {
 			gallery: Array,
 		},
 		methods: {
-			up() {
-				if (this.index > 0) {
-					this.index -= 1
-				}
+			getHeight(i) {
+				return this.dimentions[i] ? this.dimentions[i].height : 1500
 			},
-			down() {
-				if (this.index < this.gallery.length - 3) {
-					this.index += 1
-				}
-			},
-			active(src) {
-				this.$refs.zoom.querySelectorAll('div').forEach(e => e.remove())
-				this.$refs.image.src = src
-				this.zoom()
-			},
-			zoom() {
-				new ImageZoom(this.$refs.zoom, {
-					zoomStyle: 'z-index:1',
-					offset: {
-						horizontal: 24
-					}
-				})
+			getWidth(i) {
+				return this.dimentions[i] ? this.dimentions[i].width : 1000
 			}
 		},
 		data() {
 			return {
-				index: 0,
+				dimentions: [],
 			}
 		},
 		mounted() {
-			this.zoom()
+			this.gallery.forEach((url, i) => {
+				var ImageObject = new Image()
+				ImageObject.src = url
+				ImageObject.onload = () => {
+					this.dimentions.splice(i, 0, {
+						height: ImageObject.height,
+						width: ImageObject.width,
+					})
+				}
+			})
+			new PhotoSwipeLightbox({
+				gallery: '#photoswipe',
+				children: 'a',
+				pswpModule: () => import('photoswipe')
+			}).init()
 		}
 	}
 </script>
 
 <style scoped>
-	.image {
-		display: block;
-		width: 100%;
-		cursor: pointer;
+	a {
+		cursor: zoom-in;
+	}
+	@media (min-width: 992px) {
+		img {
+			height: 520px;
+			width: auto !important;
+		}
 	}
 </style>

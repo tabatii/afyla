@@ -7586,7 +7586,7 @@ __webpack_require__.r(__webpack_exports__);
     h: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_1__.Head
   },
   mounted: function mounted() {
-    new (glider_js__WEBPACK_IMPORTED_MODULE_2___default())(document.querySelector('.glider'), {
+    new (glider_js__WEBPACK_IMPORTED_MODULE_2___default())(this.$refs.glider, {
       slidesToScroll: 1,
       slidesToShow: 1,
       rewind: true,
@@ -7902,12 +7902,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     AppLayout: _components_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"],
-    h: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_1__.Head
+    h: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_1__.Head,
+    l: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_1__.Link
   },
   computed: {
     bag: function bag() {
@@ -7974,6 +7977,275 @@ __webpack_require__.r(__webpack_exports__);
       shipping: 0,
       vat: 20
     };
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Checkout.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Checkout.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _components_NapsCheckout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/NapsCheckout */ "./resources/js/components/NapsCheckout.vue");
+/* harmony import */ var _components_AppLayout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/AppLayout */ "./resources/js/components/AppLayout.vue");
+/* harmony import */ var _components_LoginForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/LoginForm */ "./resources/js/components/LoginForm.vue");
+/* harmony import */ var _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @inertiajs/inertia-vue */ "./node_modules/@inertiajs/inertia-vue/dist/index.js");
+/* harmony import */ var countries_list__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! countries-list */ "./node_modules/countries-list/dist/index.es5.min.js");
+/* harmony import */ var countries_list__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(countries_list__WEBPACK_IMPORTED_MODULE_4__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    NapsCheckout: _components_NapsCheckout__WEBPACK_IMPORTED_MODULE_0__["default"],
+    AppLayout: _components_AppLayout__WEBPACK_IMPORTED_MODULE_1__["default"],
+    LoginForm: _components_LoginForm__WEBPACK_IMPORTED_MODULE_2__["default"],
+    h: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_3__.Head,
+    l: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_3__.Link
+  },
+  props: {
+    addresses: Array
+  },
+  computed: {
+    auth: function auth() {
+      return this.$page.props.auth;
+    },
+    bag: function bag() {
+      return this.$page.props.bag;
+    },
+    countries: function countries() {
+      return countries_list__WEBPACK_IMPORTED_MODULE_4__.countries;
+    },
+    naps: function naps() {
+      return {
+        key: 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAh2q4viqQwzVWCKT1KRPvsiixEoNm8dg95gE7h4OUVuERp9csLKYHM9I9EaQ/SUYwgBBLHOslpe5qbvX3x1oAcksO5BT8SYHmtbgUpH1yZjcU1lI2/M3qyRUb03NQaF6vgxCOLGlLpDQqdg0jxl4ySDYu3bcMQto6J2eRAnIPIZkC/h4GQMwhBheFEHf7uMCqj8uNkNf5yU1Js9/Yj8FGbS1fSYwQ1ZQ7Jr94eUhCuTgjFKYUxD18QIPgYEnYbir4mKagtnF8fv3S1+COsVlUXkix77KGW5SYMbeJJYtOVTs1/Cr+/8eHRf5al5249binOJxWLkANpsZtLNI60i9UUQIDAQAB',
+        cmr: 1012202,
+        gal: 2007,
+        lang: 'EN',
+        name: this.auth ? this.auth.name : "".concat(this.guest.firstname, " ").concat(this.guest.lastname),
+        order: null,
+        amount: this.getBagTotal + this.shipping + this.vat,
+        email: null,
+        operation: null,
+        successURL: null,
+        timeoutURL: null,
+        failURL: null,
+        recallURL: null,
+        phone: this.address.phone,
+        street: this.address.street,
+        city: this.address.city,
+        state: this.address.state,
+        zip: this.address.zip,
+        country: 'MA'
+      };
+    }
+  },
+  data: function data() {
+    return {
+      loading: false,
+      coupon: null,
+      shipping: 0,
+      vat: 20,
+      step: 0,
+      guest: this.$inertia.form({
+        email: null,
+        firstname: null,
+        lastname: null,
+        subscribe: false
+      }),
+      address: this.$inertia.form({
+        firstname: null,
+        lastname: null,
+        phone: null,
+        street: null,
+        city: null,
+        state: null,
+        zip: null,
+        country: null,
+        "default": false
+      })
+    };
+  },
+  created: function created() {
+    this.step = this.auth ? 3 : 1;
   }
 });
 
@@ -9098,6 +9370,19 @@ __webpack_require__.r(__webpack_exports__);
     AppLayout: _components_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"],
     h: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_1__.Head,
     l: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_1__.Link
+  },
+  data: function data() {
+    return {
+      xs: false
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    this.xs = innerWidth < 576 ? true : false;
+    addEventListener('resize', function () {
+      _this.xs = innerWidth < 576 ? true : false;
+    });
   }
 });
 
@@ -9436,11 +9721,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-vue */ "./node_modules/@inertiajs/inertia-vue/dist/index.js");
 /* harmony import */ var _components_AppLayout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/AppLayout */ "./resources/js/components/AppLayout.vue");
 /* harmony import */ var _components_SocialShare__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/SocialShare */ "./resources/js/components/SocialShare.vue");
-/* harmony import */ var _components_QtyField__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/QtyField */ "./resources/js/components/QtyField.vue");
-/* harmony import */ var _components_FindSize__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/FindSize */ "./resources/js/components/FindSize.vue");
-/* harmony import */ var _components_PopUp__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/PopUp */ "./resources/js/components/PopUp.vue");
-/* harmony import */ var glider_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! glider-js */ "./node_modules/glider-js/glider.js");
-/* harmony import */ var glider_js__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(glider_js__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _components_ProductGallery__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/ProductGallery */ "./resources/js/components/ProductGallery.vue");
+/* harmony import */ var _components_QtyField__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/QtyField */ "./resources/js/components/QtyField.vue");
+/* harmony import */ var _components_FindSize__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/FindSize */ "./resources/js/components/FindSize.vue");
+/* harmony import */ var _components_PopUp__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/PopUp */ "./resources/js/components/PopUp.vue");
+/* harmony import */ var glider_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! glider-js */ "./node_modules/glider-js/glider.js");
+/* harmony import */ var glider_js__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(glider_js__WEBPACK_IMPORTED_MODULE_7__);
 //
 //
 //
@@ -9779,16 +10065,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 
 
 
@@ -9804,9 +10081,10 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     AppLayout: _components_AppLayout__WEBPACK_IMPORTED_MODULE_1__["default"],
     SocialShare: _components_SocialShare__WEBPACK_IMPORTED_MODULE_2__["default"],
-    QtyField: _components_QtyField__WEBPACK_IMPORTED_MODULE_3__["default"],
-    FindSize: _components_FindSize__WEBPACK_IMPORTED_MODULE_4__["default"],
-    PopUp: _components_PopUp__WEBPACK_IMPORTED_MODULE_5__["default"],
+    ProductGallery: _components_ProductGallery__WEBPACK_IMPORTED_MODULE_3__["default"],
+    QtyField: _components_QtyField__WEBPACK_IMPORTED_MODULE_4__["default"],
+    FindSize: _components_FindSize__WEBPACK_IMPORTED_MODULE_5__["default"],
+    PopUp: _components_PopUp__WEBPACK_IMPORTED_MODULE_6__["default"],
     h: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_0__.Head,
     l: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_0__.Link
   },
@@ -9885,7 +10163,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
-    new (glider_js__WEBPACK_IMPORTED_MODULE_6___default())(document.querySelector('.glider'), {
+    new (glider_js__WEBPACK_IMPORTED_MODULE_7___default())(this.$refs.glider, {
       slidesToScroll: 1,
       slidesToShow: 1,
       skipTrack: true,
@@ -10633,7 +10911,7 @@ __webpack_require__.r(__webpack_exports__);
     l: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_1__.Link
   },
   mounted: function mounted() {
-    new (glider_js__WEBPACK_IMPORTED_MODULE_2___default())(document.querySelector('.glider'), {
+    new (glider_js__WEBPACK_IMPORTED_MODULE_2___default())(this.$refs.glider, {
       slidesToScroll: 1,
       slidesToShow: 1,
       rewind: true,
@@ -10664,7 +10942,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_FindSize__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/FindSize */ "./resources/js/components/FindSize.vue");
 /* harmony import */ var _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @inertiajs/inertia-vue */ "./node_modules/@inertiajs/inertia-vue/dist/index.js");
 /* harmony import */ var _components_PopUp__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/PopUp */ "./resources/js/components/PopUp.vue");
-/* harmony import */ var query_string__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! query-string */ "./node_modules/query-string/index.js");
+/* harmony import */ var copy_to_clipboard__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! copy-to-clipboard */ "./node_modules/copy-to-clipboard/index.js");
+/* harmony import */ var copy_to_clipboard__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(copy_to_clipboard__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var query_string__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! query-string */ "./node_modules/query-string/index.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -10870,6 +11150,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     AppLayout: _components_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -10912,7 +11193,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         });
         body += "Link: ".concat(_this2.route('product', item.product.id), "\n\n\n");
       });
-      return 'mailto:?' + query_string__WEBPACK_IMPORTED_MODULE_5__.stringify({
+      return 'mailto:?' + query_string__WEBPACK_IMPORTED_MODULE_6__.stringify({
         subject: 'Discover my AFYLA wishlist',
         body: body
       });
@@ -10984,6 +11265,20 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         return item.product.id;
       });
       this.form.post(this.route('share.all'));
+    },
+    copyWishlist: function copyWishlist() {
+      var _this5 = this;
+
+      var ids = this.wishlist.map(function (item) {
+        return item.product.id;
+      });
+      copy_to_clipboard__WEBPACK_IMPORTED_MODULE_5___default()(this.route('shop', {
+        ids: ids
+      }));
+      this.copied = true;
+      setTimeout(function () {
+        _this5.copied = false;
+      }, 2000);
     }
   },
   data: function data() {
@@ -10991,6 +11286,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       sorted: [],
       del: null,
       done: false,
+      copied: false,
       soldout: false,
       loading: false,
       social: null,
@@ -11890,13 +12186,54 @@ __webpack_require__.r(__webpack_exports__);
       tab: false,
       sent: false,
       login: this.$inertia.form({
-        email: null,
-        password: null,
+        email: 'anatanjaawi@gmail.com',
+        password: '123456',
         remember: false
       }),
       forgot: this.$inertia.form({
         email: null
       })
+    };
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/NapsCheckout.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/NapsCheckout.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var public_js_tramegatewaynapsv4_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! public/js/tramegatewaynapsv4.js */ "./public/js/tramegatewaynapsv4.js");
+/* harmony import */ var public_js_tramegatewaynapsv4_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(public_js_tramegatewaynapsv4_js__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    data: Object
+  },
+  methods: {
+    request: function request() {
+      var mxgateway = new MXGateway(this.data.cmr, this.data.gal, this.data.key, this.data.lang);
+      var encrypteddata1 = mxgateway.cryptageTrame1(this.data.name, this.data.order, this.data.amount, this.data.email, this.data.operation);
+      var encrypteddata2 = mxgateway.cryptageTrame2(this.data.successURL, this.data.timeoutURL);
+      var encrypteddata3 = mxgateway.cryptageTrame3(this.data.failURL, this.data.recallURL);
+      var encrypteddata4 = mxgateway.cryptageTrame4(this.data.phone, this.data.street, this.data.city, this.data.state, 'MA', this.data.zip);
+      var gateway = mxgateway.generateLien(encrypteddata1, encrypteddata2, encrypteddata3, encrypteddata4);
+      window.top.location.href = gateway;
+    }
+  },
+  data: function data() {
+    return {//
     };
   }
 });
@@ -11933,6 +12270,82 @@ __webpack_require__.r(__webpack_exports__);
     close: function close() {
       this.$emit('input', null);
     }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ProductGallery.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ProductGallery.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var photoswipe_lightbox__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! photoswipe/lightbox */ "./node_modules/photoswipe/dist/photoswipe-lightbox.esm.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    gallery: Array
+  },
+  methods: {
+    getHeight: function getHeight(i) {
+      return this.dimentions[i] ? this.dimentions[i].height : 1500;
+    },
+    getWidth: function getWidth(i) {
+      return this.dimentions[i] ? this.dimentions[i].width : 1000;
+    }
+  },
+  data: function data() {
+    return {
+      dimentions: []
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    this.gallery.forEach(function (url, i) {
+      var ImageObject = new Image();
+      ImageObject.src = url;
+
+      ImageObject.onload = function () {
+        _this.dimentions.splice(i, 0, {
+          height: ImageObject.height,
+          width: ImageObject.width
+        });
+      };
+    });
+    new photoswipe_lightbox__WEBPACK_IMPORTED_MODULE_0__["default"]({
+      gallery: '#photoswipe',
+      children: 'a',
+      pswpModule: function pswpModule() {
+        return __webpack_require__.e(/*! import() */ "node_modules_photoswipe_dist_photoswipe_esm_js").then(__webpack_require__.bind(__webpack_require__, /*! photoswipe */ "./node_modules/photoswipe/dist/photoswipe.esm.js"));
+      }
+    }).init();
   }
 });
 
@@ -12646,6 +13059,236 @@ __webpack_require__.r(__webpack_exports__);
     };
   }
 });
+
+/***/ }),
+
+/***/ "./public/js/tramegatewaynapsv4.js":
+/*!*****************************************!*\
+  !*** ./public/js/tramegatewaynapsv4.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+__webpack_require__(/*! jsencrypt */ "./node_modules/jsencrypt/lib/index.js");
+/**API MXGATEWAY
+ @name tramegatewaynaps.js
+ @author M2MGroup raziki/lfriche
+ @version 4.0.0 (2020-03-30)
+ **/
+
+/**
+ @ Class MXGateway
+ @name : MXGateway
+ @param  cmr :code commerçant {numerique}
+ @param  galerie : galerie commerçant {numerique}
+ @param  clepub : la clé publique {String}
+ @param  langue : la langue {String}
+ @param  successURL : success URL {String}
+ @param  failURL : faild URL {String}
+ @param  timeoutURL : time out {String}
+ @param  lien_paie : lien de paiement {String}
+ **/
+
+
+function MXGateway(cmr, galerie, clepub) {
+  var langue = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : "F";
+  var lien_paie = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : "https://pa2.naps.ma:8441/GW_PAIEMENT/faces/vues/paiement/gatenaps.xhtml";
+  this.cmr = cmr;
+  this.galerie = galerie;
+  this.clepub = clepub;
+  this.lien_paie = lien_paie;
+  this.langue = langue;
+  /**
+   @name : trame1 :data1 = nomprenom=&idcommande=&montant=&email=&langue=&detailoperation=&fin1;
+   @function 
+   @param nomprenom : nom et prénom {String}
+   @param idcommande : id commande {String}
+   @param montant : montant {String}
+   @param email : email {String}
+   @return data1 : trame1  {String}
+   @description de la fonction : préparation de la trame1 contenant les parametres précédents.
+   **/
+
+  this.trame1 = function (nomprenom, idcommande, montant, email, detailoperation) {
+    this.nomprenom = nomprenom;
+    this.idcommande = idcommande;
+    this.montant = montant;
+    this.email = email;
+    this.email = email;
+    this.detailoperation = detailoperation;
+    this.data1 = 'nomprenom=' + nomprenom + '&idcommande=' + idcommande + '&montant=' + montant + '&email=' + email + '&langue=' + this.langue + '&detailoperation=' + detailoperation + '&fin1';
+    return this.data1;
+  };
+  /**
+   @name : trame2 :data2= successURL=&timeoutURL=&fin2;
+   @function 
+   @param successURL : Success URL {String}
+   @param timeoutURL : Timeout URL {String}
+   
+   @description de la fonction : préparation de la trame2 contenant les parametres précédents.
+   **/
+
+
+  this.trame2 = function (successURL, timeoutURL) {
+    this.successURL = successURL;
+    this.timeoutURL = timeoutURL;
+    this.data2 = 'successURL=' + successURL + '&timeoutURL=' + timeoutURL + '&fin2';
+    return this.data2;
+  };
+  /**
+   @name : trame3 : data3= failURL=&recallURL=&fin3;
+   @function 
+   @param recallURL : Recall URL {String}
+   @param failURL : Fail URL {String}
+   
+   @description de la fonction : préparation de la trame2 contenant les parametres précédents.
+   **/
+
+
+  this.trame3 = function (failURL, recallURL) {
+    this.failURL = failURL;
+    this.recallURL = recallURL;
+    this.data3 = 'failURL=' + failURL + '&recallURL=' + recallURL + '&fin3';
+    return this.data3;
+  };
+  /**
+   @name : trame4 data4 = tel=&address=&city=&state=&country=&postcode=&fin4;
+   
+   @function 
+   @param tel : numéro de telephone {numérique}
+   @param address : addresse {String}
+   @param city : ville {String}
+   @param state : state {String}
+   @param country : pays {String}
+   @param postcode : code postal {String}
+   @param  recallURL : recall URL {String}
+   @param  detailoperation : operation detail {String}
+   
+   @return data2 : trame2  {String}
+   @description de la fonction : préparation de la trame2 contenant les parametres précédents.
+   **/
+
+
+  this.trame4 = function (tel, address, city, state) {
+    var country = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : "MA";
+    var postcode = arguments.length > 5 ? arguments[5] : undefined;
+    this.tel = tel;
+    this.address = address;
+    this.city = city;
+    this.state = state;
+    this.postcode = postcode;
+    this.data4 = "" + 'tel=' + tel + '&address=' + address + '&city=' + city + '&state=' + state + '&country=' + country + '&postcode=' + postcode + '&fin4' + "";
+    return this.data4;
+  };
+  /**
+   @name : cryptageTrame1
+   @function 
+   @param nomprenom : nom et prénom {String}
+   @param idcommande : id commande {String}
+   @param montant : montant {String}
+   @param email : email {String}
+   @return encrypteddata1 : la trame1 cryptée {String}
+   @description de la fonction : cryptage de la trame 1.
+   **/
+
+
+  this.cryptageTrame1 = function (nomprenom, idcommande, montant, email, detailoperation) {
+    var data1 = this.trame1(nomprenom, idcommande, montant, email, detailoperation);
+    var encrypt = new JSEncrypt();
+    encrypt.setPublicKey(this.clepub);
+    this.encrypteddata1 = encrypt.encrypt(data1);
+    return this.encrypteddata1;
+  };
+  /**
+   @name : cryptageTrame2
+   @function 
+   @param successURL : success URL {String}
+   @param timeoutURL :  timeout URL {String}
+   
+   @return encrypteddata2 : la trame2 cryptée {String}
+   @description de la fonction : cryptage de la trame 2.
+   **/
+
+
+  this.cryptageTrame2 = function (successURL, timeoutURL) {
+    var data2 = this.trame2(successURL, timeoutURL);
+    var encrypt = new JSEncrypt();
+    encrypt.setPublicKey(this.clepub);
+    this.encrypteddata2 = encrypt.encrypt(data2);
+    return this.encrypteddata2;
+  };
+  /**
+   @name : cryptageTrame3
+   @function 
+   @param failURL : fail URL {String}
+   @param recallURL :  recall URL {String}
+   
+   @return encrypteddata3 : la trame3 cryptée {String}
+   @description de la fonction : cryptage de la trame 3.
+   **/
+
+
+  this.cryptageTrame3 = function (failURL, recallURL) {
+    var data3 = this.trame3(failURL, recallURL);
+    var encrypt = new JSEncrypt();
+    encrypt.setPublicKey(this.clepub);
+    this.encrypteddata3 = encrypt.encrypt(data3);
+    return this.encrypteddata3;
+  };
+  /**
+   @name : cryptageTrame4
+   @function 
+   @param tel : numéro de telephone {String}
+   @param address : address {String}
+   @param city : ville {String}
+   @param state : state {String}
+   @param country : pays {String}
+   @param postcode : code post {String}
+   @return encrypteddata4 : la trame4 cryptée {String}
+   @description de la fonction : cryptage de la trame 4.
+   **/
+
+
+  this.cryptageTrame4 = function (tel, address, city, state) {
+    var country = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : "MA";
+    var postcode = arguments.length > 5 ? arguments[5] : undefined;
+    var data4 = this.trame4(tel, address, city, state, country = "MA", postcode);
+    var encrypt = new JSEncrypt();
+    encrypt.setPublicKey(clepub);
+    this.encrypteddata4 = encrypt.encrypt(data4);
+    return this.encrypteddata4;
+  };
+  /**
+   @name : decryptage
+   @function 
+   @param trame_rep : trame de réponse{String}
+   @param cle_priv : clé privée{String}
+   @description de la fonction : décryptage de la trame  de réponse.
+   **/
+
+
+  this.decryptage = function (data, cle_priv) {
+    var decrypt = new JSEncrypt();
+    decrypt.setPrivateKey(cle_priv);
+    var decryptdata = decrypt.decrypt(data);
+    return decryptdata;
+  };
+  /**
+   @name : generateLien
+   @function 
+   @param encrypteddata1 : la trame 1 cryptée {String}
+   @param encrypteddata2 : la trame 2 cryptée {String}
+   @param encrypteddata3 : la trame 3 cryptée {String}
+   @param encrypteddata4 : la trame 4 cryptée {String}
+   @return lien_gateway : generation de lien de paiement {String}
+   @description de la fonction : redirection vers la page de paiement MXGateway.
+   **/
+
+
+  this.generateLien = function (encrypteddata1, encrypteddata2, encrypteddata3, encrypteddata4) {
+    this.lien_gateway = this.lien_paie + "?data1=" + encodeURIComponent(encrypteddata1) + "&data2=" + encodeURIComponent(encrypteddata2) + "&data3=" + encodeURIComponent(encrypteddata3) + "&data4=" + encodeURIComponent(encrypteddata4) + "&cmr=" + this.cmr + "&gal=" + this.galerie;
+    return this.lien_gateway;
+  };
+}
 
 /***/ }),
 
@@ -17845,6 +18488,130 @@ if ($defineProperty) {
 
 /***/ }),
 
+/***/ "./node_modules/copy-to-clipboard/index.js":
+/*!*************************************************!*\
+  !*** ./node_modules/copy-to-clipboard/index.js ***!
+  \*************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var deselectCurrent = __webpack_require__(/*! toggle-selection */ "./node_modules/toggle-selection/index.js");
+
+var clipboardToIE11Formatting = {
+  "text/plain": "Text",
+  "text/html": "Url",
+  "default": "Text"
+}
+
+var defaultMessage = "Copy to clipboard: #{key}, Enter";
+
+function format(message) {
+  var copyKey = (/mac os x/i.test(navigator.userAgent) ? "⌘" : "Ctrl") + "+C";
+  return message.replace(/#{\s*key\s*}/g, copyKey);
+}
+
+function copy(text, options) {
+  var debug,
+    message,
+    reselectPrevious,
+    range,
+    selection,
+    mark,
+    success = false;
+  if (!options) {
+    options = {};
+  }
+  debug = options.debug || false;
+  try {
+    reselectPrevious = deselectCurrent();
+
+    range = document.createRange();
+    selection = document.getSelection();
+
+    mark = document.createElement("span");
+    mark.textContent = text;
+    // reset user styles for span element
+    mark.style.all = "unset";
+    // prevents scrolling to the end of the page
+    mark.style.position = "fixed";
+    mark.style.top = 0;
+    mark.style.clip = "rect(0, 0, 0, 0)";
+    // used to preserve spaces and line breaks
+    mark.style.whiteSpace = "pre";
+    // do not inherit user-select (it may be `none`)
+    mark.style.webkitUserSelect = "text";
+    mark.style.MozUserSelect = "text";
+    mark.style.msUserSelect = "text";
+    mark.style.userSelect = "text";
+    mark.addEventListener("copy", function(e) {
+      e.stopPropagation();
+      if (options.format) {
+        e.preventDefault();
+        if (typeof e.clipboardData === "undefined") { // IE 11
+          debug && console.warn("unable to use e.clipboardData");
+          debug && console.warn("trying IE specific stuff");
+          window.clipboardData.clearData();
+          var format = clipboardToIE11Formatting[options.format] || clipboardToIE11Formatting["default"]
+          window.clipboardData.setData(format, text);
+        } else { // all other browsers
+          e.clipboardData.clearData();
+          e.clipboardData.setData(options.format, text);
+        }
+      }
+      if (options.onCopy) {
+        e.preventDefault();
+        options.onCopy(e.clipboardData);
+      }
+    });
+
+    document.body.appendChild(mark);
+
+    range.selectNodeContents(mark);
+    selection.addRange(range);
+
+    var successful = document.execCommand("copy");
+    if (!successful) {
+      throw new Error("copy command was unsuccessful");
+    }
+    success = true;
+  } catch (err) {
+    debug && console.error("unable to copy using execCommand: ", err);
+    debug && console.warn("trying IE specific stuff");
+    try {
+      window.clipboardData.setData(options.format || "text", text);
+      options.onCopy && options.onCopy(window.clipboardData);
+      success = true;
+    } catch (err) {
+      debug && console.error("unable to copy using clipboardData: ", err);
+      debug && console.error("falling back to prompt");
+      message = format("message" in options ? options.message : defaultMessage);
+      window.prompt(message, text);
+    }
+  } finally {
+    if (selection) {
+      if (typeof selection.removeRange == "function") {
+        selection.removeRange(range);
+      } else {
+        selection.removeAllRanges();
+      }
+    }
+
+    if (mark) {
+      document.body.removeChild(mark);
+    }
+    reselectPrevious();
+  }
+
+  return success;
+}
+
+module.exports = copy;
+
+
+/***/ }),
+
 /***/ "./node_modules/countries-list/dist/index.es5.min.js":
 /*!***********************************************************!*\
   !*** ./node_modules/countries-list/dist/index.es5.min.js ***!
@@ -17994,7 +18761,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n@media (min-width: 576px) {\n.carousel img[data-v-e2dbd454] {\n\t\tmax-height: 520px;\n\t\twidth: auto !important;\n}\n}\n.accordion-button[data-v-e2dbd454] {\n\tpadding: 1rem .25rem;\n\tbackground-color: var(--bs-primary);\n\tcolor: var(--bs-dark);\n\tfont-weight: 600;\n\tbox-shadow: none;\n}\n.recommendation .wishlist[data-v-e2dbd454] {\n\tposition: absolute;\n\ttop: 1rem;\n\tright: 1rem;\n\tcursor: pointer;\n}\n.arrows.carousel-control-prev[data-v-e2dbd454],\n.arrows.carousel-control-next[data-v-e2dbd454] {\n\ttop: calc(50% - 70px);\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.accordion-button[data-v-e2dbd454] {\n\tpadding: 1rem .25rem;\n\tbackground-color: var(--bs-primary);\n\tcolor: var(--bs-dark);\n\tfont-weight: 600;\n\tbox-shadow: none;\n}\n.recommendation .wishlist[data-v-e2dbd454] {\n\tposition: absolute;\n\ttop: 1rem;\n\tright: 1rem;\n\tcursor: pointer;\n}\n.arrows.carousel-control-prev[data-v-e2dbd454],\n.arrows.carousel-control-next[data-v-e2dbd454] {\n\ttop: calc(50% - 70px);\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -18042,7 +18809,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.product .bag[data-v-0f8ddc24] {\n\tposition: absolute;\n\ttop: 0;\n\tleft: 0;\n\tright: 0;\n\tbottom: 0;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: space-between;\n\tpadding: 1rem;\n\tpadding-bottom: 1.5rem;\n\tbackground-color: #fff;\n\tvisibility: hidden;\n\topacity: 0;\n\tz-index: 1;\n\ttransform: rotateY(180deg);\n\ttransition: .5s;\n}\n.product .bag.show[data-v-0f8ddc24] {\n\ttransform: rotateY(0);\n\tvisibility: visible;\n\topacity: 1;\n}\n.product .action[data-v-0f8ddc24] {\n\tposition: absolute;\n\ttop: 1rem;\n\tright: 1rem;\n\tdisplay: flex;\n\talign-items: center;\n}\n.product .add[data-v-0f8ddc24] {\n\tline-height: .7;\n\tfont-size: 2rem;\n\tcursor: pointer;\n\t-webkit-user-select: none;\n\t   -moz-user-select: none;\n\t    -ms-user-select: none;\n\t        user-select: none;\n}\n.bi-check[data-v-0f8ddc24] {\n\tdisplay: inline-block;\n\ttransform: scale(1.5);\n\tvisibility: hidden;\n}\n.bi-check.show[data-v-0f8ddc24] {\n\tvisibility: visible;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.product .bag[data-v-0f8ddc24] {\n\tposition: absolute;\n\ttop: 0;\n\tleft: 0;\n\tright: 0;\n\tbottom: 0;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: space-between;\n\tpadding: 1rem;\n\tpadding-bottom: 1.5rem;\n\tbackground-color: #fff;\n\tvisibility: hidden;\n\topacity: 0;\n\tz-index: 1;\n\ttransform: rotateY(180deg);\n\ttransition: .5s;\n}\n.product .bag.show[data-v-0f8ddc24] {\n\ttransform: rotateY(0);\n\tvisibility: visible;\n\topacity: 1;\n}\n.product .action[data-v-0f8ddc24] {\n\tposition: absolute;\n\ttop: 1rem;\n\tright: 1rem;\n\tdisplay: flex;\n\talign-items: center;\n}\n.product .add[data-v-0f8ddc24] {\n\tline-height: .7;\n\tfont-size: 2rem;\n\tcursor: pointer;\n\t-webkit-user-select: none;\n\t   -moz-user-select: none;\n\t    -ms-user-select: none;\n\t        user-select: none;\n}\n.bi-check[data-v-0f8ddc24] {\n\tdisplay: inline-block;\n\ttransform: scale(1.5);\n\tvisibility: hidden;\n}\n.bi-check.show[data-v-0f8ddc24] {\n\tvisibility: visible;\n}\n.tp[data-v-0f8ddc24]:before {\n\tcontent: \"\";\n\tposition: absolute;\n\tleft: calc(50% - 5px);\n\tbottom: 0;\n\theight: 0;\n\twidth: 0;\n\tborder-left: 5px solid transparent;\n\tborder-right: 5px solid transparent;\n\tborder-bottom: 5px solid black;\n\tcursor: default;\n}\n.tp[data-v-0f8ddc24]:after {\n\tcontent: \"Copied!\";\n\tposition: absolute;\n\tleft: calc(50% - 35px);\n\tbottom: calc(-100% - 5px);\n\twidth: 70px;\n\tpadding: .25rem 0;\n\tborder-radius: .25rem;\n\tbackground-color: black;\n\tcolor: white;\n\tfont-size: .875rem;\n\ttext-align: center;\n\tcursor: default;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -18114,7 +18881,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.newsletter[data-v-cb543d60] {\n\tposition: fixed;\n\ttop: 0;\n\tleft: 0;\n\tright: 0;\n\tbottom: 0;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: center;\n\talign-items: center;\n\tbackground-color: rgba(0,0,0,.5);\n\tz-index: 1095;\n}\n.newsletter .content[data-v-cb543d60] {\n\tposition: relative;\n\twidth: 100%;\n\tmax-width: 800px;\n\tpadding: 3rem;\n\tbackground-color: white;\n}\n.cookies[data-v-cb543d60] {\n\tposition: fixed;\n\tleft: 0;\n\tright: 0;\n\tbottom: 0;\n\tbackground-color: black;\n\tcolor: white;\n\tz-index: 1090;\n}\n.newsletter .close[data-v-cb543d60],\n.cookies .close[data-v-cb543d60] {\n\tposition: absolute;\n\ttop: .5rem;\n\tright: .5rem;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.newsletter[data-v-cb543d60] {\n\tposition: fixed;\n\ttop: 0;\n\tleft: 0;\n\tright: 0;\n\tbottom: 0;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: center;\n\talign-items: center;\n\tpadding: 1rem;\n\tbackground-color: rgba(0,0,0,.5);\n\tz-index: 1095;\n}\n.newsletter .content[data-v-cb543d60] {\n\tposition: relative;\n\twidth: 100%;\n\tmax-width: 800px;\n\toverflow: auto;\n\tpadding: 3rem;\n\tbackground-color: white;\n}\n.cookies[data-v-cb543d60] {\n\tposition: fixed;\n\tleft: 0;\n\tright: 0;\n\tbottom: 0;\n\tbackground-color: black;\n\tcolor: white;\n\tz-index: 1090;\n}\n.newsletter .close[data-v-cb543d60],\n.cookies .close[data-v-cb543d60] {\n\tposition: absolute;\n\ttop: .5rem;\n\tright: .5rem;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -18138,7 +18905,31 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.popup-backdrop[data-v-77019f71] {\n\tposition: fixed;\n\tinset: 0 0 0 0;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: center;\n\talign-items: center;\n\tbackground-color: rgba(0,0,0,.5);\n\tz-index: 1085;\n}\n.popup-content[data-v-77019f71] {\n\tposition: relative;\n\twidth: 100%;\n\tmax-width: 500px;\n\tbackground-color: var(--bs-primary);\n}\n.popup-body[data-v-77019f71] {\n\tpadding: 1.5rem;\n\tcolor: var(--bs-dark);\n}\n.popup-close[data-v-77019f71] {\n\tposition: absolute;\n\ttop: .5rem;\n\tright: .5rem;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.popup-backdrop[data-v-77019f71] {\n\tposition: fixed;\n\tinset: 0 0 0 0;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: center;\n\talign-items: center;\n\tbackground-color: rgba(0,0,0,.5);\n\tz-index: 1085;\n}\n.popup-content[data-v-77019f71] {\n\tposition: relative;\n\twidth: 100%;\n\tmax-width: 500px;\n\toverflow: auto;\n\tbackground-color: var(--bs-primary);\n}\n.popup-body[data-v-77019f71] {\n\tpadding: 1.5rem;\n\tcolor: var(--bs-dark);\n}\n.popup-close[data-v-77019f71] {\n\tposition: absolute;\n\ttop: .5rem;\n\tright: .5rem;\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ProductGallery.vue?vue&type=style&index=0&id=5e3aade4&scoped=true&lang=css&":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ProductGallery.vue?vue&type=style&index=0&id=5e3aade4&scoped=true&lang=css& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\na[data-v-5e3aade4] {\n\tcursor: zoom-in;\n}\n@media (min-width: 992px) {\nimg[data-v-5e3aade4] {\n\t\theight: 520px;\n\t\twidth: auto !important;\n}\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -19642,6 +20433,5622 @@ module.exports = function hasSymbols() {
 var bind = __webpack_require__(/*! function-bind */ "./node_modules/function-bind/index.js");
 
 module.exports = bind.call(Function.call, Object.prototype.hasOwnProperty);
+
+
+/***/ }),
+
+/***/ "./node_modules/jsencrypt/lib/JSEncrypt.js":
+/*!*************************************************!*\
+  !*** ./node_modules/jsencrypt/lib/JSEncrypt.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "JSEncrypt": () => (/* binding */ JSEncrypt)
+/* harmony export */ });
+/* harmony import */ var _lib_jsbn_base64__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lib/jsbn/base64 */ "./node_modules/jsencrypt/lib/lib/jsbn/base64.js");
+/* harmony import */ var _JSEncryptRSAKey__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./JSEncryptRSAKey */ "./node_modules/jsencrypt/lib/JSEncryptRSAKey.js");
+/* harmony import */ var _version_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./version.json */ "./node_modules/jsencrypt/lib/version.json");
+
+
+
+/**
+ *
+ * @param {Object} [options = {}] - An object to customize JSEncrypt behaviour
+ * possible parameters are:
+ * - default_key_size        {number}  default: 1024 the key size in bit
+ * - default_public_exponent {string}  default: '010001' the hexadecimal representation of the public exponent
+ * - log                     {boolean} default: false whether log warn/error or not
+ * @constructor
+ */
+var JSEncrypt = /** @class */ (function () {
+    function JSEncrypt(options) {
+        if (options === void 0) { options = {}; }
+        options = options || {};
+        this.default_key_size = options.default_key_size ? parseInt(options.default_key_size, 10) : 1024;
+        this.default_public_exponent = options.default_public_exponent || "010001"; // 65537 default openssl public exponent for rsa key type
+        this.log = options.log || false;
+        // The private and public key.
+        this.key = null;
+    }
+    /**
+     * Method to set the rsa key parameter (one method is enough to set both the public
+     * and the private key, since the private key contains the public key paramenters)
+     * Log a warning if logs are enabled
+     * @param {Object|string} key the pem encoded string or an object (with or without header/footer)
+     * @public
+     */
+    JSEncrypt.prototype.setKey = function (key) {
+        if (this.log && this.key) {
+            console.warn("A key was already set, overriding existing.");
+        }
+        this.key = new _JSEncryptRSAKey__WEBPACK_IMPORTED_MODULE_1__.JSEncryptRSAKey(key);
+    };
+    /**
+     * Proxy method for setKey, for api compatibility
+     * @see setKey
+     * @public
+     */
+    JSEncrypt.prototype.setPrivateKey = function (privkey) {
+        // Create the key.
+        this.setKey(privkey);
+    };
+    /**
+     * Proxy method for setKey, for api compatibility
+     * @see setKey
+     * @public
+     */
+    JSEncrypt.prototype.setPublicKey = function (pubkey) {
+        // Sets the public key.
+        this.setKey(pubkey);
+    };
+    /**
+     * Proxy method for RSAKey object's decrypt, decrypt the string using the private
+     * components of the rsa key object. Note that if the object was not set will be created
+     * on the fly (by the getKey method) using the parameters passed in the JSEncrypt constructor
+     * @param {string} str base64 encoded crypted string to decrypt
+     * @return {string} the decrypted string
+     * @public
+     */
+    JSEncrypt.prototype.decrypt = function (str) {
+        // Return the decrypted string.
+        try {
+            return this.getKey().decrypt((0,_lib_jsbn_base64__WEBPACK_IMPORTED_MODULE_0__.b64tohex)(str));
+        }
+        catch (ex) {
+            return false;
+        }
+    };
+    /**
+     * Proxy method for RSAKey object's encrypt, encrypt the string using the public
+     * components of the rsa key object. Note that if the object was not set will be created
+     * on the fly (by the getKey method) using the parameters passed in the JSEncrypt constructor
+     * @param {string} str the string to encrypt
+     * @return {string} the encrypted string encoded in base64
+     * @public
+     */
+    JSEncrypt.prototype.encrypt = function (str) {
+        // Return the encrypted string.
+        try {
+            return (0,_lib_jsbn_base64__WEBPACK_IMPORTED_MODULE_0__.hex2b64)(this.getKey().encrypt(str));
+        }
+        catch (ex) {
+            return false;
+        }
+    };
+    /**
+     * Proxy method for RSAKey object's sign.
+     * @param {string} str the string to sign
+     * @param {function} digestMethod hash method
+     * @param {string} digestName the name of the hash algorithm
+     * @return {string} the signature encoded in base64
+     * @public
+     */
+    JSEncrypt.prototype.sign = function (str, digestMethod, digestName) {
+        // return the RSA signature of 'str' in 'hex' format.
+        try {
+            return (0,_lib_jsbn_base64__WEBPACK_IMPORTED_MODULE_0__.hex2b64)(this.getKey().sign(str, digestMethod, digestName));
+        }
+        catch (ex) {
+            return false;
+        }
+    };
+    /**
+     * Proxy method for RSAKey object's verify.
+     * @param {string} str the string to verify
+     * @param {string} signature the signature encoded in base64 to compare the string to
+     * @param {function} digestMethod hash method
+     * @return {boolean} whether the data and signature match
+     * @public
+     */
+    JSEncrypt.prototype.verify = function (str, signature, digestMethod) {
+        // Return the decrypted 'digest' of the signature.
+        try {
+            return this.getKey().verify(str, (0,_lib_jsbn_base64__WEBPACK_IMPORTED_MODULE_0__.b64tohex)(signature), digestMethod);
+        }
+        catch (ex) {
+            return false;
+        }
+    };
+    /**
+     * Getter for the current JSEncryptRSAKey object. If it doesn't exists a new object
+     * will be created and returned
+     * @param {callback} [cb] the callback to be called if we want the key to be generated
+     * in an async fashion
+     * @returns {JSEncryptRSAKey} the JSEncryptRSAKey object
+     * @public
+     */
+    JSEncrypt.prototype.getKey = function (cb) {
+        // Only create new if it does not exist.
+        if (!this.key) {
+            // Get a new private key.
+            this.key = new _JSEncryptRSAKey__WEBPACK_IMPORTED_MODULE_1__.JSEncryptRSAKey();
+            if (cb && {}.toString.call(cb) === "[object Function]") {
+                this.key.generateAsync(this.default_key_size, this.default_public_exponent, cb);
+                return;
+            }
+            // Generate the key.
+            this.key.generate(this.default_key_size, this.default_public_exponent);
+        }
+        return this.key;
+    };
+    /**
+     * Returns the pem encoded representation of the private key
+     * If the key doesn't exists a new key will be created
+     * @returns {string} pem encoded representation of the private key WITH header and footer
+     * @public
+     */
+    JSEncrypt.prototype.getPrivateKey = function () {
+        // Return the private representation of this key.
+        return this.getKey().getPrivateKey();
+    };
+    /**
+     * Returns the pem encoded representation of the private key
+     * If the key doesn't exists a new key will be created
+     * @returns {string} pem encoded representation of the private key WITHOUT header and footer
+     * @public
+     */
+    JSEncrypt.prototype.getPrivateKeyB64 = function () {
+        // Return the private representation of this key.
+        return this.getKey().getPrivateBaseKeyB64();
+    };
+    /**
+     * Returns the pem encoded representation of the public key
+     * If the key doesn't exists a new key will be created
+     * @returns {string} pem encoded representation of the public key WITH header and footer
+     * @public
+     */
+    JSEncrypt.prototype.getPublicKey = function () {
+        // Return the private representation of this key.
+        return this.getKey().getPublicKey();
+    };
+    /**
+     * Returns the pem encoded representation of the public key
+     * If the key doesn't exists a new key will be created
+     * @returns {string} pem encoded representation of the public key WITHOUT header and footer
+     * @public
+     */
+    JSEncrypt.prototype.getPublicKeyB64 = function () {
+        // Return the private representation of this key.
+        return this.getKey().getPublicBaseKeyB64();
+    };
+    JSEncrypt.version = _version_json__WEBPACK_IMPORTED_MODULE_2__.version;
+    return JSEncrypt;
+}());
+
+
+
+/***/ }),
+
+/***/ "./node_modules/jsencrypt/lib/JSEncryptRSAKey.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/jsencrypt/lib/JSEncryptRSAKey.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "JSEncryptRSAKey": () => (/* binding */ JSEncryptRSAKey)
+/* harmony export */ });
+/* harmony import */ var _lib_jsbn_base64__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lib/jsbn/base64 */ "./node_modules/jsencrypt/lib/lib/jsbn/base64.js");
+/* harmony import */ var _lib_asn1js_hex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./lib/asn1js/hex */ "./node_modules/jsencrypt/lib/lib/asn1js/hex.js");
+/* harmony import */ var _lib_asn1js_base64__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./lib/asn1js/base64 */ "./node_modules/jsencrypt/lib/lib/asn1js/base64.js");
+/* harmony import */ var _lib_asn1js_asn1__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./lib/asn1js/asn1 */ "./node_modules/jsencrypt/lib/lib/asn1js/asn1.js");
+/* harmony import */ var _lib_jsbn_rsa__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./lib/jsbn/rsa */ "./node_modules/jsencrypt/lib/lib/jsbn/rsa.js");
+/* harmony import */ var _lib_jsbn_jsbn__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./lib/jsbn/jsbn */ "./node_modules/jsencrypt/lib/lib/jsbn/jsbn.js");
+/* harmony import */ var _lib_jsrsasign_asn1_1_0__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./lib/jsrsasign/asn1-1.0 */ "./node_modules/jsencrypt/lib/lib/jsrsasign/asn1-1.0.js");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+
+
+
+
+
+/**
+ * Create a new JSEncryptRSAKey that extends Tom Wu's RSA key object.
+ * This object is just a decorator for parsing the key parameter
+ * @param {string|Object} key - The key in string format, or an object containing
+ * the parameters needed to build a RSAKey object.
+ * @constructor
+ */
+var JSEncryptRSAKey = /** @class */ (function (_super) {
+    __extends(JSEncryptRSAKey, _super);
+    function JSEncryptRSAKey(key) {
+        var _this = _super.call(this) || this;
+        // Call the super constructor.
+        //  RSAKey.call(this);
+        // If a key key was provided.
+        if (key) {
+            // If this is a string...
+            if (typeof key === "string") {
+                _this.parseKey(key);
+            }
+            else if (JSEncryptRSAKey.hasPrivateKeyProperty(key) ||
+                JSEncryptRSAKey.hasPublicKeyProperty(key)) {
+                // Set the values for the key.
+                _this.parsePropertiesFrom(key);
+            }
+        }
+        return _this;
+    }
+    /**
+     * Method to parse a pem encoded string containing both a public or private key.
+     * The method will translate the pem encoded string in a der encoded string and
+     * will parse private key and public key parameters. This method accepts public key
+     * in the rsaencryption pkcs #1 format (oid: 1.2.840.113549.1.1.1).
+     *
+     * @todo Check how many rsa formats use the same format of pkcs #1.
+     *
+     * The format is defined as:
+     * PublicKeyInfo ::= SEQUENCE {
+     *   algorithm       AlgorithmIdentifier,
+     *   PublicKey       BIT STRING
+     * }
+     * Where AlgorithmIdentifier is:
+     * AlgorithmIdentifier ::= SEQUENCE {
+     *   algorithm       OBJECT IDENTIFIER,     the OID of the enc algorithm
+     *   parameters      ANY DEFINED BY algorithm OPTIONAL (NULL for PKCS #1)
+     * }
+     * and PublicKey is a SEQUENCE encapsulated in a BIT STRING
+     * RSAPublicKey ::= SEQUENCE {
+     *   modulus           INTEGER,  -- n
+     *   publicExponent    INTEGER   -- e
+     * }
+     * it's possible to examine the structure of the keys obtained from openssl using
+     * an asn.1 dumper as the one used here to parse the components: http://lapo.it/asn1js/
+     * @argument {string} pem the pem encoded string, can include the BEGIN/END header/footer
+     * @private
+     */
+    JSEncryptRSAKey.prototype.parseKey = function (pem) {
+        try {
+            var modulus = 0;
+            var public_exponent = 0;
+            var reHex = /^\s*(?:[0-9A-Fa-f][0-9A-Fa-f]\s*)+$/;
+            var der = reHex.test(pem) ? _lib_asn1js_hex__WEBPACK_IMPORTED_MODULE_1__.Hex.decode(pem) : _lib_asn1js_base64__WEBPACK_IMPORTED_MODULE_2__.Base64.unarmor(pem);
+            var asn1 = _lib_asn1js_asn1__WEBPACK_IMPORTED_MODULE_3__.ASN1.decode(der);
+            // Fixes a bug with OpenSSL 1.0+ private keys
+            if (asn1.sub.length === 3) {
+                asn1 = asn1.sub[2].sub[0];
+            }
+            if (asn1.sub.length === 9) {
+                // Parse the private key.
+                modulus = asn1.sub[1].getHexStringValue(); // bigint
+                this.n = (0,_lib_jsbn_jsbn__WEBPACK_IMPORTED_MODULE_5__.parseBigInt)(modulus, 16);
+                public_exponent = asn1.sub[2].getHexStringValue(); // int
+                this.e = parseInt(public_exponent, 16);
+                var private_exponent = asn1.sub[3].getHexStringValue(); // bigint
+                this.d = (0,_lib_jsbn_jsbn__WEBPACK_IMPORTED_MODULE_5__.parseBigInt)(private_exponent, 16);
+                var prime1 = asn1.sub[4].getHexStringValue(); // bigint
+                this.p = (0,_lib_jsbn_jsbn__WEBPACK_IMPORTED_MODULE_5__.parseBigInt)(prime1, 16);
+                var prime2 = asn1.sub[5].getHexStringValue(); // bigint
+                this.q = (0,_lib_jsbn_jsbn__WEBPACK_IMPORTED_MODULE_5__.parseBigInt)(prime2, 16);
+                var exponent1 = asn1.sub[6].getHexStringValue(); // bigint
+                this.dmp1 = (0,_lib_jsbn_jsbn__WEBPACK_IMPORTED_MODULE_5__.parseBigInt)(exponent1, 16);
+                var exponent2 = asn1.sub[7].getHexStringValue(); // bigint
+                this.dmq1 = (0,_lib_jsbn_jsbn__WEBPACK_IMPORTED_MODULE_5__.parseBigInt)(exponent2, 16);
+                var coefficient = asn1.sub[8].getHexStringValue(); // bigint
+                this.coeff = (0,_lib_jsbn_jsbn__WEBPACK_IMPORTED_MODULE_5__.parseBigInt)(coefficient, 16);
+            }
+            else if (asn1.sub.length === 2) {
+                // Parse the public key.
+                var bit_string = asn1.sub[1];
+                var sequence = bit_string.sub[0];
+                modulus = sequence.sub[0].getHexStringValue();
+                this.n = (0,_lib_jsbn_jsbn__WEBPACK_IMPORTED_MODULE_5__.parseBigInt)(modulus, 16);
+                public_exponent = sequence.sub[1].getHexStringValue();
+                this.e = parseInt(public_exponent, 16);
+            }
+            else {
+                return false;
+            }
+            return true;
+        }
+        catch (ex) {
+            return false;
+        }
+    };
+    /**
+     * Translate rsa parameters in a hex encoded string representing the rsa key.
+     *
+     * The translation follow the ASN.1 notation :
+     * RSAPrivateKey ::= SEQUENCE {
+     *   version           Version,
+     *   modulus           INTEGER,  -- n
+     *   publicExponent    INTEGER,  -- e
+     *   privateExponent   INTEGER,  -- d
+     *   prime1            INTEGER,  -- p
+     *   prime2            INTEGER,  -- q
+     *   exponent1         INTEGER,  -- d mod (p1)
+     *   exponent2         INTEGER,  -- d mod (q-1)
+     *   coefficient       INTEGER,  -- (inverse of q) mod p
+     * }
+     * @returns {string}  DER Encoded String representing the rsa private key
+     * @private
+     */
+    JSEncryptRSAKey.prototype.getPrivateBaseKey = function () {
+        var options = {
+            array: [
+                new _lib_jsrsasign_asn1_1_0__WEBPACK_IMPORTED_MODULE_6__.KJUR.asn1.DERInteger({ int: 0 }),
+                new _lib_jsrsasign_asn1_1_0__WEBPACK_IMPORTED_MODULE_6__.KJUR.asn1.DERInteger({ bigint: this.n }),
+                new _lib_jsrsasign_asn1_1_0__WEBPACK_IMPORTED_MODULE_6__.KJUR.asn1.DERInteger({ int: this.e }),
+                new _lib_jsrsasign_asn1_1_0__WEBPACK_IMPORTED_MODULE_6__.KJUR.asn1.DERInteger({ bigint: this.d }),
+                new _lib_jsrsasign_asn1_1_0__WEBPACK_IMPORTED_MODULE_6__.KJUR.asn1.DERInteger({ bigint: this.p }),
+                new _lib_jsrsasign_asn1_1_0__WEBPACK_IMPORTED_MODULE_6__.KJUR.asn1.DERInteger({ bigint: this.q }),
+                new _lib_jsrsasign_asn1_1_0__WEBPACK_IMPORTED_MODULE_6__.KJUR.asn1.DERInteger({ bigint: this.dmp1 }),
+                new _lib_jsrsasign_asn1_1_0__WEBPACK_IMPORTED_MODULE_6__.KJUR.asn1.DERInteger({ bigint: this.dmq1 }),
+                new _lib_jsrsasign_asn1_1_0__WEBPACK_IMPORTED_MODULE_6__.KJUR.asn1.DERInteger({ bigint: this.coeff })
+            ]
+        };
+        var seq = new _lib_jsrsasign_asn1_1_0__WEBPACK_IMPORTED_MODULE_6__.KJUR.asn1.DERSequence(options);
+        return seq.getEncodedHex();
+    };
+    /**
+     * base64 (pem) encoded version of the DER encoded representation
+     * @returns {string} pem encoded representation without header and footer
+     * @public
+     */
+    JSEncryptRSAKey.prototype.getPrivateBaseKeyB64 = function () {
+        return (0,_lib_jsbn_base64__WEBPACK_IMPORTED_MODULE_0__.hex2b64)(this.getPrivateBaseKey());
+    };
+    /**
+     * Translate rsa parameters in a hex encoded string representing the rsa public key.
+     * The representation follow the ASN.1 notation :
+     * PublicKeyInfo ::= SEQUENCE {
+     *   algorithm       AlgorithmIdentifier,
+     *   PublicKey       BIT STRING
+     * }
+     * Where AlgorithmIdentifier is:
+     * AlgorithmIdentifier ::= SEQUENCE {
+     *   algorithm       OBJECT IDENTIFIER,     the OID of the enc algorithm
+     *   parameters      ANY DEFINED BY algorithm OPTIONAL (NULL for PKCS #1)
+     * }
+     * and PublicKey is a SEQUENCE encapsulated in a BIT STRING
+     * RSAPublicKey ::= SEQUENCE {
+     *   modulus           INTEGER,  -- n
+     *   publicExponent    INTEGER   -- e
+     * }
+     * @returns {string} DER Encoded String representing the rsa public key
+     * @private
+     */
+    JSEncryptRSAKey.prototype.getPublicBaseKey = function () {
+        var first_sequence = new _lib_jsrsasign_asn1_1_0__WEBPACK_IMPORTED_MODULE_6__.KJUR.asn1.DERSequence({
+            array: [
+                new _lib_jsrsasign_asn1_1_0__WEBPACK_IMPORTED_MODULE_6__.KJUR.asn1.DERObjectIdentifier({ oid: "1.2.840.113549.1.1.1" }),
+                new _lib_jsrsasign_asn1_1_0__WEBPACK_IMPORTED_MODULE_6__.KJUR.asn1.DERNull()
+            ]
+        });
+        var second_sequence = new _lib_jsrsasign_asn1_1_0__WEBPACK_IMPORTED_MODULE_6__.KJUR.asn1.DERSequence({
+            array: [
+                new _lib_jsrsasign_asn1_1_0__WEBPACK_IMPORTED_MODULE_6__.KJUR.asn1.DERInteger({ bigint: this.n }),
+                new _lib_jsrsasign_asn1_1_0__WEBPACK_IMPORTED_MODULE_6__.KJUR.asn1.DERInteger({ int: this.e })
+            ]
+        });
+        var bit_string = new _lib_jsrsasign_asn1_1_0__WEBPACK_IMPORTED_MODULE_6__.KJUR.asn1.DERBitString({
+            hex: "00" + second_sequence.getEncodedHex()
+        });
+        var seq = new _lib_jsrsasign_asn1_1_0__WEBPACK_IMPORTED_MODULE_6__.KJUR.asn1.DERSequence({
+            array: [
+                first_sequence,
+                bit_string
+            ]
+        });
+        return seq.getEncodedHex();
+    };
+    /**
+     * base64 (pem) encoded version of the DER encoded representation
+     * @returns {string} pem encoded representation without header and footer
+     * @public
+     */
+    JSEncryptRSAKey.prototype.getPublicBaseKeyB64 = function () {
+        return (0,_lib_jsbn_base64__WEBPACK_IMPORTED_MODULE_0__.hex2b64)(this.getPublicBaseKey());
+    };
+    /**
+     * wrap the string in block of width chars. The default value for rsa keys is 64
+     * characters.
+     * @param {string} str the pem encoded string without header and footer
+     * @param {Number} [width=64] - the length the string has to be wrapped at
+     * @returns {string}
+     * @private
+     */
+    JSEncryptRSAKey.wordwrap = function (str, width) {
+        width = width || 64;
+        if (!str) {
+            return str;
+        }
+        var regex = "(.{1," + width + "})( +|$\n?)|(.{1," + width + "})";
+        return str.match(RegExp(regex, "g")).join("\n");
+    };
+    /**
+     * Retrieve the pem encoded private key
+     * @returns {string} the pem encoded private key with header/footer
+     * @public
+     */
+    JSEncryptRSAKey.prototype.getPrivateKey = function () {
+        var key = "-----BEGIN RSA PRIVATE KEY-----\n";
+        key += JSEncryptRSAKey.wordwrap(this.getPrivateBaseKeyB64()) + "\n";
+        key += "-----END RSA PRIVATE KEY-----";
+        return key;
+    };
+    /**
+     * Retrieve the pem encoded public key
+     * @returns {string} the pem encoded public key with header/footer
+     * @public
+     */
+    JSEncryptRSAKey.prototype.getPublicKey = function () {
+        var key = "-----BEGIN PUBLIC KEY-----\n";
+        key += JSEncryptRSAKey.wordwrap(this.getPublicBaseKeyB64()) + "\n";
+        key += "-----END PUBLIC KEY-----";
+        return key;
+    };
+    /**
+     * Check if the object contains the necessary parameters to populate the rsa modulus
+     * and public exponent parameters.
+     * @param {Object} [obj={}] - An object that may contain the two public key
+     * parameters
+     * @returns {boolean} true if the object contains both the modulus and the public exponent
+     * properties (n and e)
+     * @todo check for types of n and e. N should be a parseable bigInt object, E should
+     * be a parseable integer number
+     * @private
+     */
+    JSEncryptRSAKey.hasPublicKeyProperty = function (obj) {
+        obj = obj || {};
+        return (obj.hasOwnProperty("n") &&
+            obj.hasOwnProperty("e"));
+    };
+    /**
+     * Check if the object contains ALL the parameters of an RSA key.
+     * @param {Object} [obj={}] - An object that may contain nine rsa key
+     * parameters
+     * @returns {boolean} true if the object contains all the parameters needed
+     * @todo check for types of the parameters all the parameters but the public exponent
+     * should be parseable bigint objects, the public exponent should be a parseable integer number
+     * @private
+     */
+    JSEncryptRSAKey.hasPrivateKeyProperty = function (obj) {
+        obj = obj || {};
+        return (obj.hasOwnProperty("n") &&
+            obj.hasOwnProperty("e") &&
+            obj.hasOwnProperty("d") &&
+            obj.hasOwnProperty("p") &&
+            obj.hasOwnProperty("q") &&
+            obj.hasOwnProperty("dmp1") &&
+            obj.hasOwnProperty("dmq1") &&
+            obj.hasOwnProperty("coeff"));
+    };
+    /**
+     * Parse the properties of obj in the current rsa object. Obj should AT LEAST
+     * include the modulus and public exponent (n, e) parameters.
+     * @param {Object} obj - the object containing rsa parameters
+     * @private
+     */
+    JSEncryptRSAKey.prototype.parsePropertiesFrom = function (obj) {
+        this.n = obj.n;
+        this.e = obj.e;
+        if (obj.hasOwnProperty("d")) {
+            this.d = obj.d;
+            this.p = obj.p;
+            this.q = obj.q;
+            this.dmp1 = obj.dmp1;
+            this.dmq1 = obj.dmq1;
+            this.coeff = obj.coeff;
+        }
+    };
+    return JSEncryptRSAKey;
+}(_lib_jsbn_rsa__WEBPACK_IMPORTED_MODULE_4__.RSAKey));
+
+
+
+/***/ }),
+
+/***/ "./node_modules/jsencrypt/lib/index.js":
+/*!*********************************************!*\
+  !*** ./node_modules/jsencrypt/lib/index.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "JSEncrypt": () => (/* reexport safe */ _JSEncrypt__WEBPACK_IMPORTED_MODULE_0__.JSEncrypt),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _JSEncrypt__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./JSEncrypt */ "./node_modules/jsencrypt/lib/JSEncrypt.js");
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_JSEncrypt__WEBPACK_IMPORTED_MODULE_0__.JSEncrypt);
+
+
+/***/ }),
+
+/***/ "./node_modules/jsencrypt/lib/lib/asn1js/asn1.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/jsencrypt/lib/lib/asn1js/asn1.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ASN1": () => (/* binding */ ASN1),
+/* harmony export */   "ASN1Tag": () => (/* binding */ ASN1Tag),
+/* harmony export */   "Stream": () => (/* binding */ Stream)
+/* harmony export */ });
+/* harmony import */ var _int10__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./int10 */ "./node_modules/jsencrypt/lib/lib/asn1js/int10.js");
+// ASN.1 JavaScript decoder
+// Copyright (c) 2008-2014 Lapo Luchini <lapo@lapo.it>
+// Permission to use, copy, modify, and/or distribute this software for any
+// purpose with or without fee is hereby granted, provided that the above
+// copyright notice and this permission notice appear in all copies.
+//
+// THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+// WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+// MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+// ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+// WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+// ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+// OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+/*jshint browser: true, strict: true, immed: true, latedef: true, undef: true, regexdash: false */
+/*global oids */
+
+var ellipsis = "\u2026";
+var reTimeS = /^(\d\d)(0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01])([01]\d|2[0-3])(?:([0-5]\d)(?:([0-5]\d)(?:[.,](\d{1,3}))?)?)?(Z|[-+](?:[0]\d|1[0-2])([0-5]\d)?)?$/;
+var reTimeL = /^(\d\d\d\d)(0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01])([01]\d|2[0-3])(?:([0-5]\d)(?:([0-5]\d)(?:[.,](\d{1,3}))?)?)?(Z|[-+](?:[0]\d|1[0-2])([0-5]\d)?)?$/;
+function stringCut(str, len) {
+    if (str.length > len) {
+        str = str.substring(0, len) + ellipsis;
+    }
+    return str;
+}
+var Stream = /** @class */ (function () {
+    function Stream(enc, pos) {
+        this.hexDigits = "0123456789ABCDEF";
+        if (enc instanceof Stream) {
+            this.enc = enc.enc;
+            this.pos = enc.pos;
+        }
+        else {
+            // enc should be an array or a binary string
+            this.enc = enc;
+            this.pos = pos;
+        }
+    }
+    Stream.prototype.get = function (pos) {
+        if (pos === undefined) {
+            pos = this.pos++;
+        }
+        if (pos >= this.enc.length) {
+            throw new Error("Requesting byte offset " + pos + " on a stream of length " + this.enc.length);
+        }
+        return ("string" === typeof this.enc) ? this.enc.charCodeAt(pos) : this.enc[pos];
+    };
+    Stream.prototype.hexByte = function (b) {
+        return this.hexDigits.charAt((b >> 4) & 0xF) + this.hexDigits.charAt(b & 0xF);
+    };
+    Stream.prototype.hexDump = function (start, end, raw) {
+        var s = "";
+        for (var i = start; i < end; ++i) {
+            s += this.hexByte(this.get(i));
+            if (raw !== true) {
+                switch (i & 0xF) {
+                    case 0x7:
+                        s += "  ";
+                        break;
+                    case 0xF:
+                        s += "\n";
+                        break;
+                    default:
+                        s += " ";
+                }
+            }
+        }
+        return s;
+    };
+    Stream.prototype.isASCII = function (start, end) {
+        for (var i = start; i < end; ++i) {
+            var c = this.get(i);
+            if (c < 32 || c > 176) {
+                return false;
+            }
+        }
+        return true;
+    };
+    Stream.prototype.parseStringISO = function (start, end) {
+        var s = "";
+        for (var i = start; i < end; ++i) {
+            s += String.fromCharCode(this.get(i));
+        }
+        return s;
+    };
+    Stream.prototype.parseStringUTF = function (start, end) {
+        var s = "";
+        for (var i = start; i < end;) {
+            var c = this.get(i++);
+            if (c < 128) {
+                s += String.fromCharCode(c);
+            }
+            else if ((c > 191) && (c < 224)) {
+                s += String.fromCharCode(((c & 0x1F) << 6) | (this.get(i++) & 0x3F));
+            }
+            else {
+                s += String.fromCharCode(((c & 0x0F) << 12) | ((this.get(i++) & 0x3F) << 6) | (this.get(i++) & 0x3F));
+            }
+        }
+        return s;
+    };
+    Stream.prototype.parseStringBMP = function (start, end) {
+        var str = "";
+        var hi;
+        var lo;
+        for (var i = start; i < end;) {
+            hi = this.get(i++);
+            lo = this.get(i++);
+            str += String.fromCharCode((hi << 8) | lo);
+        }
+        return str;
+    };
+    Stream.prototype.parseTime = function (start, end, shortYear) {
+        var s = this.parseStringISO(start, end);
+        var m = (shortYear ? reTimeS : reTimeL).exec(s);
+        if (!m) {
+            return "Unrecognized time: " + s;
+        }
+        if (shortYear) {
+            // to avoid querying the timer, use the fixed range [1970, 2069]
+            // it will conform with ITU X.400 [-10, +40] sliding window until 2030
+            m[1] = +m[1];
+            m[1] += (+m[1] < 70) ? 2000 : 1900;
+        }
+        s = m[1] + "-" + m[2] + "-" + m[3] + " " + m[4];
+        if (m[5]) {
+            s += ":" + m[5];
+            if (m[6]) {
+                s += ":" + m[6];
+                if (m[7]) {
+                    s += "." + m[7];
+                }
+            }
+        }
+        if (m[8]) {
+            s += " UTC";
+            if (m[8] != "Z") {
+                s += m[8];
+                if (m[9]) {
+                    s += ":" + m[9];
+                }
+            }
+        }
+        return s;
+    };
+    Stream.prototype.parseInteger = function (start, end) {
+        var v = this.get(start);
+        var neg = (v > 127);
+        var pad = neg ? 255 : 0;
+        var len;
+        var s = "";
+        // skip unuseful bits (not allowed in DER)
+        while (v == pad && ++start < end) {
+            v = this.get(start);
+        }
+        len = end - start;
+        if (len === 0) {
+            return neg ? -1 : 0;
+        }
+        // show bit length of huge integers
+        if (len > 4) {
+            s = v;
+            len <<= 3;
+            while (((+s ^ pad) & 0x80) == 0) {
+                s = +s << 1;
+                --len;
+            }
+            s = "(" + len + " bit)\n";
+        }
+        // decode the integer
+        if (neg) {
+            v = v - 256;
+        }
+        var n = new _int10__WEBPACK_IMPORTED_MODULE_0__.Int10(v);
+        for (var i = start + 1; i < end; ++i) {
+            n.mulAdd(256, this.get(i));
+        }
+        return s + n.toString();
+    };
+    Stream.prototype.parseBitString = function (start, end, maxLength) {
+        var unusedBit = this.get(start);
+        var lenBit = ((end - start - 1) << 3) - unusedBit;
+        var intro = "(" + lenBit + " bit)\n";
+        var s = "";
+        for (var i = start + 1; i < end; ++i) {
+            var b = this.get(i);
+            var skip = (i == end - 1) ? unusedBit : 0;
+            for (var j = 7; j >= skip; --j) {
+                s += (b >> j) & 1 ? "1" : "0";
+            }
+            if (s.length > maxLength) {
+                return intro + stringCut(s, maxLength);
+            }
+        }
+        return intro + s;
+    };
+    Stream.prototype.parseOctetString = function (start, end, maxLength) {
+        if (this.isASCII(start, end)) {
+            return stringCut(this.parseStringISO(start, end), maxLength);
+        }
+        var len = end - start;
+        var s = "(" + len + " byte)\n";
+        maxLength /= 2; // we work in bytes
+        if (len > maxLength) {
+            end = start + maxLength;
+        }
+        for (var i = start; i < end; ++i) {
+            s += this.hexByte(this.get(i));
+        }
+        if (len > maxLength) {
+            s += ellipsis;
+        }
+        return s;
+    };
+    Stream.prototype.parseOID = function (start, end, maxLength) {
+        var s = "";
+        var n = new _int10__WEBPACK_IMPORTED_MODULE_0__.Int10();
+        var bits = 0;
+        for (var i = start; i < end; ++i) {
+            var v = this.get(i);
+            n.mulAdd(128, v & 0x7F);
+            bits += 7;
+            if (!(v & 0x80)) { // finished
+                if (s === "") {
+                    n = n.simplify();
+                    if (n instanceof _int10__WEBPACK_IMPORTED_MODULE_0__.Int10) {
+                        n.sub(80);
+                        s = "2." + n.toString();
+                    }
+                    else {
+                        var m = n < 80 ? n < 40 ? 0 : 1 : 2;
+                        s = m + "." + (n - m * 40);
+                    }
+                }
+                else {
+                    s += "." + n.toString();
+                }
+                if (s.length > maxLength) {
+                    return stringCut(s, maxLength);
+                }
+                n = new _int10__WEBPACK_IMPORTED_MODULE_0__.Int10();
+                bits = 0;
+            }
+        }
+        if (bits > 0) {
+            s += ".incomplete";
+        }
+        return s;
+    };
+    return Stream;
+}());
+
+var ASN1 = /** @class */ (function () {
+    function ASN1(stream, header, length, tag, sub) {
+        if (!(tag instanceof ASN1Tag)) {
+            throw new Error("Invalid tag value.");
+        }
+        this.stream = stream;
+        this.header = header;
+        this.length = length;
+        this.tag = tag;
+        this.sub = sub;
+    }
+    ASN1.prototype.typeName = function () {
+        switch (this.tag.tagClass) {
+            case 0: // universal
+                switch (this.tag.tagNumber) {
+                    case 0x00:
+                        return "EOC";
+                    case 0x01:
+                        return "BOOLEAN";
+                    case 0x02:
+                        return "INTEGER";
+                    case 0x03:
+                        return "BIT_STRING";
+                    case 0x04:
+                        return "OCTET_STRING";
+                    case 0x05:
+                        return "NULL";
+                    case 0x06:
+                        return "OBJECT_IDENTIFIER";
+                    case 0x07:
+                        return "ObjectDescriptor";
+                    case 0x08:
+                        return "EXTERNAL";
+                    case 0x09:
+                        return "REAL";
+                    case 0x0A:
+                        return "ENUMERATED";
+                    case 0x0B:
+                        return "EMBEDDED_PDV";
+                    case 0x0C:
+                        return "UTF8String";
+                    case 0x10:
+                        return "SEQUENCE";
+                    case 0x11:
+                        return "SET";
+                    case 0x12:
+                        return "NumericString";
+                    case 0x13:
+                        return "PrintableString"; // ASCII subset
+                    case 0x14:
+                        return "TeletexString"; // aka T61String
+                    case 0x15:
+                        return "VideotexString";
+                    case 0x16:
+                        return "IA5String"; // ASCII
+                    case 0x17:
+                        return "UTCTime";
+                    case 0x18:
+                        return "GeneralizedTime";
+                    case 0x19:
+                        return "GraphicString";
+                    case 0x1A:
+                        return "VisibleString"; // ASCII subset
+                    case 0x1B:
+                        return "GeneralString";
+                    case 0x1C:
+                        return "UniversalString";
+                    case 0x1E:
+                        return "BMPString";
+                }
+                return "Universal_" + this.tag.tagNumber.toString();
+            case 1:
+                return "Application_" + this.tag.tagNumber.toString();
+            case 2:
+                return "[" + this.tag.tagNumber.toString() + "]"; // Context
+            case 3:
+                return "Private_" + this.tag.tagNumber.toString();
+        }
+    };
+    ASN1.prototype.content = function (maxLength) {
+        if (this.tag === undefined) {
+            return null;
+        }
+        if (maxLength === undefined) {
+            maxLength = Infinity;
+        }
+        var content = this.posContent();
+        var len = Math.abs(this.length);
+        if (!this.tag.isUniversal()) {
+            if (this.sub !== null) {
+                return "(" + this.sub.length + " elem)";
+            }
+            return this.stream.parseOctetString(content, content + len, maxLength);
+        }
+        switch (this.tag.tagNumber) {
+            case 0x01: // BOOLEAN
+                return (this.stream.get(content) === 0) ? "false" : "true";
+            case 0x02: // INTEGER
+                return this.stream.parseInteger(content, content + len);
+            case 0x03: // BIT_STRING
+                return this.sub ? "(" + this.sub.length + " elem)" :
+                    this.stream.parseBitString(content, content + len, maxLength);
+            case 0x04: // OCTET_STRING
+                return this.sub ? "(" + this.sub.length + " elem)" :
+                    this.stream.parseOctetString(content, content + len, maxLength);
+            // case 0x05: // NULL
+            case 0x06: // OBJECT_IDENTIFIER
+                return this.stream.parseOID(content, content + len, maxLength);
+            // case 0x07: // ObjectDescriptor
+            // case 0x08: // EXTERNAL
+            // case 0x09: // REAL
+            // case 0x0A: // ENUMERATED
+            // case 0x0B: // EMBEDDED_PDV
+            case 0x10: // SEQUENCE
+            case 0x11: // SET
+                if (this.sub !== null) {
+                    return "(" + this.sub.length + " elem)";
+                }
+                else {
+                    return "(no elem)";
+                }
+            case 0x0C: // UTF8String
+                return stringCut(this.stream.parseStringUTF(content, content + len), maxLength);
+            case 0x12: // NumericString
+            case 0x13: // PrintableString
+            case 0x14: // TeletexString
+            case 0x15: // VideotexString
+            case 0x16: // IA5String
+            // case 0x19: // GraphicString
+            case 0x1A: // VisibleString
+                // case 0x1B: // GeneralString
+                // case 0x1C: // UniversalString
+                return stringCut(this.stream.parseStringISO(content, content + len), maxLength);
+            case 0x1E: // BMPString
+                return stringCut(this.stream.parseStringBMP(content, content + len), maxLength);
+            case 0x17: // UTCTime
+            case 0x18: // GeneralizedTime
+                return this.stream.parseTime(content, content + len, (this.tag.tagNumber == 0x17));
+        }
+        return null;
+    };
+    ASN1.prototype.toString = function () {
+        return this.typeName() + "@" + this.stream.pos + "[header:" + this.header + ",length:" + this.length + ",sub:" + ((this.sub === null) ? "null" : this.sub.length) + "]";
+    };
+    ASN1.prototype.toPrettyString = function (indent) {
+        if (indent === undefined) {
+            indent = "";
+        }
+        var s = indent + this.typeName() + " @" + this.stream.pos;
+        if (this.length >= 0) {
+            s += "+";
+        }
+        s += this.length;
+        if (this.tag.tagConstructed) {
+            s += " (constructed)";
+        }
+        else if ((this.tag.isUniversal() && ((this.tag.tagNumber == 0x03) || (this.tag.tagNumber == 0x04))) && (this.sub !== null)) {
+            s += " (encapsulates)";
+        }
+        s += "\n";
+        if (this.sub !== null) {
+            indent += "  ";
+            for (var i = 0, max = this.sub.length; i < max; ++i) {
+                s += this.sub[i].toPrettyString(indent);
+            }
+        }
+        return s;
+    };
+    ASN1.prototype.posStart = function () {
+        return this.stream.pos;
+    };
+    ASN1.prototype.posContent = function () {
+        return this.stream.pos + this.header;
+    };
+    ASN1.prototype.posEnd = function () {
+        return this.stream.pos + this.header + Math.abs(this.length);
+    };
+    ASN1.prototype.toHexString = function () {
+        return this.stream.hexDump(this.posStart(), this.posEnd(), true);
+    };
+    ASN1.decodeLength = function (stream) {
+        var buf = stream.get();
+        var len = buf & 0x7F;
+        if (len == buf) {
+            return len;
+        }
+        // no reason to use Int10, as it would be a huge buffer anyways
+        if (len > 6) {
+            throw new Error("Length over 48 bits not supported at position " + (stream.pos - 1));
+        }
+        if (len === 0) {
+            return null;
+        } // undefined
+        buf = 0;
+        for (var i = 0; i < len; ++i) {
+            buf = (buf * 256) + stream.get();
+        }
+        return buf;
+    };
+    /**
+     * Retrieve the hexadecimal value (as a string) of the current ASN.1 element
+     * @returns {string}
+     * @public
+     */
+    ASN1.prototype.getHexStringValue = function () {
+        var hexString = this.toHexString();
+        var offset = this.header * 2;
+        var length = this.length * 2;
+        return hexString.substr(offset, length);
+    };
+    ASN1.decode = function (str) {
+        var stream;
+        if (!(str instanceof Stream)) {
+            stream = new Stream(str, 0);
+        }
+        else {
+            stream = str;
+        }
+        var streamStart = new Stream(stream);
+        var tag = new ASN1Tag(stream);
+        var len = ASN1.decodeLength(stream);
+        var start = stream.pos;
+        var header = start - streamStart.pos;
+        var sub = null;
+        var getSub = function () {
+            var ret = [];
+            if (len !== null) {
+                // definite length
+                var end = start + len;
+                while (stream.pos < end) {
+                    ret[ret.length] = ASN1.decode(stream);
+                }
+                if (stream.pos != end) {
+                    throw new Error("Content size is not correct for container starting at offset " + start);
+                }
+            }
+            else {
+                // undefined length
+                try {
+                    for (;;) {
+                        var s = ASN1.decode(stream);
+                        if (s.tag.isEOC()) {
+                            break;
+                        }
+                        ret[ret.length] = s;
+                    }
+                    len = start - stream.pos; // undefined lengths are represented as negative values
+                }
+                catch (e) {
+                    throw new Error("Exception while decoding undefined length content: " + e);
+                }
+            }
+            return ret;
+        };
+        if (tag.tagConstructed) {
+            // must have valid content
+            sub = getSub();
+        }
+        else if (tag.isUniversal() && ((tag.tagNumber == 0x03) || (tag.tagNumber == 0x04))) {
+            // sometimes BitString and OctetString are used to encapsulate ASN.1
+            try {
+                if (tag.tagNumber == 0x03) {
+                    if (stream.get() != 0) {
+                        throw new Error("BIT STRINGs with unused bits cannot encapsulate.");
+                    }
+                }
+                sub = getSub();
+                for (var i = 0; i < sub.length; ++i) {
+                    if (sub[i].tag.isEOC()) {
+                        throw new Error("EOC is not supposed to be actual content.");
+                    }
+                }
+            }
+            catch (e) {
+                // but silently ignore when they don't
+                sub = null;
+            }
+        }
+        if (sub === null) {
+            if (len === null) {
+                throw new Error("We can't skip over an invalid tag with undefined length at offset " + start);
+            }
+            stream.pos = start + Math.abs(len);
+        }
+        return new ASN1(streamStart, header, len, tag, sub);
+    };
+    return ASN1;
+}());
+
+var ASN1Tag = /** @class */ (function () {
+    function ASN1Tag(stream) {
+        var buf = stream.get();
+        this.tagClass = buf >> 6;
+        this.tagConstructed = ((buf & 0x20) !== 0);
+        this.tagNumber = buf & 0x1F;
+        if (this.tagNumber == 0x1F) { // long tag
+            var n = new _int10__WEBPACK_IMPORTED_MODULE_0__.Int10();
+            do {
+                buf = stream.get();
+                n.mulAdd(128, buf & 0x7F);
+            } while (buf & 0x80);
+            this.tagNumber = n.simplify();
+        }
+    }
+    ASN1Tag.prototype.isUniversal = function () {
+        return this.tagClass === 0x00;
+    };
+    ASN1Tag.prototype.isEOC = function () {
+        return this.tagClass === 0x00 && this.tagNumber === 0x00;
+    };
+    return ASN1Tag;
+}());
+
+
+
+/***/ }),
+
+/***/ "./node_modules/jsencrypt/lib/lib/asn1js/base64.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/jsencrypt/lib/lib/asn1js/base64.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Base64": () => (/* binding */ Base64)
+/* harmony export */ });
+// Base64 JavaScript decoder
+// Copyright (c) 2008-2013 Lapo Luchini <lapo@lapo.it>
+// Permission to use, copy, modify, and/or distribute this software for any
+// purpose with or without fee is hereby granted, provided that the above
+// copyright notice and this permission notice appear in all copies.
+//
+// THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+// WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+// MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+// ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+// WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+// ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+// OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+/*jshint browser: true, strict: true, immed: true, latedef: true, undef: true, regexdash: false */
+var decoder;
+var Base64 = {
+    decode: function (a) {
+        var i;
+        if (decoder === undefined) {
+            var b64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+            var ignore = "= \f\n\r\t\u00A0\u2028\u2029";
+            decoder = Object.create(null);
+            for (i = 0; i < 64; ++i) {
+                decoder[b64.charAt(i)] = i;
+            }
+            decoder['-'] = 62; //+
+            decoder['_'] = 63; //-
+            for (i = 0; i < ignore.length; ++i) {
+                decoder[ignore.charAt(i)] = -1;
+            }
+        }
+        var out = [];
+        var bits = 0;
+        var char_count = 0;
+        for (i = 0; i < a.length; ++i) {
+            var c = a.charAt(i);
+            if (c == "=") {
+                break;
+            }
+            c = decoder[c];
+            if (c == -1) {
+                continue;
+            }
+            if (c === undefined) {
+                throw new Error("Illegal character at offset " + i);
+            }
+            bits |= c;
+            if (++char_count >= 4) {
+                out[out.length] = (bits >> 16);
+                out[out.length] = (bits >> 8) & 0xFF;
+                out[out.length] = bits & 0xFF;
+                bits = 0;
+                char_count = 0;
+            }
+            else {
+                bits <<= 6;
+            }
+        }
+        switch (char_count) {
+            case 1:
+                throw new Error("Base64 encoding incomplete: at least 2 bits missing");
+            case 2:
+                out[out.length] = (bits >> 10);
+                break;
+            case 3:
+                out[out.length] = (bits >> 16);
+                out[out.length] = (bits >> 8) & 0xFF;
+                break;
+        }
+        return out;
+    },
+    re: /-----BEGIN [^-]+-----([A-Za-z0-9+\/=\s]+)-----END [^-]+-----|begin-base64[^\n]+\n([A-Za-z0-9+\/=\s]+)====/,
+    unarmor: function (a) {
+        var m = Base64.re.exec(a);
+        if (m) {
+            if (m[1]) {
+                a = m[1];
+            }
+            else if (m[2]) {
+                a = m[2];
+            }
+            else {
+                throw new Error("RegExp out of sync");
+            }
+        }
+        return Base64.decode(a);
+    }
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/jsencrypt/lib/lib/asn1js/hex.js":
+/*!******************************************************!*\
+  !*** ./node_modules/jsencrypt/lib/lib/asn1js/hex.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Hex": () => (/* binding */ Hex)
+/* harmony export */ });
+// Hex JavaScript decoder
+// Copyright (c) 2008-2013 Lapo Luchini <lapo@lapo.it>
+// Permission to use, copy, modify, and/or distribute this software for any
+// purpose with or without fee is hereby granted, provided that the above
+// copyright notice and this permission notice appear in all copies.
+//
+// THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+// WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+// MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+// ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+// WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+// ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+// OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+/*jshint browser: true, strict: true, immed: true, latedef: true, undef: true, regexdash: false */
+var decoder;
+var Hex = {
+    decode: function (a) {
+        var i;
+        if (decoder === undefined) {
+            var hex = "0123456789ABCDEF";
+            var ignore = " \f\n\r\t\u00A0\u2028\u2029";
+            decoder = {};
+            for (i = 0; i < 16; ++i) {
+                decoder[hex.charAt(i)] = i;
+            }
+            hex = hex.toLowerCase();
+            for (i = 10; i < 16; ++i) {
+                decoder[hex.charAt(i)] = i;
+            }
+            for (i = 0; i < ignore.length; ++i) {
+                decoder[ignore.charAt(i)] = -1;
+            }
+        }
+        var out = [];
+        var bits = 0;
+        var char_count = 0;
+        for (i = 0; i < a.length; ++i) {
+            var c = a.charAt(i);
+            if (c == "=") {
+                break;
+            }
+            c = decoder[c];
+            if (c == -1) {
+                continue;
+            }
+            if (c === undefined) {
+                throw new Error("Illegal character at offset " + i);
+            }
+            bits |= c;
+            if (++char_count >= 2) {
+                out[out.length] = bits;
+                bits = 0;
+                char_count = 0;
+            }
+            else {
+                bits <<= 4;
+            }
+        }
+        if (char_count) {
+            throw new Error("Hex encoding incomplete: 4 bits missing");
+        }
+        return out;
+    }
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/jsencrypt/lib/lib/asn1js/int10.js":
+/*!********************************************************!*\
+  !*** ./node_modules/jsencrypt/lib/lib/asn1js/int10.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Int10": () => (/* binding */ Int10)
+/* harmony export */ });
+// Big integer base-10 printing library
+// Copyright (c) 2014 Lapo Luchini <lapo@lapo.it>
+// Permission to use, copy, modify, and/or distribute this software for any
+// purpose with or without fee is hereby granted, provided that the above
+// copyright notice and this permission notice appear in all copies.
+//
+// THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+// WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+// MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+// ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+// WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+// ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+// OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+/*jshint browser: true, strict: true, immed: true, latedef: true, undef: true, regexdash: false */
+var max = 10000000000000; // biggest integer that can still fit 2^53 when multiplied by 256
+var Int10 = /** @class */ (function () {
+    function Int10(value) {
+        this.buf = [+value || 0];
+    }
+    Int10.prototype.mulAdd = function (m, c) {
+        // assert(m <= 256)
+        var b = this.buf;
+        var l = b.length;
+        var i;
+        var t;
+        for (i = 0; i < l; ++i) {
+            t = b[i] * m + c;
+            if (t < max) {
+                c = 0;
+            }
+            else {
+                c = 0 | (t / max);
+                t -= c * max;
+            }
+            b[i] = t;
+        }
+        if (c > 0) {
+            b[i] = c;
+        }
+    };
+    Int10.prototype.sub = function (c) {
+        // assert(m <= 256)
+        var b = this.buf;
+        var l = b.length;
+        var i;
+        var t;
+        for (i = 0; i < l; ++i) {
+            t = b[i] - c;
+            if (t < 0) {
+                t += max;
+                c = 1;
+            }
+            else {
+                c = 0;
+            }
+            b[i] = t;
+        }
+        while (b[b.length - 1] === 0) {
+            b.pop();
+        }
+    };
+    Int10.prototype.toString = function (base) {
+        if ((base || 10) != 10) {
+            throw new Error("only base 10 is supported");
+        }
+        var b = this.buf;
+        var s = b[b.length - 1].toString();
+        for (var i = b.length - 2; i >= 0; --i) {
+            s += (max + b[i]).toString().substring(1);
+        }
+        return s;
+    };
+    Int10.prototype.valueOf = function () {
+        var b = this.buf;
+        var v = 0;
+        for (var i = b.length - 1; i >= 0; --i) {
+            v = v * max + b[i];
+        }
+        return v;
+    };
+    Int10.prototype.simplify = function () {
+        var b = this.buf;
+        return (b.length == 1) ? b[0] : this;
+    };
+    return Int10;
+}());
+
+
+
+/***/ }),
+
+/***/ "./node_modules/jsencrypt/lib/lib/jsbn/base64.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/jsencrypt/lib/lib/jsbn/base64.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "b64toBA": () => (/* binding */ b64toBA),
+/* harmony export */   "b64tohex": () => (/* binding */ b64tohex),
+/* harmony export */   "hex2b64": () => (/* binding */ hex2b64)
+/* harmony export */ });
+/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./util */ "./node_modules/jsencrypt/lib/lib/jsbn/util.js");
+
+var b64map = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+var b64pad = "=";
+function hex2b64(h) {
+    var i;
+    var c;
+    var ret = "";
+    for (i = 0; i + 3 <= h.length; i += 3) {
+        c = parseInt(h.substring(i, i + 3), 16);
+        ret += b64map.charAt(c >> 6) + b64map.charAt(c & 63);
+    }
+    if (i + 1 == h.length) {
+        c = parseInt(h.substring(i, i + 1), 16);
+        ret += b64map.charAt(c << 2);
+    }
+    else if (i + 2 == h.length) {
+        c = parseInt(h.substring(i, i + 2), 16);
+        ret += b64map.charAt(c >> 2) + b64map.charAt((c & 3) << 4);
+    }
+    while ((ret.length & 3) > 0) {
+        ret += b64pad;
+    }
+    return ret;
+}
+// convert a base64 string to hex
+function b64tohex(s) {
+    var ret = "";
+    var i;
+    var k = 0; // b64 state, 0-3
+    var slop = 0;
+    for (i = 0; i < s.length; ++i) {
+        if (s.charAt(i) == b64pad) {
+            break;
+        }
+        var v = b64map.indexOf(s.charAt(i));
+        if (v < 0) {
+            continue;
+        }
+        if (k == 0) {
+            ret += (0,_util__WEBPACK_IMPORTED_MODULE_0__.int2char)(v >> 2);
+            slop = v & 3;
+            k = 1;
+        }
+        else if (k == 1) {
+            ret += (0,_util__WEBPACK_IMPORTED_MODULE_0__.int2char)((slop << 2) | (v >> 4));
+            slop = v & 0xf;
+            k = 2;
+        }
+        else if (k == 2) {
+            ret += (0,_util__WEBPACK_IMPORTED_MODULE_0__.int2char)(slop);
+            ret += (0,_util__WEBPACK_IMPORTED_MODULE_0__.int2char)(v >> 2);
+            slop = v & 3;
+            k = 3;
+        }
+        else {
+            ret += (0,_util__WEBPACK_IMPORTED_MODULE_0__.int2char)((slop << 2) | (v >> 4));
+            ret += (0,_util__WEBPACK_IMPORTED_MODULE_0__.int2char)(v & 0xf);
+            k = 0;
+        }
+    }
+    if (k == 1) {
+        ret += (0,_util__WEBPACK_IMPORTED_MODULE_0__.int2char)(slop << 2);
+    }
+    return ret;
+}
+// convert a base64 string to a byte/number array
+function b64toBA(s) {
+    // piggyback on b64tohex for now, optimize later
+    var h = b64tohex(s);
+    var i;
+    var a = [];
+    for (i = 0; 2 * i < h.length; ++i) {
+        a[i] = parseInt(h.substring(2 * i, 2 * i + 2), 16);
+    }
+    return a;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/jsencrypt/lib/lib/jsbn/jsbn.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/jsencrypt/lib/lib/jsbn/jsbn.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "BigInteger": () => (/* binding */ BigInteger),
+/* harmony export */   "intAt": () => (/* binding */ intAt),
+/* harmony export */   "nbi": () => (/* binding */ nbi),
+/* harmony export */   "nbits": () => (/* binding */ nbits),
+/* harmony export */   "nbv": () => (/* binding */ nbv),
+/* harmony export */   "parseBigInt": () => (/* binding */ parseBigInt)
+/* harmony export */ });
+/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./util */ "./node_modules/jsencrypt/lib/lib/jsbn/util.js");
+// Copyright (c) 2005  Tom Wu
+// All Rights Reserved.
+// See "LICENSE" for details.
+// Basic JavaScript BN library - subset useful for RSA encryption.
+
+// Bits per digit
+var dbits;
+// JavaScript engine analysis
+var canary = 0xdeadbeefcafe;
+var j_lm = ((canary & 0xffffff) == 0xefcafe);
+//#region
+var lowprimes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211, 223, 227, 229, 233, 239, 241, 251, 257, 263, 269, 271, 277, 281, 283, 293, 307, 311, 313, 317, 331, 337, 347, 349, 353, 359, 367, 373, 379, 383, 389, 397, 401, 409, 419, 421, 431, 433, 439, 443, 449, 457, 461, 463, 467, 479, 487, 491, 499, 503, 509, 521, 523, 541, 547, 557, 563, 569, 571, 577, 587, 593, 599, 601, 607, 613, 617, 619, 631, 641, 643, 647, 653, 659, 661, 673, 677, 683, 691, 701, 709, 719, 727, 733, 739, 743, 751, 757, 761, 769, 773, 787, 797, 809, 811, 821, 823, 827, 829, 839, 853, 857, 859, 863, 877, 881, 883, 887, 907, 911, 919, 929, 937, 941, 947, 953, 967, 971, 977, 983, 991, 997];
+var lplim = (1 << 26) / lowprimes[lowprimes.length - 1];
+//#endregion
+// (public) Constructor
+var BigInteger = /** @class */ (function () {
+    function BigInteger(a, b, c) {
+        if (a != null) {
+            if ("number" == typeof a) {
+                this.fromNumber(a, b, c);
+            }
+            else if (b == null && "string" != typeof a) {
+                this.fromString(a, 256);
+            }
+            else {
+                this.fromString(a, b);
+            }
+        }
+    }
+    //#region PUBLIC
+    // BigInteger.prototype.toString = bnToString;
+    // (public) return string representation in given radix
+    BigInteger.prototype.toString = function (b) {
+        if (this.s < 0) {
+            return "-" + this.negate().toString(b);
+        }
+        var k;
+        if (b == 16) {
+            k = 4;
+        }
+        else if (b == 8) {
+            k = 3;
+        }
+        else if (b == 2) {
+            k = 1;
+        }
+        else if (b == 32) {
+            k = 5;
+        }
+        else if (b == 4) {
+            k = 2;
+        }
+        else {
+            return this.toRadix(b);
+        }
+        var km = (1 << k) - 1;
+        var d;
+        var m = false;
+        var r = "";
+        var i = this.t;
+        var p = this.DB - (i * this.DB) % k;
+        if (i-- > 0) {
+            if (p < this.DB && (d = this[i] >> p) > 0) {
+                m = true;
+                r = (0,_util__WEBPACK_IMPORTED_MODULE_0__.int2char)(d);
+            }
+            while (i >= 0) {
+                if (p < k) {
+                    d = (this[i] & ((1 << p) - 1)) << (k - p);
+                    d |= this[--i] >> (p += this.DB - k);
+                }
+                else {
+                    d = (this[i] >> (p -= k)) & km;
+                    if (p <= 0) {
+                        p += this.DB;
+                        --i;
+                    }
+                }
+                if (d > 0) {
+                    m = true;
+                }
+                if (m) {
+                    r += (0,_util__WEBPACK_IMPORTED_MODULE_0__.int2char)(d);
+                }
+            }
+        }
+        return m ? r : "0";
+    };
+    // BigInteger.prototype.negate = bnNegate;
+    // (public) -this
+    BigInteger.prototype.negate = function () {
+        var r = nbi();
+        BigInteger.ZERO.subTo(this, r);
+        return r;
+    };
+    // BigInteger.prototype.abs = bnAbs;
+    // (public) |this|
+    BigInteger.prototype.abs = function () {
+        return (this.s < 0) ? this.negate() : this;
+    };
+    // BigInteger.prototype.compareTo = bnCompareTo;
+    // (public) return + if this > a, - if this < a, 0 if equal
+    BigInteger.prototype.compareTo = function (a) {
+        var r = this.s - a.s;
+        if (r != 0) {
+            return r;
+        }
+        var i = this.t;
+        r = i - a.t;
+        if (r != 0) {
+            return (this.s < 0) ? -r : r;
+        }
+        while (--i >= 0) {
+            if ((r = this[i] - a[i]) != 0) {
+                return r;
+            }
+        }
+        return 0;
+    };
+    // BigInteger.prototype.bitLength = bnBitLength;
+    // (public) return the number of bits in "this"
+    BigInteger.prototype.bitLength = function () {
+        if (this.t <= 0) {
+            return 0;
+        }
+        return this.DB * (this.t - 1) + nbits(this[this.t - 1] ^ (this.s & this.DM));
+    };
+    // BigInteger.prototype.mod = bnMod;
+    // (public) this mod a
+    BigInteger.prototype.mod = function (a) {
+        var r = nbi();
+        this.abs().divRemTo(a, null, r);
+        if (this.s < 0 && r.compareTo(BigInteger.ZERO) > 0) {
+            a.subTo(r, r);
+        }
+        return r;
+    };
+    // BigInteger.prototype.modPowInt = bnModPowInt;
+    // (public) this^e % m, 0 <= e < 2^32
+    BigInteger.prototype.modPowInt = function (e, m) {
+        var z;
+        if (e < 256 || m.isEven()) {
+            z = new Classic(m);
+        }
+        else {
+            z = new Montgomery(m);
+        }
+        return this.exp(e, z);
+    };
+    // BigInteger.prototype.clone = bnClone;
+    // (public)
+    BigInteger.prototype.clone = function () {
+        var r = nbi();
+        this.copyTo(r);
+        return r;
+    };
+    // BigInteger.prototype.intValue = bnIntValue;
+    // (public) return value as integer
+    BigInteger.prototype.intValue = function () {
+        if (this.s < 0) {
+            if (this.t == 1) {
+                return this[0] - this.DV;
+            }
+            else if (this.t == 0) {
+                return -1;
+            }
+        }
+        else if (this.t == 1) {
+            return this[0];
+        }
+        else if (this.t == 0) {
+            return 0;
+        }
+        // assumes 16 < DB < 32
+        return ((this[1] & ((1 << (32 - this.DB)) - 1)) << this.DB) | this[0];
+    };
+    // BigInteger.prototype.byteValue = bnByteValue;
+    // (public) return value as byte
+    BigInteger.prototype.byteValue = function () {
+        return (this.t == 0) ? this.s : (this[0] << 24) >> 24;
+    };
+    // BigInteger.prototype.shortValue = bnShortValue;
+    // (public) return value as short (assumes DB>=16)
+    BigInteger.prototype.shortValue = function () {
+        return (this.t == 0) ? this.s : (this[0] << 16) >> 16;
+    };
+    // BigInteger.prototype.signum = bnSigNum;
+    // (public) 0 if this == 0, 1 if this > 0
+    BigInteger.prototype.signum = function () {
+        if (this.s < 0) {
+            return -1;
+        }
+        else if (this.t <= 0 || (this.t == 1 && this[0] <= 0)) {
+            return 0;
+        }
+        else {
+            return 1;
+        }
+    };
+    // BigInteger.prototype.toByteArray = bnToByteArray;
+    // (public) convert to bigendian byte array
+    BigInteger.prototype.toByteArray = function () {
+        var i = this.t;
+        var r = [];
+        r[0] = this.s;
+        var p = this.DB - (i * this.DB) % 8;
+        var d;
+        var k = 0;
+        if (i-- > 0) {
+            if (p < this.DB && (d = this[i] >> p) != (this.s & this.DM) >> p) {
+                r[k++] = d | (this.s << (this.DB - p));
+            }
+            while (i >= 0) {
+                if (p < 8) {
+                    d = (this[i] & ((1 << p) - 1)) << (8 - p);
+                    d |= this[--i] >> (p += this.DB - 8);
+                }
+                else {
+                    d = (this[i] >> (p -= 8)) & 0xff;
+                    if (p <= 0) {
+                        p += this.DB;
+                        --i;
+                    }
+                }
+                if ((d & 0x80) != 0) {
+                    d |= -256;
+                }
+                if (k == 0 && (this.s & 0x80) != (d & 0x80)) {
+                    ++k;
+                }
+                if (k > 0 || d != this.s) {
+                    r[k++] = d;
+                }
+            }
+        }
+        return r;
+    };
+    // BigInteger.prototype.equals = bnEquals;
+    BigInteger.prototype.equals = function (a) {
+        return (this.compareTo(a) == 0);
+    };
+    // BigInteger.prototype.min = bnMin;
+    BigInteger.prototype.min = function (a) {
+        return (this.compareTo(a) < 0) ? this : a;
+    };
+    // BigInteger.prototype.max = bnMax;
+    BigInteger.prototype.max = function (a) {
+        return (this.compareTo(a) > 0) ? this : a;
+    };
+    // BigInteger.prototype.and = bnAnd;
+    BigInteger.prototype.and = function (a) {
+        var r = nbi();
+        this.bitwiseTo(a, _util__WEBPACK_IMPORTED_MODULE_0__.op_and, r);
+        return r;
+    };
+    // BigInteger.prototype.or = bnOr;
+    BigInteger.prototype.or = function (a) {
+        var r = nbi();
+        this.bitwiseTo(a, _util__WEBPACK_IMPORTED_MODULE_0__.op_or, r);
+        return r;
+    };
+    // BigInteger.prototype.xor = bnXor;
+    BigInteger.prototype.xor = function (a) {
+        var r = nbi();
+        this.bitwiseTo(a, _util__WEBPACK_IMPORTED_MODULE_0__.op_xor, r);
+        return r;
+    };
+    // BigInteger.prototype.andNot = bnAndNot;
+    BigInteger.prototype.andNot = function (a) {
+        var r = nbi();
+        this.bitwiseTo(a, _util__WEBPACK_IMPORTED_MODULE_0__.op_andnot, r);
+        return r;
+    };
+    // BigInteger.prototype.not = bnNot;
+    // (public) ~this
+    BigInteger.prototype.not = function () {
+        var r = nbi();
+        for (var i = 0; i < this.t; ++i) {
+            r[i] = this.DM & ~this[i];
+        }
+        r.t = this.t;
+        r.s = ~this.s;
+        return r;
+    };
+    // BigInteger.prototype.shiftLeft = bnShiftLeft;
+    // (public) this << n
+    BigInteger.prototype.shiftLeft = function (n) {
+        var r = nbi();
+        if (n < 0) {
+            this.rShiftTo(-n, r);
+        }
+        else {
+            this.lShiftTo(n, r);
+        }
+        return r;
+    };
+    // BigInteger.prototype.shiftRight = bnShiftRight;
+    // (public) this >> n
+    BigInteger.prototype.shiftRight = function (n) {
+        var r = nbi();
+        if (n < 0) {
+            this.lShiftTo(-n, r);
+        }
+        else {
+            this.rShiftTo(n, r);
+        }
+        return r;
+    };
+    // BigInteger.prototype.getLowestSetBit = bnGetLowestSetBit;
+    // (public) returns index of lowest 1-bit (or -1 if none)
+    BigInteger.prototype.getLowestSetBit = function () {
+        for (var i = 0; i < this.t; ++i) {
+            if (this[i] != 0) {
+                return i * this.DB + (0,_util__WEBPACK_IMPORTED_MODULE_0__.lbit)(this[i]);
+            }
+        }
+        if (this.s < 0) {
+            return this.t * this.DB;
+        }
+        return -1;
+    };
+    // BigInteger.prototype.bitCount = bnBitCount;
+    // (public) return number of set bits
+    BigInteger.prototype.bitCount = function () {
+        var r = 0;
+        var x = this.s & this.DM;
+        for (var i = 0; i < this.t; ++i) {
+            r += (0,_util__WEBPACK_IMPORTED_MODULE_0__.cbit)(this[i] ^ x);
+        }
+        return r;
+    };
+    // BigInteger.prototype.testBit = bnTestBit;
+    // (public) true iff nth bit is set
+    BigInteger.prototype.testBit = function (n) {
+        var j = Math.floor(n / this.DB);
+        if (j >= this.t) {
+            return (this.s != 0);
+        }
+        return ((this[j] & (1 << (n % this.DB))) != 0);
+    };
+    // BigInteger.prototype.setBit = bnSetBit;
+    // (public) this | (1<<n)
+    BigInteger.prototype.setBit = function (n) {
+        return this.changeBit(n, _util__WEBPACK_IMPORTED_MODULE_0__.op_or);
+    };
+    // BigInteger.prototype.clearBit = bnClearBit;
+    // (public) this & ~(1<<n)
+    BigInteger.prototype.clearBit = function (n) {
+        return this.changeBit(n, _util__WEBPACK_IMPORTED_MODULE_0__.op_andnot);
+    };
+    // BigInteger.prototype.flipBit = bnFlipBit;
+    // (public) this ^ (1<<n)
+    BigInteger.prototype.flipBit = function (n) {
+        return this.changeBit(n, _util__WEBPACK_IMPORTED_MODULE_0__.op_xor);
+    };
+    // BigInteger.prototype.add = bnAdd;
+    // (public) this + a
+    BigInteger.prototype.add = function (a) {
+        var r = nbi();
+        this.addTo(a, r);
+        return r;
+    };
+    // BigInteger.prototype.subtract = bnSubtract;
+    // (public) this - a
+    BigInteger.prototype.subtract = function (a) {
+        var r = nbi();
+        this.subTo(a, r);
+        return r;
+    };
+    // BigInteger.prototype.multiply = bnMultiply;
+    // (public) this * a
+    BigInteger.prototype.multiply = function (a) {
+        var r = nbi();
+        this.multiplyTo(a, r);
+        return r;
+    };
+    // BigInteger.prototype.divide = bnDivide;
+    // (public) this / a
+    BigInteger.prototype.divide = function (a) {
+        var r = nbi();
+        this.divRemTo(a, r, null);
+        return r;
+    };
+    // BigInteger.prototype.remainder = bnRemainder;
+    // (public) this % a
+    BigInteger.prototype.remainder = function (a) {
+        var r = nbi();
+        this.divRemTo(a, null, r);
+        return r;
+    };
+    // BigInteger.prototype.divideAndRemainder = bnDivideAndRemainder;
+    // (public) [this/a,this%a]
+    BigInteger.prototype.divideAndRemainder = function (a) {
+        var q = nbi();
+        var r = nbi();
+        this.divRemTo(a, q, r);
+        return [q, r];
+    };
+    // BigInteger.prototype.modPow = bnModPow;
+    // (public) this^e % m (HAC 14.85)
+    BigInteger.prototype.modPow = function (e, m) {
+        var i = e.bitLength();
+        var k;
+        var r = nbv(1);
+        var z;
+        if (i <= 0) {
+            return r;
+        }
+        else if (i < 18) {
+            k = 1;
+        }
+        else if (i < 48) {
+            k = 3;
+        }
+        else if (i < 144) {
+            k = 4;
+        }
+        else if (i < 768) {
+            k = 5;
+        }
+        else {
+            k = 6;
+        }
+        if (i < 8) {
+            z = new Classic(m);
+        }
+        else if (m.isEven()) {
+            z = new Barrett(m);
+        }
+        else {
+            z = new Montgomery(m);
+        }
+        // precomputation
+        var g = [];
+        var n = 3;
+        var k1 = k - 1;
+        var km = (1 << k) - 1;
+        g[1] = z.convert(this);
+        if (k > 1) {
+            var g2 = nbi();
+            z.sqrTo(g[1], g2);
+            while (n <= km) {
+                g[n] = nbi();
+                z.mulTo(g2, g[n - 2], g[n]);
+                n += 2;
+            }
+        }
+        var j = e.t - 1;
+        var w;
+        var is1 = true;
+        var r2 = nbi();
+        var t;
+        i = nbits(e[j]) - 1;
+        while (j >= 0) {
+            if (i >= k1) {
+                w = (e[j] >> (i - k1)) & km;
+            }
+            else {
+                w = (e[j] & ((1 << (i + 1)) - 1)) << (k1 - i);
+                if (j > 0) {
+                    w |= e[j - 1] >> (this.DB + i - k1);
+                }
+            }
+            n = k;
+            while ((w & 1) == 0) {
+                w >>= 1;
+                --n;
+            }
+            if ((i -= n) < 0) {
+                i += this.DB;
+                --j;
+            }
+            if (is1) { // ret == 1, don't bother squaring or multiplying it
+                g[w].copyTo(r);
+                is1 = false;
+            }
+            else {
+                while (n > 1) {
+                    z.sqrTo(r, r2);
+                    z.sqrTo(r2, r);
+                    n -= 2;
+                }
+                if (n > 0) {
+                    z.sqrTo(r, r2);
+                }
+                else {
+                    t = r;
+                    r = r2;
+                    r2 = t;
+                }
+                z.mulTo(r2, g[w], r);
+            }
+            while (j >= 0 && (e[j] & (1 << i)) == 0) {
+                z.sqrTo(r, r2);
+                t = r;
+                r = r2;
+                r2 = t;
+                if (--i < 0) {
+                    i = this.DB - 1;
+                    --j;
+                }
+            }
+        }
+        return z.revert(r);
+    };
+    // BigInteger.prototype.modInverse = bnModInverse;
+    // (public) 1/this % m (HAC 14.61)
+    BigInteger.prototype.modInverse = function (m) {
+        var ac = m.isEven();
+        if ((this.isEven() && ac) || m.signum() == 0) {
+            return BigInteger.ZERO;
+        }
+        var u = m.clone();
+        var v = this.clone();
+        var a = nbv(1);
+        var b = nbv(0);
+        var c = nbv(0);
+        var d = nbv(1);
+        while (u.signum() != 0) {
+            while (u.isEven()) {
+                u.rShiftTo(1, u);
+                if (ac) {
+                    if (!a.isEven() || !b.isEven()) {
+                        a.addTo(this, a);
+                        b.subTo(m, b);
+                    }
+                    a.rShiftTo(1, a);
+                }
+                else if (!b.isEven()) {
+                    b.subTo(m, b);
+                }
+                b.rShiftTo(1, b);
+            }
+            while (v.isEven()) {
+                v.rShiftTo(1, v);
+                if (ac) {
+                    if (!c.isEven() || !d.isEven()) {
+                        c.addTo(this, c);
+                        d.subTo(m, d);
+                    }
+                    c.rShiftTo(1, c);
+                }
+                else if (!d.isEven()) {
+                    d.subTo(m, d);
+                }
+                d.rShiftTo(1, d);
+            }
+            if (u.compareTo(v) >= 0) {
+                u.subTo(v, u);
+                if (ac) {
+                    a.subTo(c, a);
+                }
+                b.subTo(d, b);
+            }
+            else {
+                v.subTo(u, v);
+                if (ac) {
+                    c.subTo(a, c);
+                }
+                d.subTo(b, d);
+            }
+        }
+        if (v.compareTo(BigInteger.ONE) != 0) {
+            return BigInteger.ZERO;
+        }
+        if (d.compareTo(m) >= 0) {
+            return d.subtract(m);
+        }
+        if (d.signum() < 0) {
+            d.addTo(m, d);
+        }
+        else {
+            return d;
+        }
+        if (d.signum() < 0) {
+            return d.add(m);
+        }
+        else {
+            return d;
+        }
+    };
+    // BigInteger.prototype.pow = bnPow;
+    // (public) this^e
+    BigInteger.prototype.pow = function (e) {
+        return this.exp(e, new NullExp());
+    };
+    // BigInteger.prototype.gcd = bnGCD;
+    // (public) gcd(this,a) (HAC 14.54)
+    BigInteger.prototype.gcd = function (a) {
+        var x = (this.s < 0) ? this.negate() : this.clone();
+        var y = (a.s < 0) ? a.negate() : a.clone();
+        if (x.compareTo(y) < 0) {
+            var t = x;
+            x = y;
+            y = t;
+        }
+        var i = x.getLowestSetBit();
+        var g = y.getLowestSetBit();
+        if (g < 0) {
+            return x;
+        }
+        if (i < g) {
+            g = i;
+        }
+        if (g > 0) {
+            x.rShiftTo(g, x);
+            y.rShiftTo(g, y);
+        }
+        while (x.signum() > 0) {
+            if ((i = x.getLowestSetBit()) > 0) {
+                x.rShiftTo(i, x);
+            }
+            if ((i = y.getLowestSetBit()) > 0) {
+                y.rShiftTo(i, y);
+            }
+            if (x.compareTo(y) >= 0) {
+                x.subTo(y, x);
+                x.rShiftTo(1, x);
+            }
+            else {
+                y.subTo(x, y);
+                y.rShiftTo(1, y);
+            }
+        }
+        if (g > 0) {
+            y.lShiftTo(g, y);
+        }
+        return y;
+    };
+    // BigInteger.prototype.isProbablePrime = bnIsProbablePrime;
+    // (public) test primality with certainty >= 1-.5^t
+    BigInteger.prototype.isProbablePrime = function (t) {
+        var i;
+        var x = this.abs();
+        if (x.t == 1 && x[0] <= lowprimes[lowprimes.length - 1]) {
+            for (i = 0; i < lowprimes.length; ++i) {
+                if (x[0] == lowprimes[i]) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        if (x.isEven()) {
+            return false;
+        }
+        i = 1;
+        while (i < lowprimes.length) {
+            var m = lowprimes[i];
+            var j = i + 1;
+            while (j < lowprimes.length && m < lplim) {
+                m *= lowprimes[j++];
+            }
+            m = x.modInt(m);
+            while (i < j) {
+                if (m % lowprimes[i++] == 0) {
+                    return false;
+                }
+            }
+        }
+        return x.millerRabin(t);
+    };
+    //#endregion PUBLIC
+    //#region PROTECTED
+    // BigInteger.prototype.copyTo = bnpCopyTo;
+    // (protected) copy this to r
+    BigInteger.prototype.copyTo = function (r) {
+        for (var i = this.t - 1; i >= 0; --i) {
+            r[i] = this[i];
+        }
+        r.t = this.t;
+        r.s = this.s;
+    };
+    // BigInteger.prototype.fromInt = bnpFromInt;
+    // (protected) set from integer value x, -DV <= x < DV
+    BigInteger.prototype.fromInt = function (x) {
+        this.t = 1;
+        this.s = (x < 0) ? -1 : 0;
+        if (x > 0) {
+            this[0] = x;
+        }
+        else if (x < -1) {
+            this[0] = x + this.DV;
+        }
+        else {
+            this.t = 0;
+        }
+    };
+    // BigInteger.prototype.fromString = bnpFromString;
+    // (protected) set from string and radix
+    BigInteger.prototype.fromString = function (s, b) {
+        var k;
+        if (b == 16) {
+            k = 4;
+        }
+        else if (b == 8) {
+            k = 3;
+        }
+        else if (b == 256) {
+            k = 8;
+            /* byte array */
+        }
+        else if (b == 2) {
+            k = 1;
+        }
+        else if (b == 32) {
+            k = 5;
+        }
+        else if (b == 4) {
+            k = 2;
+        }
+        else {
+            this.fromRadix(s, b);
+            return;
+        }
+        this.t = 0;
+        this.s = 0;
+        var i = s.length;
+        var mi = false;
+        var sh = 0;
+        while (--i >= 0) {
+            var x = (k == 8) ? (+s[i]) & 0xff : intAt(s, i);
+            if (x < 0) {
+                if (s.charAt(i) == "-") {
+                    mi = true;
+                }
+                continue;
+            }
+            mi = false;
+            if (sh == 0) {
+                this[this.t++] = x;
+            }
+            else if (sh + k > this.DB) {
+                this[this.t - 1] |= (x & ((1 << (this.DB - sh)) - 1)) << sh;
+                this[this.t++] = (x >> (this.DB - sh));
+            }
+            else {
+                this[this.t - 1] |= x << sh;
+            }
+            sh += k;
+            if (sh >= this.DB) {
+                sh -= this.DB;
+            }
+        }
+        if (k == 8 && ((+s[0]) & 0x80) != 0) {
+            this.s = -1;
+            if (sh > 0) {
+                this[this.t - 1] |= ((1 << (this.DB - sh)) - 1) << sh;
+            }
+        }
+        this.clamp();
+        if (mi) {
+            BigInteger.ZERO.subTo(this, this);
+        }
+    };
+    // BigInteger.prototype.clamp = bnpClamp;
+    // (protected) clamp off excess high words
+    BigInteger.prototype.clamp = function () {
+        var c = this.s & this.DM;
+        while (this.t > 0 && this[this.t - 1] == c) {
+            --this.t;
+        }
+    };
+    // BigInteger.prototype.dlShiftTo = bnpDLShiftTo;
+    // (protected) r = this << n*DB
+    BigInteger.prototype.dlShiftTo = function (n, r) {
+        var i;
+        for (i = this.t - 1; i >= 0; --i) {
+            r[i + n] = this[i];
+        }
+        for (i = n - 1; i >= 0; --i) {
+            r[i] = 0;
+        }
+        r.t = this.t + n;
+        r.s = this.s;
+    };
+    // BigInteger.prototype.drShiftTo = bnpDRShiftTo;
+    // (protected) r = this >> n*DB
+    BigInteger.prototype.drShiftTo = function (n, r) {
+        for (var i = n; i < this.t; ++i) {
+            r[i - n] = this[i];
+        }
+        r.t = Math.max(this.t - n, 0);
+        r.s = this.s;
+    };
+    // BigInteger.prototype.lShiftTo = bnpLShiftTo;
+    // (protected) r = this << n
+    BigInteger.prototype.lShiftTo = function (n, r) {
+        var bs = n % this.DB;
+        var cbs = this.DB - bs;
+        var bm = (1 << cbs) - 1;
+        var ds = Math.floor(n / this.DB);
+        var c = (this.s << bs) & this.DM;
+        for (var i = this.t - 1; i >= 0; --i) {
+            r[i + ds + 1] = (this[i] >> cbs) | c;
+            c = (this[i] & bm) << bs;
+        }
+        for (var i = ds - 1; i >= 0; --i) {
+            r[i] = 0;
+        }
+        r[ds] = c;
+        r.t = this.t + ds + 1;
+        r.s = this.s;
+        r.clamp();
+    };
+    // BigInteger.prototype.rShiftTo = bnpRShiftTo;
+    // (protected) r = this >> n
+    BigInteger.prototype.rShiftTo = function (n, r) {
+        r.s = this.s;
+        var ds = Math.floor(n / this.DB);
+        if (ds >= this.t) {
+            r.t = 0;
+            return;
+        }
+        var bs = n % this.DB;
+        var cbs = this.DB - bs;
+        var bm = (1 << bs) - 1;
+        r[0] = this[ds] >> bs;
+        for (var i = ds + 1; i < this.t; ++i) {
+            r[i - ds - 1] |= (this[i] & bm) << cbs;
+            r[i - ds] = this[i] >> bs;
+        }
+        if (bs > 0) {
+            r[this.t - ds - 1] |= (this.s & bm) << cbs;
+        }
+        r.t = this.t - ds;
+        r.clamp();
+    };
+    // BigInteger.prototype.subTo = bnpSubTo;
+    // (protected) r = this - a
+    BigInteger.prototype.subTo = function (a, r) {
+        var i = 0;
+        var c = 0;
+        var m = Math.min(a.t, this.t);
+        while (i < m) {
+            c += this[i] - a[i];
+            r[i++] = c & this.DM;
+            c >>= this.DB;
+        }
+        if (a.t < this.t) {
+            c -= a.s;
+            while (i < this.t) {
+                c += this[i];
+                r[i++] = c & this.DM;
+                c >>= this.DB;
+            }
+            c += this.s;
+        }
+        else {
+            c += this.s;
+            while (i < a.t) {
+                c -= a[i];
+                r[i++] = c & this.DM;
+                c >>= this.DB;
+            }
+            c -= a.s;
+        }
+        r.s = (c < 0) ? -1 : 0;
+        if (c < -1) {
+            r[i++] = this.DV + c;
+        }
+        else if (c > 0) {
+            r[i++] = c;
+        }
+        r.t = i;
+        r.clamp();
+    };
+    // BigInteger.prototype.multiplyTo = bnpMultiplyTo;
+    // (protected) r = this * a, r != this,a (HAC 14.12)
+    // "this" should be the larger one if appropriate.
+    BigInteger.prototype.multiplyTo = function (a, r) {
+        var x = this.abs();
+        var y = a.abs();
+        var i = x.t;
+        r.t = i + y.t;
+        while (--i >= 0) {
+            r[i] = 0;
+        }
+        for (i = 0; i < y.t; ++i) {
+            r[i + x.t] = x.am(0, y[i], r, i, 0, x.t);
+        }
+        r.s = 0;
+        r.clamp();
+        if (this.s != a.s) {
+            BigInteger.ZERO.subTo(r, r);
+        }
+    };
+    // BigInteger.prototype.squareTo = bnpSquareTo;
+    // (protected) r = this^2, r != this (HAC 14.16)
+    BigInteger.prototype.squareTo = function (r) {
+        var x = this.abs();
+        var i = r.t = 2 * x.t;
+        while (--i >= 0) {
+            r[i] = 0;
+        }
+        for (i = 0; i < x.t - 1; ++i) {
+            var c = x.am(i, x[i], r, 2 * i, 0, 1);
+            if ((r[i + x.t] += x.am(i + 1, 2 * x[i], r, 2 * i + 1, c, x.t - i - 1)) >= x.DV) {
+                r[i + x.t] -= x.DV;
+                r[i + x.t + 1] = 1;
+            }
+        }
+        if (r.t > 0) {
+            r[r.t - 1] += x.am(i, x[i], r, 2 * i, 0, 1);
+        }
+        r.s = 0;
+        r.clamp();
+    };
+    // BigInteger.prototype.divRemTo = bnpDivRemTo;
+    // (protected) divide this by m, quotient and remainder to q, r (HAC 14.20)
+    // r != q, this != m.  q or r may be null.
+    BigInteger.prototype.divRemTo = function (m, q, r) {
+        var pm = m.abs();
+        if (pm.t <= 0) {
+            return;
+        }
+        var pt = this.abs();
+        if (pt.t < pm.t) {
+            if (q != null) {
+                q.fromInt(0);
+            }
+            if (r != null) {
+                this.copyTo(r);
+            }
+            return;
+        }
+        if (r == null) {
+            r = nbi();
+        }
+        var y = nbi();
+        var ts = this.s;
+        var ms = m.s;
+        var nsh = this.DB - nbits(pm[pm.t - 1]); // normalize modulus
+        if (nsh > 0) {
+            pm.lShiftTo(nsh, y);
+            pt.lShiftTo(nsh, r);
+        }
+        else {
+            pm.copyTo(y);
+            pt.copyTo(r);
+        }
+        var ys = y.t;
+        var y0 = y[ys - 1];
+        if (y0 == 0) {
+            return;
+        }
+        var yt = y0 * (1 << this.F1) + ((ys > 1) ? y[ys - 2] >> this.F2 : 0);
+        var d1 = this.FV / yt;
+        var d2 = (1 << this.F1) / yt;
+        var e = 1 << this.F2;
+        var i = r.t;
+        var j = i - ys;
+        var t = (q == null) ? nbi() : q;
+        y.dlShiftTo(j, t);
+        if (r.compareTo(t) >= 0) {
+            r[r.t++] = 1;
+            r.subTo(t, r);
+        }
+        BigInteger.ONE.dlShiftTo(ys, t);
+        t.subTo(y, y); // "negative" y so we can replace sub with am later
+        while (y.t < ys) {
+            y[y.t++] = 0;
+        }
+        while (--j >= 0) {
+            // Estimate quotient digit
+            var qd = (r[--i] == y0) ? this.DM : Math.floor(r[i] * d1 + (r[i - 1] + e) * d2);
+            if ((r[i] += y.am(0, qd, r, j, 0, ys)) < qd) { // Try it out
+                y.dlShiftTo(j, t);
+                r.subTo(t, r);
+                while (r[i] < --qd) {
+                    r.subTo(t, r);
+                }
+            }
+        }
+        if (q != null) {
+            r.drShiftTo(ys, q);
+            if (ts != ms) {
+                BigInteger.ZERO.subTo(q, q);
+            }
+        }
+        r.t = ys;
+        r.clamp();
+        if (nsh > 0) {
+            r.rShiftTo(nsh, r);
+        } // Denormalize remainder
+        if (ts < 0) {
+            BigInteger.ZERO.subTo(r, r);
+        }
+    };
+    // BigInteger.prototype.invDigit = bnpInvDigit;
+    // (protected) return "-1/this % 2^DB"; useful for Mont. reduction
+    // justification:
+    //         xy == 1 (mod m)
+    //         xy =  1+km
+    //   xy(2-xy) = (1+km)(1-km)
+    // x[y(2-xy)] = 1-k^2m^2
+    // x[y(2-xy)] == 1 (mod m^2)
+    // if y is 1/x mod m, then y(2-xy) is 1/x mod m^2
+    // should reduce x and y(2-xy) by m^2 at each step to keep size bounded.
+    // JS multiply "overflows" differently from C/C++, so care is needed here.
+    BigInteger.prototype.invDigit = function () {
+        if (this.t < 1) {
+            return 0;
+        }
+        var x = this[0];
+        if ((x & 1) == 0) {
+            return 0;
+        }
+        var y = x & 3; // y == 1/x mod 2^2
+        y = (y * (2 - (x & 0xf) * y)) & 0xf; // y == 1/x mod 2^4
+        y = (y * (2 - (x & 0xff) * y)) & 0xff; // y == 1/x mod 2^8
+        y = (y * (2 - (((x & 0xffff) * y) & 0xffff))) & 0xffff; // y == 1/x mod 2^16
+        // last step - calculate inverse mod DV directly;
+        // assumes 16 < DB <= 32 and assumes ability to handle 48-bit ints
+        y = (y * (2 - x * y % this.DV)) % this.DV; // y == 1/x mod 2^dbits
+        // we really want the negative inverse, and -DV < y < DV
+        return (y > 0) ? this.DV - y : -y;
+    };
+    // BigInteger.prototype.isEven = bnpIsEven;
+    // (protected) true iff this is even
+    BigInteger.prototype.isEven = function () {
+        return ((this.t > 0) ? (this[0] & 1) : this.s) == 0;
+    };
+    // BigInteger.prototype.exp = bnpExp;
+    // (protected) this^e, e < 2^32, doing sqr and mul with "r" (HAC 14.79)
+    BigInteger.prototype.exp = function (e, z) {
+        if (e > 0xffffffff || e < 1) {
+            return BigInteger.ONE;
+        }
+        var r = nbi();
+        var r2 = nbi();
+        var g = z.convert(this);
+        var i = nbits(e) - 1;
+        g.copyTo(r);
+        while (--i >= 0) {
+            z.sqrTo(r, r2);
+            if ((e & (1 << i)) > 0) {
+                z.mulTo(r2, g, r);
+            }
+            else {
+                var t = r;
+                r = r2;
+                r2 = t;
+            }
+        }
+        return z.revert(r);
+    };
+    // BigInteger.prototype.chunkSize = bnpChunkSize;
+    // (protected) return x s.t. r^x < DV
+    BigInteger.prototype.chunkSize = function (r) {
+        return Math.floor(Math.LN2 * this.DB / Math.log(r));
+    };
+    // BigInteger.prototype.toRadix = bnpToRadix;
+    // (protected) convert to radix string
+    BigInteger.prototype.toRadix = function (b) {
+        if (b == null) {
+            b = 10;
+        }
+        if (this.signum() == 0 || b < 2 || b > 36) {
+            return "0";
+        }
+        var cs = this.chunkSize(b);
+        var a = Math.pow(b, cs);
+        var d = nbv(a);
+        var y = nbi();
+        var z = nbi();
+        var r = "";
+        this.divRemTo(d, y, z);
+        while (y.signum() > 0) {
+            r = (a + z.intValue()).toString(b).substr(1) + r;
+            y.divRemTo(d, y, z);
+        }
+        return z.intValue().toString(b) + r;
+    };
+    // BigInteger.prototype.fromRadix = bnpFromRadix;
+    // (protected) convert from radix string
+    BigInteger.prototype.fromRadix = function (s, b) {
+        this.fromInt(0);
+        if (b == null) {
+            b = 10;
+        }
+        var cs = this.chunkSize(b);
+        var d = Math.pow(b, cs);
+        var mi = false;
+        var j = 0;
+        var w = 0;
+        for (var i = 0; i < s.length; ++i) {
+            var x = intAt(s, i);
+            if (x < 0) {
+                if (s.charAt(i) == "-" && this.signum() == 0) {
+                    mi = true;
+                }
+                continue;
+            }
+            w = b * w + x;
+            if (++j >= cs) {
+                this.dMultiply(d);
+                this.dAddOffset(w, 0);
+                j = 0;
+                w = 0;
+            }
+        }
+        if (j > 0) {
+            this.dMultiply(Math.pow(b, j));
+            this.dAddOffset(w, 0);
+        }
+        if (mi) {
+            BigInteger.ZERO.subTo(this, this);
+        }
+    };
+    // BigInteger.prototype.fromNumber = bnpFromNumber;
+    // (protected) alternate constructor
+    BigInteger.prototype.fromNumber = function (a, b, c) {
+        if ("number" == typeof b) {
+            // new BigInteger(int,int,RNG)
+            if (a < 2) {
+                this.fromInt(1);
+            }
+            else {
+                this.fromNumber(a, c);
+                if (!this.testBit(a - 1)) {
+                    // force MSB set
+                    this.bitwiseTo(BigInteger.ONE.shiftLeft(a - 1), _util__WEBPACK_IMPORTED_MODULE_0__.op_or, this);
+                }
+                if (this.isEven()) {
+                    this.dAddOffset(1, 0);
+                } // force odd
+                while (!this.isProbablePrime(b)) {
+                    this.dAddOffset(2, 0);
+                    if (this.bitLength() > a) {
+                        this.subTo(BigInteger.ONE.shiftLeft(a - 1), this);
+                    }
+                }
+            }
+        }
+        else {
+            // new BigInteger(int,RNG)
+            var x = [];
+            var t = a & 7;
+            x.length = (a >> 3) + 1;
+            b.nextBytes(x);
+            if (t > 0) {
+                x[0] &= ((1 << t) - 1);
+            }
+            else {
+                x[0] = 0;
+            }
+            this.fromString(x, 256);
+        }
+    };
+    // BigInteger.prototype.bitwiseTo = bnpBitwiseTo;
+    // (protected) r = this op a (bitwise)
+    BigInteger.prototype.bitwiseTo = function (a, op, r) {
+        var i;
+        var f;
+        var m = Math.min(a.t, this.t);
+        for (i = 0; i < m; ++i) {
+            r[i] = op(this[i], a[i]);
+        }
+        if (a.t < this.t) {
+            f = a.s & this.DM;
+            for (i = m; i < this.t; ++i) {
+                r[i] = op(this[i], f);
+            }
+            r.t = this.t;
+        }
+        else {
+            f = this.s & this.DM;
+            for (i = m; i < a.t; ++i) {
+                r[i] = op(f, a[i]);
+            }
+            r.t = a.t;
+        }
+        r.s = op(this.s, a.s);
+        r.clamp();
+    };
+    // BigInteger.prototype.changeBit = bnpChangeBit;
+    // (protected) this op (1<<n)
+    BigInteger.prototype.changeBit = function (n, op) {
+        var r = BigInteger.ONE.shiftLeft(n);
+        this.bitwiseTo(r, op, r);
+        return r;
+    };
+    // BigInteger.prototype.addTo = bnpAddTo;
+    // (protected) r = this + a
+    BigInteger.prototype.addTo = function (a, r) {
+        var i = 0;
+        var c = 0;
+        var m = Math.min(a.t, this.t);
+        while (i < m) {
+            c += this[i] + a[i];
+            r[i++] = c & this.DM;
+            c >>= this.DB;
+        }
+        if (a.t < this.t) {
+            c += a.s;
+            while (i < this.t) {
+                c += this[i];
+                r[i++] = c & this.DM;
+                c >>= this.DB;
+            }
+            c += this.s;
+        }
+        else {
+            c += this.s;
+            while (i < a.t) {
+                c += a[i];
+                r[i++] = c & this.DM;
+                c >>= this.DB;
+            }
+            c += a.s;
+        }
+        r.s = (c < 0) ? -1 : 0;
+        if (c > 0) {
+            r[i++] = c;
+        }
+        else if (c < -1) {
+            r[i++] = this.DV + c;
+        }
+        r.t = i;
+        r.clamp();
+    };
+    // BigInteger.prototype.dMultiply = bnpDMultiply;
+    // (protected) this *= n, this >= 0, 1 < n < DV
+    BigInteger.prototype.dMultiply = function (n) {
+        this[this.t] = this.am(0, n - 1, this, 0, 0, this.t);
+        ++this.t;
+        this.clamp();
+    };
+    // BigInteger.prototype.dAddOffset = bnpDAddOffset;
+    // (protected) this += n << w words, this >= 0
+    BigInteger.prototype.dAddOffset = function (n, w) {
+        if (n == 0) {
+            return;
+        }
+        while (this.t <= w) {
+            this[this.t++] = 0;
+        }
+        this[w] += n;
+        while (this[w] >= this.DV) {
+            this[w] -= this.DV;
+            if (++w >= this.t) {
+                this[this.t++] = 0;
+            }
+            ++this[w];
+        }
+    };
+    // BigInteger.prototype.multiplyLowerTo = bnpMultiplyLowerTo;
+    // (protected) r = lower n words of "this * a", a.t <= n
+    // "this" should be the larger one if appropriate.
+    BigInteger.prototype.multiplyLowerTo = function (a, n, r) {
+        var i = Math.min(this.t + a.t, n);
+        r.s = 0; // assumes a,this >= 0
+        r.t = i;
+        while (i > 0) {
+            r[--i] = 0;
+        }
+        for (var j = r.t - this.t; i < j; ++i) {
+            r[i + this.t] = this.am(0, a[i], r, i, 0, this.t);
+        }
+        for (var j = Math.min(a.t, n); i < j; ++i) {
+            this.am(0, a[i], r, i, 0, n - i);
+        }
+        r.clamp();
+    };
+    // BigInteger.prototype.multiplyUpperTo = bnpMultiplyUpperTo;
+    // (protected) r = "this * a" without lower n words, n > 0
+    // "this" should be the larger one if appropriate.
+    BigInteger.prototype.multiplyUpperTo = function (a, n, r) {
+        --n;
+        var i = r.t = this.t + a.t - n;
+        r.s = 0; // assumes a,this >= 0
+        while (--i >= 0) {
+            r[i] = 0;
+        }
+        for (i = Math.max(n - this.t, 0); i < a.t; ++i) {
+            r[this.t + i - n] = this.am(n - i, a[i], r, 0, 0, this.t + i - n);
+        }
+        r.clamp();
+        r.drShiftTo(1, r);
+    };
+    // BigInteger.prototype.modInt = bnpModInt;
+    // (protected) this % n, n < 2^26
+    BigInteger.prototype.modInt = function (n) {
+        if (n <= 0) {
+            return 0;
+        }
+        var d = this.DV % n;
+        var r = (this.s < 0) ? n - 1 : 0;
+        if (this.t > 0) {
+            if (d == 0) {
+                r = this[0] % n;
+            }
+            else {
+                for (var i = this.t - 1; i >= 0; --i) {
+                    r = (d * r + this[i]) % n;
+                }
+            }
+        }
+        return r;
+    };
+    // BigInteger.prototype.millerRabin = bnpMillerRabin;
+    // (protected) true if probably prime (HAC 4.24, Miller-Rabin)
+    BigInteger.prototype.millerRabin = function (t) {
+        var n1 = this.subtract(BigInteger.ONE);
+        var k = n1.getLowestSetBit();
+        if (k <= 0) {
+            return false;
+        }
+        var r = n1.shiftRight(k);
+        t = (t + 1) >> 1;
+        if (t > lowprimes.length) {
+            t = lowprimes.length;
+        }
+        var a = nbi();
+        for (var i = 0; i < t; ++i) {
+            // Pick bases at random, instead of starting at 2
+            a.fromInt(lowprimes[Math.floor(Math.random() * lowprimes.length)]);
+            var y = a.modPow(r, this);
+            if (y.compareTo(BigInteger.ONE) != 0 && y.compareTo(n1) != 0) {
+                var j = 1;
+                while (j++ < k && y.compareTo(n1) != 0) {
+                    y = y.modPowInt(2, this);
+                    if (y.compareTo(BigInteger.ONE) == 0) {
+                        return false;
+                    }
+                }
+                if (y.compareTo(n1) != 0) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    };
+    // BigInteger.prototype.square = bnSquare;
+    // (public) this^2
+    BigInteger.prototype.square = function () {
+        var r = nbi();
+        this.squareTo(r);
+        return r;
+    };
+    //#region ASYNC
+    // Public API method
+    BigInteger.prototype.gcda = function (a, callback) {
+        var x = (this.s < 0) ? this.negate() : this.clone();
+        var y = (a.s < 0) ? a.negate() : a.clone();
+        if (x.compareTo(y) < 0) {
+            var t = x;
+            x = y;
+            y = t;
+        }
+        var i = x.getLowestSetBit();
+        var g = y.getLowestSetBit();
+        if (g < 0) {
+            callback(x);
+            return;
+        }
+        if (i < g) {
+            g = i;
+        }
+        if (g > 0) {
+            x.rShiftTo(g, x);
+            y.rShiftTo(g, y);
+        }
+        // Workhorse of the algorithm, gets called 200 - 800 times per 512 bit keygen.
+        var gcda1 = function () {
+            if ((i = x.getLowestSetBit()) > 0) {
+                x.rShiftTo(i, x);
+            }
+            if ((i = y.getLowestSetBit()) > 0) {
+                y.rShiftTo(i, y);
+            }
+            if (x.compareTo(y) >= 0) {
+                x.subTo(y, x);
+                x.rShiftTo(1, x);
+            }
+            else {
+                y.subTo(x, y);
+                y.rShiftTo(1, y);
+            }
+            if (!(x.signum() > 0)) {
+                if (g > 0) {
+                    y.lShiftTo(g, y);
+                }
+                setTimeout(function () { callback(y); }, 0); // escape
+            }
+            else {
+                setTimeout(gcda1, 0);
+            }
+        };
+        setTimeout(gcda1, 10);
+    };
+    // (protected) alternate constructor
+    BigInteger.prototype.fromNumberAsync = function (a, b, c, callback) {
+        if ("number" == typeof b) {
+            if (a < 2) {
+                this.fromInt(1);
+            }
+            else {
+                this.fromNumber(a, c);
+                if (!this.testBit(a - 1)) {
+                    this.bitwiseTo(BigInteger.ONE.shiftLeft(a - 1), _util__WEBPACK_IMPORTED_MODULE_0__.op_or, this);
+                }
+                if (this.isEven()) {
+                    this.dAddOffset(1, 0);
+                }
+                var bnp_1 = this;
+                var bnpfn1_1 = function () {
+                    bnp_1.dAddOffset(2, 0);
+                    if (bnp_1.bitLength() > a) {
+                        bnp_1.subTo(BigInteger.ONE.shiftLeft(a - 1), bnp_1);
+                    }
+                    if (bnp_1.isProbablePrime(b)) {
+                        setTimeout(function () { callback(); }, 0); // escape
+                    }
+                    else {
+                        setTimeout(bnpfn1_1, 0);
+                    }
+                };
+                setTimeout(bnpfn1_1, 0);
+            }
+        }
+        else {
+            var x = [];
+            var t = a & 7;
+            x.length = (a >> 3) + 1;
+            b.nextBytes(x);
+            if (t > 0) {
+                x[0] &= ((1 << t) - 1);
+            }
+            else {
+                x[0] = 0;
+            }
+            this.fromString(x, 256);
+        }
+    };
+    return BigInteger;
+}());
+
+//#region REDUCERS
+//#region NullExp
+var NullExp = /** @class */ (function () {
+    function NullExp() {
+    }
+    // NullExp.prototype.convert = nNop;
+    NullExp.prototype.convert = function (x) {
+        return x;
+    };
+    // NullExp.prototype.revert = nNop;
+    NullExp.prototype.revert = function (x) {
+        return x;
+    };
+    // NullExp.prototype.mulTo = nMulTo;
+    NullExp.prototype.mulTo = function (x, y, r) {
+        x.multiplyTo(y, r);
+    };
+    // NullExp.prototype.sqrTo = nSqrTo;
+    NullExp.prototype.sqrTo = function (x, r) {
+        x.squareTo(r);
+    };
+    return NullExp;
+}());
+// Modular reduction using "classic" algorithm
+var Classic = /** @class */ (function () {
+    function Classic(m) {
+        this.m = m;
+    }
+    // Classic.prototype.convert = cConvert;
+    Classic.prototype.convert = function (x) {
+        if (x.s < 0 || x.compareTo(this.m) >= 0) {
+            return x.mod(this.m);
+        }
+        else {
+            return x;
+        }
+    };
+    // Classic.prototype.revert = cRevert;
+    Classic.prototype.revert = function (x) {
+        return x;
+    };
+    // Classic.prototype.reduce = cReduce;
+    Classic.prototype.reduce = function (x) {
+        x.divRemTo(this.m, null, x);
+    };
+    // Classic.prototype.mulTo = cMulTo;
+    Classic.prototype.mulTo = function (x, y, r) {
+        x.multiplyTo(y, r);
+        this.reduce(r);
+    };
+    // Classic.prototype.sqrTo = cSqrTo;
+    Classic.prototype.sqrTo = function (x, r) {
+        x.squareTo(r);
+        this.reduce(r);
+    };
+    return Classic;
+}());
+//#endregion
+//#region Montgomery
+// Montgomery reduction
+var Montgomery = /** @class */ (function () {
+    function Montgomery(m) {
+        this.m = m;
+        this.mp = m.invDigit();
+        this.mpl = this.mp & 0x7fff;
+        this.mph = this.mp >> 15;
+        this.um = (1 << (m.DB - 15)) - 1;
+        this.mt2 = 2 * m.t;
+    }
+    // Montgomery.prototype.convert = montConvert;
+    // xR mod m
+    Montgomery.prototype.convert = function (x) {
+        var r = nbi();
+        x.abs().dlShiftTo(this.m.t, r);
+        r.divRemTo(this.m, null, r);
+        if (x.s < 0 && r.compareTo(BigInteger.ZERO) > 0) {
+            this.m.subTo(r, r);
+        }
+        return r;
+    };
+    // Montgomery.prototype.revert = montRevert;
+    // x/R mod m
+    Montgomery.prototype.revert = function (x) {
+        var r = nbi();
+        x.copyTo(r);
+        this.reduce(r);
+        return r;
+    };
+    // Montgomery.prototype.reduce = montReduce;
+    // x = x/R mod m (HAC 14.32)
+    Montgomery.prototype.reduce = function (x) {
+        while (x.t <= this.mt2) {
+            // pad x so am has enough room later
+            x[x.t++] = 0;
+        }
+        for (var i = 0; i < this.m.t; ++i) {
+            // faster way of calculating u0 = x[i]*mp mod DV
+            var j = x[i] & 0x7fff;
+            var u0 = (j * this.mpl + (((j * this.mph + (x[i] >> 15) * this.mpl) & this.um) << 15)) & x.DM;
+            // use am to combine the multiply-shift-add into one call
+            j = i + this.m.t;
+            x[j] += this.m.am(0, u0, x, i, 0, this.m.t);
+            // propagate carry
+            while (x[j] >= x.DV) {
+                x[j] -= x.DV;
+                x[++j]++;
+            }
+        }
+        x.clamp();
+        x.drShiftTo(this.m.t, x);
+        if (x.compareTo(this.m) >= 0) {
+            x.subTo(this.m, x);
+        }
+    };
+    // Montgomery.prototype.mulTo = montMulTo;
+    // r = "xy/R mod m"; x,y != r
+    Montgomery.prototype.mulTo = function (x, y, r) {
+        x.multiplyTo(y, r);
+        this.reduce(r);
+    };
+    // Montgomery.prototype.sqrTo = montSqrTo;
+    // r = "x^2/R mod m"; x != r
+    Montgomery.prototype.sqrTo = function (x, r) {
+        x.squareTo(r);
+        this.reduce(r);
+    };
+    return Montgomery;
+}());
+//#endregion Montgomery
+//#region Barrett
+// Barrett modular reduction
+var Barrett = /** @class */ (function () {
+    function Barrett(m) {
+        this.m = m;
+        // setup Barrett
+        this.r2 = nbi();
+        this.q3 = nbi();
+        BigInteger.ONE.dlShiftTo(2 * m.t, this.r2);
+        this.mu = this.r2.divide(m);
+    }
+    // Barrett.prototype.convert = barrettConvert;
+    Barrett.prototype.convert = function (x) {
+        if (x.s < 0 || x.t > 2 * this.m.t) {
+            return x.mod(this.m);
+        }
+        else if (x.compareTo(this.m) < 0) {
+            return x;
+        }
+        else {
+            var r = nbi();
+            x.copyTo(r);
+            this.reduce(r);
+            return r;
+        }
+    };
+    // Barrett.prototype.revert = barrettRevert;
+    Barrett.prototype.revert = function (x) {
+        return x;
+    };
+    // Barrett.prototype.reduce = barrettReduce;
+    // x = x mod m (HAC 14.42)
+    Barrett.prototype.reduce = function (x) {
+        x.drShiftTo(this.m.t - 1, this.r2);
+        if (x.t > this.m.t + 1) {
+            x.t = this.m.t + 1;
+            x.clamp();
+        }
+        this.mu.multiplyUpperTo(this.r2, this.m.t + 1, this.q3);
+        this.m.multiplyLowerTo(this.q3, this.m.t + 1, this.r2);
+        while (x.compareTo(this.r2) < 0) {
+            x.dAddOffset(1, this.m.t + 1);
+        }
+        x.subTo(this.r2, x);
+        while (x.compareTo(this.m) >= 0) {
+            x.subTo(this.m, x);
+        }
+    };
+    // Barrett.prototype.mulTo = barrettMulTo;
+    // r = x*y mod m; x,y != r
+    Barrett.prototype.mulTo = function (x, y, r) {
+        x.multiplyTo(y, r);
+        this.reduce(r);
+    };
+    // Barrett.prototype.sqrTo = barrettSqrTo;
+    // r = x^2 mod m; x != r
+    Barrett.prototype.sqrTo = function (x, r) {
+        x.squareTo(r);
+        this.reduce(r);
+    };
+    return Barrett;
+}());
+//#endregion
+//#endregion REDUCERS
+// return new, unset BigInteger
+function nbi() { return new BigInteger(null); }
+function parseBigInt(str, r) {
+    return new BigInteger(str, r);
+}
+// am: Compute w_j += (x*this_i), propagate carries,
+// c is initial carry, returns final carry.
+// c < 3*dvalue, x < 2*dvalue, this_i < dvalue
+// We need to select the fastest one that works in this environment.
+var inBrowser = typeof navigator !== "undefined";
+if (inBrowser && j_lm && (navigator.appName == "Microsoft Internet Explorer")) {
+    // am2 avoids a big mult-and-extract completely.
+    // Max digit bits should be <= 30 because we do bitwise ops
+    // on values up to 2*hdvalue^2-hdvalue-1 (< 2^31)
+    BigInteger.prototype.am = function am2(i, x, w, j, c, n) {
+        var xl = x & 0x7fff;
+        var xh = x >> 15;
+        while (--n >= 0) {
+            var l = this[i] & 0x7fff;
+            var h = this[i++] >> 15;
+            var m = xh * l + h * xl;
+            l = xl * l + ((m & 0x7fff) << 15) + w[j] + (c & 0x3fffffff);
+            c = (l >>> 30) + (m >>> 15) + xh * h + (c >>> 30);
+            w[j++] = l & 0x3fffffff;
+        }
+        return c;
+    };
+    dbits = 30;
+}
+else if (inBrowser && j_lm && (navigator.appName != "Netscape")) {
+    // am1: use a single mult and divide to get the high bits,
+    // max digit bits should be 26 because
+    // max internal value = 2*dvalue^2-2*dvalue (< 2^53)
+    BigInteger.prototype.am = function am1(i, x, w, j, c, n) {
+        while (--n >= 0) {
+            var v = x * this[i++] + w[j] + c;
+            c = Math.floor(v / 0x4000000);
+            w[j++] = v & 0x3ffffff;
+        }
+        return c;
+    };
+    dbits = 26;
+}
+else { // Mozilla/Netscape seems to prefer am3
+    // Alternately, set max digit bits to 28 since some
+    // browsers slow down when dealing with 32-bit numbers.
+    BigInteger.prototype.am = function am3(i, x, w, j, c, n) {
+        var xl = x & 0x3fff;
+        var xh = x >> 14;
+        while (--n >= 0) {
+            var l = this[i] & 0x3fff;
+            var h = this[i++] >> 14;
+            var m = xh * l + h * xl;
+            l = xl * l + ((m & 0x3fff) << 14) + w[j] + c;
+            c = (l >> 28) + (m >> 14) + xh * h;
+            w[j++] = l & 0xfffffff;
+        }
+        return c;
+    };
+    dbits = 28;
+}
+BigInteger.prototype.DB = dbits;
+BigInteger.prototype.DM = ((1 << dbits) - 1);
+BigInteger.prototype.DV = (1 << dbits);
+var BI_FP = 52;
+BigInteger.prototype.FV = Math.pow(2, BI_FP);
+BigInteger.prototype.F1 = BI_FP - dbits;
+BigInteger.prototype.F2 = 2 * dbits - BI_FP;
+// Digit conversions
+var BI_RC = [];
+var rr;
+var vv;
+rr = "0".charCodeAt(0);
+for (vv = 0; vv <= 9; ++vv) {
+    BI_RC[rr++] = vv;
+}
+rr = "a".charCodeAt(0);
+for (vv = 10; vv < 36; ++vv) {
+    BI_RC[rr++] = vv;
+}
+rr = "A".charCodeAt(0);
+for (vv = 10; vv < 36; ++vv) {
+    BI_RC[rr++] = vv;
+}
+function intAt(s, i) {
+    var c = BI_RC[s.charCodeAt(i)];
+    return (c == null) ? -1 : c;
+}
+// return bigint initialized to value
+function nbv(i) {
+    var r = nbi();
+    r.fromInt(i);
+    return r;
+}
+// returns bit length of the integer x
+function nbits(x) {
+    var r = 1;
+    var t;
+    if ((t = x >>> 16) != 0) {
+        x = t;
+        r += 16;
+    }
+    if ((t = x >> 8) != 0) {
+        x = t;
+        r += 8;
+    }
+    if ((t = x >> 4) != 0) {
+        x = t;
+        r += 4;
+    }
+    if ((t = x >> 2) != 0) {
+        x = t;
+        r += 2;
+    }
+    if ((t = x >> 1) != 0) {
+        x = t;
+        r += 1;
+    }
+    return r;
+}
+// "constants"
+BigInteger.ZERO = nbv(0);
+BigInteger.ONE = nbv(1);
+
+
+/***/ }),
+
+/***/ "./node_modules/jsencrypt/lib/lib/jsbn/prng4.js":
+/*!******************************************************!*\
+  !*** ./node_modules/jsencrypt/lib/lib/jsbn/prng4.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Arcfour": () => (/* binding */ Arcfour),
+/* harmony export */   "prng_newstate": () => (/* binding */ prng_newstate),
+/* harmony export */   "rng_psize": () => (/* binding */ rng_psize)
+/* harmony export */ });
+// prng4.js - uses Arcfour as a PRNG
+var Arcfour = /** @class */ (function () {
+    function Arcfour() {
+        this.i = 0;
+        this.j = 0;
+        this.S = [];
+    }
+    // Arcfour.prototype.init = ARC4init;
+    // Initialize arcfour context from key, an array of ints, each from [0..255]
+    Arcfour.prototype.init = function (key) {
+        var i;
+        var j;
+        var t;
+        for (i = 0; i < 256; ++i) {
+            this.S[i] = i;
+        }
+        j = 0;
+        for (i = 0; i < 256; ++i) {
+            j = (j + this.S[i] + key[i % key.length]) & 255;
+            t = this.S[i];
+            this.S[i] = this.S[j];
+            this.S[j] = t;
+        }
+        this.i = 0;
+        this.j = 0;
+    };
+    // Arcfour.prototype.next = ARC4next;
+    Arcfour.prototype.next = function () {
+        var t;
+        this.i = (this.i + 1) & 255;
+        this.j = (this.j + this.S[this.i]) & 255;
+        t = this.S[this.i];
+        this.S[this.i] = this.S[this.j];
+        this.S[this.j] = t;
+        return this.S[(t + this.S[this.i]) & 255];
+    };
+    return Arcfour;
+}());
+
+// Plug in your RNG constructor here
+function prng_newstate() {
+    return new Arcfour();
+}
+// Pool size must be a multiple of 4 and greater than 32.
+// An array of bytes the size of the pool will be passed to init()
+var rng_psize = 256;
+
+
+/***/ }),
+
+/***/ "./node_modules/jsencrypt/lib/lib/jsbn/rng.js":
+/*!****************************************************!*\
+  !*** ./node_modules/jsencrypt/lib/lib/jsbn/rng.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "SecureRandom": () => (/* binding */ SecureRandom)
+/* harmony export */ });
+/* harmony import */ var _prng4__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./prng4 */ "./node_modules/jsencrypt/lib/lib/jsbn/prng4.js");
+// Random number generator - requires a PRNG backend, e.g. prng4.js
+
+var rng_state;
+var rng_pool = null;
+var rng_pptr;
+// Initialize the pool with junk if needed.
+if (rng_pool == null) {
+    rng_pool = [];
+    rng_pptr = 0;
+    var t = void 0;
+    if (window.crypto && window.crypto.getRandomValues) {
+        // Extract entropy (2048 bits) from RNG if available
+        var z = new Uint32Array(256);
+        window.crypto.getRandomValues(z);
+        for (t = 0; t < z.length; ++t) {
+            rng_pool[rng_pptr++] = z[t] & 255;
+        }
+    }
+    // Use mouse events for entropy, if we do not have enough entropy by the time
+    // we need it, entropy will be generated by Math.random.
+    var count = 0;
+    var onMouseMoveListener_1 = function (ev) {
+        count = count || 0;
+        if (count >= 256 || rng_pptr >= _prng4__WEBPACK_IMPORTED_MODULE_0__.rng_psize) {
+            if (window.removeEventListener) {
+                window.removeEventListener("mousemove", onMouseMoveListener_1, false);
+            }
+            else if (window.detachEvent) {
+                window.detachEvent("onmousemove", onMouseMoveListener_1);
+            }
+            return;
+        }
+        try {
+            var mouseCoordinates = ev.x + ev.y;
+            rng_pool[rng_pptr++] = mouseCoordinates & 255;
+            count += 1;
+        }
+        catch (e) {
+            // Sometimes Firefox will deny permission to access event properties for some reason. Ignore.
+        }
+    };
+    if (window.addEventListener) {
+        window.addEventListener("mousemove", onMouseMoveListener_1, false);
+    }
+    else if (window.attachEvent) {
+        window.attachEvent("onmousemove", onMouseMoveListener_1);
+    }
+}
+function rng_get_byte() {
+    if (rng_state == null) {
+        rng_state = (0,_prng4__WEBPACK_IMPORTED_MODULE_0__.prng_newstate)();
+        // At this point, we may not have collected enough entropy.  If not, fall back to Math.random
+        while (rng_pptr < _prng4__WEBPACK_IMPORTED_MODULE_0__.rng_psize) {
+            var random = Math.floor(65536 * Math.random());
+            rng_pool[rng_pptr++] = random & 255;
+        }
+        rng_state.init(rng_pool);
+        for (rng_pptr = 0; rng_pptr < rng_pool.length; ++rng_pptr) {
+            rng_pool[rng_pptr] = 0;
+        }
+        rng_pptr = 0;
+    }
+    // TODO: allow reseeding after first request
+    return rng_state.next();
+}
+var SecureRandom = /** @class */ (function () {
+    function SecureRandom() {
+    }
+    SecureRandom.prototype.nextBytes = function (ba) {
+        for (var i = 0; i < ba.length; ++i) {
+            ba[i] = rng_get_byte();
+        }
+    };
+    return SecureRandom;
+}());
+
+
+
+/***/ }),
+
+/***/ "./node_modules/jsencrypt/lib/lib/jsbn/rsa.js":
+/*!****************************************************!*\
+  !*** ./node_modules/jsencrypt/lib/lib/jsbn/rsa.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "RSAKey": () => (/* binding */ RSAKey)
+/* harmony export */ });
+/* harmony import */ var _jsbn__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./jsbn */ "./node_modules/jsencrypt/lib/lib/jsbn/jsbn.js");
+/* harmony import */ var _rng__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./rng */ "./node_modules/jsencrypt/lib/lib/jsbn/rng.js");
+// Depends on jsbn.js and rng.js
+// Version 1.1: support utf-8 encoding in pkcs1pad2
+// convert a (hex) string to a bignum object
+
+
+// function linebrk(s,n) {
+//   var ret = "";
+//   var i = 0;
+//   while(i + n < s.length) {
+//     ret += s.substring(i,i+n) + "\n";
+//     i += n;
+//   }
+//   return ret + s.substring(i,s.length);
+// }
+// function byte2Hex(b) {
+//   if(b < 0x10)
+//     return "0" + b.toString(16);
+//   else
+//     return b.toString(16);
+// }
+function pkcs1pad1(s, n) {
+    if (n < s.length + 22) {
+        console.error("Message too long for RSA");
+        return null;
+    }
+    var len = n - s.length - 6;
+    var filler = "";
+    for (var f = 0; f < len; f += 2) {
+        filler += "ff";
+    }
+    var m = "0001" + filler + "00" + s;
+    return (0,_jsbn__WEBPACK_IMPORTED_MODULE_0__.parseBigInt)(m, 16);
+}
+// PKCS#1 (type 2, random) pad input string s to n bytes, and return a bigint
+function pkcs1pad2(s, n) {
+    if (n < s.length + 11) { // TODO: fix for utf-8
+        console.error("Message too long for RSA");
+        return null;
+    }
+    var ba = [];
+    var i = s.length - 1;
+    while (i >= 0 && n > 0) {
+        var c = s.charCodeAt(i--);
+        if (c < 128) { // encode using utf-8
+            ba[--n] = c;
+        }
+        else if ((c > 127) && (c < 2048)) {
+            ba[--n] = (c & 63) | 128;
+            ba[--n] = (c >> 6) | 192;
+        }
+        else {
+            ba[--n] = (c & 63) | 128;
+            ba[--n] = ((c >> 6) & 63) | 128;
+            ba[--n] = (c >> 12) | 224;
+        }
+    }
+    ba[--n] = 0;
+    var rng = new _rng__WEBPACK_IMPORTED_MODULE_1__.SecureRandom();
+    var x = [];
+    while (n > 2) { // random non-zero pad
+        x[0] = 0;
+        while (x[0] == 0) {
+            rng.nextBytes(x);
+        }
+        ba[--n] = x[0];
+    }
+    ba[--n] = 2;
+    ba[--n] = 0;
+    return new _jsbn__WEBPACK_IMPORTED_MODULE_0__.BigInteger(ba);
+}
+// "empty" RSA key constructor
+var RSAKey = /** @class */ (function () {
+    function RSAKey() {
+        this.n = null;
+        this.e = 0;
+        this.d = null;
+        this.p = null;
+        this.q = null;
+        this.dmp1 = null;
+        this.dmq1 = null;
+        this.coeff = null;
+    }
+    //#region PROTECTED
+    // protected
+    // RSAKey.prototype.doPublic = RSADoPublic;
+    // Perform raw public operation on "x": return x^e (mod n)
+    RSAKey.prototype.doPublic = function (x) {
+        return x.modPowInt(this.e, this.n);
+    };
+    // RSAKey.prototype.doPrivate = RSADoPrivate;
+    // Perform raw private operation on "x": return x^d (mod n)
+    RSAKey.prototype.doPrivate = function (x) {
+        if (this.p == null || this.q == null) {
+            return x.modPow(this.d, this.n);
+        }
+        // TODO: re-calculate any missing CRT params
+        var xp = x.mod(this.p).modPow(this.dmp1, this.p);
+        var xq = x.mod(this.q).modPow(this.dmq1, this.q);
+        while (xp.compareTo(xq) < 0) {
+            xp = xp.add(this.p);
+        }
+        return xp.subtract(xq).multiply(this.coeff).mod(this.p).multiply(this.q).add(xq);
+    };
+    //#endregion PROTECTED
+    //#region PUBLIC
+    // RSAKey.prototype.setPublic = RSASetPublic;
+    // Set the public key fields N and e from hex strings
+    RSAKey.prototype.setPublic = function (N, E) {
+        if (N != null && E != null && N.length > 0 && E.length > 0) {
+            this.n = (0,_jsbn__WEBPACK_IMPORTED_MODULE_0__.parseBigInt)(N, 16);
+            this.e = parseInt(E, 16);
+        }
+        else {
+            console.error("Invalid RSA public key");
+        }
+    };
+    // RSAKey.prototype.encrypt = RSAEncrypt;
+    // Return the PKCS#1 RSA encryption of "text" as an even-length hex string
+    RSAKey.prototype.encrypt = function (text) {
+        var maxLength = (this.n.bitLength() + 7) >> 3;
+        var m = pkcs1pad2(text, maxLength);
+        if (m == null) {
+            return null;
+        }
+        var c = this.doPublic(m);
+        if (c == null) {
+            return null;
+        }
+        var h = c.toString(16);
+        var length = h.length;
+        // fix zero before result
+        for (var i = 0; i < maxLength * 2 - length; i++) {
+            h = "0" + h;
+        }
+        return h;
+    };
+    // RSAKey.prototype.setPrivate = RSASetPrivate;
+    // Set the private key fields N, e, and d from hex strings
+    RSAKey.prototype.setPrivate = function (N, E, D) {
+        if (N != null && E != null && N.length > 0 && E.length > 0) {
+            this.n = (0,_jsbn__WEBPACK_IMPORTED_MODULE_0__.parseBigInt)(N, 16);
+            this.e = parseInt(E, 16);
+            this.d = (0,_jsbn__WEBPACK_IMPORTED_MODULE_0__.parseBigInt)(D, 16);
+        }
+        else {
+            console.error("Invalid RSA private key");
+        }
+    };
+    // RSAKey.prototype.setPrivateEx = RSASetPrivateEx;
+    // Set the private key fields N, e, d and CRT params from hex strings
+    RSAKey.prototype.setPrivateEx = function (N, E, D, P, Q, DP, DQ, C) {
+        if (N != null && E != null && N.length > 0 && E.length > 0) {
+            this.n = (0,_jsbn__WEBPACK_IMPORTED_MODULE_0__.parseBigInt)(N, 16);
+            this.e = parseInt(E, 16);
+            this.d = (0,_jsbn__WEBPACK_IMPORTED_MODULE_0__.parseBigInt)(D, 16);
+            this.p = (0,_jsbn__WEBPACK_IMPORTED_MODULE_0__.parseBigInt)(P, 16);
+            this.q = (0,_jsbn__WEBPACK_IMPORTED_MODULE_0__.parseBigInt)(Q, 16);
+            this.dmp1 = (0,_jsbn__WEBPACK_IMPORTED_MODULE_0__.parseBigInt)(DP, 16);
+            this.dmq1 = (0,_jsbn__WEBPACK_IMPORTED_MODULE_0__.parseBigInt)(DQ, 16);
+            this.coeff = (0,_jsbn__WEBPACK_IMPORTED_MODULE_0__.parseBigInt)(C, 16);
+        }
+        else {
+            console.error("Invalid RSA private key");
+        }
+    };
+    // RSAKey.prototype.generate = RSAGenerate;
+    // Generate a new random private key B bits long, using public expt E
+    RSAKey.prototype.generate = function (B, E) {
+        var rng = new _rng__WEBPACK_IMPORTED_MODULE_1__.SecureRandom();
+        var qs = B >> 1;
+        this.e = parseInt(E, 16);
+        var ee = new _jsbn__WEBPACK_IMPORTED_MODULE_0__.BigInteger(E, 16);
+        for (;;) {
+            for (;;) {
+                this.p = new _jsbn__WEBPACK_IMPORTED_MODULE_0__.BigInteger(B - qs, 1, rng);
+                if (this.p.subtract(_jsbn__WEBPACK_IMPORTED_MODULE_0__.BigInteger.ONE).gcd(ee).compareTo(_jsbn__WEBPACK_IMPORTED_MODULE_0__.BigInteger.ONE) == 0 && this.p.isProbablePrime(10)) {
+                    break;
+                }
+            }
+            for (;;) {
+                this.q = new _jsbn__WEBPACK_IMPORTED_MODULE_0__.BigInteger(qs, 1, rng);
+                if (this.q.subtract(_jsbn__WEBPACK_IMPORTED_MODULE_0__.BigInteger.ONE).gcd(ee).compareTo(_jsbn__WEBPACK_IMPORTED_MODULE_0__.BigInteger.ONE) == 0 && this.q.isProbablePrime(10)) {
+                    break;
+                }
+            }
+            if (this.p.compareTo(this.q) <= 0) {
+                var t = this.p;
+                this.p = this.q;
+                this.q = t;
+            }
+            var p1 = this.p.subtract(_jsbn__WEBPACK_IMPORTED_MODULE_0__.BigInteger.ONE);
+            var q1 = this.q.subtract(_jsbn__WEBPACK_IMPORTED_MODULE_0__.BigInteger.ONE);
+            var phi = p1.multiply(q1);
+            if (phi.gcd(ee).compareTo(_jsbn__WEBPACK_IMPORTED_MODULE_0__.BigInteger.ONE) == 0) {
+                this.n = this.p.multiply(this.q);
+                this.d = ee.modInverse(phi);
+                this.dmp1 = this.d.mod(p1);
+                this.dmq1 = this.d.mod(q1);
+                this.coeff = this.q.modInverse(this.p);
+                break;
+            }
+        }
+    };
+    // RSAKey.prototype.decrypt = RSADecrypt;
+    // Return the PKCS#1 RSA decryption of "ctext".
+    // "ctext" is an even-length hex string and the output is a plain string.
+    RSAKey.prototype.decrypt = function (ctext) {
+        var c = (0,_jsbn__WEBPACK_IMPORTED_MODULE_0__.parseBigInt)(ctext, 16);
+        var m = this.doPrivate(c);
+        if (m == null) {
+            return null;
+        }
+        return pkcs1unpad2(m, (this.n.bitLength() + 7) >> 3);
+    };
+    // Generate a new random private key B bits long, using public expt E
+    RSAKey.prototype.generateAsync = function (B, E, callback) {
+        var rng = new _rng__WEBPACK_IMPORTED_MODULE_1__.SecureRandom();
+        var qs = B >> 1;
+        this.e = parseInt(E, 16);
+        var ee = new _jsbn__WEBPACK_IMPORTED_MODULE_0__.BigInteger(E, 16);
+        var rsa = this;
+        // These functions have non-descript names because they were originally for(;;) loops.
+        // I don't know about cryptography to give them better names than loop1-4.
+        var loop1 = function () {
+            var loop4 = function () {
+                if (rsa.p.compareTo(rsa.q) <= 0) {
+                    var t = rsa.p;
+                    rsa.p = rsa.q;
+                    rsa.q = t;
+                }
+                var p1 = rsa.p.subtract(_jsbn__WEBPACK_IMPORTED_MODULE_0__.BigInteger.ONE);
+                var q1 = rsa.q.subtract(_jsbn__WEBPACK_IMPORTED_MODULE_0__.BigInteger.ONE);
+                var phi = p1.multiply(q1);
+                if (phi.gcd(ee).compareTo(_jsbn__WEBPACK_IMPORTED_MODULE_0__.BigInteger.ONE) == 0) {
+                    rsa.n = rsa.p.multiply(rsa.q);
+                    rsa.d = ee.modInverse(phi);
+                    rsa.dmp1 = rsa.d.mod(p1);
+                    rsa.dmq1 = rsa.d.mod(q1);
+                    rsa.coeff = rsa.q.modInverse(rsa.p);
+                    setTimeout(function () { callback(); }, 0); // escape
+                }
+                else {
+                    setTimeout(loop1, 0);
+                }
+            };
+            var loop3 = function () {
+                rsa.q = (0,_jsbn__WEBPACK_IMPORTED_MODULE_0__.nbi)();
+                rsa.q.fromNumberAsync(qs, 1, rng, function () {
+                    rsa.q.subtract(_jsbn__WEBPACK_IMPORTED_MODULE_0__.BigInteger.ONE).gcda(ee, function (r) {
+                        if (r.compareTo(_jsbn__WEBPACK_IMPORTED_MODULE_0__.BigInteger.ONE) == 0 && rsa.q.isProbablePrime(10)) {
+                            setTimeout(loop4, 0);
+                        }
+                        else {
+                            setTimeout(loop3, 0);
+                        }
+                    });
+                });
+            };
+            var loop2 = function () {
+                rsa.p = (0,_jsbn__WEBPACK_IMPORTED_MODULE_0__.nbi)();
+                rsa.p.fromNumberAsync(B - qs, 1, rng, function () {
+                    rsa.p.subtract(_jsbn__WEBPACK_IMPORTED_MODULE_0__.BigInteger.ONE).gcda(ee, function (r) {
+                        if (r.compareTo(_jsbn__WEBPACK_IMPORTED_MODULE_0__.BigInteger.ONE) == 0 && rsa.p.isProbablePrime(10)) {
+                            setTimeout(loop3, 0);
+                        }
+                        else {
+                            setTimeout(loop2, 0);
+                        }
+                    });
+                });
+            };
+            setTimeout(loop2, 0);
+        };
+        setTimeout(loop1, 0);
+    };
+    RSAKey.prototype.sign = function (text, digestMethod, digestName) {
+        var header = getDigestHeader(digestName);
+        var digest = header + digestMethod(text).toString();
+        var m = pkcs1pad1(digest, this.n.bitLength() / 4);
+        if (m == null) {
+            return null;
+        }
+        var c = this.doPrivate(m);
+        if (c == null) {
+            return null;
+        }
+        var h = c.toString(16);
+        if ((h.length & 1) == 0) {
+            return h;
+        }
+        else {
+            return "0" + h;
+        }
+    };
+    RSAKey.prototype.verify = function (text, signature, digestMethod) {
+        var c = (0,_jsbn__WEBPACK_IMPORTED_MODULE_0__.parseBigInt)(signature, 16);
+        var m = this.doPublic(c);
+        if (m == null) {
+            return null;
+        }
+        var unpadded = m.toString(16).replace(/^1f+00/, "");
+        var digest = removeDigestHeader(unpadded);
+        return digest == digestMethod(text).toString();
+    };
+    return RSAKey;
+}());
+
+// Undo PKCS#1 (type 2, random) padding and, if valid, return the plaintext
+function pkcs1unpad2(d, n) {
+    var b = d.toByteArray();
+    var i = 0;
+    while (i < b.length && b[i] == 0) {
+        ++i;
+    }
+    if (b.length - i != n - 1 || b[i] != 2) {
+        return null;
+    }
+    ++i;
+    while (b[i] != 0) {
+        if (++i >= b.length) {
+            return null;
+        }
+    }
+    var ret = "";
+    while (++i < b.length) {
+        var c = b[i] & 255;
+        if (c < 128) { // utf-8 decode
+            ret += String.fromCharCode(c);
+        }
+        else if ((c > 191) && (c < 224)) {
+            ret += String.fromCharCode(((c & 31) << 6) | (b[i + 1] & 63));
+            ++i;
+        }
+        else {
+            ret += String.fromCharCode(((c & 15) << 12) | ((b[i + 1] & 63) << 6) | (b[i + 2] & 63));
+            i += 2;
+        }
+    }
+    return ret;
+}
+// https://tools.ietf.org/html/rfc3447#page-43
+var DIGEST_HEADERS = {
+    md2: "3020300c06082a864886f70d020205000410",
+    md5: "3020300c06082a864886f70d020505000410",
+    sha1: "3021300906052b0e03021a05000414",
+    sha224: "302d300d06096086480165030402040500041c",
+    sha256: "3031300d060960864801650304020105000420",
+    sha384: "3041300d060960864801650304020205000430",
+    sha512: "3051300d060960864801650304020305000440",
+    ripemd160: "3021300906052b2403020105000414"
+};
+function getDigestHeader(name) {
+    return DIGEST_HEADERS[name] || "";
+}
+function removeDigestHeader(str) {
+    for (var name_1 in DIGEST_HEADERS) {
+        if (DIGEST_HEADERS.hasOwnProperty(name_1)) {
+            var header = DIGEST_HEADERS[name_1];
+            var len = header.length;
+            if (str.substr(0, len) == header) {
+                return str.substr(len);
+            }
+        }
+    }
+    return str;
+}
+// Return the PKCS#1 RSA encryption of "text" as a Base64-encoded string
+// function RSAEncryptB64(text) {
+//  var h = this.encrypt(text);
+//  if(h) return hex2b64(h); else return null;
+// }
+// public
+// RSAKey.prototype.encrypt_b64 = RSAEncryptB64;
+
+
+/***/ }),
+
+/***/ "./node_modules/jsencrypt/lib/lib/jsbn/util.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/jsencrypt/lib/lib/jsbn/util.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "cbit": () => (/* binding */ cbit),
+/* harmony export */   "int2char": () => (/* binding */ int2char),
+/* harmony export */   "lbit": () => (/* binding */ lbit),
+/* harmony export */   "op_and": () => (/* binding */ op_and),
+/* harmony export */   "op_andnot": () => (/* binding */ op_andnot),
+/* harmony export */   "op_or": () => (/* binding */ op_or),
+/* harmony export */   "op_xor": () => (/* binding */ op_xor)
+/* harmony export */ });
+var BI_RM = "0123456789abcdefghijklmnopqrstuvwxyz";
+function int2char(n) {
+    return BI_RM.charAt(n);
+}
+//#region BIT_OPERATIONS
+// (public) this & a
+function op_and(x, y) {
+    return x & y;
+}
+// (public) this | a
+function op_or(x, y) {
+    return x | y;
+}
+// (public) this ^ a
+function op_xor(x, y) {
+    return x ^ y;
+}
+// (public) this & ~a
+function op_andnot(x, y) {
+    return x & ~y;
+}
+// return index of lowest 1-bit in x, x < 2^31
+function lbit(x) {
+    if (x == 0) {
+        return -1;
+    }
+    var r = 0;
+    if ((x & 0xffff) == 0) {
+        x >>= 16;
+        r += 16;
+    }
+    if ((x & 0xff) == 0) {
+        x >>= 8;
+        r += 8;
+    }
+    if ((x & 0xf) == 0) {
+        x >>= 4;
+        r += 4;
+    }
+    if ((x & 3) == 0) {
+        x >>= 2;
+        r += 2;
+    }
+    if ((x & 1) == 0) {
+        ++r;
+    }
+    return r;
+}
+// return number of 1 bits in x
+function cbit(x) {
+    var r = 0;
+    while (x != 0) {
+        x &= x - 1;
+        ++r;
+    }
+    return r;
+}
+//#endregion BIT_OPERATIONS
+
+
+/***/ }),
+
+/***/ "./node_modules/jsencrypt/lib/lib/jsrsasign/asn1-1.0.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/jsencrypt/lib/lib/jsrsasign/asn1-1.0.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "KJUR": () => (/* binding */ KJUR)
+/* harmony export */ });
+/* harmony import */ var _jsbn_jsbn__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../jsbn/jsbn */ "./node_modules/jsencrypt/lib/lib/jsbn/jsbn.js");
+/* harmony import */ var _yahoo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./yahoo */ "./node_modules/jsencrypt/lib/lib/jsrsasign/yahoo.js");
+/* asn1-1.0.13.js (c) 2013-2017 Kenji Urushima | kjur.github.com/jsrsasign/license
+ */
+/*
+ * asn1.js - ASN.1 DER encoder classes
+ *
+ * Copyright (c) 2013-2017 Kenji Urushima (kenji.urushima@gmail.com)
+ *
+ * This software is licensed under the terms of the MIT License.
+ * https://kjur.github.io/jsrsasign/license
+ *
+ * The above copyright and license notice shall be
+ * included in all copies or substantial portions of the Software.
+ */
+
+
+/**
+ * @fileOverview
+ * @name asn1-1.0.js
+ * @author Kenji Urushima kenji.urushima@gmail.com
+ * @version asn1 1.0.13 (2017-Jun-02)
+ * @since jsrsasign 2.1
+ * @license <a href="https://kjur.github.io/jsrsasign/license/">MIT License</a>
+ */
+/**
+ * kjur's class library name space
+ * <p>
+ * This name space provides following name spaces:
+ * <ul>
+ * <li>{@link KJUR.asn1} - ASN.1 primitive hexadecimal encoder</li>
+ * <li>{@link KJUR.asn1.x509} - ASN.1 structure for X.509 certificate and CRL</li>
+ * <li>{@link KJUR.crypto} - Java Cryptographic Extension(JCE) style MessageDigest/Signature
+ * class and utilities</li>
+ * </ul>
+ * </p>
+ * NOTE: Please ignore method summary and document of this namespace. This caused by a bug of jsdoc2.
+ * @name KJUR
+ * @namespace kjur's class library name space
+ */
+var KJUR = {};
+/**
+ * kjur's ASN.1 class library name space
+ * <p>
+ * This is ITU-T X.690 ASN.1 DER encoder class library and
+ * class structure and methods is very similar to
+ * org.bouncycastle.asn1 package of
+ * well known BouncyCaslte Cryptography Library.
+ * <h4>PROVIDING ASN.1 PRIMITIVES</h4>
+ * Here are ASN.1 DER primitive classes.
+ * <ul>
+ * <li>0x01 {@link KJUR.asn1.DERBoolean}</li>
+ * <li>0x02 {@link KJUR.asn1.DERInteger}</li>
+ * <li>0x03 {@link KJUR.asn1.DERBitString}</li>
+ * <li>0x04 {@link KJUR.asn1.DEROctetString}</li>
+ * <li>0x05 {@link KJUR.asn1.DERNull}</li>
+ * <li>0x06 {@link KJUR.asn1.DERObjectIdentifier}</li>
+ * <li>0x0a {@link KJUR.asn1.DEREnumerated}</li>
+ * <li>0x0c {@link KJUR.asn1.DERUTF8String}</li>
+ * <li>0x12 {@link KJUR.asn1.DERNumericString}</li>
+ * <li>0x13 {@link KJUR.asn1.DERPrintableString}</li>
+ * <li>0x14 {@link KJUR.asn1.DERTeletexString}</li>
+ * <li>0x16 {@link KJUR.asn1.DERIA5String}</li>
+ * <li>0x17 {@link KJUR.asn1.DERUTCTime}</li>
+ * <li>0x18 {@link KJUR.asn1.DERGeneralizedTime}</li>
+ * <li>0x30 {@link KJUR.asn1.DERSequence}</li>
+ * <li>0x31 {@link KJUR.asn1.DERSet}</li>
+ * </ul>
+ * <h4>OTHER ASN.1 CLASSES</h4>
+ * <ul>
+ * <li>{@link KJUR.asn1.ASN1Object}</li>
+ * <li>{@link KJUR.asn1.DERAbstractString}</li>
+ * <li>{@link KJUR.asn1.DERAbstractTime}</li>
+ * <li>{@link KJUR.asn1.DERAbstractStructured}</li>
+ * <li>{@link KJUR.asn1.DERTaggedObject}</li>
+ * </ul>
+ * <h4>SUB NAME SPACES</h4>
+ * <ul>
+ * <li>{@link KJUR.asn1.cades} - CAdES long term signature format</li>
+ * <li>{@link KJUR.asn1.cms} - Cryptographic Message Syntax</li>
+ * <li>{@link KJUR.asn1.csr} - Certificate Signing Request (CSR/PKCS#10)</li>
+ * <li>{@link KJUR.asn1.tsp} - RFC 3161 Timestamping Protocol Format</li>
+ * <li>{@link KJUR.asn1.x509} - RFC 5280 X.509 certificate and CRL</li>
+ * </ul>
+ * </p>
+ * NOTE: Please ignore method summary and document of this namespace.
+ * This caused by a bug of jsdoc2.
+ * @name KJUR.asn1
+ * @namespace
+ */
+if (typeof KJUR.asn1 == "undefined" || !KJUR.asn1)
+    KJUR.asn1 = {};
+/**
+ * ASN1 utilities class
+ * @name KJUR.asn1.ASN1Util
+ * @class ASN1 utilities class
+ * @since asn1 1.0.2
+ */
+KJUR.asn1.ASN1Util = new function () {
+    this.integerToByteHex = function (i) {
+        var h = i.toString(16);
+        if ((h.length % 2) == 1)
+            h = '0' + h;
+        return h;
+    };
+    this.bigIntToMinTwosComplementsHex = function (bigIntegerValue) {
+        var h = bigIntegerValue.toString(16);
+        if (h.substr(0, 1) != '-') {
+            if (h.length % 2 == 1) {
+                h = '0' + h;
+            }
+            else {
+                if (!h.match(/^[0-7]/)) {
+                    h = '00' + h;
+                }
+            }
+        }
+        else {
+            var hPos = h.substr(1);
+            var xorLen = hPos.length;
+            if (xorLen % 2 == 1) {
+                xorLen += 1;
+            }
+            else {
+                if (!h.match(/^[0-7]/)) {
+                    xorLen += 2;
+                }
+            }
+            var hMask = '';
+            for (var i = 0; i < xorLen; i++) {
+                hMask += 'f';
+            }
+            var biMask = new _jsbn_jsbn__WEBPACK_IMPORTED_MODULE_0__.BigInteger(hMask, 16);
+            var biNeg = biMask.xor(bigIntegerValue).add(_jsbn_jsbn__WEBPACK_IMPORTED_MODULE_0__.BigInteger.ONE);
+            h = biNeg.toString(16).replace(/^-/, '');
+        }
+        return h;
+    };
+    /**
+     * get PEM string from hexadecimal data and header string
+     * @name getPEMStringFromHex
+     * @memberOf KJUR.asn1.ASN1Util
+     * @function
+     * @param {String} dataHex hexadecimal string of PEM body
+     * @param {String} pemHeader PEM header string (ex. 'RSA PRIVATE KEY')
+     * @return {String} PEM formatted string of input data
+     * @description
+     * This method converts a hexadecimal string to a PEM string with
+     * a specified header. Its line break will be CRLF("\r\n").
+     * @example
+     * var pem  = KJUR.asn1.ASN1Util.getPEMStringFromHex('616161', 'RSA PRIVATE KEY');
+     * // value of pem will be:
+     * -----BEGIN PRIVATE KEY-----
+     * YWFh
+     * -----END PRIVATE KEY-----
+     */
+    this.getPEMStringFromHex = function (dataHex, pemHeader) {
+        return hextopem(dataHex, pemHeader);
+    };
+    /**
+     * generate ASN1Object specifed by JSON parameters
+     * @name newObject
+     * @memberOf KJUR.asn1.ASN1Util
+     * @function
+     * @param {Array} param JSON parameter to generate ASN1Object
+     * @return {KJUR.asn1.ASN1Object} generated object
+     * @since asn1 1.0.3
+     * @description
+     * generate any ASN1Object specified by JSON param
+     * including ASN.1 primitive or structured.
+     * Generally 'param' can be described as follows:
+     * <blockquote>
+     * {TYPE-OF-ASNOBJ: ASN1OBJ-PARAMETER}
+     * </blockquote>
+     * 'TYPE-OF-ASN1OBJ' can be one of following symbols:
+     * <ul>
+     * <li>'bool' - DERBoolean</li>
+     * <li>'int' - DERInteger</li>
+     * <li>'bitstr' - DERBitString</li>
+     * <li>'octstr' - DEROctetString</li>
+     * <li>'null' - DERNull</li>
+     * <li>'oid' - DERObjectIdentifier</li>
+     * <li>'enum' - DEREnumerated</li>
+     * <li>'utf8str' - DERUTF8String</li>
+     * <li>'numstr' - DERNumericString</li>
+     * <li>'prnstr' - DERPrintableString</li>
+     * <li>'telstr' - DERTeletexString</li>
+     * <li>'ia5str' - DERIA5String</li>
+     * <li>'utctime' - DERUTCTime</li>
+     * <li>'gentime' - DERGeneralizedTime</li>
+     * <li>'seq' - DERSequence</li>
+     * <li>'set' - DERSet</li>
+     * <li>'tag' - DERTaggedObject</li>
+     * </ul>
+     * @example
+     * newObject({'prnstr': 'aaa'});
+     * newObject({'seq': [{'int': 3}, {'prnstr': 'aaa'}]})
+     * // ASN.1 Tagged Object
+     * newObject({'tag': {'tag': 'a1',
+     *                    'explicit': true,
+     *                    'obj': {'seq': [{'int': 3}, {'prnstr': 'aaa'}]}}});
+     * // more simple representation of ASN.1 Tagged Object
+     * newObject({'tag': ['a1',
+     *                    true,
+     *                    {'seq': [
+     *                      {'int': 3},
+     *                      {'prnstr': 'aaa'}]}
+     *                   ]});
+     */
+    this.newObject = function (param) {
+        var _KJUR = KJUR, _KJUR_asn1 = _KJUR.asn1, _DERBoolean = _KJUR_asn1.DERBoolean, _DERInteger = _KJUR_asn1.DERInteger, _DERBitString = _KJUR_asn1.DERBitString, _DEROctetString = _KJUR_asn1.DEROctetString, _DERNull = _KJUR_asn1.DERNull, _DERObjectIdentifier = _KJUR_asn1.DERObjectIdentifier, _DEREnumerated = _KJUR_asn1.DEREnumerated, _DERUTF8String = _KJUR_asn1.DERUTF8String, _DERNumericString = _KJUR_asn1.DERNumericString, _DERPrintableString = _KJUR_asn1.DERPrintableString, _DERTeletexString = _KJUR_asn1.DERTeletexString, _DERIA5String = _KJUR_asn1.DERIA5String, _DERUTCTime = _KJUR_asn1.DERUTCTime, _DERGeneralizedTime = _KJUR_asn1.DERGeneralizedTime, _DERSequence = _KJUR_asn1.DERSequence, _DERSet = _KJUR_asn1.DERSet, _DERTaggedObject = _KJUR_asn1.DERTaggedObject, _newObject = _KJUR_asn1.ASN1Util.newObject;
+        var keys = Object.keys(param);
+        if (keys.length != 1)
+            throw "key of param shall be only one.";
+        var key = keys[0];
+        if (":bool:int:bitstr:octstr:null:oid:enum:utf8str:numstr:prnstr:telstr:ia5str:utctime:gentime:seq:set:tag:".indexOf(":" + key + ":") == -1)
+            throw "undefined key: " + key;
+        if (key == "bool")
+            return new _DERBoolean(param[key]);
+        if (key == "int")
+            return new _DERInteger(param[key]);
+        if (key == "bitstr")
+            return new _DERBitString(param[key]);
+        if (key == "octstr")
+            return new _DEROctetString(param[key]);
+        if (key == "null")
+            return new _DERNull(param[key]);
+        if (key == "oid")
+            return new _DERObjectIdentifier(param[key]);
+        if (key == "enum")
+            return new _DEREnumerated(param[key]);
+        if (key == "utf8str")
+            return new _DERUTF8String(param[key]);
+        if (key == "numstr")
+            return new _DERNumericString(param[key]);
+        if (key == "prnstr")
+            return new _DERPrintableString(param[key]);
+        if (key == "telstr")
+            return new _DERTeletexString(param[key]);
+        if (key == "ia5str")
+            return new _DERIA5String(param[key]);
+        if (key == "utctime")
+            return new _DERUTCTime(param[key]);
+        if (key == "gentime")
+            return new _DERGeneralizedTime(param[key]);
+        if (key == "seq") {
+            var paramList = param[key];
+            var a = [];
+            for (var i = 0; i < paramList.length; i++) {
+                var asn1Obj = _newObject(paramList[i]);
+                a.push(asn1Obj);
+            }
+            return new _DERSequence({ 'array': a });
+        }
+        if (key == "set") {
+            var paramList = param[key];
+            var a = [];
+            for (var i = 0; i < paramList.length; i++) {
+                var asn1Obj = _newObject(paramList[i]);
+                a.push(asn1Obj);
+            }
+            return new _DERSet({ 'array': a });
+        }
+        if (key == "tag") {
+            var tagParam = param[key];
+            if (Object.prototype.toString.call(tagParam) === '[object Array]' &&
+                tagParam.length == 3) {
+                var obj = _newObject(tagParam[2]);
+                return new _DERTaggedObject({ tag: tagParam[0],
+                    explicit: tagParam[1],
+                    obj: obj });
+            }
+            else {
+                var newParam = {};
+                if (tagParam.explicit !== undefined)
+                    newParam.explicit = tagParam.explicit;
+                if (tagParam.tag !== undefined)
+                    newParam.tag = tagParam.tag;
+                if (tagParam.obj === undefined)
+                    throw "obj shall be specified for 'tag'.";
+                newParam.obj = _newObject(tagParam.obj);
+                return new _DERTaggedObject(newParam);
+            }
+        }
+    };
+    /**
+     * get encoded hexadecimal string of ASN1Object specifed by JSON parameters
+     * @name jsonToASN1HEX
+     * @memberOf KJUR.asn1.ASN1Util
+     * @function
+     * @param {Array} param JSON parameter to generate ASN1Object
+     * @return hexadecimal string of ASN1Object
+     * @since asn1 1.0.4
+     * @description
+     * As for ASN.1 object representation of JSON object,
+     * please see {@link newObject}.
+     * @example
+     * jsonToASN1HEX({'prnstr': 'aaa'});
+     */
+    this.jsonToASN1HEX = function (param) {
+        var asn1Obj = this.newObject(param);
+        return asn1Obj.getEncodedHex();
+    };
+};
+/**
+ * get dot noted oid number string from hexadecimal value of OID
+ * @name oidHexToInt
+ * @memberOf KJUR.asn1.ASN1Util
+ * @function
+ * @param {String} hex hexadecimal value of object identifier
+ * @return {String} dot noted string of object identifier
+ * @since jsrsasign 4.8.3 asn1 1.0.7
+ * @description
+ * This static method converts from hexadecimal string representation of
+ * ASN.1 value of object identifier to oid number string.
+ * @example
+ * KJUR.asn1.ASN1Util.oidHexToInt('550406') &rarr; "2.5.4.6"
+ */
+KJUR.asn1.ASN1Util.oidHexToInt = function (hex) {
+    var s = "";
+    var i01 = parseInt(hex.substr(0, 2), 16);
+    var i0 = Math.floor(i01 / 40);
+    var i1 = i01 % 40;
+    var s = i0 + "." + i1;
+    var binbuf = "";
+    for (var i = 2; i < hex.length; i += 2) {
+        var value = parseInt(hex.substr(i, 2), 16);
+        var bin = ("00000000" + value.toString(2)).slice(-8);
+        binbuf = binbuf + bin.substr(1, 7);
+        if (bin.substr(0, 1) == "0") {
+            var bi = new _jsbn_jsbn__WEBPACK_IMPORTED_MODULE_0__.BigInteger(binbuf, 2);
+            s = s + "." + bi.toString(10);
+            binbuf = "";
+        }
+    }
+    ;
+    return s;
+};
+/**
+ * get hexadecimal value of object identifier from dot noted oid value
+ * @name oidIntToHex
+ * @memberOf KJUR.asn1.ASN1Util
+ * @function
+ * @param {String} oidString dot noted string of object identifier
+ * @return {String} hexadecimal value of object identifier
+ * @since jsrsasign 4.8.3 asn1 1.0.7
+ * @description
+ * This static method converts from object identifier value string.
+ * to hexadecimal string representation of it.
+ * @example
+ * KJUR.asn1.ASN1Util.oidIntToHex("2.5.4.6") &rarr; "550406"
+ */
+KJUR.asn1.ASN1Util.oidIntToHex = function (oidString) {
+    var itox = function (i) {
+        var h = i.toString(16);
+        if (h.length == 1)
+            h = '0' + h;
+        return h;
+    };
+    var roidtox = function (roid) {
+        var h = '';
+        var bi = new _jsbn_jsbn__WEBPACK_IMPORTED_MODULE_0__.BigInteger(roid, 10);
+        var b = bi.toString(2);
+        var padLen = 7 - b.length % 7;
+        if (padLen == 7)
+            padLen = 0;
+        var bPad = '';
+        for (var i = 0; i < padLen; i++)
+            bPad += '0';
+        b = bPad + b;
+        for (var i = 0; i < b.length - 1; i += 7) {
+            var b8 = b.substr(i, 7);
+            if (i != b.length - 7)
+                b8 = '1' + b8;
+            h += itox(parseInt(b8, 2));
+        }
+        return h;
+    };
+    if (!oidString.match(/^[0-9.]+$/)) {
+        throw "malformed oid string: " + oidString;
+    }
+    var h = '';
+    var a = oidString.split('.');
+    var i0 = parseInt(a[0]) * 40 + parseInt(a[1]);
+    h += itox(i0);
+    a.splice(0, 2);
+    for (var i = 0; i < a.length; i++) {
+        h += roidtox(a[i]);
+    }
+    return h;
+};
+// ********************************************************************
+//  Abstract ASN.1 Classes
+// ********************************************************************
+// ********************************************************************
+/**
+ * base class for ASN.1 DER encoder object
+ * @name KJUR.asn1.ASN1Object
+ * @class base class for ASN.1 DER encoder object
+ * @property {Boolean} isModified flag whether internal data was changed
+ * @property {String} hTLV hexadecimal string of ASN.1 TLV
+ * @property {String} hT hexadecimal string of ASN.1 TLV tag(T)
+ * @property {String} hL hexadecimal string of ASN.1 TLV length(L)
+ * @property {String} hV hexadecimal string of ASN.1 TLV value(V)
+ * @description
+ */
+KJUR.asn1.ASN1Object = function () {
+    var isModified = true;
+    var hTLV = null;
+    var hT = '00';
+    var hL = '00';
+    var hV = '';
+    /**
+     * get hexadecimal ASN.1 TLV length(L) bytes from TLV value(V)
+     * @name getLengthHexFromValue
+     * @memberOf KJUR.asn1.ASN1Object#
+     * @function
+     * @return {String} hexadecimal string of ASN.1 TLV length(L)
+     */
+    this.getLengthHexFromValue = function () {
+        if (typeof this.hV == "undefined" || this.hV == null) {
+            throw "this.hV is null or undefined.";
+        }
+        if (this.hV.length % 2 == 1) {
+            throw "value hex must be even length: n=" + hV.length + ",v=" + this.hV;
+        }
+        var n = this.hV.length / 2;
+        var hN = n.toString(16);
+        if (hN.length % 2 == 1) {
+            hN = "0" + hN;
+        }
+        if (n < 128) {
+            return hN;
+        }
+        else {
+            var hNlen = hN.length / 2;
+            if (hNlen > 15) {
+                throw "ASN.1 length too long to represent by 8x: n = " + n.toString(16);
+            }
+            var head = 128 + hNlen;
+            return head.toString(16) + hN;
+        }
+    };
+    /**
+     * get hexadecimal string of ASN.1 TLV bytes
+     * @name getEncodedHex
+     * @memberOf KJUR.asn1.ASN1Object#
+     * @function
+     * @return {String} hexadecimal string of ASN.1 TLV
+     */
+    this.getEncodedHex = function () {
+        if (this.hTLV == null || this.isModified) {
+            this.hV = this.getFreshValueHex();
+            this.hL = this.getLengthHexFromValue();
+            this.hTLV = this.hT + this.hL + this.hV;
+            this.isModified = false;
+            //alert("first time: " + this.hTLV);
+        }
+        return this.hTLV;
+    };
+    /**
+     * get hexadecimal string of ASN.1 TLV value(V) bytes
+     * @name getValueHex
+     * @memberOf KJUR.asn1.ASN1Object#
+     * @function
+     * @return {String} hexadecimal string of ASN.1 TLV value(V) bytes
+     */
+    this.getValueHex = function () {
+        this.getEncodedHex();
+        return this.hV;
+    };
+    this.getFreshValueHex = function () {
+        return '';
+    };
+};
+// == BEGIN DERAbstractString ================================================
+/**
+ * base class for ASN.1 DER string classes
+ * @name KJUR.asn1.DERAbstractString
+ * @class base class for ASN.1 DER string classes
+ * @param {Array} params associative array of parameters (ex. {'str': 'aaa'})
+ * @property {String} s internal string of value
+ * @extends KJUR.asn1.ASN1Object
+ * @description
+ * <br/>
+ * As for argument 'params' for constructor, you can specify one of
+ * following properties:
+ * <ul>
+ * <li>str - specify initial ASN.1 value(V) by a string</li>
+ * <li>hex - specify initial ASN.1 value(V) by a hexadecimal string</li>
+ * </ul>
+ * NOTE: 'params' can be omitted.
+ */
+KJUR.asn1.DERAbstractString = function (params) {
+    KJUR.asn1.DERAbstractString.superclass.constructor.call(this);
+    var s = null;
+    var hV = null;
+    /**
+     * get string value of this string object
+     * @name getString
+     * @memberOf KJUR.asn1.DERAbstractString#
+     * @function
+     * @return {String} string value of this string object
+     */
+    this.getString = function () {
+        return this.s;
+    };
+    /**
+     * set value by a string
+     * @name setString
+     * @memberOf KJUR.asn1.DERAbstractString#
+     * @function
+     * @param {String} newS value by a string to set
+     */
+    this.setString = function (newS) {
+        this.hTLV = null;
+        this.isModified = true;
+        this.s = newS;
+        this.hV = stohex(this.s);
+    };
+    /**
+     * set value by a hexadecimal string
+     * @name setStringHex
+     * @memberOf KJUR.asn1.DERAbstractString#
+     * @function
+     * @param {String} newHexString value by a hexadecimal string to set
+     */
+    this.setStringHex = function (newHexString) {
+        this.hTLV = null;
+        this.isModified = true;
+        this.s = null;
+        this.hV = newHexString;
+    };
+    this.getFreshValueHex = function () {
+        return this.hV;
+    };
+    if (typeof params != "undefined") {
+        if (typeof params == "string") {
+            this.setString(params);
+        }
+        else if (typeof params['str'] != "undefined") {
+            this.setString(params['str']);
+        }
+        else if (typeof params['hex'] != "undefined") {
+            this.setStringHex(params['hex']);
+        }
+    }
+};
+_yahoo__WEBPACK_IMPORTED_MODULE_1__.YAHOO.lang.extend(KJUR.asn1.DERAbstractString, KJUR.asn1.ASN1Object);
+// == END   DERAbstractString ================================================
+// == BEGIN DERAbstractTime ==================================================
+/**
+ * base class for ASN.1 DER Generalized/UTCTime class
+ * @name KJUR.asn1.DERAbstractTime
+ * @class base class for ASN.1 DER Generalized/UTCTime class
+ * @param {Array} params associative array of parameters (ex. {'str': '130430235959Z'})
+ * @extends KJUR.asn1.ASN1Object
+ * @description
+ * @see KJUR.asn1.ASN1Object - superclass
+ */
+KJUR.asn1.DERAbstractTime = function (params) {
+    KJUR.asn1.DERAbstractTime.superclass.constructor.call(this);
+    var s = null;
+    var date = null;
+    // --- PRIVATE METHODS --------------------
+    this.localDateToUTC = function (d) {
+        utc = d.getTime() + (d.getTimezoneOffset() * 60000);
+        var utcDate = new Date(utc);
+        return utcDate;
+    };
+    /*
+     * format date string by Data object
+     * @name formatDate
+     * @memberOf KJUR.asn1.AbstractTime;
+     * @param {Date} dateObject
+     * @param {string} type 'utc' or 'gen'
+     * @param {boolean} withMillis flag for with millisections or not
+     * @description
+     * 'withMillis' flag is supported from asn1 1.0.6.
+     */
+    this.formatDate = function (dateObject, type, withMillis) {
+        var pad = this.zeroPadding;
+        var d = this.localDateToUTC(dateObject);
+        var year = String(d.getFullYear());
+        if (type == 'utc')
+            year = year.substr(2, 2);
+        var month = pad(String(d.getMonth() + 1), 2);
+        var day = pad(String(d.getDate()), 2);
+        var hour = pad(String(d.getHours()), 2);
+        var min = pad(String(d.getMinutes()), 2);
+        var sec = pad(String(d.getSeconds()), 2);
+        var s = year + month + day + hour + min + sec;
+        if (withMillis === true) {
+            var millis = d.getMilliseconds();
+            if (millis != 0) {
+                var sMillis = pad(String(millis), 3);
+                sMillis = sMillis.replace(/[0]+$/, "");
+                s = s + "." + sMillis;
+            }
+        }
+        return s + "Z";
+    };
+    this.zeroPadding = function (s, len) {
+        if (s.length >= len)
+            return s;
+        return new Array(len - s.length + 1).join('0') + s;
+    };
+    // --- PUBLIC METHODS --------------------
+    /**
+     * get string value of this string object
+     * @name getString
+     * @memberOf KJUR.asn1.DERAbstractTime#
+     * @function
+     * @return {String} string value of this time object
+     */
+    this.getString = function () {
+        return this.s;
+    };
+    /**
+     * set value by a string
+     * @name setString
+     * @memberOf KJUR.asn1.DERAbstractTime#
+     * @function
+     * @param {String} newS value by a string to set such like "130430235959Z"
+     */
+    this.setString = function (newS) {
+        this.hTLV = null;
+        this.isModified = true;
+        this.s = newS;
+        this.hV = stohex(newS);
+    };
+    /**
+     * set value by a Date object
+     * @name setByDateValue
+     * @memberOf KJUR.asn1.DERAbstractTime#
+     * @function
+     * @param {Integer} year year of date (ex. 2013)
+     * @param {Integer} month month of date between 1 and 12 (ex. 12)
+     * @param {Integer} day day of month
+     * @param {Integer} hour hours of date
+     * @param {Integer} min minutes of date
+     * @param {Integer} sec seconds of date
+     */
+    this.setByDateValue = function (year, month, day, hour, min, sec) {
+        var dateObject = new Date(Date.UTC(year, month - 1, day, hour, min, sec, 0));
+        this.setByDate(dateObject);
+    };
+    this.getFreshValueHex = function () {
+        return this.hV;
+    };
+};
+_yahoo__WEBPACK_IMPORTED_MODULE_1__.YAHOO.lang.extend(KJUR.asn1.DERAbstractTime, KJUR.asn1.ASN1Object);
+// == END   DERAbstractTime ==================================================
+// == BEGIN DERAbstractStructured ============================================
+/**
+ * base class for ASN.1 DER structured class
+ * @name KJUR.asn1.DERAbstractStructured
+ * @class base class for ASN.1 DER structured class
+ * @property {Array} asn1Array internal array of ASN1Object
+ * @extends KJUR.asn1.ASN1Object
+ * @description
+ * @see KJUR.asn1.ASN1Object - superclass
+ */
+KJUR.asn1.DERAbstractStructured = function (params) {
+    KJUR.asn1.DERAbstractString.superclass.constructor.call(this);
+    var asn1Array = null;
+    /**
+     * set value by array of ASN1Object
+     * @name setByASN1ObjectArray
+     * @memberOf KJUR.asn1.DERAbstractStructured#
+     * @function
+     * @param {array} asn1ObjectArray array of ASN1Object to set
+     */
+    this.setByASN1ObjectArray = function (asn1ObjectArray) {
+        this.hTLV = null;
+        this.isModified = true;
+        this.asn1Array = asn1ObjectArray;
+    };
+    /**
+     * append an ASN1Object to internal array
+     * @name appendASN1Object
+     * @memberOf KJUR.asn1.DERAbstractStructured#
+     * @function
+     * @param {ASN1Object} asn1Object to add
+     */
+    this.appendASN1Object = function (asn1Object) {
+        this.hTLV = null;
+        this.isModified = true;
+        this.asn1Array.push(asn1Object);
+    };
+    this.asn1Array = new Array();
+    if (typeof params != "undefined") {
+        if (typeof params['array'] != "undefined") {
+            this.asn1Array = params['array'];
+        }
+    }
+};
+_yahoo__WEBPACK_IMPORTED_MODULE_1__.YAHOO.lang.extend(KJUR.asn1.DERAbstractStructured, KJUR.asn1.ASN1Object);
+// ********************************************************************
+//  ASN.1 Object Classes
+// ********************************************************************
+// ********************************************************************
+/**
+ * class for ASN.1 DER Boolean
+ * @name KJUR.asn1.DERBoolean
+ * @class class for ASN.1 DER Boolean
+ * @extends KJUR.asn1.ASN1Object
+ * @description
+ * @see KJUR.asn1.ASN1Object - superclass
+ */
+KJUR.asn1.DERBoolean = function () {
+    KJUR.asn1.DERBoolean.superclass.constructor.call(this);
+    this.hT = "01";
+    this.hTLV = "0101ff";
+};
+_yahoo__WEBPACK_IMPORTED_MODULE_1__.YAHOO.lang.extend(KJUR.asn1.DERBoolean, KJUR.asn1.ASN1Object);
+// ********************************************************************
+/**
+ * class for ASN.1 DER Integer
+ * @name KJUR.asn1.DERInteger
+ * @class class for ASN.1 DER Integer
+ * @extends KJUR.asn1.ASN1Object
+ * @description
+ * <br/>
+ * As for argument 'params' for constructor, you can specify one of
+ * following properties:
+ * <ul>
+ * <li>int - specify initial ASN.1 value(V) by integer value</li>
+ * <li>bigint - specify initial ASN.1 value(V) by BigInteger object</li>
+ * <li>hex - specify initial ASN.1 value(V) by a hexadecimal string</li>
+ * </ul>
+ * NOTE: 'params' can be omitted.
+ */
+KJUR.asn1.DERInteger = function (params) {
+    KJUR.asn1.DERInteger.superclass.constructor.call(this);
+    this.hT = "02";
+    /**
+     * set value by Tom Wu's BigInteger object
+     * @name setByBigInteger
+     * @memberOf KJUR.asn1.DERInteger#
+     * @function
+     * @param {BigInteger} bigIntegerValue to set
+     */
+    this.setByBigInteger = function (bigIntegerValue) {
+        this.hTLV = null;
+        this.isModified = true;
+        this.hV = KJUR.asn1.ASN1Util.bigIntToMinTwosComplementsHex(bigIntegerValue);
+    };
+    /**
+     * set value by integer value
+     * @name setByInteger
+     * @memberOf KJUR.asn1.DERInteger
+     * @function
+     * @param {Integer} integer value to set
+     */
+    this.setByInteger = function (intValue) {
+        var bi = new _jsbn_jsbn__WEBPACK_IMPORTED_MODULE_0__.BigInteger(String(intValue), 10);
+        this.setByBigInteger(bi);
+    };
+    /**
+     * set value by integer value
+     * @name setValueHex
+     * @memberOf KJUR.asn1.DERInteger#
+     * @function
+     * @param {String} hexadecimal string of integer value
+     * @description
+     * <br/>
+     * NOTE: Value shall be represented by minimum octet length of
+     * two's complement representation.
+     * @example
+     * new KJUR.asn1.DERInteger(123);
+     * new KJUR.asn1.DERInteger({'int': 123});
+     * new KJUR.asn1.DERInteger({'hex': '1fad'});
+     */
+    this.setValueHex = function (newHexString) {
+        this.hV = newHexString;
+    };
+    this.getFreshValueHex = function () {
+        return this.hV;
+    };
+    if (typeof params != "undefined") {
+        if (typeof params['bigint'] != "undefined") {
+            this.setByBigInteger(params['bigint']);
+        }
+        else if (typeof params['int'] != "undefined") {
+            this.setByInteger(params['int']);
+        }
+        else if (typeof params == "number") {
+            this.setByInteger(params);
+        }
+        else if (typeof params['hex'] != "undefined") {
+            this.setValueHex(params['hex']);
+        }
+    }
+};
+_yahoo__WEBPACK_IMPORTED_MODULE_1__.YAHOO.lang.extend(KJUR.asn1.DERInteger, KJUR.asn1.ASN1Object);
+// ********************************************************************
+/**
+ * class for ASN.1 DER encoded BitString primitive
+ * @name KJUR.asn1.DERBitString
+ * @class class for ASN.1 DER encoded BitString primitive
+ * @extends KJUR.asn1.ASN1Object
+ * @description
+ * <br/>
+ * As for argument 'params' for constructor, you can specify one of
+ * following properties:
+ * <ul>
+ * <li>bin - specify binary string (ex. '10111')</li>
+ * <li>array - specify array of boolean (ex. [true,false,true,true])</li>
+ * <li>hex - specify hexadecimal string of ASN.1 value(V) including unused bits</li>
+ * <li>obj - specify {@link KJUR.asn1.ASN1Util.newObject}
+ * argument for "BitString encapsulates" structure.</li>
+ * </ul>
+ * NOTE1: 'params' can be omitted.<br/>
+ * NOTE2: 'obj' parameter have been supported since
+ * asn1 1.0.11, jsrsasign 6.1.1 (2016-Sep-25).<br/>
+ * @example
+ * // default constructor
+ * o = new KJUR.asn1.DERBitString();
+ * // initialize with binary string
+ * o = new KJUR.asn1.DERBitString({bin: "1011"});
+ * // initialize with boolean array
+ * o = new KJUR.asn1.DERBitString({array: [true,false,true,true]});
+ * // initialize with hexadecimal string (04 is unused bits)
+ * o = new KJUR.asn1.DEROctetString({hex: "04bac0"});
+ * // initialize with ASN1Util.newObject argument for encapsulated
+ * o = new KJUR.asn1.DERBitString({obj: {seq: [{int: 3}, {prnstr: 'aaa'}]}});
+ * // above generates a ASN.1 data like this:
+ * // BIT STRING, encapsulates {
+ * //   SEQUENCE {
+ * //     INTEGER 3
+ * //     PrintableString 'aaa'
+ * //     }
+ * //   }
+ */
+KJUR.asn1.DERBitString = function (params) {
+    if (params !== undefined && typeof params.obj !== "undefined") {
+        var o = KJUR.asn1.ASN1Util.newObject(params.obj);
+        params.hex = "00" + o.getEncodedHex();
+    }
+    KJUR.asn1.DERBitString.superclass.constructor.call(this);
+    this.hT = "03";
+    /**
+     * set ASN.1 value(V) by a hexadecimal string including unused bits
+     * @name setHexValueIncludingUnusedBits
+     * @memberOf KJUR.asn1.DERBitString#
+     * @function
+     * @param {String} newHexStringIncludingUnusedBits
+     */
+    this.setHexValueIncludingUnusedBits = function (newHexStringIncludingUnusedBits) {
+        this.hTLV = null;
+        this.isModified = true;
+        this.hV = newHexStringIncludingUnusedBits;
+    };
+    /**
+     * set ASN.1 value(V) by unused bit and hexadecimal string of value
+     * @name setUnusedBitsAndHexValue
+     * @memberOf KJUR.asn1.DERBitString#
+     * @function
+     * @param {Integer} unusedBits
+     * @param {String} hValue
+     */
+    this.setUnusedBitsAndHexValue = function (unusedBits, hValue) {
+        if (unusedBits < 0 || 7 < unusedBits) {
+            throw "unused bits shall be from 0 to 7: u = " + unusedBits;
+        }
+        var hUnusedBits = "0" + unusedBits;
+        this.hTLV = null;
+        this.isModified = true;
+        this.hV = hUnusedBits + hValue;
+    };
+    /**
+     * set ASN.1 DER BitString by binary string<br/>
+     * @name setByBinaryString
+     * @memberOf KJUR.asn1.DERBitString#
+     * @function
+     * @param {String} binaryString binary value string (i.e. '10111')
+     * @description
+     * Its unused bits will be calculated automatically by length of
+     * 'binaryValue'. <br/>
+     * NOTE: Trailing zeros '0' will be ignored.
+     * @example
+     * o = new KJUR.asn1.DERBitString();
+     * o.setByBooleanArray("01011");
+     */
+    this.setByBinaryString = function (binaryString) {
+        binaryString = binaryString.replace(/0+$/, '');
+        var unusedBits = 8 - binaryString.length % 8;
+        if (unusedBits == 8)
+            unusedBits = 0;
+        for (var i = 0; i <= unusedBits; i++) {
+            binaryString += '0';
+        }
+        var h = '';
+        for (var i = 0; i < binaryString.length - 1; i += 8) {
+            var b = binaryString.substr(i, 8);
+            var x = parseInt(b, 2).toString(16);
+            if (x.length == 1)
+                x = '0' + x;
+            h += x;
+        }
+        this.hTLV = null;
+        this.isModified = true;
+        this.hV = '0' + unusedBits + h;
+    };
+    /**
+     * set ASN.1 TLV value(V) by an array of boolean<br/>
+     * @name setByBooleanArray
+     * @memberOf KJUR.asn1.DERBitString#
+     * @function
+     * @param {array} booleanArray array of boolean (ex. [true, false, true])
+     * @description
+     * NOTE: Trailing falses will be ignored in the ASN.1 DER Object.
+     * @example
+     * o = new KJUR.asn1.DERBitString();
+     * o.setByBooleanArray([false, true, false, true, true]);
+     */
+    this.setByBooleanArray = function (booleanArray) {
+        var s = '';
+        for (var i = 0; i < booleanArray.length; i++) {
+            if (booleanArray[i] == true) {
+                s += '1';
+            }
+            else {
+                s += '0';
+            }
+        }
+        this.setByBinaryString(s);
+    };
+    /**
+     * generate an array of falses with specified length<br/>
+     * @name newFalseArray
+     * @memberOf KJUR.asn1.DERBitString
+     * @function
+     * @param {Integer} nLength length of array to generate
+     * @return {array} array of boolean falses
+     * @description
+     * This static method may be useful to initialize boolean array.
+     * @example
+     * o = new KJUR.asn1.DERBitString();
+     * o.newFalseArray(3) &rarr; [false, false, false]
+     */
+    this.newFalseArray = function (nLength) {
+        var a = new Array(nLength);
+        for (var i = 0; i < nLength; i++) {
+            a[i] = false;
+        }
+        return a;
+    };
+    this.getFreshValueHex = function () {
+        return this.hV;
+    };
+    if (typeof params != "undefined") {
+        if (typeof params == "string" && params.toLowerCase().match(/^[0-9a-f]+$/)) {
+            this.setHexValueIncludingUnusedBits(params);
+        }
+        else if (typeof params['hex'] != "undefined") {
+            this.setHexValueIncludingUnusedBits(params['hex']);
+        }
+        else if (typeof params['bin'] != "undefined") {
+            this.setByBinaryString(params['bin']);
+        }
+        else if (typeof params['array'] != "undefined") {
+            this.setByBooleanArray(params['array']);
+        }
+    }
+};
+_yahoo__WEBPACK_IMPORTED_MODULE_1__.YAHOO.lang.extend(KJUR.asn1.DERBitString, KJUR.asn1.ASN1Object);
+// ********************************************************************
+/**
+ * class for ASN.1 DER OctetString<br/>
+ * @name KJUR.asn1.DEROctetString
+ * @class class for ASN.1 DER OctetString
+ * @param {Array} params associative array of parameters (ex. {'str': 'aaa'})
+ * @extends KJUR.asn1.DERAbstractString
+ * @description
+ * This class provides ASN.1 OctetString simple type.<br/>
+ * Supported "params" attributes are:
+ * <ul>
+ * <li>str - to set a string as a value</li>
+ * <li>hex - to set a hexadecimal string as a value</li>
+ * <li>obj - to set a encapsulated ASN.1 value by JSON object
+ * which is defined in {@link KJUR.asn1.ASN1Util.newObject}</li>
+ * </ul>
+ * NOTE: A parameter 'obj' have been supported
+ * for "OCTET STRING, encapsulates" structure.
+ * since asn1 1.0.11, jsrsasign 6.1.1 (2016-Sep-25).
+ * @see KJUR.asn1.DERAbstractString - superclass
+ * @example
+ * // default constructor
+ * o = new KJUR.asn1.DEROctetString();
+ * // initialize with string
+ * o = new KJUR.asn1.DEROctetString({str: "aaa"});
+ * // initialize with hexadecimal string
+ * o = new KJUR.asn1.DEROctetString({hex: "616161"});
+ * // initialize with ASN1Util.newObject argument
+ * o = new KJUR.asn1.DEROctetString({obj: {seq: [{int: 3}, {prnstr: 'aaa'}]}});
+ * // above generates a ASN.1 data like this:
+ * // OCTET STRING, encapsulates {
+ * //   SEQUENCE {
+ * //     INTEGER 3
+ * //     PrintableString 'aaa'
+ * //     }
+ * //   }
+ */
+KJUR.asn1.DEROctetString = function (params) {
+    if (params !== undefined && typeof params.obj !== "undefined") {
+        var o = KJUR.asn1.ASN1Util.newObject(params.obj);
+        params.hex = o.getEncodedHex();
+    }
+    KJUR.asn1.DEROctetString.superclass.constructor.call(this, params);
+    this.hT = "04";
+};
+_yahoo__WEBPACK_IMPORTED_MODULE_1__.YAHOO.lang.extend(KJUR.asn1.DEROctetString, KJUR.asn1.DERAbstractString);
+// ********************************************************************
+/**
+ * class for ASN.1 DER Null
+ * @name KJUR.asn1.DERNull
+ * @class class for ASN.1 DER Null
+ * @extends KJUR.asn1.ASN1Object
+ * @description
+ * @see KJUR.asn1.ASN1Object - superclass
+ */
+KJUR.asn1.DERNull = function () {
+    KJUR.asn1.DERNull.superclass.constructor.call(this);
+    this.hT = "05";
+    this.hTLV = "0500";
+};
+_yahoo__WEBPACK_IMPORTED_MODULE_1__.YAHOO.lang.extend(KJUR.asn1.DERNull, KJUR.asn1.ASN1Object);
+// ********************************************************************
+/**
+ * class for ASN.1 DER ObjectIdentifier
+ * @name KJUR.asn1.DERObjectIdentifier
+ * @class class for ASN.1 DER ObjectIdentifier
+ * @param {Array} params associative array of parameters (ex. {'oid': '2.5.4.5'})
+ * @extends KJUR.asn1.ASN1Object
+ * @description
+ * <br/>
+ * As for argument 'params' for constructor, you can specify one of
+ * following properties:
+ * <ul>
+ * <li>oid - specify initial ASN.1 value(V) by a oid string (ex. 2.5.4.13)</li>
+ * <li>hex - specify initial ASN.1 value(V) by a hexadecimal string</li>
+ * </ul>
+ * NOTE: 'params' can be omitted.
+ */
+KJUR.asn1.DERObjectIdentifier = function (params) {
+    var itox = function (i) {
+        var h = i.toString(16);
+        if (h.length == 1)
+            h = '0' + h;
+        return h;
+    };
+    var roidtox = function (roid) {
+        var h = '';
+        var bi = new _jsbn_jsbn__WEBPACK_IMPORTED_MODULE_0__.BigInteger(roid, 10);
+        var b = bi.toString(2);
+        var padLen = 7 - b.length % 7;
+        if (padLen == 7)
+            padLen = 0;
+        var bPad = '';
+        for (var i = 0; i < padLen; i++)
+            bPad += '0';
+        b = bPad + b;
+        for (var i = 0; i < b.length - 1; i += 7) {
+            var b8 = b.substr(i, 7);
+            if (i != b.length - 7)
+                b8 = '1' + b8;
+            h += itox(parseInt(b8, 2));
+        }
+        return h;
+    };
+    KJUR.asn1.DERObjectIdentifier.superclass.constructor.call(this);
+    this.hT = "06";
+    /**
+     * set value by a hexadecimal string
+     * @name setValueHex
+     * @memberOf KJUR.asn1.DERObjectIdentifier#
+     * @function
+     * @param {String} newHexString hexadecimal value of OID bytes
+     */
+    this.setValueHex = function (newHexString) {
+        this.hTLV = null;
+        this.isModified = true;
+        this.s = null;
+        this.hV = newHexString;
+    };
+    /**
+     * set value by a OID string<br/>
+     * @name setValueOidString
+     * @memberOf KJUR.asn1.DERObjectIdentifier#
+     * @function
+     * @param {String} oidString OID string (ex. 2.5.4.13)
+     * @example
+     * o = new KJUR.asn1.DERObjectIdentifier();
+     * o.setValueOidString("2.5.4.13");
+     */
+    this.setValueOidString = function (oidString) {
+        if (!oidString.match(/^[0-9.]+$/)) {
+            throw "malformed oid string: " + oidString;
+        }
+        var h = '';
+        var a = oidString.split('.');
+        var i0 = parseInt(a[0]) * 40 + parseInt(a[1]);
+        h += itox(i0);
+        a.splice(0, 2);
+        for (var i = 0; i < a.length; i++) {
+            h += roidtox(a[i]);
+        }
+        this.hTLV = null;
+        this.isModified = true;
+        this.s = null;
+        this.hV = h;
+    };
+    /**
+     * set value by a OID name
+     * @name setValueName
+     * @memberOf KJUR.asn1.DERObjectIdentifier#
+     * @function
+     * @param {String} oidName OID name (ex. 'serverAuth')
+     * @since 1.0.1
+     * @description
+     * OID name shall be defined in 'KJUR.asn1.x509.OID.name2oidList'.
+     * Otherwise raise error.
+     * @example
+     * o = new KJUR.asn1.DERObjectIdentifier();
+     * o.setValueName("serverAuth");
+     */
+    this.setValueName = function (oidName) {
+        var oid = KJUR.asn1.x509.OID.name2oid(oidName);
+        if (oid !== '') {
+            this.setValueOidString(oid);
+        }
+        else {
+            throw "DERObjectIdentifier oidName undefined: " + oidName;
+        }
+    };
+    this.getFreshValueHex = function () {
+        return this.hV;
+    };
+    if (params !== undefined) {
+        if (typeof params === "string") {
+            if (params.match(/^[0-2].[0-9.]+$/)) {
+                this.setValueOidString(params);
+            }
+            else {
+                this.setValueName(params);
+            }
+        }
+        else if (params.oid !== undefined) {
+            this.setValueOidString(params.oid);
+        }
+        else if (params.hex !== undefined) {
+            this.setValueHex(params.hex);
+        }
+        else if (params.name !== undefined) {
+            this.setValueName(params.name);
+        }
+    }
+};
+_yahoo__WEBPACK_IMPORTED_MODULE_1__.YAHOO.lang.extend(KJUR.asn1.DERObjectIdentifier, KJUR.asn1.ASN1Object);
+// ********************************************************************
+/**
+ * class for ASN.1 DER Enumerated
+ * @name KJUR.asn1.DEREnumerated
+ * @class class for ASN.1 DER Enumerated
+ * @extends KJUR.asn1.ASN1Object
+ * @description
+ * <br/>
+ * As for argument 'params' for constructor, you can specify one of
+ * following properties:
+ * <ul>
+ * <li>int - specify initial ASN.1 value(V) by integer value</li>
+ * <li>hex - specify initial ASN.1 value(V) by a hexadecimal string</li>
+ * </ul>
+ * NOTE: 'params' can be omitted.
+ * @example
+ * new KJUR.asn1.DEREnumerated(123);
+ * new KJUR.asn1.DEREnumerated({int: 123});
+ * new KJUR.asn1.DEREnumerated({hex: '1fad'});
+ */
+KJUR.asn1.DEREnumerated = function (params) {
+    KJUR.asn1.DEREnumerated.superclass.constructor.call(this);
+    this.hT = "0a";
+    /**
+     * set value by Tom Wu's BigInteger object
+     * @name setByBigInteger
+     * @memberOf KJUR.asn1.DEREnumerated#
+     * @function
+     * @param {BigInteger} bigIntegerValue to set
+     */
+    this.setByBigInteger = function (bigIntegerValue) {
+        this.hTLV = null;
+        this.isModified = true;
+        this.hV = KJUR.asn1.ASN1Util.bigIntToMinTwosComplementsHex(bigIntegerValue);
+    };
+    /**
+     * set value by integer value
+     * @name setByInteger
+     * @memberOf KJUR.asn1.DEREnumerated#
+     * @function
+     * @param {Integer} integer value to set
+     */
+    this.setByInteger = function (intValue) {
+        var bi = new _jsbn_jsbn__WEBPACK_IMPORTED_MODULE_0__.BigInteger(String(intValue), 10);
+        this.setByBigInteger(bi);
+    };
+    /**
+     * set value by integer value
+     * @name setValueHex
+     * @memberOf KJUR.asn1.DEREnumerated#
+     * @function
+     * @param {String} hexadecimal string of integer value
+     * @description
+     * <br/>
+     * NOTE: Value shall be represented by minimum octet length of
+     * two's complement representation.
+     */
+    this.setValueHex = function (newHexString) {
+        this.hV = newHexString;
+    };
+    this.getFreshValueHex = function () {
+        return this.hV;
+    };
+    if (typeof params != "undefined") {
+        if (typeof params['int'] != "undefined") {
+            this.setByInteger(params['int']);
+        }
+        else if (typeof params == "number") {
+            this.setByInteger(params);
+        }
+        else if (typeof params['hex'] != "undefined") {
+            this.setValueHex(params['hex']);
+        }
+    }
+};
+_yahoo__WEBPACK_IMPORTED_MODULE_1__.YAHOO.lang.extend(KJUR.asn1.DEREnumerated, KJUR.asn1.ASN1Object);
+// ********************************************************************
+/**
+ * class for ASN.1 DER UTF8String
+ * @name KJUR.asn1.DERUTF8String
+ * @class class for ASN.1 DER UTF8String
+ * @param {Array} params associative array of parameters (ex. {'str': 'aaa'})
+ * @extends KJUR.asn1.DERAbstractString
+ * @description
+ * @see KJUR.asn1.DERAbstractString - superclass
+ */
+KJUR.asn1.DERUTF8String = function (params) {
+    KJUR.asn1.DERUTF8String.superclass.constructor.call(this, params);
+    this.hT = "0c";
+};
+_yahoo__WEBPACK_IMPORTED_MODULE_1__.YAHOO.lang.extend(KJUR.asn1.DERUTF8String, KJUR.asn1.DERAbstractString);
+// ********************************************************************
+/**
+ * class for ASN.1 DER NumericString
+ * @name KJUR.asn1.DERNumericString
+ * @class class for ASN.1 DER NumericString
+ * @param {Array} params associative array of parameters (ex. {'str': 'aaa'})
+ * @extends KJUR.asn1.DERAbstractString
+ * @description
+ * @see KJUR.asn1.DERAbstractString - superclass
+ */
+KJUR.asn1.DERNumericString = function (params) {
+    KJUR.asn1.DERNumericString.superclass.constructor.call(this, params);
+    this.hT = "12";
+};
+_yahoo__WEBPACK_IMPORTED_MODULE_1__.YAHOO.lang.extend(KJUR.asn1.DERNumericString, KJUR.asn1.DERAbstractString);
+// ********************************************************************
+/**
+ * class for ASN.1 DER PrintableString
+ * @name KJUR.asn1.DERPrintableString
+ * @class class for ASN.1 DER PrintableString
+ * @param {Array} params associative array of parameters (ex. {'str': 'aaa'})
+ * @extends KJUR.asn1.DERAbstractString
+ * @description
+ * @see KJUR.asn1.DERAbstractString - superclass
+ */
+KJUR.asn1.DERPrintableString = function (params) {
+    KJUR.asn1.DERPrintableString.superclass.constructor.call(this, params);
+    this.hT = "13";
+};
+_yahoo__WEBPACK_IMPORTED_MODULE_1__.YAHOO.lang.extend(KJUR.asn1.DERPrintableString, KJUR.asn1.DERAbstractString);
+// ********************************************************************
+/**
+ * class for ASN.1 DER TeletexString
+ * @name KJUR.asn1.DERTeletexString
+ * @class class for ASN.1 DER TeletexString
+ * @param {Array} params associative array of parameters (ex. {'str': 'aaa'})
+ * @extends KJUR.asn1.DERAbstractString
+ * @description
+ * @see KJUR.asn1.DERAbstractString - superclass
+ */
+KJUR.asn1.DERTeletexString = function (params) {
+    KJUR.asn1.DERTeletexString.superclass.constructor.call(this, params);
+    this.hT = "14";
+};
+_yahoo__WEBPACK_IMPORTED_MODULE_1__.YAHOO.lang.extend(KJUR.asn1.DERTeletexString, KJUR.asn1.DERAbstractString);
+// ********************************************************************
+/**
+ * class for ASN.1 DER IA5String
+ * @name KJUR.asn1.DERIA5String
+ * @class class for ASN.1 DER IA5String
+ * @param {Array} params associative array of parameters (ex. {'str': 'aaa'})
+ * @extends KJUR.asn1.DERAbstractString
+ * @description
+ * @see KJUR.asn1.DERAbstractString - superclass
+ */
+KJUR.asn1.DERIA5String = function (params) {
+    KJUR.asn1.DERIA5String.superclass.constructor.call(this, params);
+    this.hT = "16";
+};
+_yahoo__WEBPACK_IMPORTED_MODULE_1__.YAHOO.lang.extend(KJUR.asn1.DERIA5String, KJUR.asn1.DERAbstractString);
+// ********************************************************************
+/**
+ * class for ASN.1 DER UTCTime
+ * @name KJUR.asn1.DERUTCTime
+ * @class class for ASN.1 DER UTCTime
+ * @param {Array} params associative array of parameters (ex. {'str': '130430235959Z'})
+ * @extends KJUR.asn1.DERAbstractTime
+ * @description
+ * <br/>
+ * As for argument 'params' for constructor, you can specify one of
+ * following properties:
+ * <ul>
+ * <li>str - specify initial ASN.1 value(V) by a string (ex.'130430235959Z')</li>
+ * <li>hex - specify initial ASN.1 value(V) by a hexadecimal string</li>
+ * <li>date - specify Date object.</li>
+ * </ul>
+ * NOTE: 'params' can be omitted.
+ * <h4>EXAMPLES</h4>
+ * @example
+ * d1 = new KJUR.asn1.DERUTCTime();
+ * d1.setString('130430125959Z');
+ *
+ * d2 = new KJUR.asn1.DERUTCTime({'str': '130430125959Z'});
+ * d3 = new KJUR.asn1.DERUTCTime({'date': new Date(Date.UTC(2015, 0, 31, 0, 0, 0, 0))});
+ * d4 = new KJUR.asn1.DERUTCTime('130430125959Z');
+ */
+KJUR.asn1.DERUTCTime = function (params) {
+    KJUR.asn1.DERUTCTime.superclass.constructor.call(this, params);
+    this.hT = "17";
+    /**
+     * set value by a Date object<br/>
+     * @name setByDate
+     * @memberOf KJUR.asn1.DERUTCTime#
+     * @function
+     * @param {Date} dateObject Date object to set ASN.1 value(V)
+     * @example
+     * o = new KJUR.asn1.DERUTCTime();
+     * o.setByDate(new Date("2016/12/31"));
+     */
+    this.setByDate = function (dateObject) {
+        this.hTLV = null;
+        this.isModified = true;
+        this.date = dateObject;
+        this.s = this.formatDate(this.date, 'utc');
+        this.hV = stohex(this.s);
+    };
+    this.getFreshValueHex = function () {
+        if (typeof this.date == "undefined" && typeof this.s == "undefined") {
+            this.date = new Date();
+            this.s = this.formatDate(this.date, 'utc');
+            this.hV = stohex(this.s);
+        }
+        return this.hV;
+    };
+    if (params !== undefined) {
+        if (params.str !== undefined) {
+            this.setString(params.str);
+        }
+        else if (typeof params == "string" && params.match(/^[0-9]{12}Z$/)) {
+            this.setString(params);
+        }
+        else if (params.hex !== undefined) {
+            this.setStringHex(params.hex);
+        }
+        else if (params.date !== undefined) {
+            this.setByDate(params.date);
+        }
+    }
+};
+_yahoo__WEBPACK_IMPORTED_MODULE_1__.YAHOO.lang.extend(KJUR.asn1.DERUTCTime, KJUR.asn1.DERAbstractTime);
+// ********************************************************************
+/**
+ * class for ASN.1 DER GeneralizedTime
+ * @name KJUR.asn1.DERGeneralizedTime
+ * @class class for ASN.1 DER GeneralizedTime
+ * @param {Array} params associative array of parameters (ex. {'str': '20130430235959Z'})
+ * @property {Boolean} withMillis flag to show milliseconds or not
+ * @extends KJUR.asn1.DERAbstractTime
+ * @description
+ * <br/>
+ * As for argument 'params' for constructor, you can specify one of
+ * following properties:
+ * <ul>
+ * <li>str - specify initial ASN.1 value(V) by a string (ex.'20130430235959Z')</li>
+ * <li>hex - specify initial ASN.1 value(V) by a hexadecimal string</li>
+ * <li>date - specify Date object.</li>
+ * <li>millis - specify flag to show milliseconds (from 1.0.6)</li>
+ * </ul>
+ * NOTE1: 'params' can be omitted.
+ * NOTE2: 'withMillis' property is supported from asn1 1.0.6.
+ */
+KJUR.asn1.DERGeneralizedTime = function (params) {
+    KJUR.asn1.DERGeneralizedTime.superclass.constructor.call(this, params);
+    this.hT = "18";
+    this.withMillis = false;
+    /**
+     * set value by a Date object
+     * @name setByDate
+     * @memberOf KJUR.asn1.DERGeneralizedTime#
+     * @function
+     * @param {Date} dateObject Date object to set ASN.1 value(V)
+     * @example
+     * When you specify UTC time, use 'Date.UTC' method like this:<br/>
+     * o1 = new DERUTCTime();
+     * o1.setByDate(date);
+     *
+     * date = new Date(Date.UTC(2015, 0, 31, 23, 59, 59, 0)); #2015JAN31 23:59:59
+     */
+    this.setByDate = function (dateObject) {
+        this.hTLV = null;
+        this.isModified = true;
+        this.date = dateObject;
+        this.s = this.formatDate(this.date, 'gen', this.withMillis);
+        this.hV = stohex(this.s);
+    };
+    this.getFreshValueHex = function () {
+        if (this.date === undefined && this.s === undefined) {
+            this.date = new Date();
+            this.s = this.formatDate(this.date, 'gen', this.withMillis);
+            this.hV = stohex(this.s);
+        }
+        return this.hV;
+    };
+    if (params !== undefined) {
+        if (params.str !== undefined) {
+            this.setString(params.str);
+        }
+        else if (typeof params == "string" && params.match(/^[0-9]{14}Z$/)) {
+            this.setString(params);
+        }
+        else if (params.hex !== undefined) {
+            this.setStringHex(params.hex);
+        }
+        else if (params.date !== undefined) {
+            this.setByDate(params.date);
+        }
+        if (params.millis === true) {
+            this.withMillis = true;
+        }
+    }
+};
+_yahoo__WEBPACK_IMPORTED_MODULE_1__.YAHOO.lang.extend(KJUR.asn1.DERGeneralizedTime, KJUR.asn1.DERAbstractTime);
+// ********************************************************************
+/**
+ * class for ASN.1 DER Sequence
+ * @name KJUR.asn1.DERSequence
+ * @class class for ASN.1 DER Sequence
+ * @extends KJUR.asn1.DERAbstractStructured
+ * @description
+ * <br/>
+ * As for argument 'params' for constructor, you can specify one of
+ * following properties:
+ * <ul>
+ * <li>array - specify array of ASN1Object to set elements of content</li>
+ * </ul>
+ * NOTE: 'params' can be omitted.
+ */
+KJUR.asn1.DERSequence = function (params) {
+    KJUR.asn1.DERSequence.superclass.constructor.call(this, params);
+    this.hT = "30";
+    this.getFreshValueHex = function () {
+        var h = '';
+        for (var i = 0; i < this.asn1Array.length; i++) {
+            var asn1Obj = this.asn1Array[i];
+            h += asn1Obj.getEncodedHex();
+        }
+        this.hV = h;
+        return this.hV;
+    };
+};
+_yahoo__WEBPACK_IMPORTED_MODULE_1__.YAHOO.lang.extend(KJUR.asn1.DERSequence, KJUR.asn1.DERAbstractStructured);
+// ********************************************************************
+/**
+ * class for ASN.1 DER Set
+ * @name KJUR.asn1.DERSet
+ * @class class for ASN.1 DER Set
+ * @extends KJUR.asn1.DERAbstractStructured
+ * @description
+ * <br/>
+ * As for argument 'params' for constructor, you can specify one of
+ * following properties:
+ * <ul>
+ * <li>array - specify array of ASN1Object to set elements of content</li>
+ * <li>sortflag - flag for sort (default: true). ASN.1 BER is not sorted in 'SET OF'.</li>
+ * </ul>
+ * NOTE1: 'params' can be omitted.<br/>
+ * NOTE2: sortflag is supported since 1.0.5.
+ */
+KJUR.asn1.DERSet = function (params) {
+    KJUR.asn1.DERSet.superclass.constructor.call(this, params);
+    this.hT = "31";
+    this.sortFlag = true; // item shall be sorted only in ASN.1 DER
+    this.getFreshValueHex = function () {
+        var a = new Array();
+        for (var i = 0; i < this.asn1Array.length; i++) {
+            var asn1Obj = this.asn1Array[i];
+            a.push(asn1Obj.getEncodedHex());
+        }
+        if (this.sortFlag == true)
+            a.sort();
+        this.hV = a.join('');
+        return this.hV;
+    };
+    if (typeof params != "undefined") {
+        if (typeof params.sortflag != "undefined" &&
+            params.sortflag == false)
+            this.sortFlag = false;
+    }
+};
+_yahoo__WEBPACK_IMPORTED_MODULE_1__.YAHOO.lang.extend(KJUR.asn1.DERSet, KJUR.asn1.DERAbstractStructured);
+// ********************************************************************
+/**
+ * class for ASN.1 DER TaggedObject
+ * @name KJUR.asn1.DERTaggedObject
+ * @class class for ASN.1 DER TaggedObject
+ * @extends KJUR.asn1.ASN1Object
+ * @description
+ * <br/>
+ * Parameter 'tagNoNex' is ASN.1 tag(T) value for this object.
+ * For example, if you find '[1]' tag in a ASN.1 dump,
+ * 'tagNoHex' will be 'a1'.
+ * <br/>
+ * As for optional argument 'params' for constructor, you can specify *ANY* of
+ * following properties:
+ * <ul>
+ * <li>explicit - specify true if this is explicit tag otherwise false
+ *     (default is 'true').</li>
+ * <li>tag - specify tag (default is 'a0' which means [0])</li>
+ * <li>obj - specify ASN1Object which is tagged</li>
+ * </ul>
+ * @example
+ * d1 = new KJUR.asn1.DERUTF8String({'str':'a'});
+ * d2 = new KJUR.asn1.DERTaggedObject({'obj': d1});
+ * hex = d2.getEncodedHex();
+ */
+KJUR.asn1.DERTaggedObject = function (params) {
+    KJUR.asn1.DERTaggedObject.superclass.constructor.call(this);
+    this.hT = "a0";
+    this.hV = '';
+    this.isExplicit = true;
+    this.asn1Object = null;
+    /**
+     * set value by an ASN1Object
+     * @name setString
+     * @memberOf KJUR.asn1.DERTaggedObject#
+     * @function
+     * @param {Boolean} isExplicitFlag flag for explicit/implicit tag
+     * @param {Integer} tagNoHex hexadecimal string of ASN.1 tag
+     * @param {ASN1Object} asn1Object ASN.1 to encapsulate
+     */
+    this.setASN1Object = function (isExplicitFlag, tagNoHex, asn1Object) {
+        this.hT = tagNoHex;
+        this.isExplicit = isExplicitFlag;
+        this.asn1Object = asn1Object;
+        if (this.isExplicit) {
+            this.hV = this.asn1Object.getEncodedHex();
+            this.hTLV = null;
+            this.isModified = true;
+        }
+        else {
+            this.hV = null;
+            this.hTLV = asn1Object.getEncodedHex();
+            this.hTLV = this.hTLV.replace(/^../, tagNoHex);
+            this.isModified = false;
+        }
+    };
+    this.getFreshValueHex = function () {
+        return this.hV;
+    };
+    if (typeof params != "undefined") {
+        if (typeof params['tag'] != "undefined") {
+            this.hT = params['tag'];
+        }
+        if (typeof params['explicit'] != "undefined") {
+            this.isExplicit = params['explicit'];
+        }
+        if (typeof params['obj'] != "undefined") {
+            this.asn1Object = params['obj'];
+            this.setASN1Object(this.isExplicit, this.hT, this.asn1Object);
+        }
+    }
+};
+_yahoo__WEBPACK_IMPORTED_MODULE_1__.YAHOO.lang.extend(KJUR.asn1.DERTaggedObject, KJUR.asn1.ASN1Object);
+
+
+/***/ }),
+
+/***/ "./node_modules/jsencrypt/lib/lib/jsrsasign/yahoo.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/jsencrypt/lib/lib/jsrsasign/yahoo.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "YAHOO": () => (/* binding */ YAHOO)
+/* harmony export */ });
+/*!
+Copyright (c) 2011, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.com/yui/license.html
+version: 2.9.0
+*/
+var YAHOO = {};
+YAHOO.lang = {
+    /**
+     * Utility to set up the prototype, constructor and superclass properties to
+     * support an inheritance strategy that can chain constructors and methods.
+     * Static members will not be inherited.
+     *
+     * @method extend
+     * @static
+     * @param {Function} subc   the object to modify
+     * @param {Function} superc the object to inherit
+     * @param {Object} overrides  additional properties/methods to add to the
+     *                              subclass prototype.  These will override the
+     *                              matching items obtained from the superclass
+     *                              if present.
+     */
+    extend: function (subc, superc, overrides) {
+        if (!superc || !subc) {
+            throw new Error("YAHOO.lang.extend failed, please check that " +
+                "all dependencies are included.");
+        }
+        var F = function () { };
+        F.prototype = superc.prototype;
+        subc.prototype = new F();
+        subc.prototype.constructor = subc;
+        subc.superclass = superc.prototype;
+        if (superc.prototype.constructor == Object.prototype.constructor) {
+            superc.prototype.constructor = superc;
+        }
+        if (overrides) {
+            var i;
+            for (i in overrides) {
+                subc.prototype[i] = overrides[i];
+            }
+            /*
+             * IE will not enumerate native functions in a derived object even if the
+             * function was overridden.  This is a workaround for specific functions
+             * we care about on the Object prototype.
+             * @property _IEEnumFix
+             * @param {Function} r  the object to receive the augmentation
+             * @param {Function} s  the object that supplies the properties to augment
+             * @static
+             * @private
+             */
+            var _IEEnumFix = function () { }, ADD = ["toString", "valueOf"];
+            try {
+                if (/MSIE/.test(navigator.userAgent)) {
+                    _IEEnumFix = function (r, s) {
+                        for (i = 0; i < ADD.length; i = i + 1) {
+                            var fname = ADD[i], f = s[fname];
+                            if (typeof f === 'function' && f != Object.prototype[fname]) {
+                                r[fname] = f;
+                            }
+                        }
+                    };
+                }
+            }
+            catch (ex) { }
+            ;
+            _IEEnumFix(subc.prototype, overrides);
+        }
+    }
+};
 
 
 /***/ }),
@@ -48023,6 +54430,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ProductGallery.vue?vue&type=style&index=0&id=5e3aade4&scoped=true&lang=css&":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ProductGallery.vue?vue&type=style&index=0&id=5e3aade4&scoped=true&lang=css& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ProductGallery_vue_vue_type_style_index_0_id_5e3aade4_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ProductGallery.vue?vue&type=style&index=0&id=5e3aade4&scoped=true&lang=css& */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ProductGallery.vue?vue&type=style&index=0&id=5e3aade4&scoped=true&lang=css&");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ProductGallery_vue_vue_type_style_index_0_id_5e3aade4_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ProductGallery_vue_vue_type_style_index_0_id_5e3aade4_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/QtyField.vue?vue&type=style&index=0&id=30cc3f4f&scoped=true&lang=css&":
 /*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/QtyField.vue?vue&type=style&index=0&id=30cc3f4f&scoped=true&lang=css& ***!
@@ -48362,6 +54799,55 @@ module.exports = function (list, options) {
 
 /***/ }),
 
+/***/ "./node_modules/toggle-selection/index.js":
+/*!************************************************!*\
+  !*** ./node_modules/toggle-selection/index.js ***!
+  \************************************************/
+/***/ ((module) => {
+
+
+module.exports = function () {
+  var selection = document.getSelection();
+  if (!selection.rangeCount) {
+    return function () {};
+  }
+  var active = document.activeElement;
+
+  var ranges = [];
+  for (var i = 0; i < selection.rangeCount; i++) {
+    ranges.push(selection.getRangeAt(i));
+  }
+
+  switch (active.tagName.toUpperCase()) { // .toUpperCase handles XHTML
+    case 'INPUT':
+    case 'TEXTAREA':
+      active.blur();
+      break;
+
+    default:
+      active = null;
+      break;
+  }
+
+  selection.removeAllRanges();
+  return function () {
+    selection.type === 'Caret' &&
+    selection.removeAllRanges();
+
+    if (!selection.rangeCount) {
+      ranges.forEach(function(range) {
+        selection.addRange(range);
+      });
+    }
+
+    active &&
+    active.focus();
+  };
+};
+
+
+/***/ }),
+
 /***/ "./resources/js/Pages/About.vue":
 /*!**************************************!*\
   !*** ./resources/js/Pages/About.vue ***!
@@ -48475,6 +54961,45 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 /* hot reload */
 if (false) { var api; }
 component.options.__file = "resources/js/Pages/Bag.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Checkout.vue":
+/*!*****************************************!*\
+  !*** ./resources/js/Pages/Checkout.vue ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Checkout_vue_vue_type_template_id_610700ef___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Checkout.vue?vue&type=template&id=610700ef& */ "./resources/js/Pages/Checkout.vue?vue&type=template&id=610700ef&");
+/* harmony import */ var _Checkout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Checkout.vue?vue&type=script&lang=js& */ "./resources/js/Pages/Checkout.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Checkout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Checkout_vue_vue_type_template_id_610700ef___WEBPACK_IMPORTED_MODULE_0__.render,
+  _Checkout_vue_vue_type_template_id_610700ef___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Pages/Checkout.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -49320,6 +55845,45 @@ component.options.__file = "resources/js/components/LoginForm.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/NapsCheckout.vue":
+/*!**************************************************!*\
+  !*** ./resources/js/components/NapsCheckout.vue ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _NapsCheckout_vue_vue_type_template_id_8b0a8772___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NapsCheckout.vue?vue&type=template&id=8b0a8772& */ "./resources/js/components/NapsCheckout.vue?vue&type=template&id=8b0a8772&");
+/* harmony import */ var _NapsCheckout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NapsCheckout.vue?vue&type=script&lang=js& */ "./resources/js/components/NapsCheckout.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _NapsCheckout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _NapsCheckout_vue_vue_type_template_id_8b0a8772___WEBPACK_IMPORTED_MODULE_0__.render,
+  _NapsCheckout_vue_vue_type_template_id_8b0a8772___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/NapsCheckout.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/PopUp.vue":
 /*!*******************************************!*\
   !*** ./resources/js/components/PopUp.vue ***!
@@ -49357,6 +55921,47 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 /* hot reload */
 if (false) { var api; }
 component.options.__file = "resources/js/components/PopUp.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/ProductGallery.vue":
+/*!****************************************************!*\
+  !*** ./resources/js/components/ProductGallery.vue ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _ProductGallery_vue_vue_type_template_id_5e3aade4_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ProductGallery.vue?vue&type=template&id=5e3aade4&scoped=true& */ "./resources/js/components/ProductGallery.vue?vue&type=template&id=5e3aade4&scoped=true&");
+/* harmony import */ var _ProductGallery_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ProductGallery.vue?vue&type=script&lang=js& */ "./resources/js/components/ProductGallery.vue?vue&type=script&lang=js&");
+/* harmony import */ var _ProductGallery_vue_vue_type_style_index_0_id_5e3aade4_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ProductGallery.vue?vue&type=style&index=0&id=5e3aade4&scoped=true&lang=css& */ "./resources/js/components/ProductGallery.vue?vue&type=style&index=0&id=5e3aade4&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+;
+
+
+/* normalize component */
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _ProductGallery_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ProductGallery_vue_vue_type_template_id_5e3aade4_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _ProductGallery_vue_vue_type_template_id_5e3aade4_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "5e3aade4",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/ProductGallery.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -49644,6 +56249,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Bag_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Bag.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Bag.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Bag_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Checkout.vue?vue&type=script&lang=js&":
+/*!******************************************************************!*\
+  !*** ./resources/js/Pages/Checkout.vue?vue&type=script&lang=js& ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Checkout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Checkout.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Checkout.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Checkout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -49983,6 +56604,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/NapsCheckout.vue?vue&type=script&lang=js&":
+/*!***************************************************************************!*\
+  !*** ./resources/js/components/NapsCheckout.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_NapsCheckout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./NapsCheckout.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/NapsCheckout.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_NapsCheckout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/PopUp.vue?vue&type=script&lang=js&":
 /*!********************************************************************!*\
   !*** ./resources/js/components/PopUp.vue?vue&type=script&lang=js& ***!
@@ -49996,6 +56633,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PopUp_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./PopUp.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PopUp.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PopUp_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/ProductGallery.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/ProductGallery.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ProductGallery_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ProductGallery.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ProductGallery.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ProductGallery_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -50251,6 +56904,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/ProductGallery.vue?vue&type=style&index=0&id=5e3aade4&scoped=true&lang=css&":
+/*!*************************************************************************************************************!*\
+  !*** ./resources/js/components/ProductGallery.vue?vue&type=style&index=0&id=5e3aade4&scoped=true&lang=css& ***!
+  \*************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ProductGallery_vue_vue_type_style_index_0_id_5e3aade4_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader/dist/cjs.js!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ProductGallery.vue?vue&type=style&index=0&id=5e3aade4&scoped=true&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ProductGallery.vue?vue&type=style&index=0&id=5e3aade4&scoped=true&lang=css&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/QtyField.vue?vue&type=style&index=0&id=30cc3f4f&scoped=true&lang=css&":
 /*!*******************************************************************************************************!*\
   !*** ./resources/js/components/QtyField.vue?vue&type=style&index=0&id=30cc3f4f&scoped=true&lang=css& ***!
@@ -50324,6 +56990,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Bag_vue_vue_type_template_id_2997cfef___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Bag_vue_vue_type_template_id_2997cfef___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Bag.vue?vue&type=template&id=2997cfef& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Bag.vue?vue&type=template&id=2997cfef&");
+
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Checkout.vue?vue&type=template&id=610700ef&":
+/*!************************************************************************!*\
+  !*** ./resources/js/Pages/Checkout.vue?vue&type=template&id=610700ef& ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Checkout_vue_vue_type_template_id_610700ef___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Checkout_vue_vue_type_template_id_610700ef___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Checkout_vue_vue_type_template_id_610700ef___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Checkout.vue?vue&type=template&id=610700ef& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Checkout.vue?vue&type=template&id=610700ef&");
 
 
 /***/ }),
@@ -50685,6 +57368,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/NapsCheckout.vue?vue&type=template&id=8b0a8772&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/components/NapsCheckout.vue?vue&type=template&id=8b0a8772& ***!
+  \*********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NapsCheckout_vue_vue_type_template_id_8b0a8772___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NapsCheckout_vue_vue_type_template_id_8b0a8772___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NapsCheckout_vue_vue_type_template_id_8b0a8772___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./NapsCheckout.vue?vue&type=template&id=8b0a8772& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/NapsCheckout.vue?vue&type=template&id=8b0a8772&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/PopUp.vue?vue&type=template&id=77019f71&scoped=true&":
 /*!**************************************************************************************!*\
   !*** ./resources/js/components/PopUp.vue?vue&type=template&id=77019f71&scoped=true& ***!
@@ -50698,6 +57398,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PopUp_vue_vue_type_template_id_77019f71_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PopUp_vue_vue_type_template_id_77019f71_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./PopUp.vue?vue&type=template&id=77019f71&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PopUp.vue?vue&type=template&id=77019f71&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/ProductGallery.vue?vue&type=template&id=5e3aade4&scoped=true&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/components/ProductGallery.vue?vue&type=template&id=5e3aade4&scoped=true& ***!
+  \***********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProductGallery_vue_vue_type_template_id_5e3aade4_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProductGallery_vue_vue_type_template_id_5e3aade4_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProductGallery_vue_vue_type_template_id_5e3aade4_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ProductGallery.vue?vue&type=template&id=5e3aade4&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ProductGallery.vue?vue&type=template&id=5e3aade4&scoped=true&");
 
 
 /***/ }),
@@ -50826,7 +57543,7 @@ var render = function () {
       _c("h", { attrs: { title: "About us" } }),
       _vm._v(" "),
       _c("section", { staticClass: "position-relative carousel-dark py-5" }, [
-        _c("div", { staticClass: "glider" }, [
+        _c("div", { ref: "glider" }, [
           _c("div", { staticClass: "container" }, [
             _c("div", { staticClass: "row" }, [
               _c("div", { staticClass: "col-lg-6 text-center py-3 py-xl-5" }, [
@@ -51832,6 +58549,10 @@ var render = function () {
               ? _c("div", { staticClass: "row g-0" }, [
                   _c("div", { staticClass: "col-lg-8 col-xl-7 border" }, [
                     _c("div", { staticClass: "p-3" }, [
+                      _c("p", { staticClass: "fs-4 mb-2" }, [
+                        _vm._v("ORDER SUMMARY"),
+                      ]),
+                      _vm._v(" "),
                       _c("div", { staticClass: "d-flex" }, [
                         _c("span", { staticClass: "text-muted me-auto" }, [
                           _vm._v("Subtotal:"),
@@ -51860,20 +58581,7 @@ var render = function () {
                         ]),
                       ]),
                       _vm._v(" "),
-                      _c("div", { staticClass: "d-flex mb-2" }, [
-                        _c("span", { staticClass: "text-muted me-auto" }, [
-                          _vm._v("VAT:"),
-                        ]),
-                        _vm._v(" "),
-                        _c("span", {
-                          staticClass: "fw-medium text-end",
-                          domProps: {
-                            textContent: _vm._s(_vm.getFormatedPrice(_vm.vat)),
-                          },
-                        }),
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "d-flex mb-3" }, [
+                      _c("div", { staticClass: "d-flex" }, [
                         _c("span", { staticClass: "text-muted me-auto" }, [
                           _vm._v("Total:"),
                         ]),
@@ -51890,16 +58598,34 @@ var render = function () {
                         }),
                       ]),
                       _vm._v(" "),
-                      _c("div", { staticClass: "d-grid" }, [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-primary py-3",
-                            attrs: { type: "button" },
+                      _c("div", { staticClass: "d-flex mb-3" }, [
+                        _c("span", { staticClass: "text-muted me-auto" }, [
+                          _vm._v("VAT (included):"),
+                        ]),
+                        _vm._v(" "),
+                        _c("span", {
+                          staticClass: "fw-medium text-end",
+                          domProps: {
+                            textContent: _vm._s(_vm.getFormatedPrice(_vm.vat)),
                           },
-                          [_vm._v("CHECKOUT")]
-                        ),
+                        }),
                       ]),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "d-grid" },
+                        [
+                          _c(
+                            "l",
+                            {
+                              staticClass: "btn btn-primary py-3",
+                              attrs: { href: _vm.route("checkout") },
+                            },
+                            [_vm._v("CHECKOUT")]
+                          ),
+                        ],
+                        1
+                      ),
                     ]),
                   ]),
                 ])
@@ -51907,6 +58633,839 @@ var render = function () {
           ],
           2
         ),
+      ]),
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Checkout.vue?vue&type=template&id=610700ef&":
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Checkout.vue?vue&type=template&id=610700ef& ***!
+  \***************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "AppLayout",
+    [
+      _c("h", { attrs: { title: "Checkout" } }),
+      _vm._v(" "),
+      _c("section", { staticClass: "py-5" }, [
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "row gx-0 gy-4" }, [
+            _c("div", { staticClass: "col-lg-8" }, [
+              _c("div", { staticClass: "p-5" }, [
+                _vm.step === 1
+                  ? _c("div", [
+                      _c("div", { staticClass: "d-flex mb-4" }, [
+                        _c("span", [_vm._v("PERSONAL INFORMATION")]),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "mb-5" }, [_c("LoginForm")], 1),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "d-grid" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-primary py-3",
+                            attrs: { type: "button" },
+                            on: {
+                              click: function ($event) {
+                                _vm.step = 2
+                              },
+                            },
+                          },
+                          [_vm._v("CONTINUE AS GUEST")]
+                        ),
+                      ]),
+                    ])
+                  : _vm.step === 2
+                  ? _c("div", [
+                      _c("div", { staticClass: "d-flex mb-4" }, [
+                        _c("span", { staticClass: "me-auto" }, [
+                          _vm._v("PERSONAL INFORMATION"),
+                        ]),
+                        _vm._v(" "),
+                        !_vm.auth
+                          ? _c(
+                              "span",
+                              {
+                                staticClass: "underline pointer",
+                                on: {
+                                  click: function ($event) {
+                                    _vm.step = 1
+                                  },
+                                },
+                              },
+                              [_vm._v("BACK")]
+                            )
+                          : _vm._e(),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "row gy-4" }, [
+                        _c("div", { staticClass: "col-12" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.guest.email,
+                                expression: "guest.email",
+                              },
+                            ],
+                            staticClass: "form-control input",
+                            attrs: { type: "text", placeholder: "Email" },
+                            domProps: { value: _vm.guest.email },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.guest,
+                                  "email",
+                                  $event.target.value
+                                )
+                              },
+                            },
+                          }),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-6" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.guest.firstname,
+                                expression: "guest.firstname",
+                              },
+                            ],
+                            staticClass: "form-control input",
+                            attrs: { type: "text", placeholder: "First name" },
+                            domProps: { value: _vm.guest.firstname },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.guest,
+                                  "firstname",
+                                  $event.target.value
+                                )
+                              },
+                            },
+                          }),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-6" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.guest.lastname,
+                                expression: "guest.lastname",
+                              },
+                            ],
+                            staticClass: "form-control input",
+                            attrs: { type: "text", placeholder: "Last name" },
+                            domProps: { value: _vm.guest.lastname },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.guest,
+                                  "lastname",
+                                  $event.target.value
+                                )
+                              },
+                            },
+                          }),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-12" }, [
+                          _c("div", { staticClass: "form-check" }, [
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.guest.subscribe,
+                                  expression: "guest.subscribe",
+                                },
+                              ],
+                              staticClass: "form-check-input shadow-none",
+                              attrs: { type: "checkbox", id: "subscribe" },
+                              domProps: {
+                                checked: Array.isArray(_vm.guest.subscribe)
+                                  ? _vm._i(_vm.guest.subscribe, null) > -1
+                                  : _vm.guest.subscribe,
+                              },
+                              on: {
+                                change: function ($event) {
+                                  var $$a = _vm.guest.subscribe,
+                                    $$el = $event.target,
+                                    $$c = $$el.checked ? true : false
+                                  if (Array.isArray($$a)) {
+                                    var $$v = null,
+                                      $$i = _vm._i($$a, $$v)
+                                    if ($$el.checked) {
+                                      $$i < 0 &&
+                                        _vm.$set(
+                                          _vm.guest,
+                                          "subscribe",
+                                          $$a.concat([$$v])
+                                        )
+                                    } else {
+                                      $$i > -1 &&
+                                        _vm.$set(
+                                          _vm.guest,
+                                          "subscribe",
+                                          $$a
+                                            .slice(0, $$i)
+                                            .concat($$a.slice($$i + 1))
+                                        )
+                                    }
+                                  } else {
+                                    _vm.$set(_vm.guest, "subscribe", $$c)
+                                  }
+                                },
+                              },
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "label",
+                              {
+                                staticClass: "form-check-label",
+                                staticStyle: { "user-select": "none" },
+                                attrs: { for: "subscribe" },
+                              },
+                              [_vm._v("Subscribe to Newsletter")]
+                            ),
+                          ]),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-12" }, [
+                          _c(
+                            "div",
+                            { staticClass: "d-flex justify-content-end" },
+                            [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-primary px-5 py-3",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function ($event) {
+                                      _vm.step = 3
+                                    },
+                                  },
+                                },
+                                [_vm._v("NEXT")]
+                              ),
+                            ]
+                          ),
+                        ]),
+                      ]),
+                    ])
+                  : _vm.step === 3
+                  ? _c("div", [
+                      _c("div", { staticClass: "d-flex mb-4" }, [
+                        _c("span", { staticClass: "me-auto" }, [
+                          _vm._v("SHIPPING INFORMATION"),
+                        ]),
+                        _vm._v(" "),
+                        !_vm.auth
+                          ? _c(
+                              "span",
+                              {
+                                staticClass: "underline pointer",
+                                on: {
+                                  click: function ($event) {
+                                    _vm.step = 2
+                                  },
+                                },
+                              },
+                              [_vm._v("BACK")]
+                            )
+                          : _vm._e(),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "row gy-4" }, [
+                        _c("div", { staticClass: "col-6" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.address.firstname,
+                                expression: "address.firstname",
+                              },
+                            ],
+                            staticClass: "form-control input",
+                            attrs: { type: "text", placeholder: "First name" },
+                            domProps: { value: _vm.address.firstname },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.address,
+                                  "firstname",
+                                  $event.target.value
+                                )
+                              },
+                            },
+                          }),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-6" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.address.lastname,
+                                expression: "address.lastname",
+                              },
+                            ],
+                            staticClass: "form-control input",
+                            attrs: { type: "text", placeholder: "Last name" },
+                            domProps: { value: _vm.address.lastname },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.address,
+                                  "lastname",
+                                  $event.target.value
+                                )
+                              },
+                            },
+                          }),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-12" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.address.street,
+                                expression: "address.street",
+                              },
+                            ],
+                            staticClass: "form-control input",
+                            attrs: { type: "text", placeholder: "Email" },
+                            domProps: { value: _vm.address.street },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.address,
+                                  "street",
+                                  $event.target.value
+                                )
+                              },
+                            },
+                          }),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-4" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.address.city,
+                                expression: "address.city",
+                              },
+                            ],
+                            staticClass: "form-control input",
+                            attrs: { type: "text", placeholder: "City" },
+                            domProps: { value: _vm.address.city },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.address,
+                                  "city",
+                                  $event.target.value
+                                )
+                              },
+                            },
+                          }),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-4" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.address.zip,
+                                expression: "address.zip",
+                              },
+                            ],
+                            staticClass: "form-control input",
+                            attrs: { type: "text", placeholder: "Zip code" },
+                            domProps: { value: _vm.address.zip },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.address,
+                                  "zip",
+                                  $event.target.value
+                                )
+                              },
+                            },
+                          }),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-4" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.address.state,
+                                expression: "address.state",
+                              },
+                            ],
+                            staticClass: "form-control input",
+                            attrs: { type: "text", placeholder: "State" },
+                            domProps: { value: _vm.address.state },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.address,
+                                  "state",
+                                  $event.target.value
+                                )
+                              },
+                            },
+                          }),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-6" }, [
+                          _c(
+                            "select",
+                            {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.address.country,
+                                  expression: "address.country",
+                                },
+                              ],
+                              staticClass: "form-select input",
+                              on: {
+                                change: function ($event) {
+                                  var $$selectedVal = Array.prototype.filter
+                                    .call($event.target.options, function (o) {
+                                      return o.selected
+                                    })
+                                    .map(function (o) {
+                                      var val =
+                                        "_value" in o ? o._value : o.value
+                                      return val
+                                    })
+                                  _vm.$set(
+                                    _vm.address,
+                                    "country",
+                                    $event.target.multiple
+                                      ? $$selectedVal
+                                      : $$selectedVal[0]
+                                  )
+                                },
+                              },
+                            },
+                            [
+                              _c("option", { domProps: { value: null } }, [
+                                _vm._v("COUNTRY"),
+                              ]),
+                              _vm._v(" "),
+                              _vm._l(_vm.countries, function (country, code) {
+                                return _c("option", {
+                                  key: code,
+                                  domProps: {
+                                    value: country.name,
+                                    textContent: _vm._s(country.name),
+                                  },
+                                })
+                              }),
+                            ],
+                            2
+                          ),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-6" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.address.phone,
+                                expression: "address.phone",
+                              },
+                            ],
+                            staticClass: "form-control input",
+                            attrs: {
+                              type: "text",
+                              placeholder: "Phone number",
+                            },
+                            domProps: { value: _vm.address.phone },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.address,
+                                  "phone",
+                                  $event.target.value
+                                )
+                              },
+                            },
+                          }),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-12" }, [
+                          _c(
+                            "div",
+                            { staticClass: "d-flex justify-content-end" },
+                            [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-primary px-5 py-3",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function ($event) {
+                                      _vm.step = 4
+                                    },
+                                  },
+                                },
+                                [_vm._v("NEXT")]
+                              ),
+                            ]
+                          ),
+                        ]),
+                      ]),
+                    ])
+                  : _vm.step === 4
+                  ? _c("div", [
+                      _c("div", { staticClass: "d-flex mb-4" }, [
+                        _c("span", { staticClass: "me-auto" }, [
+                          _vm._v("SHIPPING METHOD"),
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          {
+                            staticClass: "underline pointer",
+                            on: {
+                              click: function ($event) {
+                                _vm.step = 3
+                              },
+                            },
+                          },
+                          [_vm._v("BACK")]
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-check mb-4" }, [
+                        _c("input", {
+                          staticClass:
+                            "form-check-input shadow-none opacity-100",
+                          attrs: {
+                            type: "checkbox",
+                            id: "fedex",
+                            checked: "",
+                            disabled: "",
+                          },
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          {
+                            staticClass: "form-check-label opacity-100",
+                            staticStyle: { "user-select": "none" },
+                            attrs: { for: "fedex" },
+                          },
+                          [_vm._v("FedEx Express worldwide")]
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "d-flex justify-content-end" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-primary px-5 py-3",
+                            attrs: { type: "button" },
+                            on: {
+                              click: function ($event) {
+                                _vm.step = 5
+                              },
+                            },
+                          },
+                          [_vm._v("NEXT")]
+                        ),
+                      ]),
+                    ])
+                  : _vm.step === 5
+                  ? _c("div", [
+                      _c("div", { staticClass: "d-flex mb-4" }, [
+                        _c("span", { staticClass: "me-auto" }, [
+                          _vm._v("PAYMENT METHOD"),
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          {
+                            staticClass: "underline pointer",
+                            on: {
+                              click: function ($event) {
+                                _vm.step = 4
+                              },
+                            },
+                          },
+                          [_vm._v("BACK")]
+                        ),
+                      ]),
+                    ])
+                  : _vm._e(),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-lg-4" }, [
+              _c(
+                "div",
+                { staticClass: "p-5" },
+                [
+                  _c("div", { staticClass: "d-flex align-items-baseline" }, [
+                    _c("img", {
+                      staticClass: "me-2",
+                      attrs: { src: "/img/icons/bag.png", height: "16px" },
+                    }),
+                    _vm._v(" "),
+                    _c("span", [_vm._v(_vm._s(_vm.bag.length) + " Item(s)")]),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "d-flex" }, [
+                    _c("span", { staticClass: "text-muted me-auto" }, [
+                      _vm._v("Total:"),
+                    ]),
+                    _vm._v(" "),
+                    _c("span", {
+                      staticClass: "text-danger fw-medium text-end",
+                      domProps: {
+                        textContent: _vm._s(
+                          _vm.getFormatedPrice(
+                            _vm.getBagTotal + _vm.shipping + _vm.vat
+                          )
+                        ),
+                      },
+                    }),
+                  ]),
+                  _vm._v(" "),
+                  _c("hr"),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "d-flex" }, [
+                    _c("span", { staticClass: "text-muted me-auto" }, [
+                      _vm._v("Shipping:"),
+                    ]),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "fw-medium text-end" }, [
+                      _vm._v(
+                        _vm._s(
+                          _vm.shipping === 0
+                            ? "Free"
+                            : _vm.getFormatedPrice(_vm.shipping)
+                        )
+                      ),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "d-flex" }, [
+                    _c("span", { staticClass: "text-muted me-auto" }, [
+                      _vm._v("VAT (included):"),
+                    ]),
+                    _vm._v(" "),
+                    _c("span", {
+                      staticClass: "fw-medium text-end",
+                      domProps: {
+                        textContent: _vm._s(_vm.getFormatedPrice(_vm.vat)),
+                      },
+                    }),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "d-flex align-items-center" }, [
+                    _c("span", { staticClass: "text-muted me-auto" }, [
+                      _vm._v("Promo code:"),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.coupon,
+                            expression: "coupon",
+                          },
+                        ],
+                        staticClass:
+                          "form-control form-control-sm border shadow-none",
+                        attrs: { type: "text" },
+                        domProps: { value: _vm.coupon },
+                        on: {
+                          input: function ($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.coupon = $event.target.value
+                          },
+                        },
+                      }),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("hr"),
+                  _vm._v(" "),
+                  _vm._l(_vm.bag, function (item, i) {
+                    return _c("div", { key: Math.random() }, [
+                      _c("div", { staticClass: "d-flex" }, [
+                        _c("div", { staticStyle: { width: "20%" } }, [
+                          _c("img", {
+                            staticClass: "d-block w-100",
+                            attrs: { src: item.product.gallery[0] },
+                          }),
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "ps-2",
+                            staticStyle: { width: "80%" },
+                          },
+                          [
+                            _c("div", { staticClass: "d-flex mb-2" }, [
+                              _c("p", {
+                                staticClass: "pe-2 me-auto mb-0",
+                                domProps: {
+                                  textContent: _vm._s(item.product.title),
+                                },
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "flex-shrink-0 fw-medium" },
+                                [
+                                  item.product.discount
+                                    ? _c("del", {
+                                        staticClass: "text-muted me-1",
+                                        domProps: {
+                                          textContent: _vm._s(
+                                            _vm.getFormatedPrice(
+                                              item.product.price
+                                            )
+                                          ),
+                                        },
+                                      })
+                                    : _vm._e(),
+                                  _vm._v(" "),
+                                  item.product.discount
+                                    ? _c("span", {
+                                        staticClass: "text-danger",
+                                        domProps: {
+                                          textContent: _vm._s(
+                                            _vm.getFormatedPrice(
+                                              item.product.price,
+                                              item.product.discount
+                                            )
+                                          ),
+                                        },
+                                      })
+                                    : _c("span", {
+                                        domProps: {
+                                          textContent: _vm._s(
+                                            _vm.getFormatedPrice(
+                                              item.product.price
+                                            )
+                                          ),
+                                        },
+                                      }),
+                                ]
+                              ),
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "mb-2" }, [
+                              _c("span", [_vm._v("Size:")]),
+                              _vm._v(" "),
+                              _c("span", {
+                                staticClass: "text-muted",
+                                domProps: {
+                                  textContent: _vm._s(item.size.name),
+                                },
+                              }),
+                            ]),
+                            _vm._v(" "),
+                            _c("div", [
+                              _c("span", [_vm._v("Qty:")]),
+                              _vm._v(" "),
+                              _c("span", {
+                                staticClass: "text-muted",
+                                domProps: { textContent: _vm._s(item.qty) },
+                              }),
+                            ]),
+                          ]
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("hr"),
+                    ])
+                  }),
+                ],
+                2
+              ),
+            ]),
+          ]),
+        ]),
       ]),
     ],
     1
@@ -54774,9 +62333,14 @@ var render = function () {
                 }),
                 _vm._v(" "),
                 _c("div", { staticClass: "carousel-caption" }, [
-                  _c("p", { staticClass: "fs-2 fw-bold w-50" }, [
-                    _vm._v("METAMORPHOSIS WINTER 22-23"),
-                  ]),
+                  _c(
+                    "p",
+                    {
+                      staticClass: "fw-bold",
+                      class: [_vm.xs ? "fs-5 w-75" : "fs-2 w-50"],
+                    },
+                    [_vm._v("METAMORPHOSIS WINTER 22-23")]
+                  ),
                   _vm._v(" "),
                   _c(
                     "div",
@@ -54785,9 +62349,9 @@ var render = function () {
                       _c(
                         "l",
                         {
-                          staticClass:
-                            "btn btn-outline-light btn-lg border-4 px-4",
-                          attrs: { href: "#" },
+                          staticClass: "btn btn-outline-light border-4 px-4",
+                          class: { "btn-lg": !_vm.xs },
+                          attrs: { href: _vm.route("collection", 1) },
                         },
                         [_vm._v("SHOP NOW")]
                       ),
@@ -54804,9 +62368,14 @@ var render = function () {
                 }),
                 _vm._v(" "),
                 _c("div", { staticClass: "carousel-caption" }, [
-                  _c("p", { staticClass: "fs-2 fw-bold w-50" }, [
-                    _vm._v("SUSTAINABILITY"),
-                  ]),
+                  _c(
+                    "p",
+                    {
+                      staticClass: "fw-bold",
+                      class: [_vm.xs ? "fs-5 w-75" : "fs-2 w-50"],
+                    },
+                    [_vm._v("SUSTAINABILITY")]
+                  ),
                   _vm._v(" "),
                   _c(
                     "div",
@@ -54815,9 +62384,9 @@ var render = function () {
                       _c(
                         "l",
                         {
-                          staticClass:
-                            "btn btn-outline-light btn-lg border-4 px-4",
-                          attrs: { href: "#" },
+                          staticClass: "btn btn-outline-light border-4 px-4",
+                          class: { "btn-lg": !_vm.xs },
+                          attrs: { href: _vm.route("sustainability") },
                         },
                         [_vm._v("DISCOVER MORE")]
                       ),
@@ -54834,9 +62403,14 @@ var render = function () {
                 }),
                 _vm._v(" "),
                 _c("div", { staticClass: "carousel-caption" }, [
-                  _c("p", { staticClass: "fs-2 fw-bold w-50" }, [
-                    _vm._v("OUR WORLD"),
-                  ]),
+                  _c(
+                    "p",
+                    {
+                      staticClass: "fw-bold",
+                      class: [_vm.xs ? "fs-5 w-75" : "fs-2 w-50"],
+                    },
+                    [_vm._v("OUR WORLD")]
+                  ),
                   _vm._v(" "),
                   _c(
                     "div",
@@ -54845,9 +62419,9 @@ var render = function () {
                       _c(
                         "l",
                         {
-                          staticClass:
-                            "btn btn-outline-light btn-lg border-4 px-4",
-                          attrs: { href: "#" },
+                          staticClass: "btn btn-outline-light border-4 px-4",
+                          class: { "btn-lg": !_vm.xs },
+                          attrs: { href: _vm.route("about") },
                         },
                         [_vm._v("DISCOVER MORE")]
                       ),
@@ -55799,86 +63373,16 @@ var render = function () {
       _c("section", { staticClass: "pt-5" }, [
         _c("div", { staticClass: "container-fluid px-3 px-sm-5" }, [
           _c("div", { staticClass: "row gy-4" }, [
-            _c("div", { staticClass: "col-lg-5" }, [
-              _c(
-                "div",
-                {
-                  staticClass: "carousel carousel-dark slide",
-                  attrs: {
-                    id: "gallery",
-                    "data-bs-ride": "carousel",
-                    "data-bs-interval": "false",
-                  },
-                },
-                [
-                  _c(
-                    "div",
-                    { staticClass: "carousel-inner" },
-                    _vm._l(_vm.product.gallery, function (img, i) {
-                      return _c(
-                        "div",
-                        {
-                          key: Math.random(),
-                          staticClass: "carousel-item",
-                          class: { active: i === 0 },
-                        },
-                        [
-                          _c("img", {
-                            staticClass: "d-block w-100 mx-auto",
-                            attrs: { src: img },
-                          }),
-                        ]
-                      )
-                    }),
-                    0
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "carousel-control-prev",
-                      attrs: {
-                        type: "button",
-                        "data-bs-target": "#gallery",
-                        "data-bs-slide": "prev",
-                      },
-                    },
-                    [
-                      _c("span", {
-                        staticClass: "carousel-control-prev-icon",
-                        attrs: { "aria-hidden": "true" },
-                      }),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "visually-hidden" }, [
-                        _vm._v("Previous"),
-                      ]),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "carousel-control-next",
-                      attrs: {
-                        type: "button",
-                        "data-bs-target": "#gallery",
-                        "data-bs-slide": "next",
-                      },
-                    },
-                    [
-                      _c("span", {
-                        staticClass: "carousel-control-next-icon",
-                        attrs: { "aria-hidden": "true" },
-                      }),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "visually-hidden" }, [
-                        _vm._v("Next"),
-                      ]),
-                    ]
-                  ),
-                ]
-              ),
-            ]),
+            _c(
+              "div",
+              { staticClass: "col-lg-5" },
+              [
+                _c("ProductGallery", {
+                  attrs: { gallery: _vm.product.gallery },
+                }),
+              ],
+              1
+            ),
             _vm._v(" "),
             _c("div", { staticClass: "col-lg-7 col-xl-6" }, [
               _c("div", { staticClass: "d-flex flex-column flex-sm-row" }, [
@@ -55927,55 +63431,66 @@ var render = function () {
               _vm._v(" "),
               _c(
                 "div",
-                { staticClass: "d-flex align-items-baseline flex-wrap mb-4" },
+                {
+                  staticClass:
+                    "d-flex align-items-baseline flex-column flex-sm-row flex-wrap mb-4",
+                },
                 [
-                  _c("span", { staticClass: "fw-medium me-sm-3" }, [
-                    _vm._v("Size:"),
-                  ]),
-                  _vm._v(" "),
-                  _vm._l(_vm.product.sizes, function (s) {
-                    return s.qty !== null
-                      ? _c(
-                          "button",
-                          {
-                            key: Math.random(),
-                            staticClass: "btn text-dark",
-                            class: [
-                              s.size_id === _vm.size
-                                ? "btn-primary"
-                                : "btn-link",
-                            ],
-                            attrs: { type: "button" },
-                            on: {
-                              click: function ($event) {
-                                _vm.size = s.size_id
-                              },
-                            },
-                          },
-                          [
-                            s.qty === 0
-                              ? _c("del", { staticClass: "text-muted" }, [
-                                  _vm._v(_vm._s(s.size.name)),
-                                ])
-                              : _c("span", [_vm._v(_vm._s(s.size.name))]),
-                          ]
-                        )
-                      : _vm._e()
-                  }),
-                  _vm._v(" "),
                   _c(
-                    "span",
-                    {
-                      staticClass: "pointer underline ms-auto",
-                      attrs: {
-                        "data-bs-toggle": "modal",
-                        "data-bs-target": "#sizeModal",
-                      },
-                    },
-                    [_vm._v("Find your size")]
+                    "div",
+                    { staticClass: "d-flex align-items-baseline flex-wrap" },
+                    [
+                      _c("span", { staticClass: "fw-medium me-sm-3" }, [
+                        _vm._v("Size:"),
+                      ]),
+                      _vm._v(" "),
+                      _vm._l(_vm.product.sizes, function (s) {
+                        return s.qty !== null
+                          ? _c(
+                              "button",
+                              {
+                                key: Math.random(),
+                                staticClass: "btn text-dark",
+                                class: [
+                                  s.size_id === _vm.size
+                                    ? "btn-primary"
+                                    : "btn-link",
+                                ],
+                                attrs: { type: "button" },
+                                on: {
+                                  click: function ($event) {
+                                    _vm.size = s.size_id
+                                  },
+                                },
+                              },
+                              [
+                                s.qty === 0
+                                  ? _c("del", { staticClass: "text-muted" }, [
+                                      _vm._v(_vm._s(s.size.name)),
+                                    ])
+                                  : _c("span", [_vm._v(_vm._s(s.size.name))]),
+                              ]
+                            )
+                          : _vm._e()
+                      }),
+                    ],
+                    2
                   ),
-                ],
-                2
+                  _vm._v(" "),
+                  _c("div", { staticClass: "ms-sm-auto" }, [
+                    _c(
+                      "span",
+                      {
+                        staticClass: "pointer underline",
+                        attrs: {
+                          "data-bs-toggle": "modal",
+                          "data-bs-target": "#sizeModal",
+                        },
+                      },
+                      [_vm._v("Find your size")]
+                    ),
+                  ]),
+                ]
               ),
               _vm._v(" "),
               _c(
@@ -56672,7 +64187,7 @@ var render = function () {
             _vm._v("YOU MAY ALSO LIKE"),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "glider" }, [
+          _c("div", { ref: "glider" }, [
             _c(
               "div",
               { staticClass: "glider-track mx-auto" },
@@ -58716,7 +66231,7 @@ var render = function () {
       _c("h", { attrs: { title: "Sustainability" } }),
       _vm._v(" "),
       _c("section", { staticClass: "position-relative carousel-dark py-5" }, [
-        _c("div", { staticClass: "glider" }, [
+        _c("div", { ref: "glider" }, [
           _c("div", { staticClass: "container" }, [
             _c("div", { staticClass: "row" }, [
               _c("div", { staticClass: "col-lg-6 text-center py-3 py-xl-5" }, [
@@ -59228,7 +66743,7 @@ var render = function () {
           _c("div", { staticClass: "text-center py-2" }, [
             _c("p", { staticClass: "fw-medium" }, [
               _vm._v(
-                "ARE YOU SURE YOU WANT TO DELETE THIS ITEM FROM YOUR WISHLIST ?"
+                "Are you sure you want to delete this item from your wishlist ?"
               ),
             ]),
             _vm._v(" "),
@@ -59432,17 +66947,25 @@ var render = function () {
           _c("div", { staticClass: "pt-5 pb-3" }, [
             _c(
               "div",
-              { staticClass: "d-flex align-items-center flex-wrap mb-3" },
+              { staticClass: "d-flex flex-column flex-sm-row flex-wrap mb-3" },
               [
-                _c("span", { staticClass: "fw-medium fs-5 me-auto" }, [
-                  _vm._v(_vm._s(_vm.wishlist.length) + " Item(s)"),
-                ]),
-                _vm._v(" "),
                 _c(
                   "div",
-                  { staticClass: "d-flex align-items-center flex-wrap" },
+                  {
+                    staticClass:
+                      "d-flex align-items-center flex-wrap flex-grow-1 mb-2 mb-sm-0",
+                  },
                   [
-                    _c("div", { staticClass: "me-4" }, [
+                    _c(
+                      "span",
+                      {
+                        staticClass: "fw-medium fs-5 me-auto",
+                        staticStyle: { "line-height": "1.7" },
+                      },
+                      [_vm._v(_vm._s(_vm.wishlist.length) + " Item(s)")]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "me-sm-4" }, [
                       !_vm.share
                         ? _c(
                             "span",
@@ -59460,14 +66983,16 @@ var render = function () {
                             "div",
                             {
                               staticClass:
-                                "d-flex align-items-center rounded shadow-sm bg-light px-3 py-1",
+                                "d-flex align-items-center rounded shadow-sm bg-light px-3",
                             },
                             [
                               _c(
                                 "span",
                                 {
                                   staticClass:
-                                    "pointer text-muted underline me-4",
+                                    "position-relative pointer text-muted underline me-4",
+                                  class: { tp: _vm.copied },
+                                  on: { click: _vm.copyWishlist },
                                 },
                                 [_vm._v("COPY LINK")]
                               ),
@@ -59500,73 +67025,70 @@ var render = function () {
                             ]
                           ),
                     ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "d-flex align-items-center" }, [
-                      _c("span", { staticClass: "fw-medium me-2" }, [
-                        _vm._v("Sort by"),
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "dropdown" }, [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-primary shadow-none",
-                            attrs: {
-                              type: "button",
-                              "data-bs-toggle": "dropdown",
-                              "aria-expanded": "false",
-                            },
-                          },
-                          [
-                            _c("span", {
-                              domProps: {
-                                textContent: _vm._s(_vm.sort[_vm.params.sort]),
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c("i", { staticClass: "bi bi-caret-down-fill" }),
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "ul",
-                          {
-                            staticClass:
-                              "dropdown-menu dropdown-menu-end shadow-sm",
-                          },
-                          _vm._l(_vm.sort, function (text, key) {
-                            return _c("li", [
-                              _c(
-                                "span",
-                                {
-                                  staticClass:
-                                    "dropdown-item pointer text-dark",
-                                  on: {
-                                    click: function ($event) {
-                                      _vm.params.sort = key
-                                    },
-                                  },
-                                },
-                                [
-                                  _c("i", {
-                                    staticClass: "bi bi-check",
-                                    class: { show: _vm.params.sort === key },
-                                  }),
-                                  _vm._v(
-                                    " " +
-                                      _vm._s(text) +
-                                      "\n\t\t\t\t\t\t\t\t\t\t"
-                                  ),
-                                ]
-                              ),
-                            ])
-                          }),
-                          0
-                        ),
-                      ]),
-                    ]),
                   ]
                 ),
+                _vm._v(" "),
+                _c("div", { staticClass: "d-flex align-items-center" }, [
+                  _c("span", { staticClass: "fw-medium me-2" }, [
+                    _vm._v("Sort by"),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "dropdown" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-primary shadow-none",
+                        attrs: {
+                          type: "button",
+                          "data-bs-toggle": "dropdown",
+                          "aria-expanded": "false",
+                        },
+                      },
+                      [
+                        _c("span", {
+                          domProps: {
+                            textContent: _vm._s(_vm.sort[_vm.params.sort]),
+                          },
+                        }),
+                        _vm._v(" "),
+                        _c("i", { staticClass: "bi bi-caret-down-fill" }),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "ul",
+                      {
+                        staticClass:
+                          "dropdown-menu dropdown-menu-end shadow-sm",
+                      },
+                      _vm._l(_vm.sort, function (text, key) {
+                        return _c("li", [
+                          _c(
+                            "span",
+                            {
+                              staticClass: "dropdown-item pointer text-dark",
+                              on: {
+                                click: function ($event) {
+                                  _vm.params.sort = key
+                                },
+                              },
+                            },
+                            [
+                              _c("i", {
+                                staticClass: "bi bi-check",
+                                class: { show: _vm.params.sort === key },
+                              }),
+                              _vm._v(
+                                " " + _vm._s(text) + "\n\t\t\t\t\t\t\t\t\t"
+                              ),
+                            ]
+                          ),
+                        ])
+                      }),
+                      0
+                    ),
+                  ]),
+                ]),
               ]
             ),
           ]),
@@ -59577,10 +67099,7 @@ var render = function () {
             _vm._l(_vm.sorted, function (item, i) {
               return _c(
                 "div",
-                {
-                  key: Math.random(),
-                  staticClass: "col-sm-6 col-lg-4 col-xl-3",
-                },
+                { key: i, staticClass: "col-sm-6 col-lg-4 col-xl-3" },
                 [
                   _c("div", { staticClass: "product position-relative" }, [
                     _c("img", {
@@ -61260,7 +68779,13 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "offcanvas-header" }, [
-      _c("h5", { staticClass: "fs-2 fw-light mb-0" }, [_vm._v("Shopping bag")]),
+      _c("h5", { staticClass: "fs-2 fw-light mb-0" }, [
+        _c("img", {
+          staticClass: "align-baseline",
+          attrs: { src: "/img/icons/bag.png", height: "24px" },
+        }),
+        _vm._v(" Shopping bag"),
+      ]),
       _vm._v(" "),
       _c("button", {
         staticClass: "btn-close text-reset",
@@ -61397,8 +68922,8 @@ var render = function () {
                 on: { click: _vm.closeNewsletter },
               }),
               _vm._v(" "),
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-6" }, [
+              _c("div", { staticClass: "row gy-4" }, [
+                _c("div", { staticClass: "col-md-6 order-2 order-md-1" }, [
                   _c("p", { staticClass: "fs-4 fw-medium mb-4" }, [
                     _vm._v("JOIN OUR COMMUNITY"),
                   ]),
@@ -61567,7 +69092,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-6" }, [
+    return _c("div", { staticClass: "col-md-6 order-1 order-md-2" }, [
       _c("img", {
         staticClass: "d-block w-100",
         attrs: { src: "/img/newsletter.jpg" },
@@ -61599,10 +69124,25 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("div", [
     _vm.bag.length === 0
-      ? _c("div", { staticClass: "fs-4 fw-light text-center p-4" }, [
-          _c("p", [_vm._v("Your shopping bag is empty.")]),
+      ? _c("div", { staticClass: "p-4" }, [
+          _c("p", [_vm._v("Your shopping bag is still empty.")]),
           _vm._v(" "),
-          _c("p", [_vm._v("Go shopping!")]),
+          _c(
+            "p",
+            [
+              _vm._v("We invite you to discover our "),
+              _c(
+                "l",
+                {
+                  staticClass: "underline",
+                  attrs: { href: _vm.route("shop") },
+                },
+                [_vm._v("products")]
+              ),
+              _vm._v(" and buy what you like."),
+            ],
+            1
+          ),
         ])
       : _c("div", [
           _c(
@@ -61754,8 +69294,11 @@ var render = function () {
               ),
               _vm._v(" "),
               _c(
-                "button",
-                { staticClass: "btn btn-dark py-3", attrs: { type: "button" } },
+                "l",
+                {
+                  staticClass: "btn btn-dark py-3",
+                  attrs: { href: _vm.route("checkout") },
+                },
                 [_vm._v("CHECKOUT")]
               ),
             ],
@@ -62182,7 +69725,7 @@ var render = function () {
                         },
                       ],
                       staticClass: "form-check-input shadow-none",
-                      attrs: { type: "checkbox", id: "remember" },
+                      attrs: { type: "checkbox", id: "remember" + _vm._uid },
                       domProps: {
                         checked: Array.isArray(_vm.login.remember)
                           ? _vm._i(_vm.login.remember, null) > -1
@@ -62223,7 +69766,7 @@ var render = function () {
                       {
                         staticClass: "form-check-label",
                         staticStyle: { "user-select": "none" },
-                        attrs: { for: "remember" },
+                        attrs: { for: "remember" + _vm._uid },
                       },
                       [_vm._v("REMEMBER ME")]
                     ),
@@ -62290,6 +69833,31 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/NapsCheckout.vue?vue&type=template&id=8b0a8772&":
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/NapsCheckout.vue?vue&type=template&id=8b0a8772& ***!
+  \************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div")
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PopUp.vue?vue&type=template&id=77019f71&scoped=true&":
 /*!*****************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PopUp.vue?vue&type=template&id=77019f71&scoped=true& ***!
@@ -62333,6 +69901,131 @@ var render = function () {
   )
 }
 var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ProductGallery.vue?vue&type=template&id=5e3aade4&scoped=true&":
+/*!**************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ProductGallery.vue?vue&type=template&id=5e3aade4&scoped=true& ***!
+  \**************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    {
+      staticClass: "carousel carousel-dark slide",
+      attrs: {
+        id: "gallery",
+        "data-bs-interval": "false",
+        "data-bs-touch": "true",
+        "data-bs-ride": "carousel",
+      },
+    },
+    [
+      _c(
+        "div",
+        { staticClass: "carousel-inner", attrs: { id: "photoswipe" } },
+        _vm._l(_vm.gallery, function (img, i) {
+          return _c(
+            "div",
+            {
+              key: Math.random(),
+              staticClass: "carousel-item",
+              class: { active: i === 0 },
+            },
+            [
+              _c(
+                "a",
+                {
+                  attrs: {
+                    href: img,
+                    target: "_blank",
+                    "data-pswp-height": _vm.getHeight(i),
+                    "data-pswp-width": _vm.getWidth(i),
+                  },
+                },
+                [
+                  _c("img", {
+                    staticClass: "d-block w-100 mx-auto",
+                    attrs: { src: img },
+                  }),
+                ]
+              ),
+            ]
+          )
+        }),
+        0
+      ),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _vm._m(1),
+    ]
+  )
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "carousel-control-prev",
+        attrs: {
+          type: "button",
+          "data-bs-target": "#gallery",
+          "data-bs-slide": "prev",
+        },
+      },
+      [
+        _c("span", {
+          staticClass: "carousel-control-prev-icon",
+          attrs: { "aria-hidden": "true" },
+        }),
+        _vm._v(" "),
+        _c("span", { staticClass: "visually-hidden" }, [_vm._v("Previous")]),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "carousel-control-next",
+        attrs: {
+          type: "button",
+          "data-bs-target": "#gallery",
+          "data-bs-slide": "next",
+        },
+      },
+      [
+        _c("span", {
+          staticClass: "carousel-control-next-icon",
+          attrs: { "aria-hidden": "true" },
+        }),
+        _vm._v(" "),
+        _c("span", { staticClass: "visually-hidden" }, [_vm._v("Next")]),
+      ]
+    )
+  },
+]
 render._withStripped = true
 
 
@@ -76269,6 +83962,8 @@ var map = {
 	"./Addresses.vue": "./resources/js/Pages/Addresses.vue",
 	"./Bag": "./resources/js/Pages/Bag.vue",
 	"./Bag.vue": "./resources/js/Pages/Bag.vue",
+	"./Checkout": "./resources/js/Pages/Checkout.vue",
+	"./Checkout.vue": "./resources/js/Pages/Checkout.vue",
 	"./Collection": "./resources/js/Pages/Collection.vue",
 	"./Collection.vue": "./resources/js/Pages/Collection.vue",
 	"./Contact": "./resources/js/Pages/Contact.vue",
@@ -76482,6 +84177,1770 @@ var api = init(defaultConverter, { path: '/' });
 
 /***/ }),
 
+/***/ "./node_modules/photoswipe/dist/photoswipe-lightbox.esm.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/photoswipe/dist/photoswipe-lightbox.esm.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ PhotoSwipeLightbox)
+/* harmony export */ });
+/*!
+  * PhotoSwipe Lightbox 5.2.7 - https://photoswipe.com
+  * (c) 2022 Dmytro Semenov
+  */
+/** @typedef {import("../photoswipe").Point} Point */
+
+/** @typedef {undefined | null | false | '' | 0} Falsy */
+/** @typedef {keyof HTMLElementTagNameMap} HTMLElementTagName */
+
+/**
+ * @template {HTMLElementTagName | Falsy} [T="div"]
+ * @template {Node | undefined} [NodeToAppendElementTo=undefined]
+ * @param {string=} className
+ * @param {T=} [tagName]
+ * @param {NodeToAppendElementTo=} appendToEl
+ * @returns {T extends HTMLElementTagName ? HTMLElementTagNameMap[T] : HTMLElementTagNameMap['div']}
+ */
+function createElement(className, tagName, appendToEl) {
+  const el = document.createElement(tagName || 'div');
+  if (className) {
+    el.className = className;
+  }
+  if (appendToEl) {
+    appendToEl.appendChild(el);
+  }
+  // @ts-expect-error
+  return el;
+}
+
+/**
+ * Get transform string
+ *
+ * @param {number} x
+ * @param {number=} y
+ * @param {number=} scale
+ */
+function toTransformString(x, y, scale) {
+  let propValue = 'translate3d('
+    + x + 'px,' + (y || 0) + 'px'
+    + ',0)';
+
+  if (scale !== undefined) {
+    propValue += ' scale3d('
+      + scale + ',' + scale
+      + ',1)';
+  }
+
+  return propValue;
+}
+
+/**
+ * Apply width and height CSS properties to element
+ *
+ * @param {HTMLElement} el
+ * @param {string | number} w
+ * @param {string | number} h
+ */
+function setWidthHeight(el, w, h) {
+  el.style.width = (typeof w === 'number') ? (w + 'px') : w;
+  el.style.height = (typeof h === 'number') ? (h + 'px') : h;
+}
+
+/** @typedef {LOAD_STATE[keyof LOAD_STATE]} LoadState */
+/** @type {{ IDLE: 'idle'; LOADING: 'loading'; LOADED: 'loaded'; ERROR: 'error' }} */
+const LOAD_STATE = {
+  IDLE: 'idle',
+  LOADING: 'loading',
+  LOADED: 'loaded',
+  ERROR: 'error',
+};
+
+
+/**
+ * Check if click or keydown event was dispatched
+ * with a special key or via mouse wheel.
+ *
+ * @param {MouseEvent | KeyboardEvent} e
+ */
+function specialKeyUsed(e) {
+  if (e.which === 2 || e.ctrlKey || e.metaKey || e.altKey || e.shiftKey) {
+    return true;
+  }
+}
+
+/**
+ * Parse `gallery` or `children` options.
+ *
+ * @param {HTMLElement | NodeListOf<HTMLElement> | string} option
+ * @param {string=} legacySelector
+ * @param {HTMLElement | Document} [parent]
+ * @returns HTMLElement[]
+ */
+function getElementsFromOption(option, legacySelector, parent = document) {
+  /** @type {HTMLElement[]} */
+  let elements = [];
+
+  if (option instanceof Element) {
+    elements = [option];
+  } else if (option instanceof NodeList || Array.isArray(option)) {
+    elements = Array.from(option);
+  } else {
+    const selector = typeof option === 'string' ? option : legacySelector;
+    if (selector) {
+      elements = Array.from(parent.querySelectorAll(selector));
+    }
+  }
+
+  return elements;
+}
+
+/**
+ * Check if variable is PhotoSwipe class
+ *
+ * @param {any} fn
+ */
+function isPswpClass(fn) {
+  return typeof fn === 'function'
+    && fn.prototype
+    && fn.prototype.goTo;
+}
+
+/** @typedef {import("../lightbox/lightbox").default} PhotoSwipeLightbox */
+/** @typedef {import("../photoswipe").default} PhotoSwipe */
+/** @typedef {import("../photoswipe").PhotoSwipeOptions} PhotoSwipeOptions */
+/** @typedef {import("../photoswipe").DataSource} DataSource */
+/** @typedef {import("../ui/ui-element").UIElementData} UIElementData */
+/** @typedef {import("../slide/content").default} ContentDefault */
+/** @typedef {import("../slide/slide").default} Slide */
+/** @typedef {import("../slide/slide").SlideData} SlideData */
+/** @typedef {import("../slide/zoom-level").default} ZoomLevel */
+/** @typedef {import("../slide/get-thumb-bounds").Bounds} Bounds */
+
+/**
+ * Allow adding an arbitrary props to the Content
+ * https://photoswipe.com/custom-content/#using-webp-image-format
+ * @typedef {ContentDefault & Record<string, any>} Content
+ */
+/** @typedef {{ x?: number; y?: number }} Point */
+
+/**
+ * @typedef {Object} PhotoSwipeEventsMap https://photoswipe.com/events/
+ *
+ *
+ * https://photoswipe.com/adding-ui-elements/
+ *
+ * @prop {undefined} uiRegister
+ * @prop {{ data: UIElementData }} uiElementCreate
+ *
+ *
+ * https://photoswipe.com/events/#initialization-events
+ *
+ * @prop {undefined} beforeOpen
+ * @prop {undefined} firstUpdate
+ * @prop {undefined} initialLayout
+ * @prop {undefined} change
+ * @prop {undefined} afterInit
+ * @prop {undefined} bindEvents
+ *
+ *
+ * https://photoswipe.com/events/#opening-or-closing-transition-events
+ *
+ * @prop {undefined} openingAnimationStart
+ * @prop {undefined} openingAnimationEnd
+ * @prop {undefined} closingAnimationStart
+ * @prop {undefined} closingAnimationEnd
+ *
+ *
+ * https://photoswipe.com/events/#closing-events
+ *
+ * @prop {undefined} close
+ * @prop {undefined} destroy
+ *
+ *
+ * https://photoswipe.com/events/#pointer-and-gesture-events
+ *
+ * @prop {{ originalEvent: PointerEvent }} pointerDown
+ * @prop {{ originalEvent: PointerEvent }} pointerMove
+ * @prop {{ originalEvent: PointerEvent }} pointerUp
+ * @prop {{ bgOpacity: number }} pinchClose can be default prevented
+ * @prop {{ panY: number }} verticalDrag can be default prevented
+ *
+ *
+ * https://photoswipe.com/events/#slide-content-events
+ *
+ * @prop {{ content: Content }} contentInit
+ * @prop {{ content: Content; isLazy: boolean }} contentLoad can be default prevented
+ * @prop {{ content: Content; isLazy: boolean }} contentLoadImage can be default prevented
+ * @prop {{ content: Content; slide: Slide; isError?: boolean }} loadComplete
+ * @prop {{ content: Content; slide: Slide }} loadError
+ * @prop {{ content: Content; width: number; height: number }} contentResize can be default prevented
+ * @prop {{ content: Content; width: number; height: number; slide: Slide }} imageSizeChange
+ * @prop {{ content: Content }} contentLazyLoad can be default prevented
+ * @prop {{ content: Content }} contentAppend can be default prevented
+ * @prop {{ content: Content }} contentActivate can be default prevented
+ * @prop {{ content: Content }} contentDeactivate can be default prevented
+ * @prop {{ content: Content }} contentRemove can be default prevented
+ * @prop {{ content: Content }} contentDestroy can be default prevented
+ *
+ *
+ * undocumented
+ *
+ * @prop {{ point: Point; originalEvent: PointerEvent }} imageClickAction can be default prevented
+ * @prop {{ point: Point; originalEvent: PointerEvent }} bgClickAction can be default prevented
+ * @prop {{ point: Point; originalEvent: PointerEvent }} tapAction can be default prevented
+ * @prop {{ point: Point; originalEvent: PointerEvent }} doubleTapAction can be default prevented
+ *
+ * @prop {{ originalEvent: KeyboardEvent }} keydown can be default prevented
+ * @prop {{ x: number; dragging: boolean }} moveMainScroll
+ * @prop {{ slide: Slide }} firstZoomPan
+ * @prop {{ slide: Slide, data: SlideData, index: number }} gettingData
+ * @prop {undefined} beforeResize
+ * @prop {undefined} resize
+ * @prop {undefined} viewportSize
+ * @prop {undefined} updateScrollOffset
+ * @prop {{ slide: Slide }} slideInit
+ * @prop {{ slide: Slide }} afterSetContent
+ * @prop {{ slide: Slide }} slideLoad
+ * @prop {{ slide: Slide }} appendHeavy can be default prevented
+ * @prop {{ slide: Slide }} appendHeavyContent
+ * @prop {{ slide: Slide }} slideActivate
+ * @prop {{ slide: Slide }} slideDeactivate
+ * @prop {{ slide: Slide }} slideDestroy
+ * @prop {{ destZoomLevel: number, centerPoint: Point, transitionDuration: number | false }} beforeZoomTo
+ * @prop {{ slide: Slide }} zoomPanUpdate
+ * @prop {{ slide: Slide }} initialZoomPan
+ * @prop {{ slide: Slide }} calcSlideSize
+ * @prop {undefined} resolutionChanged
+ * @prop {{ originalEvent: WheelEvent }} wheel can be default prevented
+ * @prop {{ content: Content }} contentAppendImage can be default prevented
+ * @prop {{ index: number; itemData: SlideData }} lazyLoadSlide can be default prevented
+ * @prop {undefined} lazyLoad
+ * @prop {{ slide: Slide }} calcBounds
+ * @prop {{ zoomLevels: ZoomLevel, slideData: SlideData }} zoomLevelsUpdate
+ *
+ *
+ * legacy
+ *
+ * @prop {undefined} init
+ * @prop {undefined} initialZoomIn
+ * @prop {undefined} initialZoomOut
+ * @prop {undefined} initialZoomInEnd
+ * @prop {undefined} initialZoomOutEnd
+ * @prop {{ dataSource: DataSource, numItems: number }} numItems
+ * @prop {{ itemData: SlideData; index: number }} itemData
+ * @prop {{ index: number, itemData: SlideData, instance: PhotoSwipe }} thumbBounds
+ */
+
+/**
+ * @typedef {Object} PhotoSwipeFiltersMap https://photoswipe.com/filters/
+ *
+ * @prop {(numItems: number, dataSource: DataSource) => number} numItems
+ * Modify the total amount of slides. Example on Data sources page.
+ * https://photoswipe.com/filters/#numitems
+ *
+ * @prop {(itemData: SlideData, index: number) => SlideData} itemData
+ * Modify slide item data. Example on Data sources page.
+ * https://photoswipe.com/filters/#itemdata
+ *
+ * @prop {(itemData: SlideData, element: HTMLElement, linkEl: HTMLAnchorElement) => SlideData} domItemData
+ * Modify item data when it's parsed from DOM element. Example on Data sources page.
+ * https://photoswipe.com/filters/#domitemdata
+ *
+ * @prop {(clickedIndex: number, e: MouseEvent, instance: PhotoSwipeLightbox) => number} clickedIndex
+ * Modify clicked gallery item index.
+ * https://photoswipe.com/filters/#clickedindex
+ *
+ * @prop {(placeholderSrc: string | false, content: Content) => string | false} placeholderSrc
+ * Modify placeholder image source.
+ * https://photoswipe.com/filters/#placeholdersrc
+ *
+ * @prop {(isContentLoading: boolean, content: Content) => boolean} isContentLoading
+ * Modify if the content is currently loading.
+ * https://photoswipe.com/filters/#iscontentloading
+ *
+ * @prop {(isContentZoomable: boolean, content: Content) => boolean} isContentZoomable
+ * Modify if the content can be zoomed.
+ * https://photoswipe.com/filters/#iscontentzoomable
+ *
+ * @prop {(useContentPlaceholder: boolean, content: Content) => boolean} useContentPlaceholder
+ * Modify if the placeholder should be used for the content.
+ * https://photoswipe.com/filters/#usecontentplaceholder
+ *
+ * @prop {(isKeepingPlaceholder: boolean, content: Content) => boolean} isKeepingPlaceholder
+ * Modify if the placeholder should be kept after the content is loaded.
+ * https://photoswipe.com/filters/#iskeepingplaceholder
+ *
+ *
+ * @prop {(contentErrorElement: HTMLElement, content: Content) => HTMLElement} contentErrorElement
+ * Modify an element when the content has error state (for example, if image cannot be loaded).
+ * https://photoswipe.com/filters/#contenterrorelement
+ *
+ * @prop {(element: HTMLElement, data: UIElementData) => HTMLElement} uiElement
+ * Modify a UI element that's being created.
+ * https://photoswipe.com/filters/#uielement
+ *
+ * @prop {(thumbnail: HTMLElement, itemData: SlideData, index: number) => HTMLElement} thumbEl
+ * Modify the thubmnail element from which opening zoom animation starts or ends.
+ * https://photoswipe.com/filters/#thumbel
+ *
+ * @prop {(thumbBounds: Bounds, itemData: SlideData, index: number) => Bounds} thumbBounds
+ * Modify the thubmnail bounds from which opening zoom animation starts or ends.
+ * https://photoswipe.com/filters/#thumbbounds
+ */
+
+/**
+ * @template {keyof PhotoSwipeFiltersMap} T
+ * @typedef {{ fn: PhotoSwipeFiltersMap[T], priority: number }} Filter<T>
+ */
+
+/**
+ * @template {keyof PhotoSwipeEventsMap} T
+ * @typedef {PhotoSwipeEventsMap[T] extends undefined ? PhotoSwipeEvent<T> : PhotoSwipeEvent<T> & PhotoSwipeEventsMap[T]} AugmentedEvent
+ */
+
+/**
+ * @template {keyof PhotoSwipeEventsMap} T
+ * @typedef {(event: AugmentedEvent<T>) => void} EventCallback<T>
+ */
+
+/**
+ * Base PhotoSwipe event object
+ *
+ * @template {keyof PhotoSwipeEventsMap} T
+ */
+class PhotoSwipeEvent {
+  /**
+   * @param {T} type
+   * @param {PhotoSwipeEventsMap[T]} [details]
+   */
+  constructor(type, details) {
+    this.type = type;
+    if (details) {
+      Object.assign(this, details);
+    }
+  }
+
+  preventDefault() {
+    this.defaultPrevented = true;
+  }
+}
+
+/**
+ * PhotoSwipe base class that can listen and dispatch for events.
+ * Shared by PhotoSwipe Core and PhotoSwipe Lightbox, extended by base.js
+ */
+class Eventable {
+  constructor() {
+    /**
+     * @type {{ [T in keyof PhotoSwipeEventsMap]?: ((event: AugmentedEvent<T>) => void)[] }}
+     */
+    this._listeners = {};
+
+    /**
+     * @type {{ [T in keyof PhotoSwipeFiltersMap]?: Filter<T>[] }}
+     */
+    this._filters = {};
+
+    /** @type {PhotoSwipe=} */
+    this.pswp = undefined;
+
+    /** @type {PhotoSwipeOptions} */
+    this.options = undefined;
+  }
+
+  /**
+   * @template {keyof PhotoSwipeFiltersMap} T
+   * @param {T} name
+   * @param {PhotoSwipeFiltersMap[T]} fn
+   * @param {number} priority
+   */
+  addFilter(name, fn, priority = 100) {
+    if (!this._filters[name]) {
+      this._filters[name] = [];
+    }
+
+    this._filters[name].push({ fn, priority });
+    this._filters[name].sort((f1, f2) => f1.priority - f2.priority);
+
+    if (this.pswp) {
+      this.pswp.addFilter(name, fn, priority);
+    }
+  }
+
+  /**
+   * @template {keyof PhotoSwipeFiltersMap} T
+   * @param {T} name
+   * @param {PhotoSwipeFiltersMap[T]} fn
+   */
+  removeFilter(name, fn) {
+    if (this._filters[name]) {
+      // @ts-expect-error
+      this._filters[name] = this._filters[name].filter(filter => (filter.fn !== fn));
+    }
+
+    if (this.pswp) {
+      this.pswp.removeFilter(name, fn);
+    }
+  }
+
+  /**
+   * @template {keyof PhotoSwipeFiltersMap} T
+   * @param {T} name
+   * @param {Parameters<PhotoSwipeFiltersMap[T]>} args
+   * @returns {Parameters<PhotoSwipeFiltersMap[T]>[0]}
+   */
+  applyFilters(name, ...args) {
+    if (this._filters[name]) {
+      this._filters[name].forEach((filter) => {
+        // @ts-expect-error
+        args[0] = filter.fn.apply(this, args);
+      });
+    }
+    return args[0];
+  }
+
+  /**
+   * @template {keyof PhotoSwipeEventsMap} T
+   * @param {T} name
+   * @param {EventCallback<T>} fn
+   */
+  on(name, fn) {
+    if (!this._listeners[name]) {
+      this._listeners[name] = [];
+    }
+    this._listeners[name].push(fn);
+
+    // When binding events to lightbox,
+    // also bind events to PhotoSwipe Core,
+    // if it's open.
+    if (this.pswp) {
+      this.pswp.on(name, fn);
+    }
+  }
+
+  /**
+   * @template {keyof PhotoSwipeEventsMap} T
+   * @param {T} name
+   * @param {EventCallback<T>} fn
+   */
+  off(name, fn) {
+    if (this._listeners[name]) {
+      // @ts-expect-error
+      this._listeners[name] = this._listeners[name].filter(listener => (fn !== listener));
+    }
+
+    if (this.pswp) {
+      this.pswp.off(name, fn);
+    }
+  }
+
+  /**
+   * @template {keyof PhotoSwipeEventsMap} T
+   * @param {T} name
+   * @param {PhotoSwipeEventsMap[T]} [details]
+   * @returns {AugmentedEvent<T>}
+   */
+  dispatch(name, details) {
+    if (this.pswp) {
+      return this.pswp.dispatch(name, details);
+    }
+
+    const event = /** @type {AugmentedEvent<T>} */ (new PhotoSwipeEvent(name, details));
+
+    if (!this._listeners) {
+      return event;
+    }
+
+    if (this._listeners[name]) {
+      this._listeners[name].forEach((listener) => {
+        listener.call(this, event);
+      });
+    }
+
+    return event;
+  }
+}
+
+class Placeholder {
+  /**
+   * @param {string | false} imageSrc
+   * @param {HTMLElement} container
+   */
+  constructor(imageSrc, container) {
+    // Create placeholder
+    // (stretched thumbnail or simple div behind the main image)
+    this.element = createElement(
+      'pswp__img pswp__img--placeholder',
+      imageSrc ? 'img' : '',
+      container
+    );
+
+    if (imageSrc) {
+      /** @type {HTMLImageElement} */
+      (this.element).decoding = 'async';
+      /** @type {HTMLImageElement} */
+      (this.element).alt = '';
+      /** @type {HTMLImageElement} */
+      (this.element).src = imageSrc;
+      this.element.setAttribute('role', 'presentation');
+    }
+
+    this.element.setAttribute('aria-hiden', 'true');
+  }
+
+  /**
+   * @param {number} width
+   * @param {number} height
+   */
+  setDisplayedSize(width, height) {
+    if (!this.element) {
+      return;
+    }
+
+    if (this.element.tagName === 'IMG') {
+      // Use transform scale() to modify img placeholder size
+      // (instead of changing width/height directly).
+      // This helps with performance, specifically in iOS15 Safari.
+      setWidthHeight(this.element, 250, 'auto');
+      this.element.style.transformOrigin = '0 0';
+      this.element.style.transform = toTransformString(0, 0, width / 250);
+    } else {
+      setWidthHeight(this.element, width, height);
+    }
+  }
+
+  destroy() {
+    if (this.element.parentNode) {
+      this.element.remove();
+    }
+    this.element = null;
+  }
+}
+
+/** @typedef {import("./slide").default} Slide */
+/** @typedef {import("./slide").SlideData} SlideData */
+/** @typedef {import("../photoswipe").default} PhotoSwipe */
+/** @typedef {import("../util/util").LoadState} LoadState */
+
+class Content {
+  /**
+   * @param {SlideData} itemData Slide data
+   * @param {PhotoSwipe} instance PhotoSwipe or PhotoSwipeLightbox instance
+   * @param {number} index
+   */
+  constructor(itemData, instance, index) {
+    this.instance = instance;
+    this.data = itemData;
+    this.index = index;
+
+    /** @type {HTMLImageElement | HTMLDivElement} */
+    this.element = undefined;
+
+    this.width = Number(this.data.w) || Number(this.data.width) || 0;
+    this.height = Number(this.data.h) || Number(this.data.height) || 0;
+
+    this.isAttached = false;
+    this.hasSlide = false;
+    /** @type {LoadState} */
+    this.state = LOAD_STATE.IDLE;
+
+    if (this.data.type) {
+      this.type = this.data.type;
+    } else if (this.data.src) {
+      this.type = 'image';
+    } else {
+      this.type = 'html';
+    }
+
+    this.instance.dispatch('contentInit', { content: this });
+  }
+
+  removePlaceholder() {
+    if (this.placeholder && !this.keepPlaceholder()) {
+      // With delay, as image might be loaded, but not rendered
+      setTimeout(() => {
+        if (this.placeholder) {
+          this.placeholder.destroy();
+          this.placeholder = null;
+        }
+      }, 500);
+    }
+  }
+
+  /**
+   * Preload content
+   *
+   * @param {boolean=} isLazy
+   * @param {boolean=} reload
+   */
+  load(isLazy, reload) {
+    if (!this.placeholder && this.slide && this.usePlaceholder()) {
+      // use   -based placeholder only for the first slide,
+      // as rendering (even small stretched thumbnail) is an expensive operation
+      const placeholderSrc = this.instance.applyFilters(
+        'placeholderSrc',
+        (this.data.msrc && this.slide.isFirstSlide) ? this.data.msrc : false,
+        this
+      );
+      this.placeholder = new Placeholder(
+        placeholderSrc,
+        this.slide.container
+      );
+    }
+
+    if (this.element && !reload) {
+      return;
+    }
+
+    if (this.instance.dispatch('contentLoad', { content: this, isLazy }).defaultPrevented) {
+      return;
+    }
+
+    if (this.isImageContent()) {
+      this.loadImage(isLazy);
+    } else {
+      this.element = createElement('pswp__content');
+      this.element.innerHTML = this.data.html || '';
+    }
+
+    if (reload && this.slide) {
+      this.slide.updateContentSize(true);
+    }
+  }
+
+  /**
+   * Preload image
+   *
+   * @param {boolean} isLazy
+   */
+  loadImage(isLazy) {
+    const imageElement = createElement('pswp__img', 'img');
+    this.element = imageElement;
+
+    if (this.instance.dispatch('contentLoadImage', { content: this, isLazy }).defaultPrevented) {
+      return;
+    }
+
+    if (this.data.srcset) {
+      imageElement.srcset = this.data.srcset;
+    }
+
+    imageElement.src = this.data.src;
+
+    imageElement.alt = this.data.alt || '';
+
+    this.state = LOAD_STATE.LOADING;
+
+    if (imageElement.complete) {
+      this.onLoaded();
+    } else {
+      imageElement.onload = () => {
+        this.onLoaded();
+      };
+
+      imageElement.onerror = () => {
+        this.onError();
+      };
+    }
+  }
+
+  /**
+   * Assign slide to content
+   *
+   * @param {Slide} slide
+   */
+  setSlide(slide) {
+    this.slide = slide;
+    this.hasSlide = true;
+    this.instance = slide.pswp;
+
+    // todo: do we need to unset slide?
+  }
+
+  /**
+   * Content load success handler
+   */
+  onLoaded() {
+    this.state = LOAD_STATE.LOADED;
+
+    if (this.slide) {
+      this.instance.dispatch('loadComplete', { slide: this.slide, content: this });
+
+      // if content is reloaded
+      if (this.slide.isActive
+          && this.slide.heavyAppended
+          && !this.element.parentNode) {
+        this.slide.container.innerHTML = '';
+        this.append();
+        this.slide.updateContentSize(true);
+      }
+    }
+  }
+
+  /**
+   * Content load error handler
+   */
+  onError() {
+    this.state = LOAD_STATE.ERROR;
+
+    if (this.slide) {
+      this.displayError();
+      this.instance.dispatch('loadComplete', { slide: this.slide, isError: true, content: this });
+      this.instance.dispatch('loadError', { slide: this.slide, content: this });
+    }
+  }
+
+  /**
+   * @returns {Boolean} If the content is currently loading
+   */
+  isLoading() {
+    return this.instance.applyFilters(
+      'isContentLoading',
+      this.state === LOAD_STATE.LOADING,
+      this
+    );
+  }
+
+  isError() {
+    return this.state === LOAD_STATE.ERROR;
+  }
+
+  /**
+   * @returns {boolean} If the content is image
+   */
+  isImageContent() {
+    return this.type === 'image';
+  }
+
+  /**
+   * Update content size
+   *
+   * @param {Number} width
+   * @param {Number} height
+   */
+  setDisplayedSize(width, height) {
+    if (!this.element) {
+      return;
+    }
+
+    if (this.placeholder) {
+      this.placeholder.setDisplayedSize(width, height);
+    }
+
+    // eslint-disable-next-line max-len
+    if (this.instance.dispatch('contentResize', { content: this, width, height }).defaultPrevented) {
+      return;
+    }
+
+    setWidthHeight(this.element, width, height);
+
+    if (this.isImageContent() && !this.isError()) {
+      const image = /** @type HTMLImageElement */ (this.element);
+
+      // Handle srcset sizes attribute.
+      //
+      // Never lower quality, if it was increased previously.
+      // Chrome does this automatically, Firefox and Safari do not,
+      // so we store largest used size in dataset.
+      if (image.srcset
+          // eslint-disable-next-line max-len
+          && (!image.dataset.largestUsedSize || width > parseInt(image.dataset.largestUsedSize, 10))) {
+        image.sizes = width + 'px';
+        image.dataset.largestUsedSize = String(width);
+      }
+
+      if (this.slide) {
+        // eslint-disable-next-line max-len
+        this.instance.dispatch('imageSizeChange', { slide: this.slide, width, height, content: this });
+      }
+    }
+  }
+
+  /**
+   * @returns {boolean} If the content can be zoomed
+   */
+  isZoomable() {
+    return this.instance.applyFilters(
+      'isContentZoomable',
+      this.isImageContent() && (this.state !== LOAD_STATE.ERROR),
+      this
+    );
+  }
+
+  /**
+   * @returns {boolean} If content should use a placeholder (from msrc by default)
+   */
+  usePlaceholder() {
+    return this.instance.applyFilters(
+      'useContentPlaceholder',
+      this.isImageContent(),
+      this
+    );
+  }
+
+  /**
+   * Preload content with lazy-loading param
+   */
+  lazyLoad() {
+    if (this.instance.dispatch('contentLazyLoad', { content: this }).defaultPrevented) {
+      return;
+    }
+
+    this.load(true);
+  }
+
+  /**
+   * @returns {boolean} If placeholder should be kept after content is loaded
+   */
+  keepPlaceholder() {
+    return this.instance.applyFilters(
+      'isKeepingPlaceholder',
+      this.isLoading(),
+      this
+    );
+  }
+
+  /**
+   * Destroy the content
+   */
+  destroy() {
+    this.hasSlide = false;
+    this.slide = null;
+
+    if (this.instance.dispatch('contentDestroy', { content: this }).defaultPrevented) {
+      return;
+    }
+
+    this.remove();
+
+    if (this.isImageContent() && this.element) {
+      this.element.onload = null;
+      this.element.onerror = null;
+      this.element = null;
+    }
+  }
+
+  /**
+   * Display error message
+   */
+  displayError() {
+    if (this.slide) {
+      /** @type {HTMLElement} */
+      let errorMsgEl = createElement('pswp__error-msg');
+      errorMsgEl.innerText = this.instance.options.errorMsg;
+      errorMsgEl = this.instance.applyFilters(
+        'contentErrorElement',
+        errorMsgEl,
+        this
+      );
+      this.element = createElement('pswp__content pswp__error-msg-container');
+      this.element.appendChild(errorMsgEl);
+      this.slide.container.innerHTML = '';
+      this.slide.container.appendChild(this.element);
+      this.slide.updateContentSize(true);
+      this.removePlaceholder();
+    }
+  }
+
+  /**
+   * Append the content
+   */
+  append() {
+    this.isAttached = true;
+
+    if (this.state === LOAD_STATE.ERROR) {
+      this.displayError();
+      return;
+    }
+
+    if (this.instance.dispatch('contentAppend', { content: this }).defaultPrevented) {
+      return;
+    }
+
+    if (this.isImageContent()) {
+      // Use decode() on nearby slides
+      //
+      // Nearby slide images are in DOM and not hidden via display:none.
+      // However, they are placed offscreen (to the left and right side).
+      //
+      // Some browsers do not composite the image until it's actually visible,
+      // using decode() helps.
+      //
+      // You might ask "why dont you just decode() and then append all images",
+      // that's because I want to show image before it's fully loaded,
+      // as browser can render parts of image while it is loading.
+      if (this.slide
+          && !this.slide.isActive
+          && ('decode' in this.element)) {
+        this.isDecoding = true;
+        // Make sure that we start decoding on the next frame
+        requestAnimationFrame(() => {
+          // element might change
+          if (this.element && this.element.tagName === 'IMG') {
+            /** @type {HTMLImageElement} */
+            (this.element).decode().then(() => {
+              this.isDecoding = false;
+              requestAnimationFrame(() => {
+                this.appendImage();
+              });
+            }).catch(() => {
+              this.isDecoding = false;
+            });
+          }
+        });
+      } else {
+        if (this.placeholder
+          // eslint-disable-next-line max-len
+          && (this.state === LOAD_STATE.LOADED || /** @type {LoadState} */ (this.state) === LOAD_STATE.ERROR)
+        ) {
+          this.removePlaceholder();
+        }
+        this.appendImage();
+      }
+    } else if (this.element && !this.element.parentNode) {
+      this.slide.container.appendChild(this.element);
+    }
+  }
+
+  /**
+   * Activate the slide,
+   * active slide is generally the current one,
+   * meaning the user can see it.
+   */
+  activate() {
+    if (this.instance.dispatch('contentActivate', { content: this }).defaultPrevented) {
+      return;
+    }
+
+    if (this.slide) {
+      if (this.isImageContent() && this.isDecoding) {
+        // add image to slide when it becomes active,
+        // even if it's not finished decoding
+        this.appendImage();
+      } else if (this.isError()) {
+        this.load(false, true); // try to reload
+      }
+    }
+  }
+
+  /**
+   * Deactivate the content
+   */
+  deactivate() {
+    this.instance.dispatch('contentDeactivate', { content: this });
+  }
+
+
+  /**
+   * Remove the content from DOM
+   */
+  remove() {
+    this.isAttached = false;
+
+    if (this.instance.dispatch('contentRemove', { content: this }).defaultPrevented) {
+      return;
+    }
+
+    if (this.element && this.element.parentNode) {
+      this.element.remove();
+    }
+  }
+
+  /**
+   * Append the image content to slide container
+   */
+  appendImage() {
+    if (!this.isAttached) {
+      return;
+    }
+
+    if (this.instance.dispatch('contentAppendImage', { content: this }).defaultPrevented) {
+      return;
+    }
+
+    // ensure that element exists and is not already appended
+    if (this.slide && this.element && !this.element.parentNode) {
+      this.slide.container.appendChild(this.element);
+
+      if (this.placeholder
+        && (this.state === LOAD_STATE.LOADED || this.state === LOAD_STATE.ERROR)) {
+        this.removePlaceholder();
+      }
+    }
+  }
+}
+
+/** @typedef {import("../photoswipe").default} PhotoSwipe */
+/** @typedef {import("../photoswipe").PhotoSwipeOptions} PhotoSwipeOptions */
+/** @typedef {import("../slide/slide").SlideData} SlideData */
+
+/**
+ * PhotoSwipe base class that can retrieve data about every slide.
+ * Shared by PhotoSwipe Core and PhotoSwipe Lightbox
+ */
+class PhotoSwipeBase extends Eventable {
+  /**
+   * Get total number of slides
+   *
+   * @returns {number}
+   */
+  getNumItems() {
+    let numItems;
+    const { dataSource } = this.options;
+    if (!dataSource) {
+      numItems = 0;
+    } else if ('length' in dataSource) {
+      // may be an array or just object with length property
+      numItems = dataSource.length;
+    } else if ('gallery' in dataSource) {
+      // query DOM elements
+      if (!dataSource.items) {
+        dataSource.items = this._getGalleryDOMElements(dataSource.gallery);
+      }
+
+      if (dataSource.items) {
+        numItems = dataSource.items.length;
+      }
+    }
+
+    // legacy event, before filters were introduced
+    const event = this.dispatch('numItems', {
+      dataSource,
+      numItems
+    });
+    return this.applyFilters('numItems', event.numItems, dataSource);
+  }
+
+  /**
+   * @param {SlideData} slideData
+   * @param {number} index
+   */
+  createContentFromData(slideData, index) {
+    // @ts-expect-error
+    return new Content(slideData, this, index);
+  }
+
+  /**
+   * Get item data by index.
+   *
+   * "item data" should contain normalized information that PhotoSwipe needs to generate a slide.
+   * For example, it may contain properties like
+   * `src`, `srcset`, `w`, `h`, which will be used to generate a slide with image.
+   *
+   * @param {number} index
+   */
+  getItemData(index) {
+    const { dataSource } = this.options;
+    let dataSourceItem;
+    if (Array.isArray(dataSource)) {
+      // Datasource is an array of elements
+      dataSourceItem = dataSource[index];
+    } else if (dataSource && dataSource.gallery) {
+      // dataSource has gallery property,
+      // thus it was created by Lightbox, based on
+      // gallery and children options
+
+      // query DOM elements
+      if (!dataSource.items) {
+        dataSource.items = this._getGalleryDOMElements(dataSource.gallery);
+      }
+
+      dataSourceItem = dataSource.items[index];
+    }
+
+    let itemData = dataSourceItem;
+
+    if (itemData instanceof Element) {
+      itemData = this._domElementToItemData(itemData);
+    }
+
+    // Dispatching the itemData event,
+    // it's a legacy verion before filters were introduced
+    const event = this.dispatch('itemData', {
+      itemData: itemData || {},
+      index
+    });
+
+    return this.applyFilters('itemData', event.itemData, index);
+  }
+
+  /**
+   * Get array of gallery DOM elements,
+   * based on childSelector and gallery element.
+   *
+   * @param {HTMLElement} galleryElement
+   */
+  _getGalleryDOMElements(galleryElement) {
+    if (this.options.children || this.options.childSelector) {
+      return getElementsFromOption(
+        this.options.children,
+        this.options.childSelector,
+        galleryElement
+      ) || [];
+    }
+
+    return [galleryElement];
+  }
+
+  /**
+   * Converts DOM element to item data object.
+   *
+   * @param {HTMLElement} element DOM element
+   */
+  // eslint-disable-next-line class-methods-use-this
+  _domElementToItemData(element) {
+    /** @type {SlideData} */
+    const itemData = {
+      element
+    };
+
+    // eslint-disable-next-line max-len
+    const linkEl = /** @type {HTMLAnchorElement} */ (element.tagName === 'A' ? element : element.querySelector('a'));
+
+    if (linkEl) {
+      // src comes from data-pswp-src attribute,
+      // if it's empty link href is used
+      itemData.src = linkEl.dataset.pswpSrc || linkEl.href;
+
+      if (linkEl.dataset.pswpSrcset) {
+        itemData.srcset = linkEl.dataset.pswpSrcset;
+      }
+
+      itemData.width = parseInt(linkEl.dataset.pswpWidth, 10);
+      itemData.height = parseInt(linkEl.dataset.pswpHeight, 10);
+
+      // support legacy w & h properties
+      itemData.w = itemData.width;
+      itemData.h = itemData.height;
+
+      if (linkEl.dataset.pswpType) {
+        itemData.type = linkEl.dataset.pswpType;
+      }
+
+      const thumbnailEl = element.querySelector('img');
+
+      if (thumbnailEl) {
+        // msrc is URL to placeholder image that's displayed before large image is loaded
+        // by default it's displayed only for the first slide
+        itemData.msrc = thumbnailEl.currentSrc || thumbnailEl.src;
+        itemData.alt = thumbnailEl.getAttribute('alt');
+      }
+
+      if (linkEl.dataset.pswpCropped || linkEl.dataset.cropped) {
+        itemData.thumbCropped = true;
+      }
+    }
+
+    return this.applyFilters('domItemData', itemData, element, linkEl);
+  }
+}
+
+/** @typedef {import("../photoswipe").PhotoSwipeOptions} PhotoSwipeOptions */
+/** @typedef {import("../photoswipe").default} PhotoSwipe */
+/** @typedef {import("../slide/slide").SlideData} SlideData */
+
+/**
+ * @param {PhotoSwipeOptions} options
+ * @param {PhotoSwipe} pswp
+ */
+function getViewportSize(options, pswp) {
+  if (options.getViewportSizeFn) {
+    const newViewportSize = options.getViewportSizeFn(options, pswp);
+    if (newViewportSize) {
+      return newViewportSize;
+    }
+  }
+
+  return {
+    x: document.documentElement.clientWidth,
+
+    // TODO: height on mobile is very incosistent due to toolbar
+    // find a way to improve this
+    //
+    // document.documentElement.clientHeight - doesn't seem to work well
+    y: window.innerHeight
+  };
+}
+
+/**
+ * Parses padding option.
+ * Supported formats:
+ *
+ * // Object
+ * padding: {
+ *  top: 0,
+ *  bottom: 0,
+ *  left: 0,
+ *  right: 0
+ * }
+ *
+ * // A function that returns the object
+ * paddingFn: (viewportSize, itemData, index) => {
+ *  return {
+ *    top: 0,
+ *    bottom: 0,
+ *    left: 0,
+ *    right: 0
+ *  };
+ * }
+ *
+ * // Legacy variant
+ * paddingLeft: 0,
+ * paddingRight: 0,
+ * paddingTop: 0,
+ * paddingBottom: 0,
+ *
+ * @param {'left' | 'top' | 'bottom' | 'right'} prop
+ * @param {PhotoSwipeOptions} options PhotoSwipe options
+ * @param {{ x?: number; y?: number }} viewportSize PhotoSwipe viewport size, for example: { x:800, y:600 }
+ * @param {SlideData} itemData Data about the slide
+ * @param {number} index Slide index
+ * @returns {number}
+ */
+function parsePaddingOption(prop, options, viewportSize, itemData, index) {
+  /** @type {number} */
+  let paddingValue;
+
+  if (options.paddingFn) {
+    paddingValue = options.paddingFn(viewportSize, itemData, index)[prop];
+  } else if (options.padding) {
+    paddingValue = options.padding[prop];
+  } else {
+    const legacyPropName = 'padding' + prop[0].toUpperCase() + prop.slice(1);
+    // @ts-expect-error
+    if (options[legacyPropName]) {
+      // @ts-expect-error
+      paddingValue = options[legacyPropName];
+    }
+  }
+
+  return paddingValue || 0;
+}
+
+/**
+ * @param {PhotoSwipeOptions} options
+ * @param {{ x?: number; y?: number }} viewportSize
+ * @param {SlideData} itemData
+ * @param {number} index
+ */
+function getPanAreaSize(options, viewportSize, itemData, index) {
+  return {
+    x: viewportSize.x
+      - parsePaddingOption('left', options, viewportSize, itemData, index)
+      - parsePaddingOption('right', options, viewportSize, itemData, index),
+    y: viewportSize.y
+      - parsePaddingOption('top', options, viewportSize, itemData, index)
+      - parsePaddingOption('bottom', options, viewportSize, itemData, index)
+  };
+}
+
+const MAX_IMAGE_WIDTH = 4000;
+
+/** @typedef {import("../photoswipe").default} PhotoSwipe */
+/** @typedef {import("../photoswipe").PhotoSwipeOptions} PhotoSwipeOptions */
+/** @typedef {import("../slide/slide").SlideData} SlideData */
+
+/** @typedef {'fit' | 'fill' | number | ((zoomLevelObject: ZoomLevel) => number)} ZoomLevelOption */
+
+/**
+ * Calculates zoom levels for specific slide.
+ * Depends on viewport size and image size.
+ */
+class ZoomLevel {
+  /**
+   * @param {PhotoSwipeOptions} options PhotoSwipe options
+   * @param {SlideData} itemData Slide data
+   * @param {number} index Slide index
+   * @param {PhotoSwipe=} pswp PhotoSwipe instance, can be undefined if not initialized yet
+   */
+  constructor(options, itemData, index, pswp) {
+    this.pswp = pswp;
+    this.options = options;
+    this.itemData = itemData;
+    this.index = index;
+  }
+
+  /**
+   * Calculate initial, secondary and maximum zoom level for the specified slide.
+   *
+   * It should be called when either image or viewport size changes.
+   *
+   * @param {number} maxWidth
+   * @param {number} maxHeight
+   * @param {{ x?: number; y?: number }} panAreaSize
+   */
+  update(maxWidth, maxHeight, panAreaSize) {
+    this.elementSize = {
+      x: maxWidth,
+      y: maxHeight
+    };
+
+    this.panAreaSize = panAreaSize;
+
+    const hRatio = this.panAreaSize.x / this.elementSize.x;
+    const vRatio = this.panAreaSize.y / this.elementSize.y;
+
+    this.fit = Math.min(1, hRatio < vRatio ? hRatio : vRatio);
+    this.fill = Math.min(1, hRatio > vRatio ? hRatio : vRatio);
+
+    // zoom.vFill defines zoom level of the image
+    // when it has 100% of viewport vertical space (height)
+    this.vFill = Math.min(1, vRatio);
+
+    this.initial = this._getInitial();
+    this.secondary = this._getSecondary();
+    this.max = Math.max(
+      this.initial,
+      this.secondary,
+      this._getMax()
+    );
+
+    this.min = Math.min(
+      this.fit,
+      this.initial,
+      this.secondary
+    );
+
+    if (this.pswp) {
+      this.pswp.dispatch('zoomLevelsUpdate', { zoomLevels: this, slideData: this.itemData });
+    }
+  }
+
+  /**
+   * Parses user-defined zoom option.
+   *
+   * @private
+   * @param {'initial' | 'secondary' | 'max'} optionPrefix Zoom level option prefix (initial, secondary, max)
+   */
+  _parseZoomLevelOption(optionPrefix) {
+    // eslint-disable-next-line max-len
+    const optionName = /** @type {'initialZoomLevel' | 'secondaryZoomLevel' | 'maxZoomLevel'} */ (optionPrefix + 'ZoomLevel');
+    const optionValue = this.options[optionName];
+
+    if (!optionValue) {
+      return;
+    }
+
+    if (typeof optionValue === 'function') {
+      return optionValue(this);
+    }
+
+    if (optionValue === 'fill') {
+      return this.fill;
+    }
+
+    if (optionValue === 'fit') {
+      return this.fit;
+    }
+
+    return Number(optionValue);
+  }
+
+  /**
+   * Get zoom level to which image will be zoomed after double-tap gesture,
+   * or when user clicks on zoom icon,
+   * or mouse-click on image itself.
+   * If you return 1 image will be zoomed to its original size.
+   *
+   * @private
+   * @return {number}
+   */
+  _getSecondary() {
+    let currZoomLevel = this._parseZoomLevelOption('secondary');
+
+    if (currZoomLevel) {
+      return currZoomLevel;
+    }
+
+    // 3x of "fit" state, but not larger than original
+    currZoomLevel = Math.min(1, this.fit * 3);
+
+    if (currZoomLevel * this.elementSize.x > MAX_IMAGE_WIDTH) {
+      currZoomLevel = MAX_IMAGE_WIDTH / this.elementSize.x;
+    }
+
+    return currZoomLevel;
+  }
+
+  /**
+   * Get initial image zoom level.
+   *
+   * @private
+   * @return {number}
+   */
+  _getInitial() {
+    return this._parseZoomLevelOption('initial') || this.fit;
+  }
+
+  /**
+   * Maximum zoom level when user zooms
+   * via zoom/pinch gesture,
+   * via cmd/ctrl-wheel or via trackpad.
+   *
+   * @private
+   * @return {number}
+   */
+  _getMax() {
+    const currZoomLevel = this._parseZoomLevelOption('max');
+
+    if (currZoomLevel) {
+      return currZoomLevel;
+    }
+
+    // max zoom level is x4 from "fit state",
+    // used for zoom gesture and ctrl/trackpad zoom
+    return Math.max(1, this.fit * 4);
+  }
+}
+
+/**
+ * Lazy-load an image
+ * This function is used both by Lightbox and PhotoSwipe core,
+ * thus it can be called before dialog is opened.
+ *
+ * @param {SlideData} itemData Data about the slide
+ * @param {PhotoSwipe | PhotoSwipeLightbox} instance PhotoSwipe or PhotoSwipeLightbox
+ * @param {number} index
+ * @returns Image that is being decoded or false.
+ */
+function lazyLoadData(itemData, instance, index) {
+  // src/slide/content/content.js
+  const content = instance.createContentFromData(itemData, index);
+
+  if (!content || !content.lazyLoad) {
+    return;
+  }
+
+  const { options } = instance;
+
+  // We need to know dimensions of the image to preload it,
+  // as it might use srcset and we need to define sizes
+  // @ts-expect-error should provide pswp instance?
+  const viewportSize = instance.viewportSize || getViewportSize(options, instance);
+  const panAreaSize = getPanAreaSize(options, viewportSize, itemData, index);
+
+  const zoomLevel = new ZoomLevel(options, itemData, -1);
+  zoomLevel.update(content.width, content.height, panAreaSize);
+
+  content.lazyLoad();
+  content.setDisplayedSize(
+    Math.ceil(content.width * zoomLevel.initial),
+    Math.ceil(content.height * zoomLevel.initial)
+  );
+
+  return content;
+}
+
+
+/**
+ * Lazy-loads specific slide.
+ * This function is used both by Lightbox and PhotoSwipe core,
+ * thus it can be called before dialog is opened.
+ *
+ * By default it loads image based on viewport size and initial zoom level.
+ *
+ * @param {number} index Slide index
+ * @param {PhotoSwipe | PhotoSwipeLightbox} instance PhotoSwipe or PhotoSwipeLightbox eventable instance
+ */
+function lazyLoadSlide(index, instance) {
+  const itemData = instance.getItemData(index);
+
+  if (instance.dispatch('lazyLoadSlide', { index, itemData }).defaultPrevented) {
+    return;
+  }
+
+  return lazyLoadData(itemData, instance, index);
+}
+
+/**
+ * @template T
+ * @typedef {import("../types").Type<T>} Type<T>
+ */
+
+/** @typedef {import("../photoswipe").default} PhotoSwipe */
+/** @typedef {import("../photoswipe").PhotoSwipeOptions} PhotoSwipeOptions */
+/** @typedef {import("../photoswipe").DataSource} DataSource */
+/** @typedef {import("../slide/content").default} Content */
+/** @typedef {import("../core/eventable").PhotoSwipeEventsMap} PhotoSwipeEventsMap */
+/** @typedef {import("../core/eventable").PhotoSwipeFiltersMap} PhotoSwipeFiltersMap */
+
+/**
+ * @template T
+ * @typedef {import("../core/eventable").EventCallback<T>} EventCallback<T>
+ */
+
+/**
+ * PhotoSwipe Lightbox
+ *
+ * - If user has unsupported browser it falls back to default browser action (just opens URL)
+ * - Binds click event to links that should open PhotoSwipe
+ * - parses DOM strcture for PhotoSwipe (retrieves large image URLs and sizes)
+ * - Initializes PhotoSwipe
+ *
+ *
+ * Loader options use the same object as PhotoSwipe, and supports such options:
+ *
+ * gallery - Element | Element[] | NodeList | string selector for the gallery element
+ * children - Element | Element[] | NodeList | string selector for the gallery children
+ *
+ */
+class PhotoSwipeLightbox extends PhotoSwipeBase {
+  /**
+   * @param {PhotoSwipeOptions} options
+   */
+  constructor(options) {
+    super();
+    /** @type {PhotoSwipeOptions} */
+    this.options = options || {};
+    this._uid = 0;
+  }
+
+  /**
+   * Initialize lightbox, should be called only once.
+   * It's not included in the main constructor, so you may bind events before it.
+   */
+  init() {
+    this.onThumbnailsClick = this.onThumbnailsClick.bind(this);
+
+    // Bind click events to each gallery
+    getElementsFromOption(this.options.gallery, this.options.gallerySelector)
+      .forEach((galleryElement) => {
+        galleryElement.addEventListener('click', this.onThumbnailsClick, false);
+      });
+  }
+
+  /**
+   * @param {MouseEvent} e
+   */
+  onThumbnailsClick(e) {
+    // Exit and allow default browser action if:
+    if (specialKeyUsed(e) // ... if clicked with a special key (ctrl/cmd...)
+        || window.pswp // ... if PhotoSwipe is already open
+        || window.navigator.onLine === false) { // ... if offline
+      return;
+    }
+
+    // If both clientX and clientY are 0 or not defined,
+    // the event is likely triggered by keyboard,
+    // so we do not pass the initialPoint
+    //
+    // Note that some screen readers emulate the mouse position,
+    // so it's not ideal way to detect them.
+    //
+    let initialPoint = { x: e.clientX, y: e.clientY };
+
+    if (!initialPoint.x && !initialPoint.y) {
+      initialPoint = null;
+    }
+
+    let clickedIndex = this.getClickedIndex(e);
+    clickedIndex = this.applyFilters('clickedIndex', clickedIndex, e, this);
+    const dataSource = {
+      gallery: /** @type {HTMLElement} */ (e.currentTarget)
+    };
+
+    if (clickedIndex >= 0) {
+      e.preventDefault();
+      this.loadAndOpen(clickedIndex, dataSource, initialPoint);
+    }
+  }
+
+  /**
+   * Get index of gallery item that was clicked.
+   *
+   * @param {MouseEvent} e click event
+   */
+  getClickedIndex(e) {
+    // legacy option
+    if (this.options.getClickedIndexFn) {
+      return this.options.getClickedIndexFn.call(this, e);
+    }
+
+    const clickedTarget = /** @type {HTMLElement} */ (e.target);
+    const childElements = getElementsFromOption(
+      this.options.children,
+      this.options.childSelector,
+      /** @type {HTMLElement} */ (e.currentTarget)
+    );
+    const clickedChildIndex = childElements.findIndex(
+      child => child === clickedTarget || child.contains(clickedTarget)
+    );
+
+    if (clickedChildIndex !== -1) {
+      return clickedChildIndex;
+    } else if (this.options.children || this.options.childSelector) {
+      // click wasn't on a child element
+      return -1;
+    }
+
+    // There is only one item (which is the gallery)
+    return 0;
+  }
+
+  /**
+   * Load and open PhotoSwipe
+   *
+   * @param {number} index
+   * @param {DataSource=} dataSource
+   * @param {{ x?: number; y?: number }} [initialPoint]
+   */
+  loadAndOpen(index, dataSource, initialPoint) {
+    // Check if the gallery is already open
+    if (window.pswp) {
+      return false;
+    }
+
+    // set initial index
+    this.options.index = index;
+
+    // define options for PhotoSwipe constructor
+    this.options.initialPointerPos = initialPoint;
+
+    this.shouldOpen = true;
+    this.preload(index, dataSource);
+    return true;
+  }
+
+  /**
+   * Load the main module and the slide content by index
+   *
+   * @param {number} index
+   * @param {DataSource=} dataSource
+   */
+  preload(index, dataSource) {
+    const { options } = this;
+
+    if (dataSource) {
+      options.dataSource = dataSource;
+    }
+
+    // Add the main module
+    /** @type {Promise<Type<PhotoSwipe>>[]} */
+    const promiseArray = [];
+
+    const pswpModuleType = typeof options.pswpModule;
+    if (isPswpClass(options.pswpModule)) {
+      promiseArray.push(Promise.resolve(/** @type {Type<PhotoSwipe>} */ (options.pswpModule)));
+    } else if (pswpModuleType === 'string') {
+      throw new Error('pswpModule as string is no longer supported');
+    } else if (pswpModuleType === 'function') {
+      promiseArray.push(/** @type {() => Promise<Type<PhotoSwipe>>} */ (options.pswpModule)());
+    } else {
+      throw new Error('pswpModule is not valid');
+    }
+
+    // Add custom-defined promise, if any
+    if (typeof options.openPromise === 'function') {
+      // allow developers to perform some task before opening
+      promiseArray.push(options.openPromise());
+    }
+
+    if (options.preloadFirstSlide !== false && index >= 0) {
+      this._preloadedContent = lazyLoadSlide(index, this);
+    }
+
+    // Wait till all promises resolve and open PhotoSwipe
+    const uid = ++this._uid;
+    Promise.all(promiseArray).then((iterableModules) => {
+      if (this.shouldOpen) {
+        const mainModule = iterableModules[0];
+        this._openPhotoswipe(mainModule, uid);
+      }
+    });
+  }
+
+  /**
+   * @private
+   * @param {Type<PhotoSwipe> | { default: Type<PhotoSwipe> }} module
+   * @param {number} uid
+   */
+  _openPhotoswipe(module, uid) {
+    // Cancel opening if UID doesn't match the current one
+    // (if user clicked on another gallery item before current was loaded).
+    //
+    // Or if shouldOpen flag is set to false
+    // (developer may modify it via public API)
+    if (uid !== this._uid && this.shouldOpen) {
+      return;
+    }
+
+    this.shouldOpen = false;
+
+    // PhotoSwipe is already open
+    if (window.pswp) {
+      return;
+    }
+
+    /**
+     * Pass data to PhotoSwipe and open init
+     *
+     * @type {PhotoSwipe}
+     */
+    const pswp = typeof module === 'object'
+        ? new module.default(this.options) // eslint-disable-line
+        : new module(this.options); // eslint-disable-line
+
+    this.pswp = pswp;
+    window.pswp = pswp;
+
+    // map listeners from Lightbox to PhotoSwipe Core
+    /** @type {(keyof PhotoSwipeEventsMap)[]} */
+    (Object.keys(this._listeners)).forEach((name) => {
+      this._listeners[name].forEach((fn) => {
+        pswp.on(name, /** @type {EventCallback<typeof name>} */(fn));
+      });
+    });
+
+    // same with filters
+    /** @type {(keyof PhotoSwipeFiltersMap)[]} */
+    (Object.keys(this._filters)).forEach((name) => {
+      this._filters[name].forEach((filter) => {
+        pswp.addFilter(name, filter.fn, filter.priority);
+      });
+    });
+
+    if (this._preloadedContent) {
+      pswp.contentLoader.addToCache(this._preloadedContent);
+      this._preloadedContent = null;
+    }
+
+    pswp.on('destroy', () => {
+      // clean up public variables
+      this.pswp = null;
+      window.pswp = null;
+    });
+
+    pswp.init();
+  }
+
+  /**
+   * Unbinds all events, closes PhotoSwipe if it's open.
+   */
+  destroy() {
+    if (this.pswp) {
+      this.pswp.destroy();
+    }
+
+    this.shouldOpen = false;
+    this._listeners = null;
+
+    getElementsFromOption(this.options.gallery, this.options.gallerySelector)
+      .forEach((galleryElement) => {
+        galleryElement.removeEventListener('click', this.onThumbnailsClick, false);
+      });
+  }
+}
+
+
+//# sourceMappingURL=photoswipe-lightbox.esm.js.map
+
+
+/***/ }),
+
 /***/ "./node_modules/@inertiajs/inertia/node_modules/axios/package.json":
 /*!*************************************************************************!*\
   !*** ./node_modules/@inertiajs/inertia/node_modules/axios/package.json ***!
@@ -76490,6 +85949,17 @@ var api = init(defaultConverter, { path: '/' });
 
 "use strict";
 module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"Promise based HTTP client for the browser and node.js","main":"index.js","scripts":{"test":"grunt test","start":"node ./sandbox/server.js","build":"NODE_ENV=production grunt build","preversion":"npm test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json","postversion":"git push && git push --tags","examples":"node ./examples/server.js","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","fix":"eslint --fix lib/**/*.js"},"repository":{"type":"git","url":"https://github.com/axios/axios.git"},"keywords":["xhr","http","ajax","promise","node"],"author":"Matt Zabriskie","license":"MIT","bugs":{"url":"https://github.com/axios/axios/issues"},"homepage":"https://axios-http.com","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"jsdelivr":"dist/axios.min.js","unpkg":"dist/axios.min.js","typings":"./index.d.ts","dependencies":{"follow-redirects":"^1.14.0"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}]}');
+
+/***/ }),
+
+/***/ "./node_modules/jsencrypt/lib/version.json":
+/*!*************************************************!*\
+  !*** ./node_modules/jsencrypt/lib/version.json ***!
+  \*************************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = {"version":"3.2.1"};
 
 /***/ })
 
@@ -76582,6 +86052,39 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/ensure chunk */
+/******/ 	(() => {
+/******/ 		__webpack_require__.f = {};
+/******/ 		// This file contains only the entry chunk.
+/******/ 		// The chunk loading function for additional chunks
+/******/ 		__webpack_require__.e = (chunkId) => {
+/******/ 			return Promise.all(Object.keys(__webpack_require__.f).reduce((promises, key) => {
+/******/ 				__webpack_require__.f[key](chunkId, promises);
+/******/ 				return promises;
+/******/ 			}, []));
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/get javascript chunk filename */
+/******/ 	(() => {
+/******/ 		// This function allow to reference async chunks
+/******/ 		__webpack_require__.u = (chunkId) => {
+/******/ 			// return url for filenames not based on template
+/******/ 			if (chunkId === "node_modules_photoswipe_dist_photoswipe_esm_js") return "js/" + chunkId + ".js";
+/******/ 			// return url for filenames based on template
+/******/ 			return undefined;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/get mini-css chunk filename */
+/******/ 	(() => {
+/******/ 		// This function allow to reference all chunks
+/******/ 		__webpack_require__.miniCssF = (chunkId) => {
+/******/ 			// return url for filenames based on template
+/******/ 			return "" + chunkId + ".css";
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/global */
 /******/ 	(() => {
 /******/ 		__webpack_require__.g = (function() {
@@ -76597,6 +86100,52 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/load script */
+/******/ 	(() => {
+/******/ 		var inProgress = {};
+/******/ 		// data-webpack is not used as build has no uniqueName
+/******/ 		// loadScript function to load a script via script tag
+/******/ 		__webpack_require__.l = (url, done, key, chunkId) => {
+/******/ 			if(inProgress[url]) { inProgress[url].push(done); return; }
+/******/ 			var script, needAttach;
+/******/ 			if(key !== undefined) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				for(var i = 0; i < scripts.length; i++) {
+/******/ 					var s = scripts[i];
+/******/ 					if(s.getAttribute("src") == url) { script = s; break; }
+/******/ 				}
+/******/ 			}
+/******/ 			if(!script) {
+/******/ 				needAttach = true;
+/******/ 				script = document.createElement('script');
+/******/ 		
+/******/ 				script.charset = 'utf-8';
+/******/ 				script.timeout = 120;
+/******/ 				if (__webpack_require__.nc) {
+/******/ 					script.setAttribute("nonce", __webpack_require__.nc);
+/******/ 				}
+/******/ 		
+/******/ 				script.src = url;
+/******/ 			}
+/******/ 			inProgress[url] = [done];
+/******/ 			var onScriptComplete = (prev, event) => {
+/******/ 				// avoid mem leaks in IE.
+/******/ 				script.onerror = script.onload = null;
+/******/ 				clearTimeout(timeout);
+/******/ 				var doneFns = inProgress[url];
+/******/ 				delete inProgress[url];
+/******/ 				script.parentNode && script.parentNode.removeChild(script);
+/******/ 				doneFns && doneFns.forEach((fn) => (fn(event)));
+/******/ 				if(prev) return prev(event);
+/******/ 			}
+/******/ 			;
+/******/ 			var timeout = setTimeout(onScriptComplete.bind(null, undefined, { type: 'timeout', target: script }), 120000);
+/******/ 			script.onerror = onScriptComplete.bind(null, script.onerror);
+/******/ 			script.onload = onScriptComplete.bind(null, script.onload);
+/******/ 			needAttach && document.head.appendChild(script);
+/******/ 		};
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
@@ -76619,6 +86168,11 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		__webpack_require__.p = "/";
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/jsonp chunk loading */
 /******/ 	(() => {
 /******/ 		// no baseURI
@@ -76631,7 +86185,44 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			"css/app": 0
 /******/ 		};
 /******/ 		
-/******/ 		// no chunk on demand loading
+/******/ 		__webpack_require__.f.j = (chunkId, promises) => {
+/******/ 				// JSONP chunk loading for javascript
+/******/ 				var installedChunkData = __webpack_require__.o(installedChunks, chunkId) ? installedChunks[chunkId] : undefined;
+/******/ 				if(installedChunkData !== 0) { // 0 means "already installed".
+/******/ 		
+/******/ 					// a Promise means "currently loading".
+/******/ 					if(installedChunkData) {
+/******/ 						promises.push(installedChunkData[2]);
+/******/ 					} else {
+/******/ 						if("css/app" != chunkId) {
+/******/ 							// setup Promise in chunk cache
+/******/ 							var promise = new Promise((resolve, reject) => (installedChunkData = installedChunks[chunkId] = [resolve, reject]));
+/******/ 							promises.push(installedChunkData[2] = promise);
+/******/ 		
+/******/ 							// start chunk loading
+/******/ 							var url = __webpack_require__.p + __webpack_require__.u(chunkId);
+/******/ 							// create error before stack unwound to get useful stacktrace later
+/******/ 							var error = new Error();
+/******/ 							var loadingEnded = (event) => {
+/******/ 								if(__webpack_require__.o(installedChunks, chunkId)) {
+/******/ 									installedChunkData = installedChunks[chunkId];
+/******/ 									if(installedChunkData !== 0) installedChunks[chunkId] = undefined;
+/******/ 									if(installedChunkData) {
+/******/ 										var errorType = event && (event.type === 'load' ? 'missing' : event.type);
+/******/ 										var realSrc = event && event.target && event.target.src;
+/******/ 										error.message = 'Loading chunk ' + chunkId + ' failed.\n(' + errorType + ': ' + realSrc + ')';
+/******/ 										error.name = 'ChunkLoadError';
+/******/ 										error.type = errorType;
+/******/ 										error.request = realSrc;
+/******/ 										installedChunkData[1](error);
+/******/ 									}
+/******/ 								}
+/******/ 							};
+/******/ 							__webpack_require__.l(url, loadingEnded, "chunk-" + chunkId, chunkId);
+/******/ 						} else installedChunks[chunkId] = 0;
+/******/ 					}
+/******/ 				}
+/******/ 		};
 /******/ 		
 /******/ 		// no prefetching
 /******/ 		

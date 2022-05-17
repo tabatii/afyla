@@ -1,8 +1,8 @@
 <template>
 	<div>
-		<div class="fs-4 fw-light text-center p-4" v-if="bag.length === 0">
-			<p>Your shopping bag is empty.</p>
-			<p>Go shopping!</p>
+		<div class="p-4" v-if="bag.length === 0">
+			<p>Your shopping bag is still empty.</p>
+			<p>We invite you to discover our <l class="underline" :href="route('shop')">products</l> and buy what you like.</p>
 		</div>
 		<div v-else>
 			<div class="p-4">
@@ -42,7 +42,7 @@
 			<hr class="m-0" />
 			<div class="d-grid gap-2 px-4 py-3">
 				<l :href="route('bag')" class="btn btn-primary py-3">VIEW MY BAG</l>
-				<button type="button" class="btn btn-dark py-3">CHECKOUT</button>
+				<l :href="route('checkout')" class="btn btn-dark py-3">CHECKOUT</l>
 			</div>
 		</div>
 	</div>

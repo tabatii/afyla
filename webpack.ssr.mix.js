@@ -13,6 +13,7 @@ mix.options({ manifest: false })
 	})
 	.alias({
 		ziggy: path.resolve('vendor/tightenco/ziggy/src/js'),
+		public: path.resolve('public'),
 		'@': path.resolve('resources/js'),
 	})
 	.webpackConfig({

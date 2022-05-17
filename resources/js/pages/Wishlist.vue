@@ -15,7 +15,7 @@
 		</PopUp>
 		<PopUp v-model="del">
 			<div class="text-center py-2">
-				<p class="fw-medium">ARE YOU SURE YOU WANT TO DELETE THIS ITEM FROM YOUR WISHLIST ?</p>
+				<p class="fw-medium">Are you sure you want to delete this item from your wishlist ?</p>
 				<button type="button" class="btn btn-secondary" :disabled="loading" @click="deleteFromWishlist(del)">DELETE</button>
 				<button type="button" class="btn btn-outline-secondary text-dark" @click="del = null">CANCEL</button>
 			</div>
@@ -74,42 +74,42 @@
 		<section style="margin-bottom:200px">
 			<div class="container">
 				<div class="pt-5 pb-3">
-					<div class="d-flex align-items-center flex-wrap mb-3">
-						<span class="fw-medium fs-5 me-auto">{{ wishlist.length }} Item(s)</span>
-						<div class="d-flex align-items-center flex-wrap">
-							<div class="me-4">
+					<div class="d-flex flex-column flex-sm-row flex-wrap mb-3">
+						<div class="d-flex align-items-center flex-wrap flex-grow-1 mb-2 mb-sm-0">
+							<span class="fw-medium fs-5 me-auto" style="line-height:1.7">{{ wishlist.length }} Item(s)</span>
+							<div class="me-sm-4">
 								<span class="pointer" v-if="!share" @click="share = true">
 									<i class="bi bi-share-fill fs-4"></i>
 								</span>
-								<div class="d-flex align-items-center rounded shadow-sm bg-light px-3 py-1" v-else>
-									<span class="pointer text-muted underline me-4">COPY LINK</span>
+								<div class="d-flex align-items-center rounded shadow-sm bg-light px-3" v-else>
+									<span class="position-relative pointer text-muted underline me-4" :class="{tp: copied}" @click="copyWishlist">COPY LINK</span>
 									<span class="pointer me-2" data-bs-toggle="modal" data-bs-target="#shareAll">
 										<i class="bi bi-envelope pointer fs-5"></i>
 									</span>
 									<button type="button" class="btn-close" @click="share = false"></button>
 								</div>
 							</div>
-							<div class="d-flex align-items-center">
-								<span class="fw-medium me-2">Sort by</span>
-								<div class="dropdown">
-									<button type="button" class="btn btn-primary shadow-none" data-bs-toggle="dropdown" aria-expanded="false">
-										<span v-text="sort[params.sort]"></span>
-										<i class="bi bi-caret-down-fill"></i>
-									</button>
-									<ul class="dropdown-menu dropdown-menu-end shadow-sm">
-										<li v-for="(text, key) in sort">
-											<span class="dropdown-item pointer text-dark" @click="params.sort = key">
-												<i class="bi bi-check" :class="{show: params.sort === key}"></i> {{ text }}
-											</span>
-										</li>
-									</ul>
-								</div>
+						</div>
+						<div class="d-flex align-items-center">
+							<span class="fw-medium me-2">Sort by</span>
+							<div class="dropdown">
+								<button type="button" class="btn btn-primary shadow-none" data-bs-toggle="dropdown" aria-expanded="false">
+									<span v-text="sort[params.sort]"></span>
+									<i class="bi bi-caret-down-fill"></i>
+								</button>
+								<ul class="dropdown-menu dropdown-menu-end shadow-sm">
+									<li v-for="(text, key) in sort">
+										<span class="dropdown-item pointer text-dark" @click="params.sort = key">
+											<i class="bi bi-check" :class="{show: params.sort === key}"></i> {{ text }}
+										</span>
+									</li>
+								</ul>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="row gy-4">
-					<div class="col-sm-6 col-lg-4 col-xl-3" v-for="(item, i) in sorted" :key="Math.random()">
+					<div class="col-sm-6 col-lg-4 col-xl-3" v-for="(item, i) in sorted" :key="i">
 						<div class="product position-relative">
 							<img :src="item.product.gallery[0]" class="d-block w-100 pointer" @click="open(i)" />
 							<div class="bag shadow" :class="{show: card === i}">
@@ -191,6 +191,7 @@
 	import { Head } from '@inertiajs/inertia-vue'
 	import { Link } from '@inertiajs/inertia-vue'
 	import PopUp from '../components/PopUp'
+	import copy from 'copy-to-clipboard'
 	import qs from 'query-string'
 	export default {
 		components: {
@@ -292,6 +293,14 @@
 			shareAll() {
 				this.form.ids = this.wishlist.map(item => item.product.id)
 				this.form.post(this.route('share.all'))
+			},
+			copyWishlist() {
+				var ids = this.wishlist.map(item => item.product.id)
+				copy(this.route('shop', {ids}))
+				this.copied = true
+				setTimeout(() => {
+					this.copied = false
+				}, 2000)
 			}
 		},
 		data() {
@@ -299,6 +308,7 @@
 				sorted: [],
 				del: null,
 				done: false,
+				copied: false,
 				soldout: false,
 				loading: false,
 				social: null,
@@ -376,5 +386,31 @@
 	}
 	.bi-check.show {
 		visibility: visible;
+	}
+	.tp:before {
+		content: "";
+		position: absolute;
+		left: calc(50% - 5px);
+		bottom: 0;
+		height: 0;
+		width: 0;
+		border-left: 5px solid transparent;
+		border-right: 5px solid transparent;
+		border-bottom: 5px solid black;
+		cursor: default;
+	}
+	.tp:after {
+		content: "Copied!";
+		position: absolute;
+		left: calc(50% - 35px);
+		bottom: calc(-100% - 5px);
+		width: 70px;
+		padding: .25rem 0;
+		border-radius: .25rem;
+		background-color: black;
+		color: white;
+		font-size: .875rem;
+		text-align: center;
+		cursor: default;
 	}
 </style>

@@ -121,7 +121,7 @@
 
 		<div class="offcanvas offcanvas-end" id="bag" tabindex="-1" data-bs-scroll="true" style="width:500px">
 			<div class="offcanvas-header">
-				<h5 class="fs-2 fw-light mb-0">Shopping bag</h5>
+				<h5 class="fs-2 fw-light mb-0"><img src="/img/icons/bag.png" class="align-baseline" height="24px" /> Shopping bag</h5>
 				<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 			</div>
 			<div class="offcanvas-body p-0">

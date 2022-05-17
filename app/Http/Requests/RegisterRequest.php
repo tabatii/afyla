@@ -32,6 +32,7 @@ class RegisterRequest extends FormRequest
             'birthday' => 'required|date',
             'subscribe' => 'required|boolean',
             'agree' => 'required|accepted',
+            'redirect' => 'sometimes|string',
         ];
     }
 

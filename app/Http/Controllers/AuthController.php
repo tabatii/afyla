@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\LoginRequest;
 use App\Models\Subscription;
+use App\Models\Wishlist;
 use App\Models\User;
+use App\Models\Bag;
 use Carbon\Carbon;
 
 class AuthController extends Controller
@@ -33,18 +35,20 @@ class AuthController extends Controller
             $subscription->save();
         }
 
-        $user->sendEmailVerificationNotification();
         auth()->login($user);
+        $user->sendEmailVerificationNotification();
+        $this->saveGuestData($request->cookie('cookie_id'));
 
-        return redirect()->route('profile');
+        return $request->redirect ? redirect()->route($request->redirect) : redirect()->route('profile');
     }
 
     public function login(LoginRequest $request)
     {
-        $credentials = $request->only(['email', 'password']);
-        if (auth()->attempt($credentials, $request->remember)) {
-            return redirect()->route('profile');
+        if (auth()->attempt($request->only(['email', 'password']), $request->remember)) {
+            $this->saveGuestData($request->cookie('cookie_id'));
+            return $request->redirect ? redirect()->route($request->redirect) : redirect()->route('profile');
         }
+
         return back()->withErrors(['auth' => __('auth.failed')]);
     }
 
@@ -54,8 +58,24 @@ class AuthController extends Controller
         return redirect()->route('home');
     }
 
-    public function redirect()
+    public function saveGuestData($cookie)
     {
-        return redirect()->route('home');
+        $bag = Bag::where('user_id', auth()->id())->get();
+        $bag->each(function ($item) use ($cookie) {
+            Bag::whereNotNull('cookie_id')->where('cookie_id', $cookie)->where('product_id', $item->product_id)->where('size_id', $item->size_id)->delete();
+        });
+        Bag::whereNotNull('cookie_id')->where('cookie_id', $cookie)->update([
+            'user_id' => auth()->id(),
+            'cookie_id' => null,
+        ]);
+
+        $wishlist = Wishlist::where('user_id', auth()->id())->pluck('product_id');
+        Wishlist::whereNotNull('cookie_id')->where('cookie_id', $cookie)->whereIn('product_id', $wishlist)->delete();
+        Wishlist::whereNotNull('cookie_id')->where('cookie_id', $cookie)->update([
+            'user_id' => auth()->id(),
+            'cookie_id' => null,
+        ]);
+
+        cookie()->queue(cookie()->forget('cookie_id'));
     }
 }

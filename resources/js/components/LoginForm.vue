@@ -27,8 +27,8 @@
 			</div>
 			<div class="d-flex flex-column flex-sm-row mb-3">
 				<div class="form-check me-auto">
-					<input type="checkbox" class="form-check-input shadow-none" id="remember" v-model="login.remember" />
-					<label class="form-check-label" for="remember" style="user-select:none">REMEMBER ME</label>
+					<input type="checkbox" class="form-check-input shadow-none" :id="`remember${_uid}`" v-model="login.remember" />
+					<label class="form-check-label" :for="`remember${_uid}`" style="user-select:none">REMEMBER ME</label>
 				</div>
 				<l href="#" @click.prevent="tab = true">FORGOT PASSWORD ?</l>
 			</div>
@@ -64,8 +64,8 @@
 				tab: false,
 				sent: false,
 				login: this.$inertia.form({
-					email: null,
-					password: null,
+					email: 'anatanjaawi@gmail.com',
+					password: '123456',
 					remember: false,
 				}),
 				forgot: this.$inertia.form({

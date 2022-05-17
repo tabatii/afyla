@@ -87,6 +87,9 @@ Route::delete('/address/{id}', [\App\Http\Controllers\AddressController::class, 
 // Subscription routes
 Route::post('/subscription', [\App\Http\Controllers\SubscriptionController::class, 'store'])->name('subscription.add');
 
+// Checkout routes
+Route::get('/checkout', [\App\Http\Controllers\CheckoutController::class, 'index'])->name('checkout');
+
 
 // Voyager routes
 Route::group(['prefix' => 'admin'], function () {

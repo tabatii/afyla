@@ -154,11 +154,11 @@
 											<l :href="route('product', product.id)"><img :src="img" class="d-block w-100" /></l>
 										</div>
 									</div>
-									<button class="arrows carousel-control-prev" type="button" :data-bs-target="'#gallery'+product.id" data-bs-slide="prev">
+									<button type="button" class="arrows carousel-control-prev" :data-bs-target="'#gallery'+product.id" data-bs-slide="prev">
 										<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 										<span class="visually-hidden">Previous</span>
 									</button>
-									<button class="arrows carousel-control-next" type="button" :data-bs-target="'#gallery'+product.id" data-bs-slide="next">
+									<button type="button" class="arrows carousel-control-next" :data-bs-target="'#gallery'+product.id" data-bs-slide="next">
 										<span class="carousel-control-next-icon" aria-hidden="true"></span>
 										<span class="visually-hidden">Next</span>
 									</button>

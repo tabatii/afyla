@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CheckCookieId
 {
@@ -16,7 +17,7 @@ class CheckCookieId
      */
     public function handle(Request $request, Closure $next)
     {
-        if (! $request->cookie('cookie_id')) {
+        if (! Auth::check() && ! $request->cookie('cookie_id')) {
             return back();
         }
         return $next($request);

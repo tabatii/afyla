@@ -37,6 +37,7 @@
 		position: relative;
 		width: 100%;
 		max-width: 500px;
+		overflow: auto;
 		background-color: var(--bs-primary);
 	}
 	.popup-body {

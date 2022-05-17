@@ -53,6 +53,7 @@
 				<div class="row g-0" v-if="bag.length !== 0">
 					<div class="col-lg-8 col-xl-7 border">
 						<div class="p-3">
+							<p class="fs-4 mb-2">ORDER SUMMARY</p>
 							<div class="d-flex">
 								<span class="text-muted me-auto">Subtotal:</span>
 								<span class="fw-medium text-end" v-text="getFormatedPrice(getBagTotal)"></span>
@@ -61,16 +62,16 @@
 								<span class="text-muted me-auto">Shipping:</span>
 								<span class="fw-medium text-end">{{ getFormatedPrice(shipping) }} (via FedEx Express Worldwide)</span>
 							</div>
-							<div class="d-flex mb-2">
-								<span class="text-muted me-auto">VAT:</span>
-								<span class="fw-medium text-end" v-text="getFormatedPrice(vat)"></span>
-							</div>
-							<div class="d-flex mb-3">
+							<div class="d-flex">
 								<span class="text-muted me-auto">Total:</span>
 								<span class="text-danger fw-medium text-end" v-text="getFormatedPrice(getBagTotal + shipping + vat)"></span>
 							</div>
+							<div class="d-flex mb-3">
+								<span class="text-muted me-auto">VAT (included):</span>
+								<span class="fw-medium text-end" v-text="getFormatedPrice(vat)"></span>
+							</div>
 							<div class="d-grid">
-								<button type="button" class="btn btn-primary py-3">CHECKOUT</button>
+								<l :href="route('checkout')" class="btn btn-primary py-3">CHECKOUT</l>
 							</div>
 						</div>
 					</div>
@@ -83,10 +84,12 @@
 <script>
 	import AppLayout from '../components/AppLayout'
 	import { Head } from '@inertiajs/inertia-vue'
+	import { Link } from '@inertiajs/inertia-vue'
 	export default {
 		components: {
 			AppLayout,
 			h: Head,
+			l: Link,
 		},
 		computed: {
 			bag() {

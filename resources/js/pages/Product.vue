@@ -74,21 +74,7 @@
 			<div class="container-fluid px-3 px-sm-5">
 				<div class="row gy-4">
 					<div class="col-lg-5">
-						<div class="carousel carousel-dark slide" id="gallery" data-bs-ride="carousel" data-bs-interval="false">
-							<div class="carousel-inner">
-								<div class="carousel-item" :class="{active: i===0}" v-for="(img, i) in product.gallery" :key="Math.random()">
-									<img :src="img" class="d-block w-100 mx-auto" />
-								</div>
-							</div>
-							<button class="carousel-control-prev" type="button" data-bs-target="#gallery" data-bs-slide="prev">
-								<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-								<span class="visually-hidden">Previous</span>
-							</button>
-							<button class="carousel-control-next" type="button" data-bs-target="#gallery" data-bs-slide="next">
-								<span class="carousel-control-next-icon" aria-hidden="true"></span>
-								<span class="visually-hidden">Next</span>
-							</button>
-						</div>
+						<ProductGallery :gallery="product.gallery"></ProductGallery>
 					</div>
 					<div class="col-lg-7 col-xl-6">
 						<div class="d-flex flex-column flex-sm-row">
@@ -102,13 +88,17 @@
 						</div>
 						<hr />
 						<p class="mb-5" v-text="product.overview"></p>
-						<div class="d-flex align-items-baseline flex-wrap mb-4">
-							<span class="fw-medium me-sm-3">Size:</span>
-							<button type="button" class="btn text-dark" :class="[s.size_id === size ? 'btn-primary' : 'btn-link']" v-for="s in product.sizes" :key="Math.random()" v-if="s.qty !== null" @click="size = s.size_id">
-								<del class="text-muted" v-if="s.qty === 0">{{ s.size.name }}</del>
-								<span v-else>{{ s.size.name }}</span>
-							</button>
-							<span class="pointer underline ms-auto" data-bs-toggle="modal" data-bs-target="#sizeModal">Find your size</span>
+						<div class="d-flex align-items-baseline flex-column flex-sm-row flex-wrap mb-4">
+							<div class="d-flex align-items-baseline flex-wrap">
+								<span class="fw-medium me-sm-3">Size:</span>
+								<button type="button" class="btn text-dark" :class="[s.size_id === size ? 'btn-primary' : 'btn-link']" v-for="s in product.sizes" :key="Math.random()" v-if="s.qty !== null" @click="size = s.size_id">
+									<del class="text-muted" v-if="s.qty === 0">{{ s.size.name }}</del>
+									<span v-else>{{ s.size.name }}</span>
+								</button>
+							</div>
+							<div class="ms-sm-auto">
+								<span class="pointer underline" data-bs-toggle="modal" data-bs-target="#sizeModal">Find your size</span>
+							</div>
 						</div>
 						<div class="d-flex align-items-baseline flex-column flex-sm-row mb-4">
 							<div class="fs-5 fw-medium me-3">
@@ -276,7 +266,7 @@
 		</section>
 		<section class="bg-primary position-relative carousel-dark p-0 p-sm-5">
 			<p class="fs-2 text-center mb-4">YOU MAY ALSO LIKE</p>
-			<div class="glider">
+			<div ref="glider">
 				<div class="glider-track mx-auto">
 					<div class="recommendation px-3" v-for="item in product.recommendations" :key="item.id">
 						<div class="position-relative">
@@ -351,6 +341,7 @@
 	import { Link } from '@inertiajs/inertia-vue'
 	import AppLayout from '../components/AppLayout'
 	import SocialShare from '../components/SocialShare'
+	import ProductGallery from '../components/ProductGallery'
 	import QtyField from '../components/QtyField'
 	import FindSize from '../components/FindSize'
 	import PopUp from '../components/PopUp'
@@ -362,6 +353,7 @@
 		components: {
 			AppLayout,
 			SocialShare,
+			ProductGallery,
 			QtyField,
 			FindSize,
 			PopUp,
@@ -432,7 +424,7 @@
 			}
 		},
 		mounted() {
-			new Glider(document.querySelector('.glider'), {
+			new Glider(this.$refs.glider, {
 				slidesToScroll: 1,
 				slidesToShow: 1,
 				skipTrack: true,
@@ -472,12 +464,6 @@
 </script>
 
 <style scoped>
-	@media (min-width: 576px) {
-		.carousel img {
-			max-height: 520px;
-			width: auto !important;
-		}
-	}
 	.accordion-button {
 		padding: 1rem .25rem;
 		background-color: var(--bs-primary);

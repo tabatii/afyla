@@ -2,7 +2,7 @@
 	<AppLayout>
 		<h title="Sustainability"></h>
 		<section class="position-relative carousel-dark py-5">
-			<div class="glider">
+			<div ref="glider">
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-6 text-center py-3 py-xl-5">
@@ -151,7 +151,7 @@
 			l: Link,
 		},
 		mounted() {
-			new Glider(document.querySelector('.glider'), {
+			new Glider(this.$refs.glider, {
 				slidesToScroll: 1,
 				slidesToShow: 1,
 				rewind: true,

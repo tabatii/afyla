@@ -6,8 +6,8 @@
 		<div class="newsletter" v-if="!newsletter">
 			<div class="content">
 				<button type="button" class="btn btn-close close" @click="closeNewsletter"></button>
-				<div class="row">
-					<div class="col-6">
+				<div class="row gy-4">
+					<div class="col-md-6 order-2 order-md-1">
 						<p class="fs-4 fw-medium mb-4">JOIN OUR COMMUNITY</p>
 						<div class="mb-5">
 							<p>GET 25% OFF YOUR FIRST ORDER.</p>
@@ -26,7 +26,7 @@
 							</div>
 						</form>
 					</div>
-					<div class="col-6">
+					<div class="col-md-6 order-1 order-md-2">
 						<img src="/img/newsletter.jpg" class="d-block w-100" />
 					</div>
 				</div>
@@ -119,6 +119,7 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		padding: 1rem;
 		background-color: rgba(0,0,0,.5);
 		z-index: 1095;
 	}
@@ -126,6 +127,7 @@
 		position: relative;
 		width: 100%;
 		max-width: 800px;
+		overflow: auto;
 		padding: 3rem;
 		background-color: white;
 	}
