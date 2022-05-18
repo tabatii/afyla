@@ -19,7 +19,7 @@
 </template>
 
 <script>
-	import PhotoSwipeLightbox from 'photoswipe/lightbox'
+	import PhotoSwipeLightbox from 'public/js/photoswipe-lightbox.esm.js'
 	export default {
 		props: {
 			gallery: Array,
