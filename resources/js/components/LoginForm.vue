@@ -64,8 +64,8 @@
 				tab: false,
 				sent: false,
 				login: this.$inertia.form({
-					email: 'anatanjaawi@gmail.com',
-					password: '123456',
+					email: null,
+					password: null,
 					remember: false,
 				}),
 				forgot: this.$inertia.form({

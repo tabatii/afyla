@@ -4,30 +4,12 @@
 		<section>
 			<div id="slider" class="carousel slide overflow-hidden" data-bs-ride="carousel">
 				<div class="carousel-inner">
-					<div class="carousel-item h-100 active">
-						<img src="/img/home/slider-1.jpg" class="d-block w-100" />
+					<div class="carousel-item h-100" :class="{active: i===0}" v-for="(slider, i) in sliders" :key="Math.random()">
+						<img :src="lg ? slider.web : slider.mobile" class="d-block w-100" />
 						<div class="carousel-caption">
-							<p class="fw-bold" :class="[xs ? 'fs-5 w-75' : 'fs-2 w-50']">METAMORPHOSIS WINTER 22-23</p>
+							<p class="fw-bold" :class="[xs ? 'fs-5 w-75' : 'fs-2 w-50']" v-text="slider.title"></p>
 							<div class="text-center">
-								<l :href="route('collection', 1)" class="btn btn-outline-light border-4 px-4" :class="{'btn-lg': !xs}">SHOP NOW</l>
-							</div>
-						</div>
-					</div>
-					<div class="carousel-item h-100">
-						<img src="/img/home/slider-2.jpg" class="d-block w-100" />
-						<div class="carousel-caption">
-							<p class="fw-bold" :class="[xs ? 'fs-5 w-75' : 'fs-2 w-50']">SUSTAINABILITY</p>
-							<div class="text-center">
-								<l :href="route('sustainability')" class="btn btn-outline-light border-4 px-4" :class="{'btn-lg': !xs}">DISCOVER MORE</l>
-							</div>
-						</div>
-					</div>
-					<div class="carousel-item h-100">
-						<img src="/img/home/slider-3.jpg" class="d-block w-100" />
-						<div class="carousel-caption">
-							<p class="fw-bold" :class="[xs ? 'fs-5 w-75' : 'fs-2 w-50']">OUR WORLD</p>
-							<div class="text-center">
-								<l :href="route('about')" class="btn btn-outline-light border-4 px-4" :class="{'btn-lg': !xs}">DISCOVER MORE</l>
+								<l :href="slider.url" class="btn btn-outline-light border-4 px-4" :class="{'btn-lg': !xs}">SHOP NOW</l>
 							</div>
 						</div>
 					</div>
@@ -93,15 +75,21 @@
 			h: Head,
 			l: Link,
 		},
+		props: {
+			sliders: Array,
+		},
 		data() {
 			return {
 				xs: false,
+				lg: false,
 			}
 		},
 		mounted() {
 			this.xs = innerWidth < 576 ? true : false
+			this.lg = innerWidth >= 992 ? true : false
 			addEventListener('resize', () => {
 				this.xs = innerWidth < 576 ? true : false
+				this.lg = innerWidth >= 992 ? true : false
 			})
 		}
 	}

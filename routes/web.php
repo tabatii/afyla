@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::inertia('/', 'Home')->name('home');
+Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Route::inertia('/about', 'About')->name('about');
 Route::inertia('/sustainability', 'Sustainability')->name('sustainability');
 Route::inertia('/customer-care', 'CustomerCare')->name('customer');
@@ -96,4 +97,15 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
     Route::get('/login', [\App\Http\Controllers\AuthController::class, 'redirect'])->name('voyager.login');
     Route::post('/login', [\App\Http\Controllers\AuthController::class, 'redirect'])->name('voyager.postlogin');
+});
+
+// Artisan routes
+Route::group(['prefix' => 'artisan'], function () {
+    Route::get('init', function () {
+        Artisan::call('migrate:fresh');
+        Artisan::call('db:seed', [
+            '--class' => 'VoyagerDatabaseSeeder',
+        ]);
+        return 'done';
+    });
 });
