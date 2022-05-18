@@ -253,8 +253,8 @@
 			}
 		},
 		mounted() {
-			//this.$refs.categoriesMenu.style.left = `-${(this.$refs.categoriesMenu.clientWidth/2)-(this.$refs.categoriesItem.clientWidth/2)}px`
-			//this.$refs.collectionsMenu.style.left = `-${(this.$refs.collectionsMenu.clientWidth/2)-(this.$refs.collectionsItem.clientWidth/2)}px`
+			this.$refs.categoriesMenu.style.left = `-${(this.$refs.categoriesMenu.clientWidth/2)-(this.$refs.categoriesItem.clientWidth/2)}px`
+			this.$refs.collectionsMenu.style.left = `-${(this.$refs.collectionsMenu.clientWidth/2)-(this.$refs.collectionsItem.clientWidth/2)}px`
 			this.scroll = pageYOffset
 			this.centered = true
 			addEventListener('scroll', () => {
