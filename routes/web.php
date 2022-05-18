@@ -100,6 +100,7 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 // Artisan routes
+/*
 Route::group(['prefix' => 'artisan'], function () {
     Route::get('init', function () {
         Artisan::call('config:clear');
@@ -109,10 +110,5 @@ Route::group(['prefix' => 'artisan'], function () {
         ]);
         return 'done';
     });
-    Route::get('admin', function () {
-        Artisan::call('voyager:admin', [
-            'email' => 'anatanjaawi@gmail.com',
-        ]);
-        return 'done';
-    });
 });
+*/
