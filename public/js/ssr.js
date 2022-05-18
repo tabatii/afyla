@@ -2644,7 +2644,7 @@ __webpack_require__.r(__webpack_exports__);
       var size = this.product.sizes.find(function (s) {
         return s.size.id === _this.size;
       });
-      return size ? size.qty : null;
+      return size ? Number(size.qty) : null;
     }
   },
   watch: {

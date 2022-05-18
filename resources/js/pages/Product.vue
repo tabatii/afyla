@@ -372,7 +372,7 @@
 			},
 			getSizeQty() {
 				var size = this.product.sizes.find(s => s.size.id === this.size)
-				return size ? size.qty : null
+				return size ? Number(size.qty) : null
 			}
 		},
 		watch: {
