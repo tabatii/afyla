@@ -1,6 +1,6 @@
 <template>
 	<AppLayout>
-		<h :title="looks[0].collection.title"></h>
+		<h title="Looks"></h>
 		<section class="py-5" style="margin-bottom:120px">
 			<div class="container">
 				<div class="row gy-4">
