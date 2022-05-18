@@ -371,7 +371,7 @@
 				return this.$page.props.wishlist
 			},
 			getSizeQty() {
-				var size = this.product.sizes.find(s => s.size.id === this.size)
+				var size = this.product.sizes.find(s => s.size_id === this.size)
 				return size ? size.qty : null
 			}
 		},
