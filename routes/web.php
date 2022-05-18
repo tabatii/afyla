@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/migrate', function() {
-    Artisan::call('migrate'); 
-    return 'migrated';
+    Artisan::call('storage:link'); 
+    return 'storage:link';
 });
 
 Route::inertia('/', 'Home')->name('home');
