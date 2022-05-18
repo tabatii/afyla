@@ -9,6 +9,13 @@ class Bag extends Model
 {
     use HasFactory;
 
+    protected $casts = [
+        'user_id' => 'integer',
+        'product_id' => 'integer',
+        'size_id' => 'integer',
+        'qty' => 'integer',
+    ];
+
     public function product()
     {
         return $this->belongsTo(Product::class);

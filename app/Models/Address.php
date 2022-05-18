@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Address extends Model
 {
     use HasFactory;
+
+    protected $casts = [
+        'user_id' => 'integer',
+        'default' => 'boolean',
+    ];
 }

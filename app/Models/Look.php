@@ -11,6 +11,9 @@ class Look extends Model
     use HasFactory;
 
     protected $appends = ['img'];
+    protected $casts = [
+        'collection_id' => 'integer',
+    ];
 
     public function collection()
     {

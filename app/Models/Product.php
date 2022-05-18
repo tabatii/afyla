@@ -15,6 +15,7 @@ class Product extends Model
     protected $casts = [
         'price' => 'float',
         'discount' => 'float',
+        'public' => 'boolean',
     ];
 
     public function collections()

@@ -10,4 +10,8 @@ class LookProduct extends Model
     use HasFactory;
 
     public $timestamps = false;
+    protected $casts = [
+        'look_id' => 'integer',
+        'product_id' => 'integer',
+    ];
 }
