@@ -13,11 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/migrate', function() {
-    Artisan::call('storage:link'); 
-    return 'storage:link';
-});
-
 Route::inertia('/', 'Home')->name('home');
 Route::inertia('/about', 'About')->name('about');
 Route::inertia('/sustainability', 'Sustainability')->name('sustainability');
