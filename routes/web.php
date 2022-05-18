@@ -103,6 +103,7 @@ Route::group(['prefix' => 'admin'], function () {
 Route::group(['prefix' => 'artisan'], function () {
     Route::get('init', function () {
         Artisan::call('migrate:fresh');
+        Artisan::call('voyager:install');
         Artisan::call('db:seed', [
             '--class' => 'VoyagerDatabaseSeeder',
         ]);
