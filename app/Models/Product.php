@@ -12,6 +12,10 @@ class Product extends Model
     use HasFactory;
 
     protected $appends = ['gallery'];
+    protected $casts = [
+        'price' => 'float',
+        'discount' => 'float',
+    ];
 
     public function collections()
     {
