@@ -108,4 +108,10 @@ Route::group(['prefix' => 'artisan'], function () {
         ]);
         return 'done';
     });
+    Route::get('admin', function () {
+        Artisan::call('voyager:admin', [
+            'email' => 'anatanjaawi@gmail.com',
+        ]);
+        return 'done';
+    });
 });
