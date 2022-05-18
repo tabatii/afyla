@@ -91,7 +91,7 @@
 						<div class="d-flex align-items-baseline flex-column flex-sm-row flex-wrap mb-4">
 							<div class="d-flex align-items-baseline flex-wrap">
 								<span class="fw-medium me-sm-3">Size:</span>
-								<button type="button" class="btn text-dark" :class="[s.size_id === size ? 'btn-primary' : 'btn-link']" v-for="s in product.sizes" :key="Math.random()" v-if="s.qty !== null" @click="size = s.size_id">
+								<button type="button" class="btn text-dark" :class="[s.size.id === size ? 'btn-primary' : 'btn-link']" v-for="s in product.sizes" :key="Math.random()" v-if="s.qty !== null" @click="size = s.size.id">
 									<del class="text-muted" v-if="s.qty === 0">{{ s.size.name }}</del>
 									<span v-else>{{ s.size.name }}</span>
 								</button>
@@ -371,7 +371,7 @@
 				return this.$page.props.wishlist
 			},
 			getSizeQty() {
-				var size = this.product.sizes.find(s => s.size_id === this.size)
+				var size = this.product.sizes.find(s => s.size.id === this.size)
 				return size ? size.qty : null
 			}
 		},

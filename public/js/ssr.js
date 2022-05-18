@@ -2642,7 +2642,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       var size = this.product.sizes.find(function (s) {
-        return s.size_id === _this.size;
+        return s.size.id === _this.size;
       });
       return size ? size.qty : null;
     }
@@ -15496,14 +15496,14 @@ var render = function () {
                                 key: Math.random(),
                                 staticClass: "btn text-dark",
                                 class: [
-                                  s.size_id === _vm.size
+                                  s.size.id === _vm.size
                                     ? "btn-primary"
                                     : "btn-link",
                                 ],
                                 attrs: { type: "button" },
                                 on: {
                                   click: function ($event) {
-                                    _vm.size = s.size_id
+                                    _vm.size = s.size.id
                                   },
                                 },
                               },
