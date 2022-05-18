@@ -13,12 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function() {
+Route::get('/migrate', function() {
     Artisan::call('migrate'); 
     return 'migrated';
 });
 
-//Route::inertia('/', 'Home')->name('home');
+Route::inertia('/', 'Home')->name('home');
 Route::inertia('/about', 'About')->name('about');
 Route::inertia('/sustainability', 'Sustainability')->name('sustainability');
 Route::inertia('/customer-care', 'CustomerCare')->name('customer');
