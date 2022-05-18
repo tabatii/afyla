@@ -3,28 +3,6 @@ import Vue from 'vue'
 import { InertiaProgress } from '@inertiajs/progress'
 import { createInertiaApp } from '@inertiajs/inertia-vue'
 
-var mixin = {
-	computed: {
-		getBagTotal() {
-			var total = 0;
-			this.$page.props.bag.forEach(item => {
-				var price = item.product.discount ? (item.product.price * item.product.discount) / 100 : item.product.price
-				total += price * item.qty
-			})
-			return total
-		}
-	},
-	methods: {
-		route,
-		getFormatedPrice(price, discount = null) {
-			var value = discount ? (price * discount) / 100 : price
-			return new Intl.NumberFormat('en-US', {
-				style: 'currency',
-				currency: 'USD',
-			}).format(value)
-		}
-	}
-}
 
 InertiaProgress.init()
 createInertiaApp({
@@ -36,7 +14,7 @@ createInertiaApp({
 				getBagTotal() {
 					var total = 0;
 					this.$page.props.bag.forEach(item => {
-						var price = item.product.discount ? (item.product.price * item.product.discount) / 100 : item.product.price
+						var price = item.product.discount ? item.product.price - ((item.product.price * item.product.discount) / 100) : item.product.price
 						total += price * item.qty
 					})
 					return total
@@ -45,7 +23,7 @@ createInertiaApp({
 			methods: {
 				route,
 				getFormatedPrice(price, discount = null) {
-					var value = discount ? (price * discount) / 100 : price
+					var value = discount ? price - ((price * discount) / 100) : price
 					return new Intl.NumberFormat('en-US', {
 						style: 'currency',
 						currency: 'USD',
