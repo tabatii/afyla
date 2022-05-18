@@ -10,6 +10,9 @@ class Social extends Model
     use HasFactory;
 
     public $timestamps = false;
+    protected $casts = [
+        'user_id' => 'integer',
+    ];
 
     public function user()
     {
