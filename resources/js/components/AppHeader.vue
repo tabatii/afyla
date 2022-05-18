@@ -54,25 +54,25 @@
 							<li class="nav-item">
 								<l :href="route('shop', {sort: 'n'})" class="nav-link text-dark underline-hover mx-lg-2">WHAT'S NEW</l>
 							</li>
-							<li class="nav-item dropdown dropdown-hover">
+							<li class="nav-item dropdown dropdown-hover" ref="categoriesItem">
 								<l :href="route('shop')" class="nav-link text-dark underline-hover mx-lg-2" @click.prevent>SHOP</l>
-								<ul class="dropdown-menu">
-									<li><l :href="route('shop')" class="dropdown-item underline-hover">VIEW ALL</l></li>
+								<ul class="dropdown-menu" :class="{'d-block': !centered}" ref="categoriesMenu">
+									<li><l :href="route('shop')" class="dropdown-item text-lg-center underline-hover">VIEW ALL</l></li>
 									<li v-for="category in categories" :key="Math.random()">
-										<l :href="route('shop', {categories: [category.id]})" class="dropdown-item underline-hover">
+										<l :href="route('shop', {categories: [category.id]})" class="dropdown-item text-lg-center underline-hover">
 											{{ category.name }}
 										</l>
 									</li>
 									<li>
-										<l :href="route('shop', {discounts: 1})" class="dropdown-item text-danger underline-hover">SPECIAL PRICES</l>
+										<l :href="route('shop', {discounts: 1})" class="dropdown-item text-lg-center text-danger underline-hover">SPECIAL PRICES</l>
 									</li>
 								</ul>
 							</li>
-							<li class="nav-item dropdown dropdown-hover">
+							<li class="nav-item dropdown dropdown-hover" ref="collectionsItem">
 								<l :href="route('shop')" class="nav-link text-dark underline-hover mx-lg-2" @click.prevent>COLLECTIONS</l>
-								<ul class="dropdown-menu">
+								<ul class="dropdown-menu" :class="{'d-block': !centered}" ref="collectionsMenu">
 									<li v-for="collection in collections" :key="Math.random()">
-										<l :href="route('collection', collection.id)" class="dropdown-item underline-hover">
+										<l :href="route('collection', collection.id)" class="dropdown-item text-lg-center underline-hover">
 											{{ collection.title }}
 										</l>
 									</li>
@@ -247,12 +247,16 @@
 		},
 		data() {
 			return {
+				centered: false,
 				scroll: null,
 				search: null,
 			}
 		},
 		mounted() {
+			this.$refs.categoriesMenu.style.left = `-${(this.$refs.categoriesMenu.clientWidth/2)-(this.$refs.categoriesItem.clientWidth/2)}px`
+			this.$refs.collectionsMenu.style.left = `-${(this.$refs.collectionsMenu.clientWidth/2)-(this.$refs.collectionsItem.clientWidth/2)}px`
 			this.scroll = pageYOffset
+			this.centered = true
 			addEventListener('scroll', () => {
 				this.scroll = pageYOffset
 			})
