@@ -10,4 +10,8 @@ class ProductCollection extends Model
     use HasFactory;
 
     public $timestamps = false;
+    protected $casts = [
+        'product_id' => 'integer',
+        'collection_id' => 'integer',
+    ];
 }

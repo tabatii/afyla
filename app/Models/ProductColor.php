@@ -10,6 +10,10 @@ class ProductColor extends Model
     use HasFactory;
 
     public $timestamps = false;
+    protected $casts = [
+        'product_id' => 'integer',
+        'color_id' => 'integer',
+    ];
 
     public function color()
     {

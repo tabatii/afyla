@@ -10,6 +10,10 @@ class ProductCategory extends Model
     use HasFactory;
 
     public $timestamps = false;
+    protected $casts = [
+        'category_id' => 'integer',
+        'product_id' => 'integer',
+    ];
 
     public function category()
     {

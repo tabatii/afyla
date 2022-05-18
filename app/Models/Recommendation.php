@@ -10,6 +10,10 @@ class Recommendation extends Model
     use HasFactory;
 
     public $timestamps = false;
+    protected $casts = [
+        'product_id' => 'integer',
+        'recommendation_id' => 'integer',
+    ];
 
     public function product()
     {

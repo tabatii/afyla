@@ -10,6 +10,11 @@ class ProductSize extends Model
     use HasFactory;
 
     public $timestamps = false;
+    protected $casts = [
+        'product_id' => 'integer',
+        'size_id' => 'integer',
+        'qty' => 'integer',
+    ];
 
     public function size()
     {

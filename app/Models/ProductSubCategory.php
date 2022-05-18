@@ -10,6 +10,10 @@ class ProductSubCategory extends Model
     use HasFactory;
 
     public $timestamps = false;
+    protected $casts = [
+        'product_id' => 'integer',
+        'sub_category_id' => 'integer',
+    ];
 
     public function subCategory()
     {
