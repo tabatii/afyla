@@ -5,7 +5,7 @@
 			<div id="slider" class="carousel slide overflow-hidden" data-bs-ride="carousel">
 				<div class="carousel-inner">
 					<div class="carousel-item h-100" :class="{active: i===0}" v-for="(slider, i) in sliders" :key="Math.random()">
-						<img :src="lg ? slider.web : slider.mobile" class="d-block w-100" />
+						<img :src="xs ? slider.mobile : slider.web" class="d-block w-100" />
 						<div class="carousel-caption">
 							<p class="fw-bold" :class="[xs ? 'fs-5 w-75' : 'fs-2 w-50']" v-text="slider.title"></p>
 							<div class="text-center">
@@ -81,15 +81,12 @@
 		data() {
 			return {
 				xs: false,
-				lg: false,
 			}
 		},
 		mounted() {
 			this.xs = innerWidth < 576 ? true : false
-			this.lg = innerWidth >= 992 ? true : false
 			addEventListener('resize', () => {
 				this.xs = innerWidth < 576 ? true : false
-				this.lg = innerWidth >= 992 ? true : false
 			})
 		}
 	}
