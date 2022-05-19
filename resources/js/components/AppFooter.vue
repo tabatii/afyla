@@ -20,7 +20,9 @@
 					<ul class="nav flex-column">
 						<li class="nav-item mb-2"><span class="fw-medium">CUSTOMER SERVICE</span></li>
 						<li class="nav-item">
-							<a class="underline me-2" :href="'tel:'+settings.phone" v-text="settings.phone"></a>
+							<a class="underline me-2" :href="'tel:'+settings.phone">
+								{{ settings.phone[0] === '+' ? settings.phone : `+${settings.phone}` }}
+							</a>
 							<a class="underline" :href="'mailto:'+settings.email" v-text="settings.email"></a>
 						</li>
 						<li class="nav-item">

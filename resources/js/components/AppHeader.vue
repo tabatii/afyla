@@ -14,7 +14,9 @@
 						<li class="nav-item d-none d-sm-block">
 							<a :href="'tel:'+settings.phone" class="nav-link text-dark mx-2" style="padding: 7px 0">
 								<img src="/img/icons/mobile.png" class="align-text-top" height="19px" style="opacity:.7" />
-								<small class="underline">+212666700661</small>
+								<small class="underline">
+									{{ settings.phone[0] === '+' ? settings.phone : `+${settings.phone}` }}
+								</small>
 							</a>
 						</li>
 						<li class="nav-item">
