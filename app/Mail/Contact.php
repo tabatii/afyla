@@ -36,6 +36,9 @@ class Contact extends Mailable
      */
     public function build()
     {
-        return $this->subject('Contact Form')->view('emails.contact');
+        return $this->from($this->email, $this->name)
+                    ->to(env('MAIL_FROM_ADDRESS'))
+                    ->subject('Contact Form')
+                    ->view('emails.contact');
     }
 }
