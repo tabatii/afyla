@@ -1,11 +1,11 @@
 <template>
 	<AppLayout>
 		<h title="Checkout"></h>
-		<section class="py-5">
+		<section class="py-5" style="margin-bottom:200px">
 			<div class="container">
 				<div class="row gx-0 gy-4">
 					<div class="col-lg-8">
-						<div class="p-5">
+						<div class="px-sm-5">
 							<div v-if="step === 1">
 								<div class="d-flex mb-4">
 									<span>PERSONAL INFORMATION</span>
@@ -34,8 +34,8 @@
 									</div>
 									<div class="col-12">
 										<div class="form-check">
-											<input type="checkbox" class="form-check-input shadow-none" id="subscribe" v-model="guest.subscribe" />
-											<label class="form-check-label" for="subscribe" style="user-select:none">Subscribe to Newsletter</label>
+											<input type="checkbox" class="form-check-input shadow-none" id="sub" v-model="guest.subscribe" />
+											<label class="form-check-label" for="sub" style="user-select:none">Subscribe to Newsletter</label>
 										</div>
 									</div>
 									<div class="col-12">
@@ -103,11 +103,15 @@
 									<span class="me-auto">PAYMENT METHOD</span>
 									<span class="underline pointer" @click="step = 4">BACK</span>
 								</div>
+								<div>
+									<NapsCheckout class="me-2" :data="napsData"></NapsCheckout>
+									<PaypalCheckout></PaypalCheckout>
+								</div>
 							</div>
 						</div>
 					</div>
 					<div class="col-lg-4">
-						<div class="p-5">
+						<div class="px-sm-5">
 							<div class="d-flex align-items-baseline">
 								<img src="/img/icons/bag.png" class="me-2" height="16px" />
 								<span>{{ bag.length }} Item(s)</span>
@@ -167,6 +171,7 @@
 </template>
 
 <script>
+	import PaypalCheckout from '../components/PaypalCheckout'
 	import NapsCheckout from '../components/NapsCheckout'
 	import AppLayout from '../components/AppLayout'
 	import LoginForm from '../components/LoginForm'
@@ -175,6 +180,7 @@
 	import { countries } from 'countries-list'
 	export default {
 		components: {
+			PaypalCheckout,
 			NapsCheckout,
 			AppLayout,
 			LoginForm,
@@ -194,27 +200,27 @@
 			countries() {
 				return countries
 			},
-			naps() {
+			napsData() {
 				return {
 					key: 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAh2q4viqQwzVWCKT1KRPvsiixEoNm8dg95gE7h4OUVuERp9csLKYHM9I9EaQ/SUYwgBBLHOslpe5qbvX3x1oAcksO5BT8SYHmtbgUpH1yZjcU1lI2/M3qyRUb03NQaF6vgxCOLGlLpDQqdg0jxl4ySDYu3bcMQto6J2eRAnIPIZkC/h4GQMwhBheFEHf7uMCqj8uNkNf5yU1Js9/Yj8FGbS1fSYwQ1ZQ7Jr94eUhCuTgjFKYUxD18QIPgYEnYbir4mKagtnF8fv3S1+COsVlUXkix77KGW5SYMbeJJYtOVTs1/Cr+/8eHRf5al5249binOJxWLkANpsZtLNI60i9UUQIDAQAB',
 					cmr: 1012202,
 					gal: 2007,
 					lang: 'EN',
 					name: this.auth ? this.auth.name : `${this.guest.firstname} ${this.guest.lastname}`,
-					order: null,
+					order: 'E9T54G56WSERHG4',
 					amount: this.getBagTotal + this.shipping + this.vat,
-					email: null,
+					email: this.auth ? this.auth.email : this.guest.email,
 					operation: null,
-					successURL: null,
-					timeoutURL: null,
-					failURL: null,
-					recallURL: null,
-					phone: this.address.phone,
+					successURL: this.route('orders'),
+					timeoutURL: this.route('checkout'),
+					failURL: this.route('checkout'),
+					recallURL: this.route('home'),
 					street: this.address.street,
 					city: this.address.city,
 					state: this.address.state,
 					zip: this.address.zip,
-					country: 'MA',
+					country: this.address.country,
+					phone: this.address.phone,
 				}
 			}
 		},
@@ -234,12 +240,12 @@
 				address: this.$inertia.form({
 					firstname: null,
 					lastname: null,
-					phone: null,
 					street: null,
 					city: null,
 					state: null,
 					zip: null,
 					country: null,
+					phone: null,
 					default: false,
 				})
 			}

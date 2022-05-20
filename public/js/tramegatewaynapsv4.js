@@ -1,4 +1,4 @@
-require('jsencrypt');
+import { JSEncrypt } from './jsencrypt'
 
 /**API MXGATEWAY
  @name tramegatewaynaps.js
@@ -221,10 +221,4 @@ function MXGateway(cmr, galerie, clepub, langue = "F", lien_paie = "https://pa2.
     };
 }
 
-
-
-
-
-
-
-
+export default MXGateway
