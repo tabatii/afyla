@@ -45,7 +45,7 @@ class HandleInertiaRequests extends Middleware
         $cookie = $request->cookie('cookie_id');
         return array_merge(parent::share($request), [
             'ziggy' => $ziggy->toArray(),
-            'admin' => $request->user() && $request->user()->hasRole('admin') ? true : false,
+            'admin' => $request->user() && $request->user()->can('browse_admin') ? true : false,
             'auth' => $request->user() ? $request->user()->only($fields) : null,
             'categories' => Category::with('subCategories')->get(),
             'collections' => Collection::all(),
