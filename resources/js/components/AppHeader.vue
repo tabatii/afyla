@@ -2,47 +2,9 @@
 	<header>
 
 		<div class="fixed-navbar" :class="{shadow: scroll > 60}">
-			<nav class="top-navbar navbar navbar-expand-lg navbar-light bg-white py-0" :class="{hide: scroll !== 0}">
+			<nav class="navbar navbar-expand-lg navbar-light bg-white overflow-hidden py-0" v-show="mobile || !scroll" style="height:60px">
 				<div class="container-fluid">
-					<ul class="nav ms-auto">
-						<li class="nav-item d-none d-sm-block">
-							<l :href="route('page', 'shipping-returns-policy')" class="nav-link text-dark mx-2" style="padding: 7px 0">
-								<img src="/img/icons/truck.png" class="align-text-top" height="24px" />
-								<small class="underline">Free shipping & returns</small>
-							</l>
-						</li>
-						<li class="nav-item d-none d-sm-block">
-							<a :href="'tel:'+settings.phone" class="nav-link text-dark mx-2" style="padding: 7px 0">
-								<img src="/img/icons/mobile.png" class="align-text-top" height="19px" style="opacity:.7" />
-								<small class="underline">
-									{{ settings.phone[0] === '+' ? settings.phone : `+${settings.phone}` }}
-								</small>
-							</a>
-						</li>
-						<li class="nav-item">
-							<div class="d-flex align-items-center p-1 mx-2 pointer" data-bs-toggle="modal" data-bs-target="#search">
-								<i class="bi bi-search fs-5" style="line-height:1.55"></i>
-							</div>
-						</li>
-						<li class="nav-item">
-							<div class="d-flex align-items-center p-1 mx-2 pointer" data-bs-toggle="offcanvas" :data-bs-target="auth ? '#menu' : '#forms'">
-								<i class="bi bi-person fs-5 user-icon"></i>
-								<span class="ms-2" v-text="auth.name.split(' ')[0]" v-if="auth"></span>
-							</div>
-						</li>
-						<li class="nav-item position-relative">
-							<div class="d-flex align-items-center p-1 mx-2 pointer" data-bs-toggle="offcanvas" data-bs-target="#wishlist">
-								<img src="/img/icons/heart.png" height="23px" />
-								<small class="counter" v-text="wishlist.length"></small>
-							</div>
-						</li>
-						<li class="nav-item position-relative">
-							<div class="d-flex align-items-center p-1 mx-2 pointer" data-bs-toggle="offcanvas" data-bs-target="#bag">
-								<img src="/img/icons/bag.png" height="23px" />
-								<small class="counter" v-text="bag.length"></small>
-							</div>
-						</li>
-					</ul>
+					<AppNav :mobile="mobile" :scroll="scroll"></AppNav>
 				</div>
 			</nav>
 			<nav class="navbar navbar-expand-lg navbar-light bg-white py-lg-0">
@@ -52,7 +14,7 @@
 						<span class="navbar-toggler-icon"></span>
 					</button>
 					<div class="collapse navbar-collapse pb-3 pb-lg-0" id="navbarContent">
-						<ul class="navbar-nav me-auto">
+						<ul class="navbar-nav">
 							<li class="nav-item">
 								<l :href="route('shop', {sort: 'n'})" class="nav-link text-dark underline-hover mx-lg-2">WHAT'S NEW</l>
 							</li>
@@ -87,35 +49,7 @@
 								<l :href="route('sustainability')" class="nav-link text-dark underline-hover mx-lg-2">SUSTAINABILITY</l>
 							</li>
 						</ul>
-						<ul class="navbar-nav" v-show="scroll !== 0">
-							<li class="nav-item">
-								<div class="d-flex align-items-center p-1 mx-lg-2 pointer" data-bs-toggle="modal" data-bs-target="#search">
-									<i class="bi bi-search fs-5"></i>
-									<span class="d-block d-lg-none ms-2">SEARCH</span>
-								</div>
-							</li>
-							<li class="nav-item">
-								<div class="d-flex align-items-center p-1 mx-lg-2 pointer" data-bs-toggle="offcanvas" :data-bs-target="auth ? '#menu' : '#forms'">
-									<i class="bi bi-person fs-5 user-icon"></i>
-									<span class="d-none d-lg-block ms-2" v-text="auth.name.split(' ')[0]" v-if="auth"></span>
-									<span class="d-block d-lg-none ms-2">{{ auth ? auth.name.split(' ')[0] : 'SIGN IN' }}</span>
-								</div>
-							</li>
-							<li class="nav-item position-relative">
-								<div class="d-flex align-items-center p-1 mx-lg-2 pointer" data-bs-toggle="offcanvas" data-bs-target="#wishlist">
-									<img src="/img/icons/heart.png" height="23px" />
-									<span class="d-block d-lg-none ms-2">WISHLIST ({{ wishlist.length }})</span>
-									<small class="counter d-none d-lg-block" v-text="wishlist.length"></small>
-								</div>
-							</li>
-							<li class="nav-item position-relative">
-								<div class="d-flex align-items-center p-1 mx-lg-2 pointer" data-bs-toggle="offcanvas" data-bs-target="#bag">
-									<img src="/img/icons/bag.png" height="23px" />
-									<span class="d-block d-lg-none ms-2">BAG ({{ bag.length }})</span>
-									<small class="counter d-none d-lg-block" v-text="bag.length"></small>
-								</div>
-							</li>
-						</ul>
+						<AppNav :mobile="mobile" :scroll="scroll" v-show="!mobile && scroll"></AppNav>
 					</div>
 				</div>
 			</nav>
@@ -214,6 +148,7 @@
 	import LoginForm from '../components/LoginForm'
 	import SearchForm from '../components/SearchForm'
 	import BagMenu from '../components/BagMenu'
+	import AppNav from '../components/AppNav'
 	import { Link } from '@inertiajs/inertia-vue'
 	export default {
 		components: {
@@ -222,6 +157,7 @@
 			LoginForm,
 			SearchForm,
 			BagMenu,
+			AppNav,
 			l: Link,
 		},
 		computed: {
@@ -230,9 +166,6 @@
 			},
 			admin() {
 				return this.$page.props.admin
-			},
-			settings() {
-				return this.$page.props.settings
 			},
 			categories() {
 				return this.$page.props.categories
@@ -249,18 +182,23 @@
 		},
 		data() {
 			return {
-				centered: false,
-				scroll: null,
 				search: null,
+				centered: false,
+				mobile: false,
+				scroll: 0,
 			}
 		},
 		mounted() {
 			this.$refs.categoriesMenu.style.left = `-${(this.$refs.categoriesMenu.clientWidth/2)-(this.$refs.categoriesItem.clientWidth/2)}px`
 			this.$refs.collectionsMenu.style.left = `-${(this.$refs.collectionsMenu.clientWidth/2)-(this.$refs.collectionsItem.clientWidth/2)}px`
+			this.mobile = innerWidth < 992 ? true : false
 			this.scroll = pageYOffset
 			this.centered = true
 			addEventListener('scroll', () => {
 				this.scroll = pageYOffset
+			})
+			addEventListener('resize', () => {
+				this.mobile = innerWidth < 992 ? true : false
 			})
 		}
 	}
@@ -274,13 +212,6 @@
 		right: 0;
 		z-index: 9;
 	}
-	.top-navbar {
-		height: 60px;
-		overflow: hidden;
-	}
-	.top-navbar.hide {
-		display: none;
-	}
 	.navbar-brand {
 		font-family: 'Avenir-Heavy';
 	}
@@ -289,16 +220,5 @@
 		padding-bottom: .5rem;
 		background-color: transparent;
 		color: var(--bs-dark);
-	}
-	.counter {
-		position: absolute;
-		top: -5px;
-		right: 3px;
-		color: var(--bs-danger);
-		font-weight: 600;
-	}
-	.user-icon {
-		line-height: 1.4;
-		transform:scale(1.4);
 	}
 </style>
