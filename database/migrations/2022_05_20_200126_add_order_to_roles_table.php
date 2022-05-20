@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('roles', function (Blueprint $table) {
-            $table->integer('order')->after('display_name');
+            $table->integer('order')->default(1)->after('display_name');
         });
     }
 
