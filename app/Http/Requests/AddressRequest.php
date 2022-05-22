@@ -26,14 +26,13 @@ class AddressRequest extends FormRequest
         return [
             'firstname' => 'required|string|max:50',
             'lastname' => 'required|string|max:50',
-            'phone' => 'required|string|max:20',
             'street' => 'required|string|max:190',
-            'details' => 'nullable|max:190',
             'city' => 'required|string|max:50',
             'state' => 'required|string|max:50',
             'zip' => 'required|string|max:10',
             'country' => 'required|string|max:50',
-            'default' => 'required|boolean',
+            'phone' => 'required|string|max:20',
+            'default' => 'sometimes|boolean',
         ];
     }
 }

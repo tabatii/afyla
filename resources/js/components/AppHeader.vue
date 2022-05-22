@@ -92,7 +92,7 @@
 			<div class="offcanvas-body d-flex flex-column justify-content-between">
 				<ul class="nav flex-column">
 					<li class="nav-item text-center fw-medium">
-						<p class="px-3 mb-0">HELLO, {{ auth.name.split(' ')[0].toUpperCase() }}!</p>
+						<p class="px-3 mb-0">HELLO, {{ auth.firstname.toUpperCase() }}!</p>
 						<p class="px-3 mb-4">WE HOPE YOU'RE DOING WELL.</p>
 					</li>
 					<li class="nav-item" v-if="admin">

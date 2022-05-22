@@ -62,6 +62,7 @@ Route::get('/collection/{id}/looks', [\App\Http\Controllers\LookController::clas
 
 // Order routes
 Route::get('/orders', [\App\Http\Controllers\OrderController::class, 'index'])->name('orders');
+Route::get('/checkout', [\App\Http\Controllers\OrderController::class, 'create'])->name('checkout');
 
 // Bag routes
 Route::get('/bag', [\App\Http\Controllers\BagController::class, 'index'])->name('bag');
@@ -87,9 +88,6 @@ Route::delete('/address/{id}', [\App\Http\Controllers\AddressController::class, 
 
 // Subscription routes
 Route::post('/subscription', [\App\Http\Controllers\SubscriptionController::class, 'store'])->name('subscription.add');
-
-// Checkout routes
-Route::get('/checkout', [\App\Http\Controllers\CheckoutController::class, 'index'])->name('checkout');
 
 
 // Voyager routes

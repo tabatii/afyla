@@ -12,7 +12,7 @@ class User extends \TCG\Voyager\Models\User
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    protected $appends = ['sub'];
+    protected $appends = ['name', 'sub'];
 
     /**
      * The attributes that are mass assignable.
@@ -48,6 +48,11 @@ class User extends \TCG\Voyager\Models\User
     {
         return $this->hasOne(Social::class);
     }
+
+    /*public function getNameAttribute()
+    {
+        return $this->attributes['firstname'].' '.$this->attributes['lastname'];
+    }*/
 
     public function getSubAttribute()
     {

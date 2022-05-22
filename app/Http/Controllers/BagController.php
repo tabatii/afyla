@@ -39,7 +39,7 @@ class BagController extends Controller
 
         $bag = new Bag;
         $bag->cookie_id = !auth()->check() ? $cookie : null;
-        $bag->user_id = auth()->check() ? auth()->id() : null;
+        $bag->user_id = auth()->id();
         $bag->product_id = $request->product;
         $bag->size_id = $request->size;
         $bag->qty = $request->qty;

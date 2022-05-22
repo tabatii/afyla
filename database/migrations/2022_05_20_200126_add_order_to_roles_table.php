@@ -27,9 +27,7 @@ return new class extends Migration
     {
         Schema::table('roles', function (Blueprint $table) {
             if (Schema::hasColumn('roles', 'order')) {
-                Schema::table('roles', function (Blueprint $table) {
-                    $table->dropColumn('order');
-                });
+                $table->dropColumn('order');
             }
         });
     }

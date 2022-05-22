@@ -23,7 +23,8 @@ class UserController extends Controller
     public function editProfile(ProfileRequest $request)
     {
         $user = auth()->user();
-        $user->name = $request->firstname.' '.$request->lastname;
+        $user->firstname = $request->firstname;
+        $user->lastname = $request->lastname;
         $user->country = $request->country;
         $user->birthday = Carbon::parse($request->birthday);
         $user->phone = $request->phone;

@@ -2,7 +2,7 @@
 	<UserMenu>
 		<h title="Profile"></h>
 		<div class="px-3 px-sm-5 py-2">
-			<p class="fw-medium text-center text-uppercase">WELCOME BACK, <span v-text="auth.name"></span></p>
+			<p class="fw-medium text-center text-uppercase">WELCOME BACK, <span v-text="auth.firstname"></span></p>
 			<form class="row gy-3 mb-3" v-if="showform" @submit.prevent="edit">
 				<div class="col-12">
 					<span>PROFILE INFORMATION</span>
@@ -64,7 +64,7 @@
 					<button type="button" class="btn btn-secondary" @click="showform = true">EDIT</button>
 				</div>
 				<div class="col-sm-4">
-					<span class="text-uppercase" v-text="auth.name"></span>
+					<span class="text-uppercase" v-text="auth.firstname+' '+auth.lastname"></span>
 				</div>
 				<div class="col-sm-8">
 					<span class="text-uppercase" v-text="auth.email"></span>
@@ -154,8 +154,8 @@
 			}
 		},
 		created() {
-			this.form.firstname = this.auth.name.split(' ')[0]
-			this.form.lastname = this.auth.name.split(' ')[1]
+			this.form.firstname = this.auth.firstname
+			this.form.lastname = this.auth.lastname
 			this.form.country = this.auth.country
 			this.form.phone = this.auth.phone
 			this.form.subscribe = this.auth.sub

@@ -26,10 +26,10 @@ class AddressController extends Controller
         }
         $address = new Address;
         $address->user_id = auth()->id();
-        $address->name = $request->firstname .' '. $request->lastname;
+        $address->firstname = $request->firstname;
+        $address->lastname = $request->lastname;
         $address->phone = $request->phone;
         $address->street = $request->street;
-        $address->details = $request->details;
         $address->city = $request->city;
         $address->state = $request->state;
         $address->zip = $request->zip;
@@ -45,10 +45,10 @@ class AddressController extends Controller
             Address::where('user_id', auth()->id())->update(['default' => false]);
         }
         $address = Address::findOrFail($id);
-        $address->name = $request->firstname .' '. $request->lastname;
+        $address->firstname = $request->firstname;
+        $address->lastname = $request->lastname;
         $address->phone = $request->phone;
         $address->street = $request->street;
-        $address->details = $request->details;
         $address->city = $request->city;
         $address->state = $request->state;
         $address->zip = $request->zip;

@@ -70,13 +70,13 @@
 	import { Head } from '@inertiajs/inertia-vue'
 	import { Link } from '@inertiajs/inertia-vue'
 	export default {
+		props: {
+			sliders: Array,
+		},
 		components: {
 			AppLayout,
 			h: Head,
 			l: Link,
-		},
-		props: {
-			sliders: Array,
 		},
 		data() {
 			return {

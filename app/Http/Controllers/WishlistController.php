@@ -27,7 +27,7 @@ class WishlistController extends Controller
         if (!$query->exists()) {
             $wishlist = new Wishlist;
             $wishlist->cookie_id = !auth()->check() ? $cookie : null;
-            $wishlist->user_id = auth()->check() ? auth()->id() : null;
+            $wishlist->user_id = auth()->id();
             $wishlist->product_id = $id;
             $wishlist->save();
             return $this->res($cookie);

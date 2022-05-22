@@ -15,7 +15,7 @@
 				<button type="button" class="btn btn-light py-3" @click="tab = false">CANCEL</button>
 			</div>
 		</form>
-		<form @submit.prevent="login.post(route('login'))" v-else>
+		<form @submit.prevent="login.post(route('login', {redirect}))" v-else>
 			<div class="alert alert-danger" role="alert" v-text="login.errors.auth" v-if="login.errors.auth"></div>
 			<div class="mb-3">
 				<input type="email" class="form-control input" v-model="login.email" placeholder="Email" />
@@ -28,7 +28,7 @@
 			<div class="d-flex flex-column flex-sm-row mb-3">
 				<div class="form-check me-auto">
 					<input type="checkbox" class="form-check-input shadow-none" :id="`remember${_uid}`" v-model="login.remember" />
-					<label class="form-check-label" :for="`remember${_uid}`" style="user-select:none">REMEMBER ME</label>
+					<label class="form-check-label" :for="`remember${_uid}`">REMEMBER ME</label>
 				</div>
 				<l href="#" @click.prevent="tab = true">FORGOT PASSWORD ?</l>
 			</div>
@@ -47,6 +47,11 @@
 		components: {
 			PopUp,
 			l: Link,
+		},
+		computed: {
+			redirect() {
+				return this.route(this.route().current())
+			}
 		},
 		methods: {
 			send() {

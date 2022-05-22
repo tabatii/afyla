@@ -24,9 +24,9 @@ class ProfileRequest extends FormRequest
     public function rules()
     {
         return [
-            'firstname' => 'required|alpha|max:50',
-            'lastname' => 'required|alpha|max:50',
-            'country' => 'required|alpha|max:50',
+            'firstname' => 'required|string|max:50',
+            'lastname' => 'required|string|max:50',
+            'country' => 'required|string|max:50',
             'birthday' => 'required|date',
             'phone' => 'nullable|string|max:20',
         ];

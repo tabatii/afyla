@@ -36,7 +36,8 @@ class GoogleController extends Controller
         }
 
         $user = new User;
-        $user->name = $google->getName();
+        $user->firstname = $google->user['given_name'] ?? '';
+        $user->lastname = $google->user['family_name'] ?? '';
         $user->email = $google->getEmail();
         $user->password = bcrypt(Str::random(16));
         $user->save();

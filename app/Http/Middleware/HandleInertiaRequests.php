@@ -41,7 +41,7 @@ class HandleInertiaRequests extends Middleware
     public function share(Request $request): array
     {
         $ziggy = new \Tightenco\Ziggy\Ziggy($group = null, $request->url());
-        $fields = ['name', 'email', 'email_verified_at', 'country', 'birthday', 'phone', 'sub', 'created_at'];
+        $fields = ['firstname', 'lastname', 'email', 'email_verified_at', 'country', 'birthday', 'phone', 'sub', 'created_at'];
         $cookie = $request->cookie('cookie_id');
         return array_merge(parent::share($request), [
             'ziggy' => $ziggy->toArray(),

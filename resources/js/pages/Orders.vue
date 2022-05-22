@@ -3,7 +3,7 @@
 		<h title="Orders"></h>
 		<div class="px-3 px-sm-5 py-2">
 			<div v-if="orders.length === 0">
-				<p class="fw-medium text-center text-uppercase">WELCOME BACK, <span v-text="auth.name"></span></p>
+				<p class="fw-medium text-center text-uppercase">WELCOME BACK, <span v-text="auth.firstname"></span></p>
 				<p>YOU HAVE NOT PLACED ANY ORDER</p>
 			</div>
 			<div v-else>

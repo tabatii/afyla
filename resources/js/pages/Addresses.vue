@@ -12,7 +12,7 @@
 				<p class="fw-medium px-3 px-sm-5" v-if="address.default">DEFAULT</p>
 				<div class="row g-0 px-3 px-sm-5">
 					<div class="col-sm-3 mb-4 mb-sm-0">
-						<p class="mb-0" v-text="address.name"></p>
+						<p class="mb-0" v-text="address.firstname+' '+address.lastname"></p>
 						<p class="mb-0" v-text="address.phone"></p>
 					</div>
 					<div class="col-sm-5 mb-4 mb-sm-0">
@@ -131,8 +131,8 @@
 			},
 			fill(i) {
 				this.selected = i
-				this.form.firstname = this.addresses[i].name.split(' ')[0]
-				this.form.lastname = this.addresses[i].name.split(' ')[1]
+				this.form.firstname = this.addresses[i].firstname
+				this.form.lastname = this.addresses[i].lastname
 				this.form.phone = this.addresses[i].phone
 				this.form.street = this.addresses[i].street
 				this.form.city = this.addresses[i].city

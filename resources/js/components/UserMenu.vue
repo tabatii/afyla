@@ -42,9 +42,6 @@
 			l: Link,
 		},
 		computed: {
-			auth() {
-				return this.$page.props.auth
-			},
 			admin() {
 				return this.$page.props.admin
 			}

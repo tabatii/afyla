@@ -22,7 +22,8 @@ class AuthController extends Controller
     public function register(RegisterRequest $request)
     {
         $user = new User;
-        $user->name = $request->firstname.' '.$request->lastname;
+        $user->firstname = $request->firstname;
+        $user->lastname = $request->lastname;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
         $user->country = $request->country;
@@ -39,14 +40,14 @@ class AuthController extends Controller
         $user->sendEmailVerificationNotification();
         $this->saveGuestData($request->cookie('cookie_id'));
 
-        return $request->redirect ? redirect()->route($request->redirect) : redirect()->route('profile');
+        return inertia()->location($request->redirect ?? route('profile'));
     }
 
     public function login(LoginRequest $request)
     {
         if (auth()->attempt($request->only(['email', 'password']), $request->remember)) {
             $this->saveGuestData($request->cookie('cookie_id'));
-            return $request->redirect ? redirect()->route($request->redirect) : redirect()->route('profile');
+            return inertia()->location($request->redirect ?? route('profile'));
         }
 
         return back()->withErrors(['auth' => __('auth.failed')]);

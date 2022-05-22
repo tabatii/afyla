@@ -23,13 +23,13 @@
 	import { Link } from '@inertiajs/inertia-vue'
 	import qs from 'query-string'
 	export default {
+		props: {
+			looks: Array,
+		},
 		components: {
 			AppLayout,
 			h: Head,
 			l: Link,
-		},
-		props: {
-			looks: Array,
 		}
 	}
 </script>

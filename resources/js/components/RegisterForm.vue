@@ -1,6 +1,6 @@
 <template>
 	<div class="tab-pane fade" id="register">
-		<form @submit.prevent="register.post(route('register'))">
+		<form @submit.prevent="register.post(route('register', {redirect}))">
 			<div class="mb-3">
 				<input type="text" class="form-control input" v-model="register.email" placeholder="Email" />
 				<small class="text-danger" v-text="register.errors.email"></small>
@@ -56,11 +56,11 @@
 			<div class="mb-3">
 				<div class="form-check">
 					<input type="checkbox" class="form-check-input shadow-none" id="subscribe" v-model="register.subscribe" />
-					<label class="form-check-label" for="subscribe" style="user-select:none">I SUBSCRIBE FOR EXCLUSIVE UPDATES</label>
+					<label class="form-check-label" for="subscribe">I SUBSCRIBE FOR EXCLUSIVE UPDATES</label>
 				</div>
 				<div class="form-check">
 					<input type="checkbox" class="form-check-input shadow-none" id="agree" v-model="register.agree" />
-					<label class="form-check-label" for="agree" style="user-select:none">I AGREE TO TERMS & CONDITIONS</label><br />
+					<label class="form-check-label" for="agree">I AGREE TO TERMS & CONDITIONS</label><br />
 					<small class="text-danger" v-text="register.errors.agree"></small>
 				</div>
 			</div>
@@ -81,6 +81,9 @@
 			l: Link,
 		},
 		computed: {
+			redirect() {
+				return this.route(this.route().current())
+			},
 			countries() {
 				return countries
 			},

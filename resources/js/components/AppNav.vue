@@ -26,7 +26,7 @@
 		<li class="nav-item">
 			<div class="d-flex align-items-center h-100 px-1 mx-2 pointer" data-bs-toggle="offcanvas" :data-bs-target="auth ? '#menu' : '#forms'">
 				<i class="bi bi-person fs-5 user-icon"></i>
-				<span class="ms-2" v-text="auth.name.split(' ')[0]" v-if="auth"></span>
+				<span class="ms-2" v-text="auth.firstname" v-if="auth"></span>
 			</div>
 		</li>
 		<li class="nav-item position-relative">
