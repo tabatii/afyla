@@ -13,15 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', \App\Http\Controllers\HomeController::class)->name('home');
 
 Route::inertia('/about', 'About')->name('about');
 Route::inertia('/sustainability', 'Sustainability')->name('sustainability');
 Route::inertia('/customer-care', 'CustomerCare')->name('customer');
 Route::inertia('/faq', 'Faq')->name('faq');
 
-Route::get('/pages/{slug}', [\App\Http\Controllers\PageController::class, 'show'])->name('page');
-Route::get('/search', [\App\Http\Controllers\SearchController::class, 'index'])->name('search');
+Route::get('/pages/{slug}', \App\Http\Controllers\PageController::class)->name('page');
+Route::get('/search', \App\Http\Controllers\SearchController::class)->name('search');
 
 // Contact routes
 Route::get('/contact', [\App\Http\Controllers\ContactController::class, 'create'])->name('contact');
@@ -57,8 +57,8 @@ Route::get('/shop', [\App\Http\Controllers\ProductController::class, 'index'])->
 Route::get('/product/{id}', [\App\Http\Controllers\ProductController::class, 'show'])->name('product');
 
 // Collection routes
-Route::get('/collection/{id}', [\App\Http\Controllers\CollectionController::class, 'show'])->name('collection');
-Route::get('/collection/{id}/looks', [\App\Http\Controllers\LookController::class, 'show'])->name('looks');
+Route::get('/collection/{id}', \App\Http\Controllers\CollectionController::class)->name('collection');
+Route::get('/collection/{id}/looks', \App\Http\Controllers\LookController::class)->name('looks');
 
 // Order routes
 Route::get('/orders', [\App\Http\Controllers\OrderController::class, 'index'])->name('orders');
@@ -87,7 +87,7 @@ Route::put('/address/{id}', [\App\Http\Controllers\AddressController::class, 'up
 Route::delete('/address/{id}', [\App\Http\Controllers\AddressController::class, 'destroy'])->name('address.delete');
 
 // Subscription routes
-Route::post('/subscription', [\App\Http\Controllers\SubscriptionController::class, 'store'])->name('subscription.add');
+Route::post('/subscription', \App\Http\Controllers\SubscriptionController::class)->name('subscription.add');
 
 
 // Voyager routes

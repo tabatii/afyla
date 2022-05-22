@@ -11,7 +11,7 @@ use App\Models\Color;
 class SearchController extends Controller
 {
 
-    public function index(FilterRequest $request)
+    public function __invoke(FilterRequest $request)
     {
         $value = $request->search;
         $products = isset($value) ? Product::select('id', 'title', 'images')->public()->filter(['search' => $value])->take(3)->get() : [];

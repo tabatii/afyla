@@ -14,12 +14,12 @@ class OrderController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->only(['index', 'show']);
     }
 
     public function index()
     {
-        $orders = [];
+        $orders = Order::where('user_id', auth()->id())->get();
         return inertia('Orders', compact('orders'));
     }
 
@@ -57,17 +57,7 @@ class OrderController extends Controller
         //
     }
 
-    public function edit($id)
-    {
-        //
-    }
-
     public function update(OrderRequest $request, $id)
-    {
-        //
-    }
-
-    public function destroy($id)
     {
         //
     }

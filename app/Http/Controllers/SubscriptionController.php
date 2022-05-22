@@ -8,7 +8,7 @@ use App\Models\Subscription;
 class SubscriptionController extends Controller
 {
 
-    public function store(Request $request)
+    public function __invoke(Request $request)
     {
         $request->validate(['email' => 'required|email|max:100|unique:subscriptions']);
         $subscription = new Subscription;
