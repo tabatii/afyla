@@ -49,10 +49,10 @@ class User extends \TCG\Voyager\Models\User
         return $this->hasOne(Social::class);
     }
 
-    /*public function getNameAttribute()
+    public function getNameAttribute()
     {
         return $this->attributes['firstname'].' '.$this->attributes['lastname'];
-    }*/
+    }
 
     public function getSubAttribute()
     {
