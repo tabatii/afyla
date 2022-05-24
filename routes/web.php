@@ -113,15 +113,14 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 // Artisan routes
-/*
+
 Route::group(['prefix' => 'artisan'], function () {
     Route::get('init', function () {
         Artisan::call('config:clear');
-        Artisan::call('migrate:fresh');
-        Artisan::call('db:seed', [
+        Artisan::call('migrate');
+        /*Artisan::call('db:seed', [
             '--class' => 'VoyagerDatabaseSeeder',
-        ]);
+        ]);*/
         return 'done';
     });
 });
-*/
