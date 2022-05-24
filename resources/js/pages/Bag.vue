@@ -33,7 +33,7 @@
 								<div class="d-flex align-items-center mb-4">
 									<span class="me-3">Size:</span>
 									<select class="form-select input py-0" :disabled="loading" style="max-width:70px" @input="size(item.id, $event)">
-										<option :value="s.size_id" :selected="s.size_id === item.size_id" :disabled="s.qty === 0" v-if="s.qty !== null" v-for="s in item.product.sizes" :key="s.id">
+										<option :value="s.size_id" :selected="s.size_id === item.size_id" :disabled="s.qty === 0" v-if="s.size && s.qty !== null" v-for="s in item.product.sizes" :key="s.id">
 											{{ s.size.name }}
 										</option>
 									</select>
@@ -50,7 +50,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="row g-0" v-if="bag.length !== 0">
+				<div class="row g-0" v-if="bag.length > 0">
 					<div class="col-lg-8 col-xl-7 border">
 						<div class="p-3">
 							<p class="fs-4 mb-2">ORDER SUMMARY</p>
@@ -60,15 +60,15 @@
 							</div>
 							<div class="d-flex">
 								<span class="text-muted me-auto">Shipping:</span>
-								<span class="fw-medium text-end">{{ getFormatedPrice(shipping) }} (via FedEx Express Worldwide)</span>
+								<span class="fw-medium text-end">{{ getFormatedPrice(getCompanyPrice) }} (via {{ getCompanyName }})</span>
 							</div>
 							<div class="d-flex">
 								<span class="text-muted me-auto">Total:</span>
-								<span class="text-danger fw-medium text-end" v-text="getFormatedPrice(getBagTotal + shipping + vat)"></span>
+								<span class="text-danger fw-medium text-end" v-text="getFormatedPrice(getBagTotal + getCompanyPrice)"></span>
 							</div>
 							<div class="d-flex mb-3">
 								<span class="text-muted me-auto">VAT (included):</span>
-								<span class="fw-medium text-end" v-text="getFormatedPrice(vat)"></span>
+								<span class="fw-medium text-end" v-text="getFormatedPrice(getTax(getBagTotal))"></span>
 							</div>
 							<div class="d-grid">
 								<l :href="route('checkout')" class="btn btn-primary py-3">CHECKOUT</l>
@@ -86,6 +86,9 @@
 	import { Head } from '@inertiajs/inertia-vue'
 	import { Link } from '@inertiajs/inertia-vue'
 	export default {
+		props: {
+			companies: Array,
+		},
 		components: {
 			AppLayout,
 			h: Head,
@@ -94,6 +97,12 @@
 		computed: {
 			bag() {
 				return this.$page.props.bag
+			},
+			getCompanyName() {
+				return this.companies.length > 0 ? this.companies[0].name : null
+			},
+			getCompanyPrice() {
+				return this.companies.length > 0 ? this.companies[0].price : 0
 			}
 		},
 		methods: {
@@ -143,8 +152,6 @@
 		data() {
 			return {
 				loading: false,
-				shipping: 0,
-				vat: 20,
 			}
 		}
 	}

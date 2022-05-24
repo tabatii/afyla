@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('roles', function (Blueprint $table) {
-            $table->integer('order')->default(1)->after('display_name');
+            $table->integer('orderby')->default(1)->after('display_name');
         });
     }
 
@@ -26,8 +26,8 @@ return new class extends Migration
     public function down()
     {
         Schema::table('roles', function (Blueprint $table) {
-            if (Schema::hasColumn('roles', 'order')) {
-                $table->dropColumn('order');
+            if (Schema::hasColumn('roles', 'orderby')) {
+                $table->dropColumn('orderby');
             }
         });
     }

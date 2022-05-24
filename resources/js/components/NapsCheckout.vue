@@ -1,5 +1,7 @@
 <template>
-	<a :href="url" class="btn btn-primary px-5 py-3">PAY WITH CREDIT CARD</a>
+	<div class="d-grid">
+		<a :href="url" class="btn btn-dark btn-naps">PAY WITH CREDIT CARD</a>
+	</div>
 </template>
 
 <script>
@@ -23,3 +25,11 @@
 		}
 	}
 </script>
+
+<style scoped>
+	.btn-naps {
+		padding-top: 14px;
+		padding-bottom: 14px;
+		border-radius: 4px;
+	}
+</style>

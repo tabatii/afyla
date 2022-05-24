@@ -40,6 +40,10 @@ label[for] {
 	box-shadow: none !important;
 }
 
+.btn-paypal iframe {
+	z-index: auto !important;
+}
+
 .dropdown-hover:hover .dropdown-menu {
 	display: block;
 }

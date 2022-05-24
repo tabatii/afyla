@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\BagRequest;
-use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use App\Http\Requests\BagRequest;
+use App\Models\ShippingCompany;
 use App\Models\ProductSize;
 use App\Models\Bag;
 
@@ -20,7 +21,8 @@ class BagController extends Controller
 
     public function index()
     {
-        return inertia('Bag');
+        $companies = ShippingCompany::orderBy('orderby')->get();
+        return inertia('Bag', compact('companies'));
     }
 
     public function store(BagRequest $request)

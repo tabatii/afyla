@@ -23,24 +23,27 @@
 									<span class="underline pointer" v-if="!auth" @click="step = 1">BACK</span>
 								</div>
 								<div class="row gy-4">
+									<div class="col-6">
+										<input type="text" class="form-control input" v-model="user.firstname" placeholder="First name" />
+										<small class="text-danger" v-text="user.errors.firstname"></small>
+									</div>
+									<div class="col-6">
+										<input type="text" class="form-control input" v-model="user.lastname" placeholder="Last name" />
+										<small class="text-danger" v-text="user.errors.lastname"></small>
+									</div>
 									<div class="col-12">
-										<input type="text" class="form-control input" v-model="guest.email" placeholder="Email" />
-									</div>
-									<div class="col-6">
-										<input type="text" class="form-control input" v-model="guest.firstname" placeholder="First name" />
-									</div>
-									<div class="col-6">
-										<input type="text" class="form-control input" v-model="guest.lastname" placeholder="Last name" />
+										<input type="text" class="form-control input" v-model="user.email" placeholder="Email" />
+										<small class="text-danger" v-text="user.errors.email"></small>
 									</div>
 									<div class="col-12">
 										<div class="form-check">
-											<input type="checkbox" class="form-check-input shadow-none" id="sub" v-model="guest.subscribe" />
+											<input type="checkbox" class="form-check-input shadow-none" id="sub" v-model="user.subscribe" />
 											<label class="form-check-label" for="sub">Subscribe to Newsletter</label>
 										</div>
 									</div>
 									<div class="col-12">
 										<div class="d-flex justify-content-end">
-											<button type="button" class="btn btn-primary px-5 py-3" @click="step = 3">NEXT</button>
+											<button type="button" class="btn btn-primary px-5 py-3" :disabled="user.processing" @click="next('user')">NEXT</button>
 										</div>
 									</div>
 								</div>
@@ -48,7 +51,7 @@
 							<div v-else-if="step === 3">
 								<div class="d-flex mb-5">
 									<span class="fw-medium me-auto">SHIPPING INFORMATION</span>
-									<span class="underline pointer" v-if="!auth" @click="step = 2">BACK</span>
+									<span class="underline pointer" @click="step = 2">BACK</span>
 								</div>
 								<div>
 									<p class="fw-medium">Shipping address :</p>
@@ -70,11 +73,11 @@
 													<span>New address</span>
 												</div>
 											</li>
-											<li v-for="(address, i) in addresses" :key="Math.random()">
+											<li v-for="(a, i) in addresses" :key="Math.random()">
 												<div class="d-flex align-items-baseline dropdown-item text-dark pointer" style="white-space:initial" @click="selected = i">
 													<div class="me-1"><i class="bi bi-check" :class="{show: selected === i}"></i></div>
 													<div>
-														<span>{{ address.street }}, {{ address.city }}, {{ address.state }}, {{ address.zip }}</span>
+														<span>{{ a.street }}, {{ a.city }}, {{ a.state }}, {{ a.zip }}</span>
 													</div>
 												</div>
 											</li>
@@ -82,31 +85,39 @@
 									</div>
 									<div class="row gy-3 mt-0" v-if="selected === -1">
 										<div class="col-6">
-											<input type="text" class="form-control input" v-model="sa.firstname" placeholder="First name" />
+											<input type="text" class="form-control input" v-model="address.firstname" placeholder="First name" />
+											<small class="text-danger" v-text="address.errors.firstname"></small>
 										</div>
 										<div class="col-6">
-											<input type="text" class="form-control input" v-model="sa.lastname" placeholder="Last name" />
+											<input type="text" class="form-control input" v-model="address.lastname" placeholder="Last name" />
+											<small class="text-danger" v-text="address.errors.lastname"></small>
 										</div>
 										<div class="col-12">
-											<input type="text" class="form-control input" v-model="sa.street" placeholder="Email" />
+											<input type="text" class="form-control input" v-model="address.street" placeholder="Email" />
+											<small class="text-danger" v-text="address.errors.street"></small>
 										</div>
 										<div class="col-4">
-											<input type="text" class="form-control input" v-model="sa.city" placeholder="City" />
+											<input type="text" class="form-control input" v-model="address.city" placeholder="City" />
+											<small class="text-danger" v-text="address.errors.city"></small>
 										</div>
 										<div class="col-4">
-											<input type="text" class="form-control input" v-model="sa.zip" placeholder="Zip code" />
+											<input type="text" class="form-control input" v-model="address.zip" placeholder="Zip code" />
+											<small class="text-danger" v-text="address.errors.zip"></small>
 										</div>
 										<div class="col-4">
-											<input type="text" class="form-control input" v-model="sa.state" placeholder="State" />
+											<input type="text" class="form-control input" v-model="address.state" placeholder="State" />
+											<small class="text-danger" v-text="address.errors.state"></small>
 										</div>
 										<div class="col-6">
-											<select class="form-select input" v-model="sa.country">
+											<select class="form-select input" v-model="address.country">
 												<option :value="null">COUNTRY</option>
 												<option :value="country.name" v-text="country.name" v-for="(country, code) in countries" :key="code"></option>
 											</select>
+											<small class="text-danger" v-text="address.errors.country"></small>
 										</div>
 										<div class="col-6">
-											<input type="text" class="form-control input" v-model="sa.phone" placeholder="Phone number" />
+											<input type="text" class="form-control input" v-model="address.phone" placeholder="Phone number" />
+											<small class="text-danger" v-text="address.errors.phone"></small>
 										</div>
 									</div>
 								</div>
@@ -120,36 +131,36 @@
 									<p class="fw-medium">Billing Address :</p>
 									<div class="row gy-3">
 										<div class="col-6">
-											<input type="text" class="form-control input" v-model="ba.firstname" placeholder="First name" />
+											<input type="text" class="form-control input" v-model="billing.firstname" placeholder="First name" />
 										</div>
 										<div class="col-6">
-											<input type="text" class="form-control input" v-model="ba.lastname" placeholder="Last name" />
+											<input type="text" class="form-control input" v-model="billing.lastname" placeholder="Last name" />
 										</div>
 										<div class="col-12">
-											<input type="text" class="form-control input" v-model="ba.street" placeholder="Email" />
+											<input type="text" class="form-control input" v-model="billing.street" placeholder="Email" />
 										</div>
 										<div class="col-4">
-											<input type="text" class="form-control input" v-model="ba.city" placeholder="City" />
+											<input type="text" class="form-control input" v-model="billing.city" placeholder="City" />
 										</div>
 										<div class="col-4">
-											<input type="text" class="form-control input" v-model="ba.zip" placeholder="Zip code" />
+											<input type="text" class="form-control input" v-model="billing.zip" placeholder="Zip code" />
 										</div>
 										<div class="col-4">
-											<input type="text" class="form-control input" v-model="ba.state" placeholder="State" />
+											<input type="text" class="form-control input" v-model="billing.state" placeholder="State" />
 										</div>
 										<div class="col-6">
-											<select class="form-select input" v-model="ba.country">
+											<select class="form-select input" v-model="billing.country">
 												<option :value="null">COUNTRY</option>
 												<option :value="country.name" v-text="country.name" v-for="(country, code) in countries" :key="code"></option>
 											</select>
 										</div>
 										<div class="col-6">
-											<input type="text" class="form-control input" v-model="ba.phone" placeholder="Phone number" />
+											<input type="text" class="form-control input" v-model="billing.phone" placeholder="Phone number" />
 										</div>
 									</div>
 								</div>
 								<div class="d-flex justify-content-end mt-4">
-									<button type="button" class="btn btn-primary px-5 py-3" @click="step = 4">NEXT</button>
+									<button type="button" class="btn btn-primary px-5 py-3" :disabled="address.processing" @click="next('address')">NEXT</button>
 								</div>
 							</div>
 							<div v-else-if="step === 4">
@@ -157,22 +168,29 @@
 									<span class="fw-medium me-auto">SHIPPING METHOD</span>
 									<span class="underline pointer" @click="step = 3">BACK</span>
 								</div>
-								<div class="form-check mb-4">
-									<input type="checkbox" class="form-check-input shadow-none opacity-100" id="fedex" checked disabled />
-									<label class="form-check-label opacity-100" for="fedex">FedEx Express worldwide</label>
+								<div class="mb-4">
+									<div class="form-check" v-for="company in companies" :key="Math.random()">
+										<input type="radio" class="form-check-input shadow-none opacity-100" :id="company.slug" :value="company.id" v-model="shipping.company" />
+										<label class="form-check-label opacity-100" :for="company.slug" v-text="company.name"></label>
+									</div>
+									<small class="text-danger" v-text="shipping.errors.company"></small>
 								</div>
 								<div class="d-flex justify-content-end">
-									<button type="button" class="btn btn-primary px-5 py-3" @click="step = 5">NEXT</button>
+									<button type="button" class="btn btn-primary px-5 py-3" :disabled="shipping.processing" @click="next('shipping')">NEXT</button>
 								</div>
 							</div>
 							<div v-else-if="step === 5">
 								<div class="d-flex mb-5">
-									<span class="fw-medium me-auto">PAYMENT METHOD</span>
+									<span class="fw-medium me-auto">PAYMENT</span>
 									<span class="underline pointer" @click="step = 4">BACK</span>
 								</div>
-								<div>
-									<NapsCheckout class="me-2" :data="napsData"></NapsCheckout>
-									<PaypalCheckout></PaypalCheckout>
+								<div class="row gx-2">
+									<div class="col-sm-6 col-lg-4">
+										<NapsCheckout :data="napsData"></NapsCheckout>
+									</div>
+									<div class="col-sm-6 col-lg-4">
+										<PaypalCheckout :uuid="uuid"></PaypalCheckout>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -185,21 +203,25 @@
 							</div>
 							<div class="d-flex">
 								<span class="text-muted me-auto">Total:</span>
-								<span class="text-danger fw-medium text-end" v-text="getFormatedPrice(getBagTotal + shipping + vat)"></span>
+								<span class="text-danger fw-medium text-end" v-text="getFormatedPrice((getBagTotal - coupon.value) + getCompanyPrice)"></span>
 							</div>
 							<hr />
 							<div class="d-flex">
 								<span class="text-muted me-auto">Shipping:</span>
-								<span class="fw-medium text-end">{{ shipping === 0 ? 'Free' : getFormatedPrice(shipping) }}</span>
+								<span class="fw-medium text-end">{{ getCompanyPrice === 0 ? 'Free' : getFormatedPrice(getCompanyPrice) }}</span>
 							</div>
 							<div class="d-flex">
 								<span class="text-muted me-auto">VAT (included):</span>
-								<span class="fw-medium text-end" v-text="getFormatedPrice(vat)"></span>
+								<span class="fw-medium text-end" v-text="getFormatedPrice(getTax(getBagTotal))"></span>
 							</div>
-							<div class="d-flex align-items-center">
+							<div class="d-flex align-items-baseline">
 								<span class="text-muted me-auto">Promo code:</span>
 								<div>
-									<input type="text" class="form-control form-control-sm border shadow-none" v-model="coupon" />
+									<div class="d-flex">
+										<input type="text" class="form-control form-control-sm border shadow-none me-1" v-model="coupon.code" placeholder="Code" />
+										<button type="button" class="btn btn-sm btn-primary shadow-none" :disabled="loading" @click="checkCoupon">APPLY</button>
+									</div>
+									<small class="text-danger" v-text="coupon.error"></small>
 								</div>
 							</div>
 							<hr />
@@ -245,6 +267,8 @@
 	import { Head } from '@inertiajs/inertia-vue'
 	import { Link } from '@inertiajs/inertia-vue'
 	import { countries } from 'countries-list'
+	import randomstring from 'randomstring'
+	import axios from 'axios'
 	export default {
 		components: {
 			PaypalCheckout,
@@ -256,6 +280,7 @@
 		},
 		props: {
 			addresses: Array,
+			companies: Array,
 		},
 		computed: {
 			auth() {
@@ -267,85 +292,127 @@
 			countries() {
 				return countries
 			},
+			getCompanyPrice() {
+				var company = this.companies.find(c => c.id === this.shipping.company)
+				return company ? company.price : 0
+			},
+			uuid() {
+				return randomstring.generate({
+					charset: 'numeric',
+					length: 15,
+				})
+			},
 			napsData() {
 				return {
 					key: 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAh2q4viqQwzVWCKT1KRPvsiixEoNm8dg95gE7h4OUVuERp9csLKYHM9I9EaQ/SUYwgBBLHOslpe5qbvX3x1oAcksO5BT8SYHmtbgUpH1yZjcU1lI2/M3qyRUb03NQaF6vgxCOLGlLpDQqdg0jxl4ySDYu3bcMQto6J2eRAnIPIZkC/h4GQMwhBheFEHf7uMCqj8uNkNf5yU1Js9/Yj8FGbS1fSYwQ1ZQ7Jr94eUhCuTgjFKYUxD18QIPgYEnYbir4mKagtnF8fv3S1+COsVlUXkix77KGW5SYMbeJJYtOVTs1/Cr+/8eHRf5al5249binOJxWLkANpsZtLNI60i9UUQIDAQAB',
 					cmr: 1012202,
 					gal: 2007,
 					lang: 'EN',
-					name: `${this.ba.firstname} ${this.ba.lastname}`,
-					email: this.auth ? this.auth.email : this.guest.email,
-					order: this.orderID,
-					amount: this.getBagTotal + this.shipping + this.vat,
-					operation: null,
-					successURL: this.route('orders'),
-					timeoutURL: this.route('checkout'),
-					failURL: this.route('checkout'),
-					recallURL: this.route('home'),
-					street: this.ba.street,
-					city: this.ba.city,
-					state: this.ba.state,
-					zip: this.ba.zip,
-					country: this.ba.country,
-					phone: this.ba.phone,
+					name: `${this.user.firstname} ${this.user.lastname}`,
+					email: this.user.email,
+					order: this.uuid,
+					amount: ((this.getBagTotal - this.coupon.value) + this.getCompanyPrice) * 10,
+					operation: this.getFormatedPrice((this.getBagTotal - this.coupon.value) + this.getCompanyPrice),
+					successURL: this.route('naps.success'),
+					timeoutURL: this.route('naps.timeout'),
+					failURL: this.route('naps.fail'),
+					recallURL: null,
+					street: this.billing.street,
+					city: this.billing.city,
+					state: this.billing.state,
+					zip: this.billing.zip,
+					country: this.billing.country,
+					phone: this.billing.phone,
 				}
 			}
 		},
 		watch: {
 			selected() {
-				if (this.selected > -1) {
-					this.fillAddress()
-					return
-				}
-				this.clearAddress()
+				this.fillAddress()
+				this.fillBilling()
+			},
+			same() {
+				this.fillBilling()
 			}
 		},
 		methods: {
-			billing() {
-				if (this.same === true) {
-					for (var [key, value] of Object.entries(this.ba)) {
-						this.ba[key] = this.sa[key]
+			next(target) {
+				this[target].post(this.route(`checkout.${target}`), {
+					preserveScroll: true,
+					onSuccess: () => {
+						if (target === 'user') {
+							this.step = 3
+						} else if (target === 'address') {
+							this.step = 4
+						} else if (target === 'shipping') {
+							this.step = 5
+						}
+					}
+				})
+			},
+			checkCoupon() {
+				this.loading = true
+				axios.post(this.route('coupon'), {
+					code: this.coupon.code,
+				}).then(response => {
+					this.loading = false
+					this.coupon.error = null
+					this.coupon.details = response.data.coupon
+					this.applyCoupon()
+				}).catch(error => {
+					this.loading = false
+					this.coupon.error = error.response.data.errors.code[0]
+				})
+			},
+			applyCoupon() {
+				var min = this.coupon.details.min || 1
+				var max = this.coupon.details.max || 1000000000
+				if (this.getBagTotal >= min && this.getBagTotal <= max) {
+					this.shipping.coupon = this.coupon.details.id
+					if (this.coupon.details.type === 'price') {
+						this.coupon.value = this.coupon.details.value
+					} else if (this.coupon.details.type === 'percentage') {
+						this.coupon.value = (this.getBagTotal * this.coupon.details.value) / 100
 					}
 				}
 			},
-			fillAddress() {
-				this.sa.firstname = this.addresses[this.selected].firstname
-				this.sa.lastname = this.addresses[this.selected].lastname
-				this.sa.street = this.addresses[this.selected].street
-				this.sa.city = this.addresses[this.selected].city
-				this.sa.state = this.addresses[this.selected].state
-				this.sa.zip = this.addresses[this.selected].zip
-				this.sa.country = this.addresses[this.selected].country
-				this.sa.phone = this.addresses[this.selected].phone
+			fillUser() {
+				if (this.auth) {
+					this.user.firstname = this.auth.firstname
+					this.user.lastname = this.auth.lastname
+					this.user.email = this.auth.email
+				}
 			},
-			clearAddress() {
-				this.sa.firstname = null
-				this.sa.lastname = null
-				this.sa.street = null
-				this.sa.city = null
-				this.sa.state = null
-				this.sa.zip = null
-				this.sa.country = null
-				this.sa.phone = null
+			fillAddress() {
+				for (var [key, value] of Object.entries(this.address.data())) {
+					if (key === 'uuid') {
+						continue
+					}
+					this.address[key] = this.selected > -1 ? this.addresses[this.selected][key] : null
+				}
+			},
+			fillBilling() {
+				for (var [key, value] of Object.entries(this.billing)) {
+					this.billing[key] = this.same ? this.address[key] : null
+				}
 			}
 		},
 		data() {
 			return {
 				loading: false,
 				orderID: null,
-				coupon: null,
-				shipping: 0,
-				vat: 20,
 				step: 0,
-				same: false,
+				same: true,
 				selected: -1,
-				guest: this.$inertia.form({
+				user: this.$inertia.form({
+					uuid: null,
 					firstname: null,
 					lastname: null,
 					email: null,
 					subscribe: false,
 				}),
-				sa: this.$inertia.form({
+				address: this.$inertia.form({
+					uuid: null,
 					firstname: null,
 					lastname: null,
 					street: null,
@@ -355,7 +422,12 @@
 					country: null,
 					phone: null,
 				}),
-				ba: {
+				shipping: this.$inertia.form({
+					uuid: null,
+					company: null,
+					coupon: null,
+				}),
+				billing: {
 					firstname: null,
 					lastname: null,
 					street: null,
@@ -364,11 +436,22 @@
 					zip: null,
 					country: null,
 					phone: null,
+				},
+				coupon: {
+					details: {},
+					value: 0,
+					code: null,
+					error: null,
 				}
 			}
 		},
 		created() {
-			this.step = this.auth ? 3 : 1
+			this.fillUser()
+			this.user.uuid = this.uuid
+			this.address.uuid = this.uuid
+			this.shipping.uuid = this.uuid
+			this.shipping.company = this.companies.length > 0 ? this.companies[0].id : null
+			this.step = this.auth ? 2 : 1
 			this.selected = this.addresses.map(address => address.default).indexOf(true)
 		}
 	}

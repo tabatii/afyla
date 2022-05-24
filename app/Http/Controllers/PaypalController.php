@@ -3,25 +3,20 @@
 namespace App\Http\Controllers;
 
 use PayPalCheckoutSdk\Core\PayPalHttpClient;
-use PayPalCheckoutSdk\Core\ProductionEnvironment;
+use PayPalCheckoutSdk\Core\SandboxEnvironment;
 use PayPalCheckoutSdk\Orders\OrdersCreateRequest;
 use PayPalCheckoutSdk\Orders\OrdersCaptureRequest;
-use AmrShawky\LaravelCurrency\Facade\Currency;
-use App\Http\Requests\PaypalCaptureRequest;
-use App\Http\Requests\PaypalCreateRequest;
-use App\Services\NotificationService;
-use Illuminate\Support\Facades\DB;
-use App\Models\Notification;
-use App\Models\Shipping;
-use App\Models\Product;
-use App\Models\Address;
+use Illuminate\Http\Request;
+use App\Models\ProductSize;
+use App\Models\Coupon;
 use App\Models\Order;
 
 class PayPalController extends Controller
 {
+
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('cookie');
     }
 
     /**
@@ -33,7 +28,7 @@ class PayPalController extends Controller
     {
         $clientId = env('PAYPAL_ID') ?: 'PAYPAL-SANDBOX-CLIENT-ID';
         $clientSecret = env('PAYPAL_SECRET') ?: 'PAYPAL-SANDBOX-CLIENT-SECRET';
-        return new ProductionEnvironment($clientId, $clientSecret);
+        return new SandboxEnvironment($clientId, $clientSecret);
     }
 
     /**
@@ -46,71 +41,90 @@ class PayPalController extends Controller
         return new PayPalHttpClient($this->environment());
     }
 
-    public function body($data)
+    public function body($uuid)
     {
-        $product = Product::findOrFail($data['product']);
-        $address = Address::findOrFail($data['address']);
-        $shipping = Shipping::where('code', $address->country)->firstOrFail();
-        $price = Currency::convert()->from('MAD')->to('USD')->amount(($product->price * $data['quantity']) + $shipping->price)->get();
+        $order = Order::with('products')->where('uuid', $uuid)->first();
+        $items = [];
+
+        foreach ($order->products as $product) {
+            $items[] = [
+                'name' => $product->title,
+                'quantity' => $product->qty,
+                'unit_amount' => [
+                    'currency_code' => 'USD',
+                    'value' => $product->price,
+                ]
+            ];
+        }
+
         return [
             'intent' => 'CAPTURE',
             'application_context' => [
                 'brand_name' => env('APP_NAME'),
-                'shipping_preference' => 'NO_SHIPPING'
+                'shipping_preference' => 'NO_SHIPPING',
             ],
             'purchase_units' => [
                 [
-                    'description' => $product->title,
+                    'items' => $items,
                     'amount' => [
                         'currency_code' => 'USD',
-                        'value' => round($price, 2)
+                        'value' => $order->order_subtotal + $order->order_shipping,
+                        'breakdown' => [
+                            'item_total' => [
+                                'currency_code' => 'USD',
+                                'value' => $order->order_subtotal + $this->getCoupon($order->coupon_id, $order->order_subtotal),
+                            ],
+                            'shipping' => [
+                                'currency_code' => 'USD',
+                                'value' => $order->order_shipping,
+                            ],
+                            'discount' => [
+                                'currency_code' => 'USD',
+                                'value' => $this->getCoupon($order->coupon_id, $order->order_subtotal),
+                            ]
+                        ]
                     ]
                 ]
             ]
         ];
     }
 
-    public function create(PaypalCreateRequest $request)
+    public function create(Request $request)
     {
+        $request->validate([
+            'uuid' => 'required|exists:orders',
+        ]);
+
         $payment = new OrdersCreateRequest();
         $payment->prefer('return=representation');
-        $payment->body = $this->body($request->validated());
+        $payment->body = $this->body($request->uuid);
+
         $response = $this->client()->execute($payment);
         return response()->json($response);
     }
 
-    public function capture(PaypalCaptureRequest $request)
+    public function capture(Request $request)
     {
-        return DB::transaction(function () use ($request) {
+        $request->validate([
+            'capture' => 'required|string',
+            'uuid' => 'required|exists:orders',
+        ]);
 
-            $address = Address::findOrFail($request->address);
-            $shipping = Shipping::where('code', $address->country)->firstOrFail();
-            $data = $this->client()->execute(new OrdersCaptureRequest($request->order));
+        $payment = $this->client()->execute(new OrdersCaptureRequest($request->capture));
 
-            $product = Product::findOrFail($request->product);
-            $product->stock -= 1;
-            $product->save();
+        $order = Order::with('products')->where('uuid', $request->uuid)->first();
+        $order->payment_method = 'paypal';
+        $order->status = $payment->result->status === 'COMPLETED' ? 'processing' : null;
+        $order->save();
 
-            $order = new Order;
-            $order->user_id = auth()->id();
-            $order->product_id = $product->id;
-            $order->address_id = $address->id;
-            $order->quantity = $request->quantity;
-            $order->unit_price = $product->price;
-            $order->shipping_price = $shipping->price;
-            $order->total_amount =($product->price * $request->quantity) + $shipping->price;
-            $order->paid_amount = $data->result->purchase_units[0]->payments->captures[0]->amount->value;
-            $order->paid_currency = $data->result->purchase_units[0]->payments->captures[0]->amount->currency_code;
-            $order->payment_method = Order::PAYPAL;
-            $order->status = Order::PENDING;
-            $order->save();
+        Coupon::where('id', $order->coupon_id)->update(['active' => false]);
 
-            $notification = new Notification;
-            $notification->icon = 'mdi-cart-plus';
-            $notification->content = (new NotificationService)->newOrder();
-            $notification->save();
+        foreach ($order->products as $item) {
+            $size = ProductSize::where('product_id', $item->product_id)->where('size_id', $item->size_id)->first();
+            $size->qty = $size->qty - $item->qty;
+            $size->save();
+        }
 
-            return response()->json();
-        });
+        return response()->json($order->products);
     }
 }

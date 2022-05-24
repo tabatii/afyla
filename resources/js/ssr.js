@@ -34,6 +34,9 @@ createServer((page) => createInertiaApp({
 						style: 'currency',
 						currency: 'USD',
 					}).format(value)
+				},
+				getTax(price) {
+					return (price * 20) / 100
 				}
 			}
 		})

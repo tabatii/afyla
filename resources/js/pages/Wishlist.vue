@@ -125,20 +125,20 @@
 								<div class="mb-4">
 									<div class="d-flex mb-1">
 										<span class="me-2">Color:</span>
-										<span class="text-muted me-1" v-for="(c, i) in item.product.colors" :key="Math.random()">
+										<span class="text-muted me-1" v-if="c.color" v-for="(c, i) in item.product.colors" :key="Math.random()">
 											{{ c.color.name }}<span v-if="i+1 !== item.product.colors.length">,</span>
 										</span>
 									</div>
 									<div class="d-flex mb-1">
 										<span class="me-2">Material:</span>
-										<span class="text-muted me-1" v-for="(c, i) in item.product.materials" :key="Math.random()">
-											{{ c.material.name }}<span v-if="i+1 !== item.product.materials.length">,</span>
+										<span class="text-muted me-1" v-if="m.material" v-for="(m, i) in item.product.materials" :key="Math.random()">
+											{{ m.material.name }}<span v-if="i+1 !== item.product.materials.length">,</span>
 										</span>
 									</div>
 									<div class="d-flex align-items-center flex-wrap">
 										<span class="me-2">Size:</span>
 										<select class="form-select input py-0 me-3" style="max-width:70px" v-model="bag.size">
-											<option :value="s.size_id" v-if="s.qty !== null" v-for="s in item.product.sizes" :key="Math.random()">
+											<option :value="s.size_id" v-if="s.size && s.qty !== null" v-for="s in item.product.sizes" :key="Math.random()">
 												{{ s.size.name }}
 											</option>
 										</select>

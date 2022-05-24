@@ -167,7 +167,7 @@
 									<i class="bi fs-3" :class="[searchWishlist(product.id) ? 'bi-heart-fill text-danger' : 'bi-heart']"></i>
 								</span>
 								<div class="colors">
-									<span class="me-2 shadow" :style="{backgroundColor:c.color.hex}" v-for="c in product.colors" :key="Math.random()"></span>
+									<span class="me-2 shadow" :style="{backgroundColor:c.color.hex}" v-for="c in product.colors" :key="Math.random()" v-if="c.color"></span>
 								</div>
 							</div>
 							<div class="py-3">
@@ -181,7 +181,7 @@
 								</div>
 								<div class="d-flex">
 									<div class="d-flex me-auto">
-										<div class="text-dark me-2" v-for="s in product.sizes" :key="Math.random()" v-if="s.qty !== null">
+										<div class="text-dark me-2" v-for="s in product.sizes" :key="Math.random()" v-if="s.size && s.qty !== null">
 											<del class="text-muted" v-text="s.size.name" v-if="s.qty === 0"></del>
 											<span v-text="s.size.name" v-else></span>
 										</div>

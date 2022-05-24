@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Models\ProductSize;
 
 class BagRequest extends FormRequest
 {
@@ -13,7 +14,11 @@ class BagRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        $size = ProductSize::where('product_id', $this->product)->where('size_id', $this->size)->first();
+        if ($this->qty <= $size->qty) {
+            return true;
+        }
+        return false;
     }
 
     /**

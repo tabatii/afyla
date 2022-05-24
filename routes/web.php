@@ -60,9 +60,24 @@ Route::get('/product/{id}', [\App\Http\Controllers\ProductController::class, 'sh
 Route::get('/collection/{id}', \App\Http\Controllers\CollectionController::class)->name('collection');
 Route::get('/collection/{id}/looks', \App\Http\Controllers\LookController::class)->name('looks');
 
+// Naps routes
+Route::get('/naps/success', [\App\Http\Controllers\NapsController::class, 'success'])->name('naps.success');
+Route::get('/naps/timeout', [\App\Http\Controllers\NapsController::class, 'timeout'])->name('naps.timeout');
+Route::get('/naps/fail', [\App\Http\Controllers\NapsController::class, 'fail'])->name('naps.fail');
+
+// Paypal routes
+Route::post('/paypal/create', [\App\Http\Controllers\PaypalController::class, 'create'])->name('paypal.create');
+Route::post('/paypal/capture', [\App\Http\Controllers\PaypalController::class, 'capture'])->name('paypal.capture');
+
 // Order routes
 Route::get('/orders', [\App\Http\Controllers\OrderController::class, 'index'])->name('orders');
 Route::get('/checkout', [\App\Http\Controllers\OrderController::class, 'create'])->name('checkout');
+Route::post('/checkout/steps/user', [\App\Http\Controllers\CheckoutController::class, 'user'])->name('checkout.user');
+Route::post('/checkout/steps/address', [\App\Http\Controllers\CheckoutController::class, 'address'])->name('checkout.address');
+Route::post('/checkout/steps/shipping', [\App\Http\Controllers\CheckoutController::class, 'shipping'])->name('checkout.shipping');
+
+// Coupon routes
+Route::post('/coupon', \App\Http\Controllers\CouponController::class)->name('coupon');
 
 // Bag routes
 Route::get('/bag', [\App\Http\Controllers\BagController::class, 'index'])->name('bag');
