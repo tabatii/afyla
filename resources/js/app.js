@@ -4,12 +4,6 @@ import { InertiaProgress } from '@inertiajs/progress'
 import { createInertiaApp } from '@inertiajs/inertia-vue'
 
 
-
-
-
-
-
-
 InertiaProgress.init()
 createInertiaApp({
 	title: title => `${title} - AFYLA`,
