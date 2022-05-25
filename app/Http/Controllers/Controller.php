@@ -58,6 +58,10 @@ class Controller extends BaseController
 
     public function afterPayment($uuid, $method)
     {
+        // Clear the bag
+
+        // Send email
+
         $order = Order::with('products')->where('uuid', $uuid)->whereNull('status')->firstOrFail();
         $order->payment_method = $method;
         $order->status = 'processing';

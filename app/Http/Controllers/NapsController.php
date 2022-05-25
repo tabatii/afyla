@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 class NapsController extends Controller
 {
 
-    public function success(Request $request, $uuid)
+    public function success($id)
     {
-        $this->afterPayment($request->uuid, 'naps');
+        $this->afterPayment($id, 'naps');
         return redirect()->route('orders');
     }
 

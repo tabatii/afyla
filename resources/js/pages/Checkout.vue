@@ -313,7 +313,7 @@
 					order: this.uuid,
 					amount: ((this.getBagTotal - this.coupon.value) + this.getCompanyPrice),
 					operation: this.getFormatedPrice((this.getBagTotal - this.coupon.value) + this.getCompanyPrice),
-					successURL: this.route('naps.success', {uuid: this.uuid}),
+					successURL: this.route('naps.success', {id: this.uuid}),
 					timeoutURL: this.route('naps.timeout'),
 					failURL: this.route('naps.fail'),
 					recallURL: null,
