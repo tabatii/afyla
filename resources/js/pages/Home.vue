@@ -9,7 +9,7 @@
 						<div class="carousel-caption">
 							<p class="fw-bold" :class="[xs ? 'fs-5 w-75' : 'fs-2 w-50']" v-text="slider.title"></p>
 							<div class="text-center">
-								<l :href="slider.url" class="btn btn-outline-light border-4 px-4" :class="{'btn-lg': !xs}">SHOP NOW</l>
+								<l :href="slider.url" class="btn btn-outline-light border-4 px-4 text-uppercase" :class="{'btn-lg': !xs}" v-text="slider.button"></l>
 							</div>
 						</div>
 					</div>
