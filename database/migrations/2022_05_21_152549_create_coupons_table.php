@@ -20,7 +20,7 @@ return new class extends Migration
             $table->float('value');
             $table->float('min')->nullable();
             $table->float('max')->nullable();
-            $table->enum('type', ['price', 'percentage']);
+            $table->enum('type', ['fixed', 'percentage']);
             $table->dateTime('expires_at');
             $table->timestamps();
         });

@@ -369,7 +369,7 @@
 				var max = this.coupon.details.max || 1000000000
 				if (this.getBagTotal >= min && this.getBagTotal <= max) {
 					this.shipping.coupon = this.coupon.details.id
-					if (this.coupon.details.type === 'price') {
+					if (this.coupon.details.type === 'fixed') {
 						this.coupon.value = this.coupon.details.value
 					} else if (this.coupon.details.type === 'percentage') {
 						this.coupon.value = (this.getBagTotal * this.coupon.details.value) / 100

@@ -24,7 +24,7 @@ class Controller extends BaseController
         $subtotal = $subtotal ?? $this->getSubtotal();
         if ($coupon && $coupon->active === 'yes') {
             if ($subtotal >= $min && $subtotal <= $max) {
-                if ($coupon->type === 'price') {
+                if ($coupon->type === 'fixed') {
                     return $coupon->value;
                 } elseif ($coupon->type === 'percentage') {
                     return ($subtotal * $coupon->value) / 100;
