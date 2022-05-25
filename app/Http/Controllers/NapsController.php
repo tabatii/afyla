@@ -7,11 +7,10 @@ use Illuminate\Http\Request;
 class NapsController extends Controller
 {
 
-    public function success(Request $request)
+    public function success(Request $request, $uuid)
     {
-        return redirect()->route('orders', [
-            'ref' => 'naps_success',
-        ]);
+        $this->afterPayment($request->uuid, 'naps');
+        return redirect()->route('orders');
     }
 
     public function timeout()

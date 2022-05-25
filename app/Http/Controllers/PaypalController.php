@@ -7,8 +7,6 @@ use PayPalCheckoutSdk\Core\SandboxEnvironment;
 use PayPalCheckoutSdk\Orders\OrdersCreateRequest;
 use PayPalCheckoutSdk\Orders\OrdersCaptureRequest;
 use Illuminate\Http\Request;
-use App\Models\ProductSize;
-use App\Models\Coupon;
 use App\Models\Order;
 
 class PayPalController extends Controller
@@ -109,22 +107,8 @@ class PayPalController extends Controller
             'capture' => 'required|string',
             'uuid' => 'required|exists:orders',
         ]);
-
-        $payment = $this->client()->execute(new OrdersCaptureRequest($request->capture));
-
-        $order = Order::with('products')->where('uuid', $request->uuid)->first();
-        $order->payment_method = 'paypal';
-        $order->status = $payment->result->status === 'COMPLETED' ? 'processing' : null;
-        $order->save();
-
-        Coupon::where('id', $order->coupon_id)->update(['active' => false]);
-
-        foreach ($order->products as $item) {
-            $size = ProductSize::where('product_id', $item->product_id)->where('size_id', $item->size_id)->first();
-            $size->qty = $size->qty - $item->qty;
-            $size->save();
-        }
-
-        return response()->json($order->products);
+        //$payment = $this->client()->execute(new OrdersCaptureRequest($request->capture));
+        $this->afterPayment($request->uuid, 'paypal');
+        return response()->json();
     }
 }

@@ -7,7 +7,9 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use App\Models\ShippingCompany;
+use App\Models\ProductSize;
 use App\Models\Coupon;
+use App\Models\Order;
 use App\Models\Bag;
 
 class Controller extends BaseController
@@ -52,5 +54,21 @@ class Controller extends BaseController
     {
         $company = ShippingCompany::find($id);
         return $company->price;
+    }
+
+    public function afterPayment($uuid, $method)
+    {
+        $order = Order::with('products')->where('uuid', $uuid)->whereNull('status')->firstOrFail();
+        $order->payment_method = $method;
+        $order->status = 'processing';
+        $order->save();
+
+        Coupon::where('id', $order->coupon_id)->update(['active' => false]);
+
+        foreach ($order->products as $item) {
+            $size = ProductSize::where('product_id', $item->product_id)->where('size_id', $item->size_id)->first();
+            $size->qty = $size->qty - $item->qty;
+            $size->save();
+        }
     }
 }
