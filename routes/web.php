@@ -111,17 +111,3 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/login', [\App\Http\Controllers\AuthController::class, 'redirect'])->name('voyager.login');
     Route::post('/login', [\App\Http\Controllers\AuthController::class, 'redirect'])->name('voyager.postlogin');
 });
-
-// Artisan routes
-/*
-Route::group(['prefix' => 'artisan'], function () {
-    Route::get('init', function () {
-        Artisan::call('config:clear');
-        Artisan::call('migrate:fresh');
-        Artisan::call('db:seed', [
-            '--class' => 'VoyagerDatabaseSeeder',
-        ]);
-        return 'done';
-    });
-});
-*/
