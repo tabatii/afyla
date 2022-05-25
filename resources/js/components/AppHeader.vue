@@ -10,7 +10,7 @@
 			<nav class="navbar navbar-expand-lg navbar-light bg-white py-lg-0">
 				<div class="container-fluid">
 					<l href="/" class="navbar-brand fs-1 fw-bold py-0">AFYLA</l>
-					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-expanded="false">
+					<button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-expanded="false">
 						<span class="navbar-toggler-icon"></span>
 					</button>
 					<div class="collapse navbar-collapse pb-3 pb-lg-0" id="navbarContent">
@@ -78,7 +78,7 @@
 		<div class="modal fade" id="search" tabindex="-1">
 			<div class="modal-dialog modal-fullscreen">
 				<div class="modal-content">
-					<div class="modal-body p-4">
+					<div class="modal-body px-0 px-sm-4 py-4">
 						<SearchForm></SearchForm>
 					</div>
 				</div>

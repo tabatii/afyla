@@ -40,7 +40,7 @@
 						<div class="col-12">
 							<p class="fw-medium text-center mb-0">HOW CAN WE HELP YOU?</p>
 						</div>
-						<div class="col-sm-4 col-lg-3 col-xl-2">
+						<div class="col-sm-6 col-md-4 col-lg-3">
 							<div class="d-grid">
 								<a :href="'mailto:'+settings.email" class="btn btn-primary py-3">
 									<img src="/img/icons/mail.png" class="me-3" height="26px" />
@@ -48,7 +48,7 @@
 								</a>
 							</div>
 						</div>
-						<div class="col-sm-4 col-lg-3 col-xl-2">
+						<div class="col-sm-6 col-md-4 col-lg-3">
 							<div class="d-grid">
 								<a :href="'https://wa.me/'+settings.whatsapp" class="btn btn-primary py-3" target="_blank">
 									<img src="/img/icons/chat.png" class="me-3" height="26px" />
@@ -56,7 +56,7 @@
 								</a>
 							</div>
 						</div>
-						<div class="col-sm-4 col-lg-3 col-xl-2">
+						<div class="col-sm-6 col-md-4 col-lg-3">
 							<div class="d-grid">
 								<a :href="'tel:'+settings.phone" class="btn btn-primary py-3">
 									<img src="/img/icons/phone.png" class="me-3" height="26px" />

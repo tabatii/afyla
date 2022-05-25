@@ -102,7 +102,6 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		max-height: calc(100vh - 120px);
 	}
 	.category {
 		position: relative;
