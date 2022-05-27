@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('slug');
             $table->float('price');
-            $table->integer('orderby')->default(1);
+            $table->integer('order')->default(1);
             $table->timestamps();
         });
     }
