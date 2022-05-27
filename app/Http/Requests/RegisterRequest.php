@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rules\Password;
 
 class RegisterRequest extends FormRequest
 {
@@ -27,12 +28,16 @@ class RegisterRequest extends FormRequest
             'firstname' => 'required|string|max:50',
             'lastname' => 'required|string|max:50',
             'email' => 'required|email|max:100|unique:users',
-            'password' => 'required|string|min:8|max:100|confirmed',
             'country' => 'required|string|max:50',
             'birthday' => 'required|date',
             'subscribe' => 'required|boolean',
             'agree' => 'required|accepted',
             'redirect' => 'sometimes|string',
+            'password' => [
+                'required',
+                Password::defaults(),
+                'confirmed',
+            ],
         ];
     }
 
