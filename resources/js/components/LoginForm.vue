@@ -16,7 +16,9 @@
 			</div>
 		</form>
 		<form @submit.prevent="login.post(route('login', {redirect}))" v-else>
-			<div class="alert alert-danger" role="alert" v-text="login.errors.auth" v-if="login.errors.auth"></div>
+			<div class="py-3" v-if="login.errors.auth">
+				<span class="text-danger" v-text="login.errors.auth"></span>
+			</div>
 			<div class="mb-3">
 				<input type="email" class="form-control input" v-model="login.email" placeholder="Email" />
 				<small class="text-danger" v-text="login.errors.email"></small>

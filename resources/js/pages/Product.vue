@@ -6,8 +6,7 @@
 		</h>
 		<PopUp v-model="soldout">
 			<div class="text-center py-2">
-				<p class="fw-medium">Unfortunately, this item is out of stock.</p>
-				<button type="button" class="btn btn-secondary">EMAIL WHEN AVAILABLE</button>
+				<p class="fw-medium mb-0">Unfortunately, this item is out of stock.</p>
 			</div>
 		</PopUp>
 		<PopUp v-model="done">

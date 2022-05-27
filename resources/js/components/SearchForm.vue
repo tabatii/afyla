@@ -6,7 +6,7 @@
 					<i class="bi bi-search fs-4 text-dark"></i>
 				</a>
 			</span>
-			<input type="text" class="form-control form-control-lg border-0 shadow-none py-3" v-model="search" placeholder="SEARCH FOR SOMETHING YOU LOVE…" />
+			<input type="text" class="form-control form-control-lg border-0 shadow-none py-3" v-model="search" :placeholder="placeholder" />
 			<span class="input-group-text bg-white border-0 ps-2 pe-4">
 				<span class="btn-close pointer" data-bs-dismiss="modal" aria-label="Close"></span>
 			</span>
@@ -17,7 +17,7 @@
 				<p class="fw-medium mb-4">SUGGESTIONS</p>
 				<div class="row gy-4">
 					<div class="col-sm-4 col-lg-2 text-center" v-for="category in categories" :key="Math.random()">
-						<l :href="route('shop', {categories: [category.id]})" class="underline" v-text="category.name"></l>
+						<a :href="route('shop', {categories: [category.id]})" class="underline" v-text="category.name"></a>
 						<img :src="category.img" class="d-block w-100 mt-3" />
 					</div>
 				</div>
@@ -32,7 +32,7 @@
 						<p>You can also search here:</p>
 						<ul class="nav flex-column">
 							<li class="nav-item" v-for="category in categories" :key="Math.random()">
-								<l :href="route('shop', {categories: [category.id]})" class="underline" v-text="category.name"></l>
+								<a :href="route('shop', {categories: [category.id]})" class="underline" v-text="category.name"></a>
 							</li>
 						</ul>
 					</div>
@@ -72,10 +72,10 @@
 						<p v-if="cats.length === 0 && subs.length === 0">No results were found for the keyword "{{ search }}" in categories</p>
 						<ul class="nav flex-column" v-else>
 							<li class="nav-item" v-for="cat in cats" :key="Math.random()">
-								<l :href="route('shop', {categories: [cat.id]})" class="underline" v-text="cat.name"></l>
+								<a :href="route('shop', {categories: [cat.id]})" class="underline" v-text="cat.name"></a>
 							</li>
 							<li class="nav-item" v-for="sub in subs" :key="Math.random()">
-								<l :href="route('shop', {subs: [sub.id]})" class="underline" v-text="sub.name"></l>
+								<a :href="route('shop', {subs: [sub.id]})" class="underline" v-text="sub.name"></a>
 							</li>
 						</ul>
 					</div>
@@ -101,7 +101,7 @@
 						<ul class="nav flex-column">
 							<li class="nav-item d-flex align-items-center mb-1" v-for="color in colors" :key="Math.random()">
 								<span class="me-2" :style="{backgroundColor: color.hex}"></span>
-								<l :href="route('shop', {colors: [color.id]})" class="fw-medium" v-text="color.name"></l>
+								<a :href="route('shop', {colors: [color.id]})" class="fw-medium" v-text="color.name"></a>
 							</li>
 						</ul>
 					</div>
@@ -112,12 +112,8 @@
 </template>
 
 <script>
-	import { Link } from '@inertiajs/inertia-vue'
 	import axios from 'axios'
 	export default {
-		components: {
-			l: Link,
-		},
 		computed: {
 			categories() {
 				return this.$page.props.categories
@@ -146,12 +142,19 @@
 		},
 		data() {
 			return {
+				placeholder: null,
 				search: '',
 				products: [],
 				colors: [],
 				cats: [],
 				subs: [],
 			}
+		},
+		mounted() {
+			this.placeholder = innerWidth < 576 ? 'SEARCH…' : 'SEARCH FOR SOMETHING YOU LOVE…'
+			addEventListener('resize', () => {
+				this.placeholder = innerWidth < 576 ? 'SEARCH…' : 'SEARCH FOR SOMETHING YOU LOVE…'
+			})
 		}
 	}
 </script>

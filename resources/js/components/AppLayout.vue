@@ -3,6 +3,9 @@
 		<h>
 			<meta head-key="description" name="description" :content="settings.description" />
 		</h>
+		<Notification v-model="notification" title="Thank you for joining us.">
+			<p class="mb-0">Check your email address to get a promo code and use it in your first order.</p>
+		</Notification>
 		<div class="newsletter" v-if="!newsletter">
 			<div class="content">
 				<button type="button" class="btn btn-close close" @click="closeNewsletter"></button>
@@ -35,7 +38,7 @@
 		<div class="cookies" v-if="!cookies">
 			<button type="button" class="btn btn-close btn-close-white close" @click="closeCookies"></button>
 			<div class="px-4 py-5">
-				<p>AFYLA uses cookies to give you the best experience. Cookies allows you shop our collections and use any personalized features available on our website. <l href="#" class="text-white underline">click here</l> to view our cookies policy to learn more about this.</p>
+				<p>AFYLA uses cookies to give you the best experience. Cookies allows you shop our collections and use any personalized features available on our website. <l :href="route('page', 'cookies-policy')" class="text-white underline">click here</l> to view our cookies policy to learn more about this.</p>
 				<button type="button" class="btn btn-light" @click="closeCookies">ACCEPT</button>
 			</div>
 		</div>
@@ -45,7 +48,9 @@
 			</div>
 		</PopUp>
 		<AppHeader />
-		<slot />
+		<main>
+			<slot />
+		</main>
 		<AppFooter />
 	</div>
 </template>
@@ -53,12 +58,14 @@
 <script>
 	import { Link } from '@inertiajs/inertia-vue'
 	import { Head } from '@inertiajs/inertia-vue'
+	import Notification from './Notification'
 	import AppHeader from './AppHeader'
 	import AppFooter from './AppFooter'
 	import PopUp from './PopUp'
 	import Cookies from 'js-cookie'
 	export default {
 		components: {
+			Notification,
 			AppHeader,
 			AppFooter,
 			PopUp,
@@ -66,6 +73,9 @@
 			l: Link,
 		},
 		computed: {
+			auth() {
+				return this.$page.props.auth
+			},
 			settings() {
 				return this.$page.props.settings
 			},
@@ -79,7 +89,7 @@
 				this.newsletter = Cookies.get('newsletter-popup')
 			},
 			closeCookies() {
-				Cookies.set('cookies-popup', 'hide', { expires: 30 })
+				Cookies.set('cookies-popup', 'hide', { expires: 365 })
 				this.cookies = Cookies.get('cookies-popup')
 			},
 			subscribe() {
@@ -87,12 +97,14 @@
 					onSuccess: () => {
 						this.form.reset()
 						this.closeNewsletter()
+						this.notification = true
 					}
 				})
 			}
 		},
 		data() {
 			return {
+				notification: false,
 				newsletter: null,
 				cookies: null,
 				popup: true,
@@ -102,6 +114,9 @@
 			}
 		},
 		mounted() {
+			if (this.auth && this.auth.sub) {
+				this.closeNewsletter()
+			}
 			this.newsletter = Cookies.get('newsletter-popup')
 			this.cookies = Cookies.get('cookies-popup')
 		}

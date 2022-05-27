@@ -31,9 +31,7 @@ class UserController extends Controller
         $user->save();
 
         if ($request->subscribe && !$user->sub) {
-            $subscription = new Subscription;
-            $subscription->email = $user->email;
-            $subscription->save();
+            $this->subscribe($user->email);
         } elseif (!$request->subscribe && $user->sub) {
             Subscription::where('email', $user->email)->delete();
         }

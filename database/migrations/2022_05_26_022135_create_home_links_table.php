@@ -13,8 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('roles', function (Blueprint $table) {
-            $table->integer('orderby')->default(1)->after('display_name');
+        Schema::create('home_links', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->string('url');
+            $table->string('image');
+            $table->integer('order');
+            $table->timestamps();
         });
     }
 
@@ -25,10 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('roles', function (Blueprint $table) {
-            if (Schema::hasColumn('roles', 'orderby')) {
-                $table->dropColumn('orderby');
-            }
-        });
+        Schema::dropIfExists('home_links');
     }
 };

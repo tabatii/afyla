@@ -15,7 +15,9 @@
 			</div>
 		</div>
 		<section class="bg-primary p-3 p-sm-5">
-			<h1 class="fs-2 mb-4">CUSTOMER CARE</h1>
+			<h1 class="fs-4 mb-4">
+				<l :href="route('customer')" class="text-dark text-decoration-none">CUSTOMER CARE</l>
+			</h1>
 			<div class="row">
 				<div class="col-sm-4 col-lg-3 pb-5 pb-sm-0">
 					<ul class="nav flex-column">
@@ -57,7 +59,7 @@
 				<div class="col-sm-8 col-lg-9">
 					<div class="tab-content" id="nav-tabContent">
 
-						<div class="tab-pane fade show active">
+						<div class="tab-pane fade show active" id="main-tab">
 							<div class="row gy-4">
 								<div class="col-sm-4 text-center">
 									<img src="/img/icons/truck.png" class="mb-2" width="124px" style="opacity:.6;" />
@@ -65,11 +67,11 @@
 								</div>
 								<div class="col-sm-4 text-center">
 									<img src="/img/icons/secure.png" class="mb-2" width="124px" style="opacity:.6; transform: scale(.75);" />
-									<p class="mb-0"><l href="#">Secure & diverse payment</l></p>
+									<p class="text-muted mb-0">Secure & diverse payment</p>
 								</div>
 								<div class="col-sm-4 text-center">
 									<img src="/img/icons/mobile.png" class="mb-2" width="124px" style="opacity:.6; transform: scale(.85);" />
-									<p class="mb-0"><l href="#">Available 7 /7</l></p>
+									<p class="text-muted mb-0">Available 7 /7</p>
 								</div>
 								<div class="col-sm-4 text-center">
 									<img src="/img/icons/sustainability.png" class="mb-2" width="124px" style="opacity:.6;" />
@@ -105,7 +107,7 @@
 
 						<div class="tab-pane fade" id="shopping">
 							<p class="fw-medium mb-0">SHOPPING</p>
-							<p>To make a purchase in www.afylaworld.com you don’t need to register, however we suggest you create an account to access exclusive areas and services dedicated to our customers. You can browse our home page and discover the product categories we have and that lead you to our online shops.</p>
+							<p>To make a purchase in <l :href="route('home')">www.afylaworld.com</l> you don’t need to register, however we suggest you create an account to access exclusive areas and services dedicated to our customers. You can browse our home page and discover the product categories we have and that lead you to our online shops.</p>
 							<p class="fw-medium mb-0"><i class="bi bi-search"></i> SEARCH</p>
 							<p>You can also use our search tool located the head of all the pages. You easily click on the search button and type the item’s name you are looking for.. We offer you suggestions of each shop we have, before even writing something. We use a very advanced search feature to make it easier for you</p>
 							<p class="fw-medium mb-0"><i class="bi bi-list"></i> MENU</p>
@@ -139,7 +141,7 @@
 							<p class="mb-0">Once you have a AFYLA account, you can consult all your previous orders in the orders section. You’ll find a table that contains various information of each order including Order’s number, amount, statuts, etc..</p>
 							<p class="mb-0">You can find different order’s status that represent the process of the purchase.</p>
 							<p class="mb-0"><span class="fw-medium">Processing:</span> Your order has been confirmed; we have already sent you a confirmation email with all the information and your tracking number.</p>
-							<p class="mb-0"><span class="fw-medium">In shipping:</span> Your order is shipped from our warehouse; you can use your tracking number on www.fedex.com to track your order.</p>
+							<p class="mb-0"><span class="fw-medium">Shipped:</span> Your order is shipped from our warehouse; you can use your tracking number on <a href="http://www.fedex.com" target="_blank">www.fedex.com</a> to track your order.</p>
 							<p class="mb-0"><span class="fw-medium">Delivered:</span> You received your order.</p>
 							<p><span class="fw-medium">Cancelled:</span> You are allowed to cancel your order at anytime before the shipping stage.</p>
 							<p class="fw-medium mb-0">PRE-ORDER</p>
@@ -156,14 +158,14 @@
 							<p class="fw-medium">SHIPPING</p>
 							<p>We offer free shipment to our customers and we take care of the customs clearance for countries in the E.U., U.S., U.K., U.A.E. and Morocco.</p>
 							<p>We work with FedEx Express Worldwide as a third party. Once the order is confirmed, you will be informed as soon as the goods are ready for shipping.</p>
-							<p>You can follow your order using the tracking number in www.fedex.com or using your account in our website www.afylaworld.com</p>
+							<p>You can follow your order using the tracking number in <a href="http://www.fedex.com" target="_blank">www.fedex.com</a> or using your account in our website <l :href="route('home')">www.afylaworld.com</l></p>
 							<p>Shipping timing may vary from country to another. Delivery times begin one business day after the order is placed.</p>
-							<p>Read more in our Shipping & Returns policy.</p>
+							<p>Read more in our <l :href="route('page', 'shipping-returns-policy')">Shipping & Returns policy</l>.</p>
 						</div>
 
 						<div class="tab-pane fade" id="returns">
 							<p class="fw-medium">RETURNS & REFUNDS</p>
-							<p>You may exchange the items purchased from www.afylaworld.com within 15 days of receipt of your purchase. AFYLA will cover the shipping costs to our warehouse and you main free of charge. Please follow these four steps:</p>
+							<p>You may exchange the items purchased from <l :href="route('home')">www.afylaworld.com</l> within 15 days of receipt of your purchase. AFYLA will cover the shipping costs to our warehouse and you main free of charge. Please follow these four steps:</p>
 							<p>1.Contact us: Our team of advisors will assist you on the return by offering a complete service or pick up by the courier company. They will also provide the documents needed by email. Contact us by choosing the subject “Returns”. You can also email or call us.</p>
 							<p>2.Complete the questions in the form: You will receive a “Return form” with questions on it. You should complete them and include the form in the packaging.</p>
 							<p>3.Prepare the packaging: Including the return form completed and with the documents requested by our advisors team.</p>

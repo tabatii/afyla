@@ -80,11 +80,11 @@ class Product extends Model
                 $query->orWhere('title', 'like', '%'.$value.'%');
             }
         }
-        if (isset($data['discounts'])) {
-            $query->whereNotNull('discount');
-        }
         if (isset($data['ids']) && is_array($data['ids'])) {
             $query->whereIn('id', $data['ids']);
+        }
+        if (isset($data['discounts'])) {
+            $query->whereNotNull('discount');
         }
         if (isset($data['collections']) && is_array($data['collections'])) {
             $query->whereHas('collections', function (Builder $q) use ($data) {

@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('coupons', function (Blueprint $table) {
             $table->id();
             $table->boolean('active')->default(true);
+            $table->string('email');
             $table->string('code')->unique();
             $table->float('value');
             $table->float('min')->nullable();

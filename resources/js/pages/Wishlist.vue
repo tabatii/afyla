@@ -3,8 +3,7 @@
 		<h title="My Wishlist"></h>
 		<PopUp v-model="soldout">
 			<div class="text-center py-2">
-				<p class="fw-medium">Unfortunately, this item is out of stock.</p>
-				<button type="button" class="btn btn-secondary">EMAIL WHEN AVAILABLE</button>
+				<p class="fw-medium mb-0">Unfortunately, this item is out of stock.</p>
 			</div>
 		</PopUp>
 		<PopUp v-model="done">
@@ -73,7 +72,16 @@
 		</div>
 		<section style="margin-bottom:200px">
 			<div class="container">
-				<div class="pt-5 pb-3">
+				<div class="py-3">
+					<div class="alert alert-secondary alert-dismissible fade show" v-if="!auth">
+						<p>Sign in to save your wishlist and manage your orders.</p>
+						<div class="d-flex">
+							<button type="button" class="btn btn-secondary me-2" data-bs-toggle="offcanvas" data-bs-target="#forms">SIGN IN</button>
+						</div>
+						<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+					</div>
+				</div>
+				<div class="py-3">
 					<div class="d-flex flex-column flex-sm-row flex-wrap mb-3">
 						<div class="d-flex align-items-center flex-wrap flex-grow-1 mb-2 mb-sm-0">
 							<span class="fw-medium fs-5 me-auto" style="line-height:1.7">{{ wishlist.length }} Item(s)</span>
@@ -203,6 +211,9 @@
 			l: Link,
 		},
 		computed: {
+			auth() {
+				return this.$page.props.auth
+			},
 			wishlist() {
 				return this.$page.props.wishlist
 			},

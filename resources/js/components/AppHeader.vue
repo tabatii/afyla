@@ -2,24 +2,25 @@
 	<header>
 
 		<div class="fixed-navbar" :class="{shadow: scroll > 60}">
-			<nav class="navbar navbar-expand-lg navbar-light bg-white overflow-hidden py-0" v-show="mobile || !scroll" style="height:60px">
+			<nav class="navbar navbar-expand-lg navbar-light bg-white overflow-hidden pb-0" v-show="mobile || !scroll" style="padding-top:11px">
 				<div class="container-fluid">
 					<AppNav :mobile="mobile" :scroll="scroll"></AppNav>
 				</div>
 			</nav>
-			<nav class="navbar navbar-expand-lg navbar-light bg-white py-lg-0">
+			<nav class="navbar navbar-expand-lg navbar-light bg-white py-0">
 				<div class="container-fluid">
-					<l href="/" class="navbar-brand fs-1 fw-bold py-0">AFYLA</l>
+					<l href="/" class="navbar-brand py-0 pe-xl-5 me-xxl-5">AFYLA</l>
 					<button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-expanded="false">
 						<span class="navbar-toggler-icon"></span>
 					</button>
 					<div class="collapse navbar-collapse pb-3 pb-lg-0" id="navbarContent">
-						<ul class="navbar-nav">
+						<ul class="navbar-nav ps-xl-5">
 							<li class="nav-item">
 								<l :href="route('shop', {sort: 'n'})" class="nav-link text-dark underline-hover mx-lg-2">WHAT'S NEW</l>
 							</li>
 							<li class="nav-item dropdown dropdown-hover" ref="categoriesItem">
-								<l :href="route('shop')" class="nav-link text-dark underline-hover mx-lg-2" @click.prevent>SHOP</l>
+								<l :href="route('shop')" class="nav-link text-dark underline-hover mx-lg-2" v-if="mobile" @click.prevent>SHOP</l>
+								<l :href="route('shop')" class="nav-link text-dark underline-hover mx-lg-2" v-else>SHOP</l>
 								<ul class="dropdown-menu" :class="{'d-block': !centered}" ref="categoriesMenu">
 									<li><l :href="route('shop')" class="dropdown-item text-lg-center underline-hover">VIEW ALL</l></li>
 									<li v-for="category in categories" :key="Math.random()">
@@ -57,7 +58,7 @@
 
 		<div class="offcanvas offcanvas-end" id="bag" tabindex="-1" data-bs-scroll="true" style="width:500px">
 			<div class="offcanvas-header">
-				<h5 class="fs-2 fw-light mb-0"><img src="/img/icons/bag.png" class="align-baseline" height="24px" /> Shopping bag</h5>
+				<h5 class="fw-light mb-0"><img src="/img/icons/bag.png" class="align-text-top" height="24px" /> SHOPPING BAG</h5>
 				<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 			</div>
 			<div class="offcanvas-body p-0">
@@ -67,7 +68,7 @@
 
 		<div class="offcanvas offcanvas-end" id="wishlist" tabindex="-1" data-bs-scroll="true" style="width:500px">
 			<div class="offcanvas-header">
-				<h5 class="fs-2 fw-light mb-0"><i class="bi bi-heart fs-4"></i> Your wishlist</h5>
+				<h5 class="fw-light mb-0"><i class="bi bi-heart fs-4 align-text-top"></i> YOUR WISHLIST</h5>
 				<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 			</div>
 			<div class="offcanvas-body p-0">
@@ -75,7 +76,7 @@
 			</div>
 		</div>
 
-		<div class="modal fade" id="search" tabindex="-1">
+		<div class="modal fade" id="search" data-bs-backdrop="false" tabindex="-1">
 			<div class="modal-dialog modal-fullscreen">
 				<div class="modal-content">
 					<div class="modal-body px-0 px-sm-4 py-4">
@@ -214,6 +215,9 @@
 	}
 	.navbar-brand {
 		font-family: 'Avenir-Heavy';
+		font-size: 2.5rem;
+		font-weight: bold;
+		line-height: 1.3;
 	}
 	.dropdown-item {
 		padding-top: .5rem;

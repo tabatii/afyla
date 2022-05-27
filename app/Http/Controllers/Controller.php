@@ -6,7 +6,10 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use App\Mail\Subscription as SubscribeMail;
+use Illuminate\Support\Facades\Mail;
 use App\Models\ShippingCompany;
+use App\Models\Subscription;
 use App\Models\ProductSize;
 use App\Models\Coupon;
 use App\Models\Order;
@@ -73,6 +76,24 @@ class Controller extends BaseController
             $size = ProductSize::where('product_id', $item->product_id)->where('size_id', $item->size_id)->first();
             $size->qty = $size->qty - $item->qty;
             $size->save();
+        }
+    }
+
+    public function subscribe($email)
+    {
+        $subscription = new Subscription;
+        $subscription->email = $email;
+        $subscription->save();
+
+        if (! Coupon::where('email', auth()->user()->email)->exists()) {
+            $coupon = new Coupon;
+            $coupon->email = $email;
+            $coupon->type = 'percentage';
+            $coupon->value = 25;
+            $coupon->expires_at = now()->addMonths(3)->toDateString();
+            $coupon->save();
+
+            Mail::to($email)->send(new SubscribeMail($coupon->code, 3));
         }
     }
 }

@@ -52,7 +52,7 @@
 					</p>
 				</div>
 				<div class="col-md-3 col-lg-2">
-					<img src="/img/size/human-front.png" class="d-block w-100" />
+					<img src="/img/size/human-back.png" class="d-block w-100" />
 				</div>
 			</div>
 		</div>

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\LoginRequest;
-use App\Models\Subscription;
 use App\Models\Wishlist;
 use App\Models\User;
 use App\Models\Bag;
@@ -31,9 +30,7 @@ class AuthController extends Controller
         $user->save();
 
         if ($request->subscribe) {
-            $subscription = new Subscription;
-            $subscription->email = $request->email;
-            $subscription->save();
+            $this->subscribe($user->email);
         }
 
         auth()->login($user);

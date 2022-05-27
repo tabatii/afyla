@@ -13,9 +13,17 @@
 					</div>
 				</div>
 				<p class="fs-5 text-center px-0 px-sm-5" v-text="collection.description"></p>
-				<div class="d-flex justify-content-around mb-4">
-					<l :href="route('looks', collection.id)" class="btn btn-outline-dark py-3">SEE ALL LOOKS</l>
-					<l :href="route('shop', {collections: [collection.id]})" class="btn btn-outline-dark py-3">SHOP COLLECTION</l>
+				<div class="row mb-4 gy-2 justify-content-center">
+					<div class="col-sm-6 col-lg-4 col-xxl-3">
+						<div class="d-grid">
+							<l :href="route('looks', collection.id)" class="btn btn-outline-dark py-3">SEE ALL LOOKS</l>
+						</div>
+					</div>
+					<div class="col-sm-6 col-lg-4 col-xxl-3">
+						<div class="d-grid">
+							<l :href="route('shop', {collections: [collection.id]})" class="btn btn-outline-dark py-3">SHOP COLLECTION</l>
+						</div>
+					</div>
 				</div>
 				<div class="row">
 					<div class="col-6">

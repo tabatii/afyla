@@ -1,5 +1,5 @@
 <template>
-	<ul class="nav ms-auto">
+	<ul class="nav ms-auto flex-shrink-0">
 		<li class="nav-item" v-show="!mobile && !scroll">
 			<div class="d-flex align-items-center h-100 mx-2" style="padding-top:2px">
 				<l :href="route('page', 'shipping-returns-policy')" class="text-dark">

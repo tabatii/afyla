@@ -117,3 +117,11 @@
 		}
 	}
 </script>
+
+<style scoped>
+	@media (max-width: 991px) {
+		.arrows {
+			top: 20%;
+		}
+	}
+</style>

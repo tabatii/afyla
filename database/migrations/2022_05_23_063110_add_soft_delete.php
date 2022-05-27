@@ -23,6 +23,11 @@ return new class extends Migration
                 $table->softDeletes();
             }
         });
+        Schema::table('home_links', function (Blueprint $table) {
+            if (! Schema::hasColumn('home_links', 'deleted_at')) {
+                $table->softDeletes();
+            }
+        });
         Schema::table('products', function (Blueprint $table) {
             if (! Schema::hasColumn('products', 'deleted_at')) {
                 $table->softDeletes();
@@ -99,6 +104,11 @@ return new class extends Migration
         });
         Schema::table('sliders', function (Blueprint $table) {
             if (Schema::hasColumn('sliders', 'deleted_at')) {
+                $table->dropSoftDeletes();
+            }
+        });
+        Schema::table('home_links', function (Blueprint $table) {
+            if (Schema::hasColumn('home_links', 'deleted_at')) {
                 $table->dropSoftDeletes();
             }
         });

@@ -15,7 +15,7 @@
 			</div>
 		</div>
 		<section class="bg-primary p-3 p-sm-5">
-			<h1 class="fs-2 mb-4">FAQ</h1>
+			<h1 class="fs-4 mb-4">FAQ</h1>
 			<div class="row">
 				<div class="col-sm-4 col-lg-3 pb-5 pb-sm-0">
 					<ul class="nav flex-column">

@@ -27,35 +27,11 @@
 		<section class="bg-primary py-4">
 			<div class="container">
 				<div class="row justify-content-between">
-					<div class="col-md-6 col-xl-5 p-2">
+					<div class="col-md-6 col-xl-5 p-2" v-for="link in links" :key="Math.random()">
 						<div class="category">
-							<img src="/img/home/coats.jpg" class="d-block w-100" />
-							<l :href="route('shop')" class="overlay">
-								<span class="fs-5 fw-bolder text-white">DISCOVER OUR COATS & JACKETS</span>
-							</l>
-						</div>
-					</div>
-					<div class="col-md-6 col-xl-5 p-2">
-						<div class="category">
-							<img src="/img/home/pants.jpg" class="d-block w-100" />
-							<l :href="route('shop')" class="overlay">
-								<span class="fs-5 fw-bolder text-white">DISCOVER OUR PANTS & SHORTS</span>
-							</l>
-						</div>
-					</div>
-					<div class="col-md-6 col-xl-5 p-2">
-						<div class="category">
-							<img src="/img/home/dresses.jpg" class="d-block w-100" />
-							<l :href="route('shop')" class="overlay">
-								<span class="fs-5 fw-bolder text-white">DISCOVER OUR DRESSES</span>
-							</l>
-						</div>
-					</div>
-					<div class="col-md-6 col-xl-5 p-2">
-						<div class="category">
-							<img src="/img/home/skirts.jpg" class="d-block w-100" />
-							<l :href="route('shop')" class="overlay">
-								<span class="fs-5 fw-bolder text-white">DISCOVER OUR SKIRTS</span>
+							<img :src="link.img" class="d-block w-100" />
+							<l :href="link.url" class="overlay">
+								<span class="fs-5 fw-bolder text-white" v-text="link.title"></span>
 							</l>
 						</div>
 					</div>
@@ -72,6 +48,7 @@
 	export default {
 		props: {
 			sliders: Array,
+			links: Array,
 		},
 		components: {
 			AppLayout,
