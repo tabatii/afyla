@@ -12,6 +12,11 @@ class Order extends Model
 
     protected $guarded = ['status', 'created_at', 'updated_at', 'deleted_at'];
     protected $casts = [
+        'shipping_company_id' => 'integer',
+        'coupon_id' => 'integer',
+        'user_id' => 'integer',
+        'order_subtotal' => 'float',
+        'order_shipping' => 'float',
         'created_at' => 'datetime:d-m-Y',
     ];
 

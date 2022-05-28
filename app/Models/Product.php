@@ -17,6 +17,7 @@ class Product extends Model
         'price' => 'float',
         'discount' => 'float',
         'public' => 'boolean',
+        'new' => 'boolean',
     ];
 
     public function collections()

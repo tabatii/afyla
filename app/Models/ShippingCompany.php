@@ -9,4 +9,8 @@ use Illuminate\Database\Eloquent\Model;
 class ShippingCompany extends Model
 {
     use HasFactory, SoftDeletes;
+
+    protected $casts = [
+        'price' => 'float',
+    ];
 }
