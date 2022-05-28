@@ -40,7 +40,8 @@
 						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					</div>
 					<div class="modal-body">
-						<form @submit.prevent="shareAll">
+						<p class="text-center fw-medium" v-if="sent">Your message has been sent.</p>
+						<form @submit.prevent="shareAll" v-else>
 							<div class="row">
 								<div class="col-3">
 									<label class="py-1">From</label>
@@ -62,7 +63,7 @@
 								</div>
 								<div class="col-3"></div>
 								<div class="col-9">
-									<button type="submit" class="btn btn-sm btn-outline-dark px-4">SEND</button>
+									<button type="submit" class="btn btn-sm btn-outline-dark px-4" :disabled="loading">SEND</button>
 								</div>
 							</div>
 						</form>
@@ -116,7 +117,11 @@
 						</div>
 					</div>
 				</div>
-				<div class="row gy-4">
+				<div class="fs-4 text-center mt-5" v-if="sorted.length === 0">
+					<p>Your wishlist is still empty.</p>
+					<p>We invite you to discover our <l class="underline" :href="route('shop')">products</l> and save what you like.</p>
+				</div>
+				<div class="row gy-4" v-else>
 					<div class="col-sm-6 col-lg-4 col-xl-3" v-for="(item, i) in sorted" :key="i">
 						<div class="product position-relative">
 							<img :src="item.product.gallery[0]" class="d-block w-100 pointer" @click="open(i)" />
@@ -175,7 +180,7 @@
 							</div>
 							<div class="py-3">
 								<div class="d-flex">
-									<span class="text-dark me-auto" v-text="item.product.title"></span>
+									<l :href="route('product', item.product.id)" class="text-dark me-auto" v-text="item.product.title"></l>
 									<span class="add" @click="open(i)">+</span>
 								</div>
 								<div class="fw-medium">
@@ -302,8 +307,14 @@
 				this.soldout = true
 			},
 			shareAll() {
+				this.loading = true
 				this.form.ids = this.wishlist.map(item => item.product.id)
-				this.form.post(this.route('share.all'))
+				this.form.post(this.route('share.all'), {
+					onSuccess: () => {
+						this.sent = true
+						this.loading = false
+					}
+				})
 			},
 			copyWishlist() {
 				var ids = this.wishlist.map(item => item.product.id)
@@ -319,6 +330,7 @@
 				sorted: [],
 				del: null,
 				done: false,
+				sent: false,
 				copied: false,
 				soldout: false,
 				loading: false,
@@ -346,6 +358,11 @@
 					to: null,
 				})
 			}
+		},
+		mounted() {
+			addEventListener('hidden.bs.modal', () => {
+				this.sent = false
+			})
 		},
 		created() {
 			this.sorted = [...this.wishlist]

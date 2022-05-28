@@ -16,6 +16,7 @@
 <body>
 	@if (is_array($data))
 		<div class="container">
+			<p style="margin-bottom:1rem">This message has been shared from <a href="mailto:?to={{ $from_email }}">{{ $from_email }}</a>.</p>
 			<p style="margin-bottom:1rem">Dear,</p>
 			<p style="margin-bottom:3rem">I'd like to share my AFYLA wishlist with you. I thought you might be interested in the following products.</p>
 			@foreach($data as $item)
@@ -39,6 +40,7 @@
 		</div>
 	@else
 		<div class="container">
+			<p style="margin-bottom:1rem">This message has been shared from <a href="mailto:?to={{ $from_email }}">{{ $from_email }}</a>.</p>
 			<p style="margin-bottom:1rem">Dear,</p>
 			<p>Please have a look at this: {{ $data->title }}</p>
 			<p>Link: {{ route('product', $data->id) }}</p>

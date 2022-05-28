@@ -19,11 +19,15 @@
 			<div class="p-4">
 				<div class="d-flex mb-3" v-for="(item, i) in wishlist" :key="Math.random()">
 					<div style="width:20%">
-						<img :src="item.product.gallery[0]" class="d-block w-100" />
+						<l :href="route('product', item.product.id)">
+							<img :src="item.product.gallery[0]" class="d-block w-100" />
+						</l>
 					</div>
 					<div class="ps-2" style="width:80%">
 						<div class="d-flex mb-2">
-							<p class="pe-2 me-auto mb-0" v-text="item.product.title"></p>
+							<p class="pe-2 me-auto mb-0">
+								<l :href="route('product', item.product.id)" class="text-dark" v-text="item.product.title"></l>
+							</p>
 							<div class="flex-shrink-0 fw-medium">
 								<del class="text-muted me-1" v-text="getFormatedPrice(item.product.price)" v-if="item.product.discount"></del>
 								<span class="text-danger" v-text="getFormatedPrice(item.product.price, item.product.discount)" v-if="item.product.discount"></span>

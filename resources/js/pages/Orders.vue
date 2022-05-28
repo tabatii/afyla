@@ -30,11 +30,13 @@
 										<tbody class="border-top-0">
 											<tr class="align-middle" v-for="(product, i) in orders[index].products" :key="Math.random()">
 												<td v-text="i+1"></td>
-												<td v-text="product.title"></td>
+												<td>
+													<a :href="route('product', product.id)" class="text-dark underline" target="_blank" v-text="product.title"></a>
+												</td>
 												<td v-text="product.category"></td>
 												<td v-text="product.qty"></td>
 												<td v-text="product.size"></td>
-												<td v-text="product.price"></td>
+												<td v-text="getFormatedPrice(product.price)"></td>
 											</tr>
 										</tbody>
 									</table>
@@ -47,23 +49,25 @@
 					<table class="table table-bordered border-secondary text-center">
 						<thead>
 							<tr class="align-middle">
-								<th scope="col">ORDER N°</th>
-								<th scope="col">AMOUNT</th>
-								<th scope="col">ADDRESS</th>
-								<th scope="col">PHONE</th>
-								<th scope="col">DATE</th>
-								<th scope="col">STATUS</th>
-								<th scope="col">DETAILS</th>
+								<th class="text-nowrap" scope="col">ORDER N°</th>
+								<th class="text-nowrap" scope="col">TRACKING N°</th>
+								<th class="text-nowrap" scope="col">AMOUNT</th>
+								<th class="text-nowrap" scope="col">ADDRESS</th>
+								<th class="text-nowrap" scope="col">PHONE</th>
+								<th class="text-nowrap" scope="col">DATE</th>
+								<th class="text-nowrap" scope="col">STATUS</th>
+								<th class="text-nowrap" scope="col">DETAILS</th>
 							</tr>
 						</thead>
 						<tbody class="border-top-0">
 							<tr class="align-middle" v-for="(order, i) in orders" :key="Math.random()">
-								<td v-text="order.uuid"></td>
-								<td v-text="getFormatedPrice(order.order_subtotal)"></td>
-								<td>{{ order.address_street }}, {{ order.address_city }}, {{ order.address_state }}, {{ order.address_zip }}</td>
-								<td v-text="order.address_phone"></td>
-								<td v-text="order.created_at"></td>
-								<td v-text="order.status.toUpperCase()"></td>
+								<td class="text-nowrap" v-text="order.uuid"></td>
+								<td class="text-nowrap" v-text="order.tracking_number"></td>
+								<td class="text-nowrap" v-text="getFormatedPrice(order.order_subtotal)"></td>
+								<td style="min-width:200px">{{ order.address_street }}, {{ order.address_city }}, {{ order.address_zip }}, {{ order.address_country }}</td>
+								<td class="text-nowrap" v-text="order.address_phone"></td>
+								<td class="text-nowrap" v-text="order.created_at"></td>
+								<td class="text-nowrap" v-text="order.status.toUpperCase()"></td>
 								<td>
 									<button type="button" class="btn btn-sm btn-secondary" data-bs-toggle="modal" data-bs-target="#details" @click="index = i">DETAILS</button>
 								</td>

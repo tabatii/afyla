@@ -10,7 +10,7 @@ class Order extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $guarded = ['status'];
+    protected $guarded = ['status', 'created_at', 'updated_at', 'deleted_at'];
     protected $casts = [
         'created_at' => 'datetime:d-m-Y',
     ];
@@ -28,5 +28,10 @@ class Order extends Model
     public function getPaymentMethodAttribute()
     {
         return strtoupper($this->attributes['payment_method']);
+    }
+
+    public function scopeStatus($query)
+    {
+        return $query->whereNotNull('status');
     }
 }

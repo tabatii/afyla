@@ -38,7 +38,7 @@
 		<li class="nav-item position-relative">
 			<div class="d-flex align-items-center h-100 px-1 mx-2 pointer" data-bs-toggle="offcanvas" data-bs-target="#bag">
 				<img src="/img/icons/bag.png" height="23px" />
-				<small class="counter" v-text="bag.length"></small>
+				<small class="counter" v-text="getBagLength"></small>
 			</div>
 		</li>
 	</ul>

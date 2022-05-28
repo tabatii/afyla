@@ -15,7 +15,7 @@ class ProductController extends Controller
     public function index(FilterRequest $request)
     {
         $products = Product::with('colors.color', 'sizes.size', 'materials.material')->public()->filter($request->validated())->paginate(15);
-        $subs = SubCategory::all();
+        $subs = SubCategory::with('category')->get();
         $colors = Color::all();
         $sizes = Size::all();
         $materials = Material::all();

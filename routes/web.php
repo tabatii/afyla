@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', \App\Http\Controllers\HomeController::class)->name('home');
 
+Route::redirect('/auth/login', '/');
 Route::inertia('/about', 'About')->name('about');
 Route::inertia('/sustainability', 'Sustainability')->name('sustainability');
 Route::inertia('/customer-care', 'CustomerCare')->name('customer');
@@ -71,10 +72,14 @@ Route::post('/paypal/capture', [\App\Http\Controllers\PaypalController::class, '
 
 // Order routes
 Route::get('/orders', [\App\Http\Controllers\OrderController::class, 'index'])->name('orders');
+Route::get('/order/{uuid}', [\App\Http\Controllers\OrderController::class, 'show'])->name('order');
 Route::get('/checkout', [\App\Http\Controllers\OrderController::class, 'create'])->name('checkout');
 Route::post('/checkout/steps/user', [\App\Http\Controllers\CheckoutController::class, 'user'])->name('checkout.user');
 Route::post('/checkout/steps/address', [\App\Http\Controllers\CheckoutController::class, 'address'])->name('checkout.address');
 Route::post('/checkout/steps/shipping', [\App\Http\Controllers\CheckoutController::class, 'shipping'])->name('checkout.shipping');
+
+// Review routes
+Route::post('/review', \App\Http\Controllers\ReviewController::class)->name('review');
 
 // Coupon routes
 Route::post('/coupon', \App\Http\Controllers\CouponController::class)->name('coupon');

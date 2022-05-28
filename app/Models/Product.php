@@ -84,7 +84,7 @@ class Product extends Model
             $query->whereIn('id', $data['ids']);
         }
         if (isset($data['discounts'])) {
-            $query->whereNotNull('discount');
+            $query->whereNotNull('discount')->where('discount', '!=', 0);
         }
         if (isset($data['collections']) && is_array($data['collections'])) {
             $query->whereHas('collections', function (Builder $q) use ($data) {

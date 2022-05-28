@@ -90,14 +90,81 @@
 
 						<div class="tab-pane fade" id="follow-order">
 							<p class="fw-medium mb-2">Enter your order number to see all the details and information.</p>
-							<div class="row">
-								<div class="col-sm-10 mb-2 mb-sm-0">
-									<input type="text" class="form-control bg-primary border-dark" />
-								</div>
-								<div class="col-sm-2">
-									<div class="d-grid">
-										<button type="button" class="btn btn-outline-dark">SEARCH</button>
+							<div class="mb-5">
+								<div class="row">
+									<div class="col-sm-10 mb-2 mb-sm-0">
+										<input type="text" class="form-control bg-primary border-dark" v-model="uuid" />
 									</div>
+									<div class="col-sm-2">
+										<div class="d-grid">
+											<button type="button" class="btn btn-outline-dark" :disabled="loading" @click="getOrder">SEARCH</button>
+										</div>
+									</div>
+								</div>
+								<p class="text-danger" v-if="notfound">This order number is not found.</p>
+							</div>
+							<div v-if="order.id">
+								<p class="mb-2"><b>ORDER Nº</b> {{ order.uuid }}</p>
+								<div class="table-responsive">
+									<table class="table table-bordered border-secondary mb-2">
+										<tbody>
+											<tr>
+												<td>Shipping address</td>
+												<td>{{ order.address_street }}, {{ order.address_city }}, {{ order.address_zip }}, {{ order.address_country }}</td>
+											</tr>
+											<tr>
+												<td>Phone</td>
+												<td v-text="order.address_phone"></td>
+											</tr>
+											<tr>
+												<td>Date</td>
+												<td v-text="order.created_at"></td>
+											</tr>
+											<tr>
+												<td>Tracking Nº</td>
+												<td v-text="order.tracking_number"></td>
+											</tr>
+											<tr>
+												<td>Status</td>
+												<td v-text="order.status.toUpperCase()"></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<p class="mb-5">You can track your order via our partner <a href="http://www.fedex.com" target="_blank">fedex.com</a>.</p>
+								<div class="table-responsive">
+									<table class="table table-bordered border-secondary text-center mb-2">
+										<thead>
+											<tr class="align-middle">
+												<th scope="col">#</th>
+												<th scope="col">TITLE</th>
+												<th scope="col">CATEGORY</th>
+												<th scope="col">QUANTITY</th>
+												<th scope="col">SIZE</th>
+												<th scope="col">PRICE</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="align-middle" v-for="(product, i) in order.products" :key="Math.random()">
+												<td v-text="i+1"></td>
+												<td>
+													<a :href="route('product', product.id)" class="text-dark underline" target="_blank" v-text="product.title"></a>
+												</td>
+												<td v-text="product.category"></td>
+												<td v-text="product.qty"></td>
+												<td v-text="product.size"></td>
+												<td v-text="getFormatedPrice(product.price)"></td>
+											</tr>
+											<tr class="border-bottom-0">
+												<td class="border-0"></td>
+												<td class="border-0"></td>
+												<td class="border-0"></td>
+												<td class="border-0"></td>
+												<td class="border-bottom border-secondary">SUBTOTAL</td>
+												<td class="border-bottom border-secondary" v-text="getFormatedPrice(order.order_subtotal)"></td>
+											</tr>
+										</tbody>
+									</table>
 								</div>
 							</div>
 						</div>
@@ -229,12 +296,33 @@
 	import FindSize from '../components/FindSize'
 	import { Head } from '@inertiajs/inertia-vue'
 	import { Link } from '@inertiajs/inertia-vue'
+	import axios from 'axios'
 	export default {
 		components: {
 			AppLayout,
 			FindSize,
 			h: Head,
 			l: Link,
+		},
+		methods: {
+			getOrder() {
+				if (this.uuid) {
+					this.loading = true
+					axios.get(this.route('order', this.uuid)).then(response => {
+						this.notfound = response.data.order ? false : true
+						this.order = response.data.order || {}
+						this.loading = false
+					})
+				}
+			}
+		},
+		data() {
+			return {
+				notfound: false,
+				loading: false,
+				uuid: null,
+				order: {},
+			}
 		}
 	}
 </script>

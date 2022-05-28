@@ -17,6 +17,13 @@ createServer((page) => createInertiaApp({
         }
 		Vue.use(plugin).mixin({
 			computed: {
+				getBagLength() {
+					var qty = 0;
+					this.$page.props.bag.forEach(item => {
+						qty += item.qty
+					})
+					return qty
+				},
 				getBagTotal() {
 					var total = 0;
 					this.$page.props.bag.forEach(item => {

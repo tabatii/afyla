@@ -21,7 +21,7 @@ class BagController extends Controller
 
     public function index()
     {
-        $companies = ShippingCompany::orderBy('orderby')->get();
+        $companies = ShippingCompany::orderBy('order')->get();
         return inertia('Bag', compact('companies'));
     }
 

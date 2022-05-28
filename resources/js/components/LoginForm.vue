@@ -2,7 +2,7 @@
 	<div class="tab-pane fade show active" id="login">
 		<PopUp v-model="sent">
 			<div class="text-center py-2">
-				<p class="fw-medium">We have sent you a password reset link to that email address.</p>
+				<p class="fw-medium mb-0">We have sent you a password reset link to that email address.</p>
 			</div>
 		</PopUp>
 		<form @submit.prevent="send" v-if="tab">

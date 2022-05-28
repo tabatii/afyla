@@ -73,6 +73,16 @@ return new class extends Migration
                 $table->softDeletes();
             }
         });
+        Schema::table('order_returns', function (Blueprint $table) {
+            if (! Schema::hasColumn('order_returns', 'deleted_at')) {
+                $table->softDeletes();
+            }
+        });
+        Schema::table('reviews', function (Blueprint $table) {
+            if (! Schema::hasColumn('reviews', 'deleted_at')) {
+                $table->softDeletes();
+            }
+        });
         Schema::table('coupons', function (Blueprint $table) {
             if (! Schema::hasColumn('coupons', 'deleted_at')) {
                 $table->softDeletes();
@@ -154,6 +164,16 @@ return new class extends Migration
         });
         Schema::table('orders', function (Blueprint $table) {
             if (Schema::hasColumn('orders', 'deleted_at')) {
+                $table->dropSoftDeletes();
+            }
+        });
+        Schema::table('order_returns', function (Blueprint $table) {
+            if (Schema::hasColumn('order_returns', 'deleted_at')) {
+                $table->dropSoftDeletes();
+            }
+        });
+        Schema::table('reviews', function (Blueprint $table) {
+            if (Schema::hasColumn('reviews', 'deleted_at')) {
                 $table->dropSoftDeletes();
             }
         });

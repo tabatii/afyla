@@ -77,7 +77,7 @@
 					</div>
 					<div class="col-lg-7 col-xl-6">
 						<div class="d-flex flex-column flex-sm-row">
-							<h1 class="fs-2 me-sm-auto mb-0" v-text="product.title"></h1>
+							<h1 class="fs-4 pt-2 me-sm-auto mb-0" v-text="product.title"></h1>
 							<div class="d-flex align-items-baseline flex-shrink-0">
 								<span class="text-muted me-auto me-sm-3">REF: {{ product.sku }}</span>
 								<span class="pointer" @click="addToWishlist(product.id)">
@@ -300,36 +300,48 @@
 		<section class="bg-primary py-5">
 			<div class="container-fluid px-3 px-sm-5">
 				<p class="fs-2 text-center mb-4">YOUR REVIEW MATTERS TO US</p>
-				<div class="row gy-4">
-					<div class="col-sm-6">
-						<label>FULL NAME*</label>
-						<input type="text" class="form-control border shadow-none py-3" />
-					</div>
-					<div class="col-sm-6">
-						<label>EMAIL*</label>
-						<input type="text" class="form-control border shadow-none py-3" />
-					</div>
-					<div class="col-12">
-						<label>YOUR RATING*</label>
-						<div>
-							<i class="bi bi-star fs-3"></i>
-							<i class="bi bi-star fs-3"></i>
-							<i class="bi bi-star fs-3"></i>
-							<i class="bi bi-star fs-3"></i>
-							<i class="bi bi-star fs-3"></i>
+				<Notification v-model="notification" title="Thank you.">
+					<p class="mb-0">Your review has been saved.</p>
+				</Notification>
+				<form @submit.prevent="postReview">
+					<div class="row gy-4">
+						<div class="col-sm-6">
+							<label for="name">FULL NAME*</label>
+							<input type="text" class="form-control border shadow-none py-3" id="name" v-model="review.name" />
+							<small class="text-danger" v-text="review.errors.name"></small>
+						</div>
+						<div class="col-sm-6">
+							<label for="email">EMAIL*</label>
+							<input type="text" class="form-control border shadow-none py-3" id="email" v-model="review.email" />
+							<small class="text-danger" v-text="review.errors.email"></small>
+						</div>
+						<div class="col-12">
+							<label>YOUR RATING*</label>
+							<FaRating
+								v-model="review.rating"
+								border-color="#d9d4d0"
+								inactive-color="#d9d4d0"
+								active-color="#ffc107"
+								:show-rating="false"
+								:item-size="25"
+								:spacing="4"
+								:glyph="star"
+							/>
+							<small class="text-danger" v-text="review.errors.rating"></small>
+						</div>
+						<div class="col-12">
+							<label for="comment">YOUR REVIEW*</label>
+							<textarea class="form-control border shadow-none" rows="6" id="comment" v-model="review.comment"></textarea>
+							<small class="text-danger" v-text="review.errors.comment"></small>
+						</div>
+						<div class="col-12">
+							<div class="d-grid d-sm-flex">
+								<p class="me-auto">Required fields are marked*</p>
+								<button type="submit" class="btn btn-secondary">SUBMIT</button>
+							</div>
 						</div>
 					</div>
-					<div class="col-12">
-						<label>YOUR REVIEW*</label>
-						<textarea class="form-control border shadow-none" rows="6"></textarea>
-					</div>
-					<div class="col-12">
-						<div class="d-grid d-sm-flex">
-							<p class="me-auto">Required fields are marked*</p>
-							<button type="button" class="btn btn-secondary">SUBMIT</button>
-						</div>
-					</div>
-				</div>
+				</form>
 			</div>
 		</section>
 	</AppLayout>
@@ -340,9 +352,12 @@
 	import { Link } from '@inertiajs/inertia-vue'
 	import AppLayout from '../components/AppLayout'
 	import SocialShare from '../components/SocialShare'
+	import Notification from '../components/Notification'
 	import ProductGallery from '../components/ProductGallery'
 	import QtyField from '../components/QtyField'
 	import FindSize from '../components/FindSize'
+	import star from 'vue-rate-it/glyphs/star'
+	import { FaRating } from 'vue-rate-it'
 	import PopUp from '../components/PopUp'
 	import Glider from 'glider-js'
 	export default {
@@ -351,7 +366,9 @@
 		},
 		components: {
 			AppLayout,
+			FaRating,
 			SocialShare,
+			Notification,
 			ProductGallery,
 			QtyField,
 			FindSize,
@@ -372,6 +389,9 @@
 			getSizeQty() {
 				var size = this.product.sizes.find(s => s.size && s.size.id === this.size)
 				return size ? size.qty : null
+			},
+			star() {
+				return star
 			}
 		},
 		watch: {
@@ -410,16 +430,32 @@
 			},
 			searchWishlist(id) {
 				return this.wishlist.find(item => item.product.id === id)
+			},
+			postReview() {
+				this.review.post(this.route('review'), {
+					preserveScroll: true,
+					onSuccess: () => {
+						this.notification = true
+						this.review.reset()
+					}
+				})
 			}
 		},
 		data() {
 			return {
+				notification: false,
 				social: false,
 				loading: false,
 				soldout: false,
 				done: false,
 				size: null,
 				qty: 1,
+				review: this.$inertia.form({
+					name: null,
+					email: null,
+					rating: null,
+					comment: null,
+				})
 			}
 		},
 		mounted() {

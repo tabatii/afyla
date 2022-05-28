@@ -20,14 +20,20 @@ class OrderController extends Controller
 
     public function index()
     {
-        $orders = Order::with('products')->where('user_id', auth()->id())->whereNotNull('status')->get();
+        $orders = Order::with('products')->where('user_id', auth()->id())->status()->get();
         return inertia('Orders', compact('orders'));
     }
 
     public function create()
     {
         $addresses = Address::where('user_id', auth()->id())->get();
-        $companies = ShippingCompany::orderBy('orderby')->get();
+        $companies = ShippingCompany::orderBy('order')->get();
         return inertia('Checkout', compact('addresses', 'companies'));
+    }
+
+    public function show($uuid)
+    {
+        $order = Order::with('products')->where('uuid', $uuid)->status()->first();
+        return response()->json(compact('order'));
     }
 }

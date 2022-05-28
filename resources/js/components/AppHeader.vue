@@ -49,6 +49,9 @@
 							<li class="nav-item">
 								<l :href="route('sustainability')" class="nav-link text-dark underline-hover mx-lg-2">SUSTAINABILITY</l>
 							</li>
+							<li class="nav-item" v-show="mobile">
+								<l :href="route('page', 'shipping-returns-policy')" class="nav-link text-dark underline-hover">FREE SHIPPING & RETURNS</l>
+							</li>
 						</ul>
 						<AppNav :mobile="mobile" :scroll="scroll" v-show="!mobile && scroll"></AppNav>
 					</div>

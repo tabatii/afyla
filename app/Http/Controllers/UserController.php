@@ -49,6 +49,9 @@ class UserController extends Controller
         $user = auth()->user();
         $user->password = bcrypt($request->new_password);
         $user->save();
+        $request->session()->invalidate();
+        auth()->logout();
+        auth()->logoutOtherDevices($request->new_password);
         return back();
     }
 }

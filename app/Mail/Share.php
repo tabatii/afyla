@@ -11,6 +11,7 @@ class Share extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $from_email;
     public $data;
 
     /**
@@ -18,8 +19,9 @@ class Share extends Mailable
      *
      * @return void
      */
-    public function __construct($data)
+    public function __construct($from, $data)
     {
+        $this->from_email = $from;
         $this->data = $data;
     }
 

@@ -5,10 +5,11 @@
 				<div class="modal-content bg-primary">
 					<div class="modal-header border-0 pb-0">
 						<h5 class="modal-title">Share this product</h5>
-						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
 					</div>
 					<div class="modal-body">
-						<form @submit.prevent="email">
+						<p class="text-center fw-medium" v-if="sent">Your message has been sent.</p>
+						<form @submit.prevent="email" v-else>
 							<div class="row">
 								<div class="col-3">
 									<label class="py-1">From</label>
@@ -30,7 +31,7 @@
 								</div>
 								<div class="col-3"></div>
 								<div class="col-9">
-									<button type="submit" class="btn btn-sm btn-outline-dark px-4">SEND</button>
+									<button type="submit" class="btn btn-sm btn-outline-dark px-4" :disabled="loading">SEND</button>
 								</div>
 							</div>
 						</form>
@@ -103,18 +104,31 @@
 		},
 		methods: {
 			email() {
+				this.loading = true
 				this.form.id = this.id
-				this.form.post(this.route('share.one'))
+				this.form.post(this.route('share.one'), {
+					onSuccess: () => {
+						this.sent = true
+						this.loading = false
+					}
+				})
 			}
 		},
 		data() {
 			return {
+				sent: false,
+				loading: false,
 				form: this.$inertia.form({
 					id: null,
-					from: null,
-					to: null,
+					from: 'tabatii@outlook.fr',
+					to: 'anatanjaawi@gmail.com',
 				})
 			}
+		},
+		mounted() {
+			addEventListener('hidden.bs.modal', () => {
+				this.sent = false
+			})
 		}
 	}
 </script>
