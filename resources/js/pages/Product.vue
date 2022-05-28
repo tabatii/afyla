@@ -306,13 +306,13 @@
 				<form @submit.prevent="postReview">
 					<div class="row gy-4">
 						<div class="col-sm-6">
-							<label for="name">FULL NAME*</label>
-							<input type="text" class="form-control border shadow-none py-3" id="name" v-model="review.name" />
+							<label>FULL NAME*</label>
+							<input type="text" class="form-control border shadow-none py-3" v-model="review.name" />
 							<small class="text-danger" v-text="review.errors.name"></small>
 						</div>
 						<div class="col-sm-6">
-							<label for="email">EMAIL*</label>
-							<input type="text" class="form-control border shadow-none py-3" id="email" v-model="review.email" />
+							<label>EMAIL*</label>
+							<input type="text" class="form-control border shadow-none py-3" v-model="review.email" />
 							<small class="text-danger" v-text="review.errors.email"></small>
 						</div>
 						<div class="col-12">
@@ -330,8 +330,8 @@
 							<small class="text-danger" v-text="review.errors.rating"></small>
 						</div>
 						<div class="col-12">
-							<label for="comment">YOUR REVIEW*</label>
-							<textarea class="form-control border shadow-none" rows="6" id="comment" v-model="review.comment"></textarea>
+							<label>YOUR REVIEW*</label>
+							<textarea class="form-control border shadow-none" rows="6" v-model="review.comment"></textarea>
 							<small class="text-danger" v-text="review.errors.comment"></small>
 						</div>
 						<div class="col-12">
@@ -451,6 +451,7 @@
 				size: null,
 				qty: 1,
 				review: this.$inertia.form({
+					product: null,
 					name: null,
 					email: null,
 					rating: null,
@@ -494,6 +495,9 @@
 					},
 				]
 			})
+		},
+		created() {
+			this.review.product = this.product.id
 		}
 	}
 </script>
