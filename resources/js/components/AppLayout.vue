@@ -4,7 +4,7 @@
 			<meta head-key="description" name="description" :content="settings.description" />
 		</h>
 		<Notification v-model="notification" title="Thank you for joining us.">
-			<p class="mb-0">Check your email address to get a promo code and use it in your first order.</p>
+			<p class="mb-0">if this is your first time subscribing to our newsletter, you will receive a promo code in this email addres. use it in your first order.</p>
 		</Notification>
 		<div class="newsletter" v-if="!newsletter">
 			<div class="content">

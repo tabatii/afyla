@@ -1,6 +1,6 @@
 <template>
-	<div class="notification">
-		<div class="toast" :class="{show}">
+	<div class="notification p-2 p-sm-4" v-if="show">
+		<div class="toast show">
 			<div class="toast-header">
 				<span v-text="title"></span>
 				<button type="button" class="btn-close ms-auto" @click="$emit('input', false)"></button>
@@ -43,7 +43,6 @@
 		right: 0;
 		bottom: 0;
 		max-width: 100%;
-		padding: 2rem;
-		z-index: 9999999999;
+		z-index: 1090;
 	}
 </style>

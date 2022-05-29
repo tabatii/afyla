@@ -84,9 +84,6 @@ class Product extends Model
         if (isset($data['ids']) && is_array($data['ids'])) {
             $query->whereIn('id', $data['ids']);
         }
-        if (isset($data['discounts'])) {
-            $query->whereNotNull('discount')->where('discount', '!=', 0);
-        }
         if (isset($data['collections']) && is_array($data['collections'])) {
             $query->whereHas('collections', function (Builder $q) use ($data) {
                 $q->whereIn('collection_id', $data['collections']);
@@ -116,6 +113,14 @@ class Product extends Model
             $query->whereHas('sizes', function (Builder $q) use ($data) {
                 $q->whereIn('size_id', $data['sizes'])->whereNotNull('qty');
             });
+        }
+        switch ($data['tag'] ?? null) {
+            case 'new':
+                $query->where('new', true);
+                break;
+            case 'discount':
+                $query->whereNotNull('discount')->where('discount', '!=', 0);
+                break;
         }
         switch ($data['sort'] ?? 'n') {
             case 'n':

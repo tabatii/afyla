@@ -20,6 +20,11 @@ class Order extends Model
         'created_at' => 'datetime:d-m-Y',
     ];
 
+    const PROCESSING = 'processing';
+    const SHIPPED = 'shipped';
+    const DELIVERED = 'delivered';
+    const CANCELLED = 'cancelled';
+
     public function products()
     {
         return $this->hasMany(OrderProduct::class);
@@ -38,5 +43,12 @@ class Order extends Model
     public function scopeStatus($query)
     {
         return $query->whereNotNull('status');
+    }
+
+    protected static function booted()
+    {
+        static::updated(function ($order) {
+            // send email
+        });
     }
 }

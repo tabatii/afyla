@@ -41,7 +41,7 @@ class FilterRequest extends FormRequest
             'sort' => 'nullable|string|max:10',
             'page' => 'nullable|integer',
             'search' => 'nullable|string|max:100',
-            'discounts' => 'nullable|integer|size:1',
+            'tag' => 'nullable|string|max:100',
         ];
     }
 }

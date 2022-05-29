@@ -1,6 +1,13 @@
 <template>
 	<header>
 
+		<div class="shipping-popup" v-if="mobile">
+			<div class="alert alert-light alert-dismissible fade show mb-0" role="alert">
+				Check out our <l :href="route('page', 'shipping-returns-policy')" class="alert-link underline">Free shipping & returns</l> policy.
+				<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+			</div>
+		</div>
+
 		<div class="fixed-navbar" :class="{shadow: scroll > 60}">
 			<nav class="navbar navbar-expand-lg navbar-light bg-white overflow-hidden pb-0" v-show="mobile || !scroll" style="padding-top:11px">
 				<div class="container-fluid">
@@ -16,7 +23,7 @@
 					<div class="collapse navbar-collapse pb-3 pb-lg-0" id="navbarContent">
 						<ul class="navbar-nav ps-xl-5">
 							<li class="nav-item">
-								<l :href="route('shop', {sort: 'n'})" class="nav-link text-dark underline-hover mx-lg-2">WHAT'S NEW</l>
+								<l :href="route('shop', {tag: 'new'})" class="nav-link text-dark underline-hover mx-lg-2">WHAT'S NEW</l>
 							</li>
 							<li class="nav-item dropdown dropdown-hover" ref="categoriesItem">
 								<l :href="route('shop')" class="nav-link text-dark underline-hover mx-lg-2" v-if="mobile" @click.prevent>SHOP</l>
@@ -29,7 +36,7 @@
 										</l>
 									</li>
 									<li>
-										<l :href="route('shop', {discounts: 1})" class="dropdown-item text-lg-center text-danger underline-hover">SPECIAL PRICES</l>
+										<l :href="route('shop', {tag: 'discount'})" class="dropdown-item text-lg-center text-danger underline-hover">SPECIAL PRICES</l>
 									</li>
 								</ul>
 							</li>
@@ -48,9 +55,6 @@
 							</li>
 							<li class="nav-item">
 								<l :href="route('sustainability')" class="nav-link text-dark underline-hover mx-lg-2">SUSTAINABILITY</l>
-							</li>
-							<li class="nav-item" v-show="mobile">
-								<l :href="route('page', 'shipping-returns-policy')" class="nav-link text-dark underline-hover">FREE SHIPPING & RETURNS</l>
 							</li>
 						</ul>
 						<AppNav :mobile="mobile" :scroll="scroll" v-show="!mobile && scroll"></AppNav>
@@ -209,6 +213,13 @@
 </script>
 
 <style scoped>
+	.shipping-popup {
+		position: fixed;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 1;
+	}
 	.fixed-navbar {
 		position: fixed;
 		top: 0;
