@@ -22,6 +22,6 @@ class OrderProduct extends Model
 
     public function getDetailsAttribute()
     {
-        return $this->attributes['title'] . ', ' $this->attributes['size'];
+        return "{$this->title} {$this->size}";
     }
 }
