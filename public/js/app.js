@@ -75592,62 +75592,69 @@ var render = function () {
               }),
               _vm._v(" "),
               _c("div", { staticClass: "row gy-4" }, [
-                _c("div", { staticClass: "col-md-6 order-2 order-md-1" }, [
-                  _c("p", { staticClass: "fs-4 fw-medium mb-4" }, [
-                    _vm._v("JOIN OUR COMMUNITY"),
-                  ]),
-                  _vm._v(" "),
-                  _vm._m(0),
-                  _vm._v(" "),
-                  _c(
-                    "form",
-                    {
-                      on: {
-                        submit: function ($event) {
-                          $event.preventDefault()
-                          return _vm.subscribe.apply(null, arguments)
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "col-md-6 align-self-center order-2 order-md-1",
+                  },
+                  [
+                    _c("p", { staticClass: "fs-4 fw-medium mb-4" }, [
+                      _vm._v("JOIN OUR COMMUNITY"),
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(0),
+                    _vm._v(" "),
+                    _c(
+                      "form",
+                      {
+                        on: {
+                          submit: function ($event) {
+                            $event.preventDefault()
+                            return _vm.subscribe.apply(null, arguments)
+                          },
                         },
                       },
-                    },
-                    [
-                      _c("div", { staticClass: "mb-3" }, [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.form.email,
-                              expression: "form.email",
+                      [
+                        _c("div", { staticClass: "mb-3" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.email,
+                                expression: "form.email",
+                              },
+                            ],
+                            staticClass: "form-control input",
+                            attrs: {
+                              type: "text",
+                              placeholder: "Enter your email",
                             },
-                          ],
-                          staticClass: "form-control input",
-                          attrs: {
-                            type: "text",
-                            placeholder: "Enter your email",
-                          },
-                          domProps: { value: _vm.form.email },
-                          on: {
-                            input: function ($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(_vm.form, "email", $event.target.value)
+                            domProps: { value: _vm.form.email },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(_vm.form, "email", $event.target.value)
+                              },
                             },
-                          },
-                        }),
+                          }),
+                          _vm._v(" "),
+                          _c("small", {
+                            staticClass: "text-danger",
+                            domProps: {
+                              textContent: _vm._s(_vm.form.errors.email),
+                            },
+                          }),
+                        ]),
                         _vm._v(" "),
-                        _c("small", {
-                          staticClass: "text-danger",
-                          domProps: {
-                            textContent: _vm._s(_vm.form.errors.email),
-                          },
-                        }),
-                      ]),
-                      _vm._v(" "),
-                      _vm._m(1),
-                    ]
-                  ),
-                ]),
+                        _vm._m(1),
+                      ]
+                    ),
+                  ]
+                ),
                 _vm._v(" "),
                 _vm._m(2),
               ]),

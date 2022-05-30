@@ -10,7 +10,7 @@
 			<div class="content">
 				<button type="button" class="btn btn-close close" @click="closeNewsletter"></button>
 				<div class="row gy-4">
-					<div class="col-md-6 order-2 order-md-1">
+					<div class="col-md-6 align-self-center order-2 order-md-1">
 						<p class="fs-4 fw-medium mb-4">JOIN OUR COMMUNITY</p>
 						<div class="mb-5">
 							<p>GET 25% OFF YOUR FIRST ORDER.</p>
