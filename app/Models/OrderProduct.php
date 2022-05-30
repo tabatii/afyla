@@ -17,4 +17,9 @@ class OrderProduct extends Model
         'qty' => 'integer',
         'price' => 'float',
     ];
+
+    public function getDetailsAttribute()
+    {
+        return $this->attributes['title'] . ', ' $this->attributes['size'];
+    }
 }
