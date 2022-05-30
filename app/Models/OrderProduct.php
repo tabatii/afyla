@@ -18,7 +18,7 @@ class OrderProduct extends Model
         'price' => 'float',
     ];
 
-    public $appends = ['details'];
+    public $additional_attributes = ['details'];
 
     public function getDetailsAttribute()
     {
