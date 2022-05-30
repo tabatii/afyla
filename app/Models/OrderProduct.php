@@ -22,6 +22,6 @@ class OrderProduct extends Model
 
     public function getDetailsAttribute()
     {
-        return "{$this->title} {$this->size}";
+        return "{$this->title} ({$this->size})";
     }
 }
