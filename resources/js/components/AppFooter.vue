@@ -1,5 +1,8 @@
 <template>
 	<footer class="bg-primary">
+		<Notification v-model="notification" title="Thank you for joining us.">
+			<p class="mb-0">Check your email address to get a promo code and use it in your first order.</p>
+		</Notification>
 		<div class="container-fluid px-3 px-sm-5">
 			<div class="row gy-4 pb-5 my-0">
 				<div class="col-md-6 col-lg-3">
@@ -13,9 +16,6 @@
 								</button>
 							</form>
 							<small class="text-danger" v-text="subscription.errors.email"></small>
-							<Notification v-model="notification" title="Thank you for joining us.">
-								<p class="mb-0">Check your email address to get a promo code and use it in your first order.</p>
-							</Notification>
 						</li>
 					</ul>
 				</div>

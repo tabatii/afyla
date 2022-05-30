@@ -1,6 +1,9 @@
 <template>
 	<UserMenu>
 		<h title="Change Password"></h>
+		<Notification v-model="notification">
+			<p class="mb-0">Your password has been changed.</p>
+		</Notification>
 		<form class="px-3 px-sm-5" @submit.prevent="change">
 			<p>CHANGE PASSWORD</p>
 			<div class="mb-3">
@@ -22,6 +25,7 @@
 </template>
 
 <script>
+	import Notification from '../components/Notification'
 	import UserMenu from '../components/UserMenu'
 	import { Head } from '@inertiajs/inertia-vue'
 	export default {
@@ -29,6 +33,7 @@
 			errors: Object,
 		},
 		components: {
+			Notification,
 			UserMenu,
 			h: Head,
 		},
@@ -38,12 +43,14 @@
 					preserveScroll: true,
 					onSuccess: () => {
 						this.form.reset()
+						this.notification = true
 					}
 				})
 			}
 		},
 		data() {
 			return {
+				notification: false,
 				form: this.$inertia.form({
 					current_password: null,
 					new_password: null,

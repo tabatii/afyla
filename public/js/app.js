@@ -10019,8 +10019,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _components_UserMenu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/UserMenu */ "./resources/js/components/UserMenu.vue");
-/* harmony import */ var _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-vue */ "./node_modules/@inertiajs/inertia-vue/dist/index.js");
+/* harmony import */ var _components_Notification__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/Notification */ "./resources/js/components/Notification.vue");
+/* harmony import */ var _components_UserMenu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/UserMenu */ "./resources/js/components/UserMenu.vue");
+/* harmony import */ var _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia-vue */ "./node_modules/@inertiajs/inertia-vue/dist/index.js");
 //
 //
 //
@@ -10044,6 +10045,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -10051,8 +10056,9 @@ __webpack_require__.r(__webpack_exports__);
     errors: Object
   },
   components: {
-    UserMenu: _components_UserMenu__WEBPACK_IMPORTED_MODULE_0__["default"],
-    h: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_1__.Head
+    Notification: _components_Notification__WEBPACK_IMPORTED_MODULE_0__["default"],
+    UserMenu: _components_UserMenu__WEBPACK_IMPORTED_MODULE_1__["default"],
+    h: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_2__.Head
   },
   methods: {
     change: function change() {
@@ -10062,12 +10068,15 @@ __webpack_require__.r(__webpack_exports__);
         preserveScroll: true,
         onSuccess: function onSuccess() {
           _this.form.reset();
+
+          _this.notification = true;
         }
       });
     }
   },
   data: function data() {
     return {
+      notification: false,
       form: this.$inertia.form({
         current_password: null,
         new_password: null,
@@ -28946,7 +28955,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.notification[data-v-6a4ce154] {\n\tposition: fixed;\n\tright: 0;\n\tbottom: 0;\n\tmax-width: 100%;\n\tz-index: 1090;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.notification[data-v-6a4ce154] {\n\tposition: fixed;\n\ttop: 0;\n\tright: 0;\n\tmax-width: 100%;\n\tz-index: 1090;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -69457,6 +69466,24 @@ var render = function () {
       _c("h", { attrs: { title: "Change Password" } }),
       _vm._v(" "),
       _c(
+        "Notification",
+        {
+          model: {
+            value: _vm.notification,
+            callback: function ($$v) {
+              _vm.notification = $$v
+            },
+            expression: "notification",
+          },
+        },
+        [
+          _c("p", { staticClass: "mb-0" }, [
+            _vm._v("Your password has been changed."),
+          ]),
+        ]
+      ),
+      _vm._v(" "),
+      _c(
         "form",
         {
           staticClass: "px-3 px-sm-5",
@@ -74345,17 +74372,38 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("footer", { staticClass: "bg-primary" }, [
-    _c("div", { staticClass: "container-fluid px-3 px-sm-5" }, [
-      _c("div", { staticClass: "row gy-4 pb-5 my-0" }, [
-        _c("div", { staticClass: "col-md-6 col-lg-3" }, [
-          _c("ul", { staticClass: "nav flex-column" }, [
-            _vm._m(0),
-            _vm._v(" "),
-            _c(
-              "li",
-              { staticClass: "nav-item" },
-              [
+  return _c(
+    "footer",
+    { staticClass: "bg-primary" },
+    [
+      _c(
+        "Notification",
+        {
+          attrs: { title: "Thank you for joining us." },
+          model: {
+            value: _vm.notification,
+            callback: function ($$v) {
+              _vm.notification = $$v
+            },
+            expression: "notification",
+          },
+        },
+        [
+          _c("p", { staticClass: "mb-0" }, [
+            _vm._v(
+              "Check your email address to get a promo code and use it in your first order."
+            ),
+          ]),
+        ]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "container-fluid px-3 px-sm-5" }, [
+        _c("div", { staticClass: "row gy-4 pb-5 my-0" }, [
+          _c("div", { staticClass: "col-md-6 col-lg-3" }, [
+            _c("ul", { staticClass: "nav flex-column" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("li", { staticClass: "nav-item" }, [
                 _c(
                   "form",
                   {
@@ -74404,358 +74452,339 @@ var render = function () {
                     textContent: _vm._s(_vm.subscription.errors.email),
                   },
                 }),
-                _vm._v(" "),
+              ]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-6 offset-lg-3" }, [
+            _c("ul", { staticClass: "nav flex-column" }, [
+              _vm._m(2),
+              _vm._v(" "),
+              _c("li", { staticClass: "nav-item" }, [
                 _c(
-                  "Notification",
+                  "a",
                   {
-                    attrs: { title: "Thank you for joining us." },
-                    model: {
-                      value: _vm.notification,
-                      callback: function ($$v) {
-                        _vm.notification = $$v
-                      },
-                      expression: "notification",
-                    },
+                    staticClass: "underline me-2",
+                    attrs: { href: "tel:" + _vm.settings.phone },
                   },
                   [
-                    _c("p", { staticClass: "mb-0" }, [
-                      _vm._v(
-                        "Check your email address to get a promo code and use it in your first order."
-                      ),
-                    ]),
+                    _vm._v(
+                      "\n\t\t\t\t\t\t\t" +
+                        _vm._s(
+                          _vm.settings.phone[0] === "+"
+                            ? _vm.settings.phone
+                            : "+" + _vm.settings.phone
+                        ) +
+                        "\n\t\t\t\t\t\t"
+                    ),
                   ]
                 ),
-              ],
-              1
-            ),
+                _vm._v(" "),
+                _c("a", {
+                  staticClass: "underline",
+                  attrs: { href: "mailto:" + _vm.settings.email },
+                  domProps: { textContent: _vm._s(_vm.settings.email) },
+                }),
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "nav-item" }, [
+                _vm._v("\n\t\t\t\t\t\tShop Assistant via\n\t\t\t\t\t\t"),
+                _c(
+                  "a",
+                  {
+                    staticClass: "underline",
+                    attrs: {
+                      href: "https://wa.me/" + _vm.settings.whatsapp,
+                      target: "_blank",
+                    },
+                  },
+                  [_vm._v("WhatsApp")]
+                ),
+                _vm._v(" |\n\t\t\t\t\t\t"),
+                _c(
+                  "a",
+                  {
+                    staticClass: "underline",
+                    attrs: {
+                      href: "weixin://dl/chat?" + _vm.settings.wechat,
+                      target: "_blank",
+                    },
+                  },
+                  [_vm._v("WeChat")]
+                ),
+              ]),
+            ]),
           ]),
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-md-6 offset-lg-3" }, [
-          _c("ul", { staticClass: "nav flex-column" }, [
-            _vm._m(2),
-            _vm._v(" "),
-            _c("li", { staticClass: "nav-item" }, [
+        _c("div", { staticClass: "row gy-4 my-0" }, [
+          _c("div", { staticClass: "col-md-6 col-lg-3" }, [
+            _c("ul", { staticClass: "nav flex-column" }, [
+              _vm._m(3),
+              _vm._v(" "),
               _c(
-                "a",
-                {
-                  staticClass: "underline me-2",
-                  attrs: { href: "tel:" + _vm.settings.phone },
-                },
+                "li",
+                { staticClass: "nav-item" },
                 [
-                  _vm._v(
-                    "\n\t\t\t\t\t\t\t" +
-                      _vm._s(
-                        _vm.settings.phone[0] === "+"
-                          ? _vm.settings.phone
-                          : "+" + _vm.settings.phone
-                      ) +
-                      "\n\t\t\t\t\t\t"
+                  _c(
+                    "l",
+                    {
+                      staticClass: "underline",
+                      attrs: { href: _vm.route("about") },
+                    },
+                    [_vm._v("AFYLA WORLD")]
                   ),
-                ]
+                ],
+                1
               ),
               _vm._v(" "),
-              _c("a", {
-                staticClass: "underline",
-                attrs: { href: "mailto:" + _vm.settings.email },
-                domProps: { textContent: _vm._s(_vm.settings.email) },
-              }),
+              _c(
+                "li",
+                { staticClass: "nav-item" },
+                [
+                  _c(
+                    "l",
+                    {
+                      staticClass: "underline",
+                      attrs: { href: _vm.route("sustainability") },
+                    },
+                    [_vm._v("SUSTAINABILITY")]
+                  ),
+                ],
+                1
+              ),
             ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "nav-item" }, [
-              _vm._v("\n\t\t\t\t\t\tShop Assistant via\n\t\t\t\t\t\t"),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-6 col-lg-3" }, [
+            _c("ul", { staticClass: "nav flex-column" }, [
+              _vm._m(4),
+              _vm._v(" "),
               _c(
-                "a",
-                {
-                  staticClass: "underline",
-                  attrs: {
-                    href: "https://wa.me/" + _vm.settings.whatsapp,
-                    target: "_blank",
-                  },
-                },
-                [_vm._v("WhatsApp")]
+                "li",
+                { staticClass: "nav-item" },
+                [
+                  _c(
+                    "l",
+                    {
+                      staticClass: "underline",
+                      attrs: { href: _vm.route("faq") },
+                    },
+                    [_vm._v("FAQ")]
+                  ),
+                ],
+                1
               ),
-              _vm._v(" |\n\t\t\t\t\t\t"),
+              _vm._v(" "),
               _c(
-                "a",
-                {
-                  staticClass: "underline",
-                  attrs: {
-                    href: "weixin://dl/chat?" + _vm.settings.wechat,
-                    target: "_blank",
-                  },
-                },
-                [_vm._v("WeChat")]
+                "li",
+                { staticClass: "nav-item" },
+                [
+                  _c(
+                    "l",
+                    {
+                      staticClass: "underline",
+                      attrs: { href: _vm.route("contact") },
+                    },
+                    [_vm._v("CONTACT US")]
+                  ),
+                ],
+                1
               ),
+              _vm._v(" "),
+              _c(
+                "li",
+                { staticClass: "nav-item" },
+                [
+                  _c(
+                    "l",
+                    {
+                      staticClass: "underline",
+                      attrs: { href: _vm.route("customer") },
+                    },
+                    [_vm._v("CUSTOMER CARE")]
+                  ),
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                { staticClass: "nav-item" },
+                [
+                  _c(
+                    "l",
+                    {
+                      staticClass: "underline",
+                      attrs: {
+                        href: _vm.route("page", "shipping-returns-policy"),
+                      },
+                    },
+                    [_vm._v("SHIPPING & RETURNS")]
+                  ),
+                ],
+                1
+              ),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-6 col-lg-3" }, [
+            _c("ul", { staticClass: "nav flex-column" }, [
+              _vm._m(5),
+              _vm._v(" "),
+              _c(
+                "li",
+                { staticClass: "nav-item" },
+                [
+                  _c(
+                    "l",
+                    {
+                      staticClass: "underline",
+                      attrs: {
+                        href: _vm.route("page", "terms-conditions-of-use"),
+                      },
+                    },
+                    [_vm._v("TERMS & CONDITIONS OF USE")]
+                  ),
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                { staticClass: "nav-item" },
+                [
+                  _c(
+                    "l",
+                    {
+                      staticClass: "underline",
+                      attrs: {
+                        href: _vm.route("page", "terms-conditions-of-sale"),
+                      },
+                    },
+                    [_vm._v("TERMS & CONDITIONS OF SALE")]
+                  ),
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                { staticClass: "nav-item" },
+                [
+                  _c(
+                    "l",
+                    {
+                      staticClass: "underline",
+                      attrs: {
+                        href: _vm.route("page", "zero-tolerance-policy"),
+                      },
+                    },
+                    [_vm._v("ZERO TOLERANCE POLICY")]
+                  ),
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                { staticClass: "nav-item" },
+                [
+                  _c(
+                    "l",
+                    {
+                      staticClass: "underline",
+                      attrs: { href: _vm.route("page", "privacy-policy") },
+                    },
+                    [_vm._v("PRIVACY POLICY")]
+                  ),
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                { staticClass: "nav-item" },
+                [
+                  _c(
+                    "l",
+                    {
+                      staticClass: "underline",
+                      attrs: { href: _vm.route("page", "cookies-policy") },
+                    },
+                    [_vm._v("COOKIES POLICY")]
+                  ),
+                ],
+                1
+              ),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-6 col-lg-3" }, [
+            _c("ul", { staticClass: "nav flex-column" }, [
+              _vm._m(6),
+              _vm._v(" "),
+              _c("li", { staticClass: "nav-item" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "underline",
+                    attrs: { href: _vm.settings.instagram, target: "_blank" },
+                  },
+                  [_vm._v("INSTAGRAM")]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "nav-item" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "underline",
+                    attrs: { href: _vm.settings.facebook, target: "_blank" },
+                  },
+                  [_vm._v("FACEBOOK")]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "nav-item" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "underline",
+                    attrs: { href: _vm.settings.twitter, target: "_blank" },
+                  },
+                  [_vm._v("TWITTER")]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "nav-item" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "underline",
+                    attrs: { href: _vm.settings.youtube, target: "_blank" },
+                  },
+                  [_vm._v("YOUTUBE")]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "nav-item" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "underline",
+                    attrs: { href: _vm.settings.linkedin, target: "_blank" },
+                  },
+                  [_vm._v("LINKEDIN")]
+                ),
+              ]),
             ]),
           ]),
         ]),
       ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row gy-4 my-0" }, [
-        _c("div", { staticClass: "col-md-6 col-lg-3" }, [
-          _c("ul", { staticClass: "nav flex-column" }, [
-            _vm._m(3),
-            _vm._v(" "),
-            _c(
-              "li",
-              { staticClass: "nav-item" },
-              [
-                _c(
-                  "l",
-                  {
-                    staticClass: "underline",
-                    attrs: { href: _vm.route("about") },
-                  },
-                  [_vm._v("AFYLA WORLD")]
-                ),
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              { staticClass: "nav-item" },
-              [
-                _c(
-                  "l",
-                  {
-                    staticClass: "underline",
-                    attrs: { href: _vm.route("sustainability") },
-                  },
-                  [_vm._v("SUSTAINABILITY")]
-                ),
-              ],
-              1
-            ),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-6 col-lg-3" }, [
-          _c("ul", { staticClass: "nav flex-column" }, [
-            _vm._m(4),
-            _vm._v(" "),
-            _c(
-              "li",
-              { staticClass: "nav-item" },
-              [
-                _c(
-                  "l",
-                  {
-                    staticClass: "underline",
-                    attrs: { href: _vm.route("faq") },
-                  },
-                  [_vm._v("FAQ")]
-                ),
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              { staticClass: "nav-item" },
-              [
-                _c(
-                  "l",
-                  {
-                    staticClass: "underline",
-                    attrs: { href: _vm.route("contact") },
-                  },
-                  [_vm._v("CONTACT US")]
-                ),
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              { staticClass: "nav-item" },
-              [
-                _c(
-                  "l",
-                  {
-                    staticClass: "underline",
-                    attrs: { href: _vm.route("customer") },
-                  },
-                  [_vm._v("CUSTOMER CARE")]
-                ),
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              { staticClass: "nav-item" },
-              [
-                _c(
-                  "l",
-                  {
-                    staticClass: "underline",
-                    attrs: {
-                      href: _vm.route("page", "shipping-returns-policy"),
-                    },
-                  },
-                  [_vm._v("SHIPPING & RETURNS")]
-                ),
-              ],
-              1
-            ),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-6 col-lg-3" }, [
-          _c("ul", { staticClass: "nav flex-column" }, [
-            _vm._m(5),
-            _vm._v(" "),
-            _c(
-              "li",
-              { staticClass: "nav-item" },
-              [
-                _c(
-                  "l",
-                  {
-                    staticClass: "underline",
-                    attrs: {
-                      href: _vm.route("page", "terms-conditions-of-use"),
-                    },
-                  },
-                  [_vm._v("TERMS & CONDITIONS OF USE")]
-                ),
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              { staticClass: "nav-item" },
-              [
-                _c(
-                  "l",
-                  {
-                    staticClass: "underline",
-                    attrs: {
-                      href: _vm.route("page", "terms-conditions-of-sale"),
-                    },
-                  },
-                  [_vm._v("TERMS & CONDITIONS OF SALE")]
-                ),
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              { staticClass: "nav-item" },
-              [
-                _c(
-                  "l",
-                  {
-                    staticClass: "underline",
-                    attrs: { href: _vm.route("page", "zero-tolerance-policy") },
-                  },
-                  [_vm._v("ZERO TOLERANCE POLICY")]
-                ),
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              { staticClass: "nav-item" },
-              [
-                _c(
-                  "l",
-                  {
-                    staticClass: "underline",
-                    attrs: { href: _vm.route("page", "privacy-policy") },
-                  },
-                  [_vm._v("PRIVACY POLICY")]
-                ),
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              { staticClass: "nav-item" },
-              [
-                _c(
-                  "l",
-                  {
-                    staticClass: "underline",
-                    attrs: { href: _vm.route("page", "cookies-policy") },
-                  },
-                  [_vm._v("COOKIES POLICY")]
-                ),
-              ],
-              1
-            ),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-6 col-lg-3" }, [
-          _c("ul", { staticClass: "nav flex-column" }, [
-            _vm._m(6),
-            _vm._v(" "),
-            _c("li", { staticClass: "nav-item" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "underline",
-                  attrs: { href: _vm.settings.instagram, target: "_blank" },
-                },
-                [_vm._v("INSTAGRAM")]
-              ),
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "nav-item" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "underline",
-                  attrs: { href: _vm.settings.facebook, target: "_blank" },
-                },
-                [_vm._v("FACEBOOK")]
-              ),
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "nav-item" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "underline",
-                  attrs: { href: _vm.settings.twitter, target: "_blank" },
-                },
-                [_vm._v("TWITTER")]
-              ),
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "nav-item" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "underline",
-                  attrs: { href: _vm.settings.youtube, target: "_blank" },
-                },
-                [_vm._v("YOUTUBE")]
-              ),
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "nav-item" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "underline",
-                  attrs: { href: _vm.settings.linkedin, target: "_blank" },
-                },
-                [_vm._v("LINKEDIN")]
-              ),
-            ]),
-          ]),
-        ]),
-      ]),
-    ]),
-  ])
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function () {
@@ -76839,7 +76868,7 @@ var render = function () {
   return _vm.show
     ? _c("div", { staticClass: "notification p-2 p-sm-4" }, [
         _c("div", { staticClass: "toast show" }, [
-          _c("div", { staticClass: "toast-header" }, [
+          _c("div", { staticClass: "toast-header bg-white" }, [
             _c("span", { domProps: { textContent: _vm._s(_vm.title) } }),
             _vm._v(" "),
             _c("button", {
@@ -76853,7 +76882,12 @@ var render = function () {
             }),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "toast-body" }, [_vm._t("default")], 2),
+          _c(
+            "div",
+            { staticClass: "toast-body bg-light" },
+            [_vm._t("default")],
+            2
+          ),
         ]),
       ])
     : _vm._e()
