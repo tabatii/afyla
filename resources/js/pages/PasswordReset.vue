@@ -10,6 +10,9 @@
 							<div class="mb-3">
 								<input type="password" class="form-control border shadow-none py-3" v-model="form.password" placeholder="NEW PASSWORD" />
 								<small class="text-danger" v-text="errors.password"></small>
+								<div class="rules">
+									<PasswordCheck v-model="form.password"></PasswordCheck>
+								</div>
 							</div>
 							<div class="mb-3">
 								<input type="password" class="form-control border shadow-none py-3" v-model="form.password_confirmation" placeholder="CONFIRM PASSWORD" />
@@ -26,6 +29,7 @@
 </template>
 
 <script>
+	import PasswordCheck from '../components/PasswordCheck'
 	import AppLayout from '../components/AppLayout'
 	import { Head } from '@inertiajs/inertia-vue'
 	export default {
@@ -33,6 +37,7 @@
 			errors: Object,
 		},
 		components: {
+			PasswordCheck,
 			AppLayout,
 			h: Head,
 		},

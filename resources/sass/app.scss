@@ -40,6 +40,13 @@ label[for] {
 	box-shadow: none !important;
 }
 
+.rules {
+	display: none;
+}
+input[type=password]:focus ~ .rules {
+	display: block;
+}
+
 .btn-paypal iframe {
 	z-index: auto !important;
 }

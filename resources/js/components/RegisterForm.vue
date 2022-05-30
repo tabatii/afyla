@@ -8,6 +8,9 @@
 			<div class="mb-3">
 				<input type="password" class="form-control input" v-model="register.password" placeholder="Password" />
 				<small class="text-danger" v-text="register.errors.password"></small>
+				<div class="rules">
+					<PasswordCheck v-model="register.password"></PasswordCheck>
+				</div>
 			</div>
 			<div class="mb-3">
 				<input type="password" class="form-control input" v-model="register.password_confirmation" placeholder="Confirm password" />
@@ -73,11 +76,13 @@
 </template>
 
 <script>
+	import PasswordCheck from '../components/PasswordCheck'
 	import { Link } from '@inertiajs/inertia-vue'
 	import { countries } from 'countries-list'
 	import moment from 'moment'
 	export default {
 		components: {
+			PasswordCheck,
 			l: Link,
 		},
 		computed: {
