@@ -1,8 +1,8 @@
 <template>
 	<UserMenu>
 		<h title="Change Password"></h>
-		<Notification v-model="notification">
-			<p class="mb-0">Your password has been changed.</p>
+		<Notification v-model="notification" title="Your password has been changed.">
+			<p class="mb-0">All your sessions on other devices has been logged out.</p>
 		</Notification>
 		<form class="px-3 px-sm-5" @submit.prevent="change">
 			<p>CHANGE PASSWORD</p>
