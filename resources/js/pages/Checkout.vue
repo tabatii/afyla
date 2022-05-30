@@ -101,12 +101,12 @@
 											<small class="text-danger" v-text="address.errors.city"></small>
 										</div>
 										<div class="col-4">
-											<input type="text" class="form-control input" v-model="address.zip" placeholder="Zip code" />
-											<small class="text-danger" v-text="address.errors.zip"></small>
-										</div>
-										<div class="col-4">
 											<input type="text" class="form-control input" v-model="address.state" placeholder="State" />
 											<small class="text-danger" v-text="address.errors.state"></small>
+										</div>
+										<div class="col-4">
+											<input type="text" class="form-control input" v-model="address.zip" placeholder="Zip code" />
+											<small class="text-danger" v-text="address.errors.zip"></small>
 										</div>
 										<div class="col-6">
 											<select class="form-select input" v-model="address.country">
@@ -143,10 +143,10 @@
 											<input type="text" class="form-control input" v-model="billing.city" placeholder="City" />
 										</div>
 										<div class="col-4">
-											<input type="text" class="form-control input" v-model="billing.zip" placeholder="Zip code" />
+											<input type="text" class="form-control input" v-model="billing.state" placeholder="State" />
 										</div>
 										<div class="col-4">
-											<input type="text" class="form-control input" v-model="billing.state" placeholder="State" />
+											<input type="text" class="form-control input" v-model="billing.zip" placeholder="Zip code" />
 										</div>
 										<div class="col-6">
 											<select class="form-select input" v-model="billing.country">

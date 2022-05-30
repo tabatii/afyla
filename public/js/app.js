@@ -64839,46 +64839,6 @@ var render = function () {
                                       {
                                         name: "model",
                                         rawName: "v-model",
-                                        value: _vm.address.zip,
-                                        expression: "address.zip",
-                                      },
-                                    ],
-                                    staticClass: "form-control input",
-                                    attrs: {
-                                      type: "text",
-                                      placeholder: "Zip code",
-                                    },
-                                    domProps: { value: _vm.address.zip },
-                                    on: {
-                                      input: function ($event) {
-                                        if ($event.target.composing) {
-                                          return
-                                        }
-                                        _vm.$set(
-                                          _vm.address,
-                                          "zip",
-                                          $event.target.value
-                                        )
-                                      },
-                                    },
-                                  }),
-                                  _vm._v(" "),
-                                  _c("small", {
-                                    staticClass: "text-danger",
-                                    domProps: {
-                                      textContent: _vm._s(
-                                        _vm.address.errors.zip
-                                      ),
-                                    },
-                                  }),
-                                ]),
-                                _vm._v(" "),
-                                _c("div", { staticClass: "col-4" }, [
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
                                         value: _vm.address.state,
                                         expression: "address.state",
                                       },
@@ -64908,6 +64868,46 @@ var render = function () {
                                     domProps: {
                                       textContent: _vm._s(
                                         _vm.address.errors.state
+                                      ),
+                                    },
+                                  }),
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "col-4" }, [
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.address.zip,
+                                        expression: "address.zip",
+                                      },
+                                    ],
+                                    staticClass: "form-control input",
+                                    attrs: {
+                                      type: "text",
+                                      placeholder: "Zip code",
+                                    },
+                                    domProps: { value: _vm.address.zip },
+                                    on: {
+                                      input: function ($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.address,
+                                          "zip",
+                                          $event.target.value
+                                        )
+                                      },
+                                    },
+                                  }),
+                                  _vm._v(" "),
+                                  _c("small", {
+                                    staticClass: "text-danger",
+                                    domProps: {
+                                      textContent: _vm._s(
+                                        _vm.address.errors.zip
                                       ),
                                     },
                                   }),
@@ -65222,37 +65222,6 @@ var render = function () {
                                       {
                                         name: "model",
                                         rawName: "v-model",
-                                        value: _vm.billing.zip,
-                                        expression: "billing.zip",
-                                      },
-                                    ],
-                                    staticClass: "form-control input",
-                                    attrs: {
-                                      type: "text",
-                                      placeholder: "Zip code",
-                                    },
-                                    domProps: { value: _vm.billing.zip },
-                                    on: {
-                                      input: function ($event) {
-                                        if ($event.target.composing) {
-                                          return
-                                        }
-                                        _vm.$set(
-                                          _vm.billing,
-                                          "zip",
-                                          $event.target.value
-                                        )
-                                      },
-                                    },
-                                  }),
-                                ]),
-                                _vm._v(" "),
-                                _c("div", { staticClass: "col-4" }, [
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
                                         value: _vm.billing.state,
                                         expression: "billing.state",
                                       },
@@ -65271,6 +65240,37 @@ var render = function () {
                                         _vm.$set(
                                           _vm.billing,
                                           "state",
+                                          $event.target.value
+                                        )
+                                      },
+                                    },
+                                  }),
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "col-4" }, [
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.billing.zip,
+                                        expression: "billing.zip",
+                                      },
+                                    ],
+                                    staticClass: "form-control input",
+                                    attrs: {
+                                      type: "text",
+                                      placeholder: "Zip code",
+                                    },
+                                    domProps: { value: _vm.billing.zip },
+                                    on: {
+                                      input: function ($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.billing,
+                                          "zip",
                                           $event.target.value
                                         )
                                       },

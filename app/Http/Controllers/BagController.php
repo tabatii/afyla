@@ -91,8 +91,10 @@ class BagController extends Controller
         $condition = auth()->check() ? ['user_id' => auth()->id()] : ['cookie_id' => $cookie];
 
         $bag = Bag::where('id', $id)->where($condition)->first();
-        $bag->size_id = $request->size;
-        $bag->save();
+        if (! Bag::where('product_id', $bag->product_id)->where('size_id', $request->size)->where($condition)->exists()) {
+            $bag->size_id = $request->size;
+            $bag->save();
+        }
 
         return $this->res($cookie);
     }
