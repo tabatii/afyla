@@ -68891,7 +68891,7 @@ var render = function () {
         _c("div", { staticClass: "container" }, [
           _c(
             "div",
-            { staticClass: "row justify-content-between" },
+            { staticClass: "row justify-content-center" },
             _vm._l(_vm.links, function (link) {
               return _c(
                 "div",

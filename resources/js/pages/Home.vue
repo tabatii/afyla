@@ -26,7 +26,7 @@
 		</section>
 		<section class="bg-primary py-4">
 			<div class="container">
-				<div class="row justify-content-between">
+				<div class="row justify-content-center">
 					<div class="col-md-6 col-xl-5 p-2" v-for="link in links" :key="Math.random()">
 						<div class="category">
 							<img :src="link.img" class="d-block w-100" />
