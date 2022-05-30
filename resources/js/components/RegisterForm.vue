@@ -7,10 +7,10 @@
 			</div>
 			<div class="mb-3">
 				<input type="password" class="form-control input" v-model="register.password" placeholder="Password" />
-				<small class="text-danger" v-text="register.errors.password"></small>
 				<div class="rules">
 					<PasswordCheck v-model="register.password"></PasswordCheck>
 				</div>
+				<small class="text-danger" v-text="register.errors.password"></small>
 			</div>
 			<div class="mb-3">
 				<input type="password" class="form-control input" v-model="register.password_confirmation" placeholder="Confirm password" />

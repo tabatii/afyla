@@ -9,10 +9,10 @@
 							<div class="alert alert-danger" role="alert" v-text="form.errors.token" v-if="form.errors.token"></div>
 							<div class="mb-3">
 								<input type="password" class="form-control border shadow-none py-3" v-model="form.password" placeholder="NEW PASSWORD" />
-								<small class="text-danger" v-text="errors.password"></small>
 								<div class="rules">
 									<PasswordCheck v-model="form.password"></PasswordCheck>
 								</div>
+								<small class="text-danger" v-text="errors.password"></small>
 							</div>
 							<div class="mb-3">
 								<input type="password" class="form-control border shadow-none py-3" v-model="form.password_confirmation" placeholder="CONFIRM PASSWORD" />

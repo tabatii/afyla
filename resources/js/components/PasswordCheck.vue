@@ -1,5 +1,5 @@
 <template>
-	<ul>
+	<ul class="shadow">
 		<li>
 			<i class="bi" :class="[this.result.minimum ? 'bi-check' : 'bi-x']"></i>
 			<span>At least 8 characters.</span>
@@ -45,9 +45,14 @@
 
 <style scoped>
 	ul {
-		padding: 0;
+		position: absolute;
+		top: 0;
+		right: 0;
+		min-width: 200px;
+		padding: .5rem;
 		margin: 0;
 		list-style: none;
+		background-color: white;
 	}
 	span {
 		font-size: .875rem;

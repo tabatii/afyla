@@ -29053,7 +29053,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nul[data-v-061d6052] {\n\tpadding: 0;\n\tmargin: 0;\n\tlist-style: none;\n}\nspan[data-v-061d6052] {\n\tfont-size: .875rem;\n}\ni[data-v-061d6052] {\n\tfont-size: 1.3rem;\n\tline-height: 1;\n\tvertical-align: middle;\n}\ni.bi-check[data-v-061d6052] {\n\tcolor: var(--bs-success);\n}\ni.bi-x[data-v-061d6052] {\n\tcolor: var(--bs-danger);\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nul[data-v-061d6052] {\n\tposition: absolute;\n\ttop: 0;\n\tright: 0;\n\tmin-width: 200px;\n\tpadding: .5rem;\n\tmargin: 0;\n\tlist-style: none;\n\tbackground-color: white;\n}\nspan[data-v-061d6052] {\n\tfont-size: .875rem;\n}\ni[data-v-061d6052] {\n\tfont-size: 1.3rem;\n\tline-height: 1;\n\tvertical-align: middle;\n}\ni.bi-check[data-v-061d6052] {\n\tcolor: var(--bs-success);\n}\ni.bi-x[data-v-061d6052] {\n\tcolor: var(--bs-danger);\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -69764,11 +69764,6 @@ var render = function () {
               },
             }),
             _vm._v(" "),
-            _c("small", {
-              staticClass: "text-danger",
-              domProps: { textContent: _vm._s(_vm.errors.new_password) },
-            }),
-            _vm._v(" "),
             _c(
               "div",
               { staticClass: "rules" },
@@ -69785,6 +69780,11 @@ var render = function () {
               ],
               1
             ),
+            _vm._v(" "),
+            _c("small", {
+              staticClass: "text-danger",
+              domProps: { textContent: _vm._s(_vm.errors.new_password) },
+            }),
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "mb-3" }, [
@@ -69908,11 +69908,6 @@ var render = function () {
                       },
                     }),
                     _vm._v(" "),
-                    _c("small", {
-                      staticClass: "text-danger",
-                      domProps: { textContent: _vm._s(_vm.errors.password) },
-                    }),
-                    _vm._v(" "),
                     _c(
                       "div",
                       { staticClass: "rules" },
@@ -69929,6 +69924,11 @@ var render = function () {
                       ],
                       1
                     ),
+                    _vm._v(" "),
+                    _c("small", {
+                      staticClass: "text-danger",
+                      domProps: { textContent: _vm._s(_vm.errors.password) },
+                    }),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "mb-3" }, [
@@ -77164,7 +77164,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("ul", [
+  return _c("ul", { staticClass: "shadow" }, [
     _c("li", [
       _c("i", {
         staticClass: "bi",
@@ -77549,11 +77549,6 @@ var render = function () {
               },
             }),
             _vm._v(" "),
-            _c("small", {
-              staticClass: "text-danger",
-              domProps: { textContent: _vm._s(_vm.register.errors.password) },
-            }),
-            _vm._v(" "),
             _c(
               "div",
               { staticClass: "rules" },
@@ -77570,6 +77565,11 @@ var render = function () {
               ],
               1
             ),
+            _vm._v(" "),
+            _c("small", {
+              staticClass: "text-danger",
+              domProps: { textContent: _vm._s(_vm.register.errors.password) },
+            }),
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "mb-3" }, [

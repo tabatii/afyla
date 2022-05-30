@@ -18366,6 +18366,7 @@ label[for] {
 
 .rules {
   display: none;
+  position: relative;
 }
 
 input[type=password]:focus ~ .rules {

@@ -12,10 +12,10 @@
 			</div>
 			<div class="mb-3">
 				<input type="password" class="form-control border shadow-none py-3" v-model="form.new_password" placeholder="NEW PASSWORD" />
-				<small class="text-danger" v-text="errors.new_password"></small>
 				<div class="rules">
 					<PasswordCheck v-model="form.new_password"></PasswordCheck>
 				</div>
+				<small class="text-danger" v-text="errors.new_password"></small>
 			</div>
 			<div class="mb-3">
 				<input type="password" class="form-control border shadow-none py-3" v-model="form.new_password_confirmation" placeholder="CONFIRM PASSWORD" />
