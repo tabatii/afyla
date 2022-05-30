@@ -12,16 +12,11 @@ class Coupon extends Model
     use HasFactory, SoftDeletes;
 
     protected $casts = [
-        'active' => 'boolean',
+        'used' => 'boolean',
         'value' => 'float',
         'min' => 'float',
         'max' => 'float',
     ];
-
-    public function getActiveAttribute()
-    {
-        return $this->attributes['active'] ? 'yes' : 'no';
-    }
 
     protected static function boot()
     {

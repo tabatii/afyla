@@ -14,6 +14,7 @@ use App\Models\ProductSize;
 use App\Models\Coupon;
 use App\Models\Order;
 use App\Models\Bag;
+use Carbon\Carbon;
 
 class Controller extends BaseController
 {
@@ -25,7 +26,7 @@ class Controller extends BaseController
         $min = $coupon->min ?? 1;
         $max = $coupon->max ?? 1000000000;
         $subtotal = $subtotal ?? $this->getSubtotal();
-        if ($coupon && $coupon->active === 'yes') {
+        if ($coupon && !$coupon->used && Carbon::parse($coupon->expires_at)->gte(now())) {
             if ($subtotal >= $min && $subtotal <= $max) {
                 if ($coupon->type === 'fixed') {
                     return $coupon->value;
@@ -66,7 +67,7 @@ class Controller extends BaseController
         $order->status = Order::PROCESSING;
         $order->save();
 
-        Coupon::where('id', $order->coupon_id)->update(['active' => false]);
+        Coupon::where('id', $order->coupon_id)->update(['used' => true]);
 
         Bag::where(auth()->check() ? ['user_id' => auth()->id()] : ['cookie_id' => $request->cookie('cookie_id')])->delete();
 

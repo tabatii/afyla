@@ -14,11 +14,17 @@ class CouponController extends Controller
     {
         $request->validate(['code' => 'required|string|exists:coupons,code']);
         $coupon = Coupon::where('code', $request->code)->first();
-        if ($coupon->active === 'no') {
+
+        if ($coupon->used) {
             throw ValidationException::withMessages([
-                'code' => ['This code has been used or expired.'],
+                'code' => ['This code has been used already.'],
+            ]);
+        } elseif (Carbon::parse($coupon->expires_at)->lte(now())) {
+            throw ValidationException::withMessages([
+                'code' => ['This code has been expired.'],
             ]);
         }
+
         return response()->json(compact('coupon'));
     }
 }
