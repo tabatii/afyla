@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Validation\Rules\Password as PasswordValidation;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Http\Request;
@@ -38,7 +39,7 @@ class PasswordResetController extends Controller
             'email' => 'required|email|max:100',
             'password' => [
                 'required',
-                Password::defaults(),
+                PasswordValidation::defaults(),
                 'confirmed',
             ],
         ]);

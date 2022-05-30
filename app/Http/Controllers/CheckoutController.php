@@ -29,7 +29,7 @@ class CheckoutController extends Controller
             'user_lastname' => $request->lastname,
             'user_email' => $request->email,
         ]);
-        if ($request->subscribe) {
+        if ($request->subscribe && !Subscription::where('email', $request->email)->exists()) {
             $this->subscribe($request->email);
         }
         $this->saveBag($order->id);
@@ -82,15 +82,6 @@ class CheckoutController extends Controller
             $product->size = $item->size->name;
             $product->price = $this->getPrice($item->product->price, $item->product->discount);
             $product->save();
-        }
-    }
-
-    public function subscribe($email)
-    {
-        if (! Subscription::where('email', $email)->exists()) {
-            $subscription = new Subscription;
-            $subscription->email = $email;
-            $subscription->save();
         }
     }
 }

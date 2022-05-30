@@ -1,10 +1,10 @@
 <template>
 	<header>
 
-		<div class="shipping-popup" v-if="mobile">
+		<div class="shipping-popup" v-if="mobile && !shipping">
 			<div class="alert alert-light alert-dismissible fade show mb-0" role="alert">
 				Check out our <l :href="route('page', 'shipping-returns-policy')" class="alert-link underline">Free shipping & returns</l> policy.
-				<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+				<button type="button" class="btn-close" data-bs-dismiss="alert" @click="closeShipping"></button>
 			</div>
 		</div>
 
@@ -158,6 +158,7 @@
 	import BagMenu from '../components/BagMenu'
 	import AppNav from '../components/AppNav'
 	import { Link } from '@inertiajs/inertia-vue'
+	import Cookies from 'js-cookie'
 	export default {
 		components: {
 			WishlistMenu,
@@ -188,8 +189,15 @@
 				return this.$page.props.bag
 			}
 		},
+		methods: {
+			closeShipping() {
+				Cookies.set('shipping-popup', 'hide', { expires: 7 })
+				this.shipping = Cookies.get('shipping-popup')
+			}
+		},
 		data() {
 			return {
+				shipping: null,
 				search: null,
 				centered: false,
 				mobile: false,
@@ -197,6 +205,7 @@
 			}
 		},
 		mounted() {
+			this.shipping = Cookies.get('shipping-popup')
 			this.$refs.categoriesMenu.style.left = `-${(this.$refs.categoriesMenu.clientWidth/2)-(this.$refs.categoriesItem.clientWidth/2)}px`
 			this.$refs.collectionsMenu.style.left = `-${(this.$refs.collectionsMenu.clientWidth/2)-(this.$refs.collectionsItem.clientWidth/2)}px`
 			this.mobile = innerWidth < 992 ? true : false

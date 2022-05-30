@@ -68,6 +68,8 @@ class Controller extends BaseController
 
         Coupon::where('id', $order->coupon_id)->update(['active' => false]);
 
+        Bag::where(auth()->check() ? ['user_id' => auth()->id()] : ['cookie_id' => $request->cookie('cookie_id')])->delete();
+
         foreach ($order->products as $item) {
             $size = ProductSize::where('product_id', $item->product_id)->where('size_id', $item->size_id)->first();
             $size->qty = $size->qty - $item->qty;
@@ -86,10 +88,10 @@ class Controller extends BaseController
             $coupon->email = $email;
             $coupon->type = 'percentage';
             $coupon->value = 25;
-            $coupon->expires_at = now()->addMonths(3)->toDateString();
+            $coupon->expires_at = now()->addMonths(6)->toDateString();
             $coupon->save();
 
-            Mail::to($email)->send(new SubscribeMail($coupon->code, 3));
+            Mail::to($email)->send(new SubscribeMail($coupon->code, 6));
         }
     }
 }

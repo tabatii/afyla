@@ -85,7 +85,7 @@
 		},
 		methods: {
 			closeNewsletter() {
-				Cookies.set('newsletter-popup', 'hide', { expires: 30 })
+				Cookies.set('newsletter-popup', 'hide', { expires: 7 })
 				this.newsletter = Cookies.get('newsletter-popup')
 			},
 			closeCookies() {
