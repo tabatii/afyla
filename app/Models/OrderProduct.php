@@ -18,6 +18,8 @@ class OrderProduct extends Model
         'price' => 'float',
     ];
 
+    public $additional_attributes = ['details'];
+
     public function getDetailsAttribute()
     {
         return $this->attributes['title'] . ', ' $this->attributes['size'];
