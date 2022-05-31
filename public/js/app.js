@@ -10548,6 +10548,29 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -10607,7 +10630,7 @@ __webpack_require__.r(__webpack_exports__);
     addToBag: function addToBag() {
       var _this2 = this;
 
-      if (this.getSizeQty) {
+      if (this.getSizeQty && this.getSizeQty > 0) {
         this.loading = true;
         return this.$inertia.post(this.route('bag.add'), {
           product: this.product.id,
@@ -11687,6 +11710,29 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -11793,7 +11839,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     addToBag: function addToBag(id) {
       var _this4 = this;
 
-      if (this.getSizeQty) {
+      if (this.getSizeQty && this.getSizeQty > 0) {
         this.loading = true;
         return this.$inertia.post(this.route('bag.add'), this.bag, {
           preserveScroll: true,
@@ -13125,7 +13171,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
-    value: [Boolean, Number]
+    value: [Boolean, Number],
+    width: {
+      "default": '500px',
+      type: String
+    }
   },
   methods: {
     close: function close() {
@@ -13890,6 +13940,29 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -13919,7 +13992,7 @@ __webpack_require__.r(__webpack_exports__);
     addToBag: function addToBag(index) {
       var _this2 = this;
 
-      if (this.stock[index]) {
+      if (this.stock[index] && this.stock[index] > 0) {
         this.loading = true;
         this.bag.size = this.sizes[index];
         this.bag.product = this.wishlist[index].product.id;
@@ -13933,11 +14006,13 @@ __webpack_require__.r(__webpack_exports__);
         });
       }
 
+      this.index = index;
       this.soldout = true;
     }
   },
   data: function data() {
     return {
+      index: null,
       loading: false,
       soldout: false,
       done: false,
@@ -29077,7 +29152,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.popup-backdrop[data-v-77019f71] {\n\tposition: fixed;\n\tinset: 0 0 0 0;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: center;\n\talign-items: center;\n\tbackground-color: rgba(0,0,0,.5);\n\tz-index: 1085;\n}\n.popup-content[data-v-77019f71] {\n\tposition: relative;\n\twidth: 100%;\n\tmax-width: 500px;\n\toverflow: auto;\n\tbackground-color: var(--bs-primary);\n}\n.popup-body[data-v-77019f71] {\n\tpadding: 1.5rem;\n\tcolor: var(--bs-dark);\n}\n.popup-close[data-v-77019f71] {\n\tposition: absolute;\n\ttop: .5rem;\n\tright: .5rem;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.popup-backdrop[data-v-77019f71] {\n\tposition: fixed;\n\tinset: 0 0 0 0;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: center;\n\talign-items: center;\n\tbackground-color: rgba(0,0,0,.5);\n\tz-index: 1085;\n}\n.popup-content[data-v-77019f71] {\n\tposition: relative;\n\tmax-width: 100%;\n\toverflow: auto;\n\tbackground-color: var(--bs-primary);\n}\n.popup-body[data-v-77019f71] {\n\tpadding: 1.5rem;\n\tcolor: var(--bs-dark);\n}\n.popup-close[data-v-77019f71] {\n\tposition: absolute;\n\ttop: .5rem;\n\tright: .5rem;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -69683,6 +69758,7 @@ var render = function () {
       _c(
         "Notification",
         {
+          attrs: { title: "Your password has been changed." },
           model: {
             value: _vm.notification,
             callback: function ($$v) {
@@ -69693,7 +69769,7 @@ var render = function () {
         },
         [
           _c("p", { staticClass: "mb-0" }, [
-            _vm._v("Your password has been changed."),
+            _vm._v("All your sessions on other devices has been logged out."),
           ]),
         ]
       ),
@@ -70026,6 +70102,7 @@ var render = function () {
       _c(
         "PopUp",
         {
+          attrs: { width: "600px" },
           model: {
             value: _vm.soldout,
             callback: function ($$v) {
@@ -70039,6 +70116,116 @@ var render = function () {
             _c("p", { staticClass: "fw-medium mb-0" }, [
               _vm._v("Unfortunately, this item is out of stock."),
             ]),
+            _vm._v(" "),
+            _vm.getSizeQty === 0
+              ? _c("div", { staticClass: "mt-3" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-secondary",
+                      attrs: { type: "button" },
+                    },
+                    [_vm._v("EMAIL WHEN AVAILABLE")]
+                  ),
+                ])
+              : _vm.getSizeQty < 0
+              ? _c("div", [
+                  _c("p", { staticClass: "fw-medium" }, [
+                    _vm._v("We recommend this items for you."),
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "row" },
+                    _vm._l(_vm.product.recommendations, function (item, i) {
+                      return i < 3
+                        ? _c(
+                            "div",
+                            { key: Math.random(), staticClass: "col-sm-4" },
+                            [
+                              _c(
+                                "l",
+                                {
+                                  attrs: {
+                                    href: _vm.route("product", item.product.id),
+                                  },
+                                },
+                                [
+                                  _c("img", {
+                                    staticClass:
+                                      "d-block w-100 border border-dark",
+                                    attrs: { src: item.product.gallery[0] },
+                                  }),
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "text-center" }, [
+                                _c(
+                                  "p",
+                                  { staticClass: "mb-2" },
+                                  [
+                                    _c("l", {
+                                      staticClass: "text-dark",
+                                      attrs: {
+                                        href: _vm.route(
+                                          "product",
+                                          item.product.id
+                                        ),
+                                      },
+                                      domProps: {
+                                        textContent: _vm._s(item.product.title),
+                                      },
+                                    }),
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c("p", { staticClass: "fw-medium" }, [
+                                  item.product.discount
+                                    ? _c("del", {
+                                        staticClass: "text-muted me-1",
+                                        domProps: {
+                                          textContent: _vm._s(
+                                            _vm.getFormatedPrice(
+                                              item.product.price
+                                            )
+                                          ),
+                                        },
+                                      })
+                                    : _vm._e(),
+                                  _vm._v(" "),
+                                  item.product.discount
+                                    ? _c("span", {
+                                        staticClass: "text-danger",
+                                        domProps: {
+                                          textContent: _vm._s(
+                                            _vm.getFormatedPrice(
+                                              item.product.price,
+                                              item.product.discount
+                                            )
+                                          ),
+                                        },
+                                      })
+                                    : _c("span", {
+                                        domProps: {
+                                          textContent: _vm._s(
+                                            _vm.getFormatedPrice(
+                                              item.product.price
+                                            )
+                                          ),
+                                        },
+                                      }),
+                                ]),
+                              ]),
+                            ],
+                            1
+                          )
+                        : _vm._e()
+                    }),
+                    0
+                  ),
+                ])
+              : _vm._e(),
           ]),
         ]
       ),
@@ -70327,7 +70514,7 @@ var render = function () {
                                 },
                               },
                               [
-                                s.qty === 0
+                                s.qty === 0 || s.qty === -1
                                   ? _c("del", { staticClass: "text-muted" }, [
                                       _vm._v(_vm._s(s.size.name)),
                                     ])
@@ -70402,7 +70589,7 @@ var render = function () {
                   _vm._v(" "),
                   _vm.size
                     ? _c("div", [
-                        _vm.getSizeQty === 0
+                        _vm.getSizeQty < 1
                           ? _c("span", [
                               _c("i", {
                                 staticClass: "bi bi-circle-fill text-danger",
@@ -73672,6 +73859,7 @@ var render = function () {
       _c(
         "PopUp",
         {
+          attrs: { width: "600px" },
           model: {
             value: _vm.soldout,
             callback: function ($$v) {
@@ -73685,6 +73873,131 @@ var render = function () {
             _c("p", { staticClass: "fw-medium mb-0" }, [
               _vm._v("Unfortunately, this item is out of stock."),
             ]),
+            _vm._v(" "),
+            _vm.getSizeQty === 0
+              ? _c("div", { staticClass: "mt-3" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-secondary",
+                      attrs: { type: "button" },
+                    },
+                    [_vm._v("EMAIL WHEN AVAILABLE")]
+                  ),
+                ])
+              : _vm.getSizeQty < 0
+              ? _c("div", [
+                  _c("p", { staticClass: "fw-medium" }, [
+                    _vm._v("We recommend this items for you."),
+                  ]),
+                  _vm._v(" "),
+                  _vm.wishlist[_vm.card]
+                    ? _c(
+                        "div",
+                        { staticClass: "row" },
+                        _vm._l(
+                          _vm.wishlist[_vm.card].product.recommendations,
+                          function (item, i) {
+                            return i < 3
+                              ? _c(
+                                  "div",
+                                  {
+                                    key: Math.random(),
+                                    staticClass: "col-sm-4",
+                                  },
+                                  [
+                                    _c(
+                                      "l",
+                                      {
+                                        attrs: {
+                                          href: _vm.route(
+                                            "product",
+                                            item.product.id
+                                          ),
+                                        },
+                                      },
+                                      [
+                                        _c("img", {
+                                          staticClass:
+                                            "d-block w-100 border border-dark",
+                                          attrs: {
+                                            src: item.product.gallery[0],
+                                          },
+                                        }),
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "text-center" }, [
+                                      _c(
+                                        "p",
+                                        { staticClass: "mb-2" },
+                                        [
+                                          _c("l", {
+                                            staticClass: "text-dark",
+                                            attrs: {
+                                              href: _vm.route(
+                                                "product",
+                                                item.product.id
+                                              ),
+                                            },
+                                            domProps: {
+                                              textContent: _vm._s(
+                                                item.product.title
+                                              ),
+                                            },
+                                          }),
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c("p", { staticClass: "fw-medium" }, [
+                                        item.product.discount
+                                          ? _c("del", {
+                                              staticClass: "text-muted me-1",
+                                              domProps: {
+                                                textContent: _vm._s(
+                                                  _vm.getFormatedPrice(
+                                                    item.product.price
+                                                  )
+                                                ),
+                                              },
+                                            })
+                                          : _vm._e(),
+                                        _vm._v(" "),
+                                        item.product.discount
+                                          ? _c("span", {
+                                              staticClass: "text-danger",
+                                              domProps: {
+                                                textContent: _vm._s(
+                                                  _vm.getFormatedPrice(
+                                                    item.product.price,
+                                                    item.product.discount
+                                                  )
+                                                ),
+                                              },
+                                            })
+                                          : _c("span", {
+                                              domProps: {
+                                                textContent: _vm._s(
+                                                  _vm.getFormatedPrice(
+                                                    item.product.price
+                                                  )
+                                                ),
+                                              },
+                                            }),
+                                      ]),
+                                    ]),
+                                  ],
+                                  1
+                                )
+                              : _vm._e()
+                          }
+                        ),
+                        0
+                      )
+                    : _vm._e(),
+                ])
+              : _vm._e(),
           ]),
         ]
       ),
@@ -74447,7 +74760,7 @@ var render = function () {
                                       ? _c("span", [
                                           _vm._v(
                                             _vm._s(
-                                              _vm.getSizeQty === 0
+                                              _vm.getSizeQty < 1
                                                 ? "SOLD OUT"
                                                 : "ADD TO BAG"
                                             )
@@ -77255,7 +77568,7 @@ var render = function () {
       staticClass: "popup-backdrop",
     },
     [
-      _c("div", { staticClass: "popup-content" }, [
+      _c("div", { staticClass: "popup-content", style: { width: _vm.width } }, [
         _c("button", {
           staticClass: "btn btn-close popup-close",
           attrs: { type: "button" },
@@ -78890,6 +79203,7 @@ var render = function () {
       _c(
         "PopUp",
         {
+          attrs: { width: "600px" },
           model: {
             value: _vm.soldout,
             callback: function ($$v) {
@@ -78903,6 +79217,131 @@ var render = function () {
             _c("p", { staticClass: "fw-medium mb-0" }, [
               _vm._v("Unfortunately, this item is out of stock."),
             ]),
+            _vm._v(" "),
+            _vm.stock[_vm.index] === 0
+              ? _c("div", { staticClass: "mt-3" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-secondary",
+                      attrs: { type: "button" },
+                    },
+                    [_vm._v("EMAIL WHEN AVAILABLE")]
+                  ),
+                ])
+              : _vm.stock[_vm.index] < 0
+              ? _c("div", [
+                  _c("p", { staticClass: "fw-medium" }, [
+                    _vm._v("We recommend this items for you."),
+                  ]),
+                  _vm._v(" "),
+                  _vm.wishlist[_vm.index]
+                    ? _c(
+                        "div",
+                        { staticClass: "row" },
+                        _vm._l(
+                          _vm.wishlist[_vm.index].product.recommendations,
+                          function (item, i) {
+                            return i < 3
+                              ? _c(
+                                  "div",
+                                  {
+                                    key: Math.random(),
+                                    staticClass: "col-sm-4",
+                                  },
+                                  [
+                                    _c(
+                                      "l",
+                                      {
+                                        attrs: {
+                                          href: _vm.route(
+                                            "product",
+                                            item.product.id
+                                          ),
+                                        },
+                                      },
+                                      [
+                                        _c("img", {
+                                          staticClass:
+                                            "d-block w-100 border border-dark",
+                                          attrs: {
+                                            src: item.product.gallery[0],
+                                          },
+                                        }),
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "text-center" }, [
+                                      _c(
+                                        "p",
+                                        { staticClass: "mb-2" },
+                                        [
+                                          _c("l", {
+                                            staticClass: "text-dark",
+                                            attrs: {
+                                              href: _vm.route(
+                                                "product",
+                                                item.product.id
+                                              ),
+                                            },
+                                            domProps: {
+                                              textContent: _vm._s(
+                                                item.product.title
+                                              ),
+                                            },
+                                          }),
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c("p", { staticClass: "fw-medium" }, [
+                                        item.product.discount
+                                          ? _c("del", {
+                                              staticClass: "text-muted me-1",
+                                              domProps: {
+                                                textContent: _vm._s(
+                                                  _vm.getFormatedPrice(
+                                                    item.product.price
+                                                  )
+                                                ),
+                                              },
+                                            })
+                                          : _vm._e(),
+                                        _vm._v(" "),
+                                        item.product.discount
+                                          ? _c("span", {
+                                              staticClass: "text-danger",
+                                              domProps: {
+                                                textContent: _vm._s(
+                                                  _vm.getFormatedPrice(
+                                                    item.product.price,
+                                                    item.product.discount
+                                                  )
+                                                ),
+                                              },
+                                            })
+                                          : _c("span", {
+                                              domProps: {
+                                                textContent: _vm._s(
+                                                  _vm.getFormatedPrice(
+                                                    item.product.price
+                                                  )
+                                                ),
+                                              },
+                                            }),
+                                      ]),
+                                    ]),
+                                  ],
+                                  1
+                                )
+                              : _vm._e()
+                          }
+                        ),
+                        0
+                      )
+                    : _vm._e(),
+                ])
+              : _vm._e(),
           ]),
         ]
       ),
@@ -79137,7 +79576,7 @@ var render = function () {
                                   ? _c("span", [
                                       _vm._v(
                                         _vm._s(
-                                          _vm.stock[i] === 0
+                                          _vm.stock[i] < 1
                                             ? "SOLD OUT"
                                             : "ADD TO BAG"
                                         )

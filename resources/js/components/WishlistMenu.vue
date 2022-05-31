@@ -1,8 +1,31 @@
 <template>
 	<div>
-		<PopUp v-model="soldout">
+		<PopUp v-model="soldout" width="600px">
 			<div class="text-center py-2">
 				<p class="fw-medium mb-0">Unfortunately, this item is out of stock.</p>
+				<div class="mt-3" v-if="stock[index] === 0">
+					<button type="button" class="btn btn-secondary">EMAIL WHEN AVAILABLE</button>
+				</div>
+				<div v-else-if="stock[index] < 0">
+					<p class="fw-medium">We recommend this items for you.</p>
+					<div class="row" v-if="wishlist[index]">
+						<div class="col-sm-4" v-for="(item, i) in wishlist[index].product.recommendations" :key="Math.random()" v-if="i < 3">
+							<l :href="route('product', item.product.id)">
+								<img :src="item.product.gallery[0]" class="d-block w-100 border border-dark" />
+							</l>
+							<div class="text-center">
+								<p class="mb-2">
+									<l :href="route('product', item.product.id)" class="text-dark" v-text="item.product.title"></l>
+								</p>
+								<p class="fw-medium">
+									<del class="text-muted me-1" v-text="getFormatedPrice(item.product.price)" v-if="item.product.discount"></del>
+									<span class="text-danger" v-text="getFormatedPrice(item.product.price, item.product.discount)" v-if="item.product.discount"></span>
+									<span v-text="getFormatedPrice(item.product.price)" v-else></span>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</PopUp>
 		<PopUp v-model="done">
@@ -44,7 +67,7 @@
 						</div>
 						<div class="d-flex justify-content-end">
 							<button type="button" class="btn btn-primary btn-sm" :disabled="!sizes[i] || loading" @click="addToBag(i)">
-								<span v-if="sizes[i]">{{ stock[i] === 0 ? 'SOLD OUT' : 'ADD TO BAG' }}</span>
+								<span v-if="sizes[i]">{{ stock[i] < 1 ? 'SOLD OUT' : 'ADD TO BAG' }}</span>
 								<span v-else>CHOOSE A SIZE</span>
 							</button>
 						</div>
@@ -81,7 +104,7 @@
 		},
 		methods: {
 			addToBag(index) {
-				if (this.stock[index]) {
+				if (this.stock[index] && this.stock[index] > 0) {
 					this.loading = true
 					this.bag.size = this.sizes[index]
 					this.bag.product = this.wishlist[index].product.id
@@ -94,11 +117,13 @@
 						}
 					})
 				}
+				this.index = index
 				this.soldout = true
 			}
 		},
 		data() {
 			return {
+				index: null,
 				loading: false,
 				soldout: false,
 				done: false,

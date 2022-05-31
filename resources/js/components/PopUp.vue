@@ -1,6 +1,6 @@
 <template>
 	<div class="popup-backdrop" v-show="value">
-		<div class="popup-content">
+		<div class="popup-content" :style="{width}">
 			<button type="button" class="btn btn-close popup-close" @click="close"></button>
 			<div class="popup-body">
 				<slot></slot>
@@ -13,6 +13,10 @@
 	export default {
 		props: {
 			value: [Boolean, Number],
+			width: {
+				default: '500px',
+				type: String
+			}
 		},
 		methods: {
 			close() {
@@ -35,8 +39,7 @@
 	}
 	.popup-content {
 		position: relative;
-		width: 100%;
-		max-width: 500px;
+		max-width: 100%;
 		overflow: auto;
 		background-color: var(--bs-primary);
 	}

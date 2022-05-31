@@ -1,9 +1,32 @@
 <template>
 	<AppLayout>
 		<h title="My Wishlist"></h>
-		<PopUp v-model="soldout">
+		<PopUp v-model="soldout" width="600px">
 			<div class="text-center py-2">
 				<p class="fw-medium mb-0">Unfortunately, this item is out of stock.</p>
+				<div class="mt-3" v-if="getSizeQty === 0">
+					<button type="button" class="btn btn-secondary">EMAIL WHEN AVAILABLE</button>
+				</div>
+				<div v-else-if="getSizeQty < 0">
+					<p class="fw-medium">We recommend this items for you.</p>
+					<div class="row" v-if="wishlist[card]">
+						<div class="col-sm-4" v-for="(item, i) in wishlist[card].product.recommendations" :key="Math.random()" v-if="i < 3">
+							<l :href="route('product', item.product.id)">
+								<img :src="item.product.gallery[0]" class="d-block w-100 border border-dark" />
+							</l>
+							<div class="text-center">
+								<p class="mb-2">
+									<l :href="route('product', item.product.id)" class="text-dark" v-text="item.product.title"></l>
+								</p>
+								<p class="fw-medium">
+									<del class="text-muted me-1" v-text="getFormatedPrice(item.product.price)" v-if="item.product.discount"></del>
+									<span class="text-danger" v-text="getFormatedPrice(item.product.price, item.product.discount)" v-if="item.product.discount"></span>
+									<span v-text="getFormatedPrice(item.product.price)" v-else></span>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</PopUp>
 		<PopUp v-model="done">
@@ -165,7 +188,7 @@
 										<span v-text="getFormatedPrice(item.product.price)" v-else></span>
 									</div>
 									<button type="button" class="btn btn-primary" :disabled="bag.size === null || loading" @click="addToBag(item.product.id)">
-										<span v-if="bag.size">{{ getSizeQty === 0 ? 'SOLD OUT' : 'ADD TO BAG' }}</span>
+										<span v-if="bag.size">{{ getSizeQty < 1 ? 'SOLD OUT' : 'ADD TO BAG' }}</span>
 										<span v-else>CHOOSE A SIZE</span>
 									</button>
 									<l :href="route('product', item.product.id)" class="btn btn-outline-primary text-dark">MORE DETAILS</l>
@@ -293,7 +316,7 @@
 				}
 			},
 			addToBag(id) {
-				if (this.getSizeQty) {
+				if (this.getSizeQty && this.getSizeQty > 0) {
 					this.loading = true
 					return this.$inertia.post(this.route('bag.add'), this.bag, {
 						preserveScroll: true,

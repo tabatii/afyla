@@ -4,9 +4,32 @@
 			<title>{{ product.title }}</title>
 			<meta head-key="description" name="description" :content="product.overview" />
 		</h>
-		<PopUp v-model="soldout">
+		<PopUp v-model="soldout" width="600px">
 			<div class="text-center py-2">
 				<p class="fw-medium mb-0">Unfortunately, this item is out of stock.</p>
+				<div class="mt-3" v-if="getSizeQty === 0">
+					<button type="button" class="btn btn-secondary">EMAIL WHEN AVAILABLE</button>
+				</div>
+				<div v-else-if="getSizeQty < 0">
+					<p class="fw-medium">We recommend this items for you.</p>
+					<div class="row">
+						<div class="col-sm-4" v-for="(item, i) in product.recommendations" :key="Math.random()" v-if="i < 3">
+							<l :href="route('product', item.product.id)">
+								<img :src="item.product.gallery[0]" class="d-block w-100 border border-dark" />
+							</l>
+							<div class="text-center">
+								<p class="mb-2">
+									<l :href="route('product', item.product.id)" class="text-dark" v-text="item.product.title"></l>
+								</p>
+								<p class="fw-medium">
+									<del class="text-muted me-1" v-text="getFormatedPrice(item.product.price)" v-if="item.product.discount"></del>
+									<span class="text-danger" v-text="getFormatedPrice(item.product.price, item.product.discount)" v-if="item.product.discount"></span>
+									<span v-text="getFormatedPrice(item.product.price)" v-else></span>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</PopUp>
 		<PopUp v-model="done">
@@ -91,7 +114,7 @@
 							<div class="d-flex align-items-baseline flex-wrap">
 								<span class="fw-medium me-sm-3">Size:</span>
 								<button type="button" class="btn text-dark" :class="[s.size.id === size ? 'btn-primary' : 'btn-link']" v-for="s in product.sizes" :key="Math.random()" v-if="s.size && s.qty !== null" @click="size = s.size.id">
-									<del class="text-muted" v-if="s.qty === 0">{{ s.size.name }}</del>
+									<del class="text-muted" v-if="s.qty === 0 || s.qty === -1">{{ s.size.name }}</del>
 									<span v-else>{{ s.size.name }}</span>
 								</button>
 							</div>
@@ -107,7 +130,7 @@
 							</div>
 							<span class="me-auto">Enjoy free shipping and return</span>
 							<div v-if="size">
-								<span v-if="getSizeQty === 0"><i class="bi bi-circle-fill text-danger"></i> Sold out</span>
+								<span v-if="getSizeQty < 1"><i class="bi bi-circle-fill text-danger"></i> Sold out</span>
 								<span v-else-if="getSizeQty > 5"><i class="bi bi-circle-fill text-success"></i> Available</span>
 								<span v-else><i class="bi bi-circle-fill text-warning"></i> Only {{ getSizeQty }} left</span>
 							</div>
@@ -401,7 +424,7 @@
 		},
 		methods: {
 			addToBag() {
-				if (this.getSizeQty) {
+				if (this.getSizeQty && this.getSizeQty > 0) {
 					this.loading = true
 					return this.$inertia.post(this.route('bag.add'), {
 						product: this.product.id,

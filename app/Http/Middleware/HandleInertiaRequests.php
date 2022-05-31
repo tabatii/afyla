@@ -73,7 +73,7 @@ class HandleInertiaRequests extends Middleware
                             $query->where('user_id', auth()->id());
                         }, function ($query) use ($cookie) {
                             $query->whereNotNull('cookie_id')->where('cookie_id', $cookie);
-                        })->with('product.colors.color', 'product.materials.material', 'product.sizes.size')->get(),
+                        })->with('product.colors.color', 'product.materials.material', 'product.sizes.size', 'product.recommendations.product')->get(),
         ]);
     }
 }
