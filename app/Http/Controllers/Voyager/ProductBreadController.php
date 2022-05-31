@@ -202,13 +202,13 @@ class ProductBreadController extends \TCG\Voyager\Http\Controllers\VoyagerBaseCo
             ProductMaterial::insert($materials);
         }
         if (isset($data['stock'])) {
+            ProductSize::where('product_id', $id)->delete();
             foreach ($data['stock'] as $i => $item) {
                 $stock[$i]['product_id'] = $id;
                 $stock[$i]['size_id'] = $item['size'];
                 $stock[$i]['qty'] = $item['qty'];
+                ProductSize::create($stock[$i]);
             }
-            ProductSize::where('product_id', $id)->delete();
-            ProductSize::insert($stock);
         }
         if (isset($data['recommendations'])) {
             foreach ($data['recommendations'] as $i => $product) {

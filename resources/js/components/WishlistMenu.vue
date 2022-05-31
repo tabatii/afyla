@@ -1,32 +1,7 @@
 <template>
 	<div>
 		<PopUp v-model="soldout" width="600px">
-			<div class="text-center py-2">
-				<p class="fw-medium mb-0">Unfortunately, this item is out of stock.</p>
-				<div class="mt-3" v-if="stock[index] === 0">
-					<button type="button" class="btn btn-secondary">EMAIL WHEN AVAILABLE</button>
-				</div>
-				<div v-else-if="stock[index] < 0">
-					<p class="fw-medium">We recommend this items for you.</p>
-					<div class="row" v-if="wishlist[index]">
-						<div class="col-sm-4" v-for="(item, i) in wishlist[index].product.recommendations" :key="Math.random()" v-if="i < 3">
-							<l :href="route('product', item.product.id)">
-								<img :src="item.product.gallery[0]" class="d-block w-100 border border-dark" />
-							</l>
-							<div class="text-center">
-								<p class="mb-2">
-									<l :href="route('product', item.product.id)" class="text-dark" v-text="item.product.title"></l>
-								</p>
-								<p class="fw-medium">
-									<del class="text-muted me-1" v-text="getFormatedPrice(item.product.price)" v-if="item.product.discount"></del>
-									<span class="text-danger" v-text="getFormatedPrice(item.product.price, item.product.discount)" v-if="item.product.discount"></span>
-									<span v-text="getFormatedPrice(item.product.price)" v-else></span>
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+			<SoldOut v-if="wishlist[index]" :product="wishlist[index].product" :size="bag.size" :qty="stock[index]" v-model="soldout"></SoldOut>
 		</PopUp>
 		<PopUp v-model="done">
 			<div class="text-center py-2">
@@ -83,10 +58,12 @@
 
 <script>
 	import { Link } from '@inertiajs/inertia-vue'
+	import SoldOut from '../components/SoldOut'
 	import PopUp from '../components/PopUp'
 	export default {
 		components: {
 			PopUp,
+			SoldOut,
 			l: Link,
 		},
 		computed: {

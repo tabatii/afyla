@@ -96,6 +96,9 @@ Route::patch('/bag/size/{id}', [\App\Http\Controllers\BagController::class, 'siz
 Route::get('/wishlist', [\App\Http\Controllers\WishlistController::class, 'index'])->name('wishlist');
 Route::post('/wishlist/{id}', [\App\Http\Controllers\WishlistController::class, 'toggle'])->name('wishlist.toggle');
 
+// Soldout routes
+Route::post('/soldout', \App\Http\Controllers\SoldoutController::class)->name('soldout');
+
 // Share routes
 Route::post('/share/one', [\App\Http\Controllers\ShareController::class, 'one'])->name('share.one');
 Route::post('/share/all', [\App\Http\Controllers\ShareController::class, 'all'])->name('share.all');

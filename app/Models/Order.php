@@ -47,7 +47,7 @@ class Order extends Model
 
     protected static function booted()
     {
-        static::updated(function ($order) {
+        static::updated(function ($model) {
             // send email
         });
     }
