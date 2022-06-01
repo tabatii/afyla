@@ -52,7 +52,7 @@
 		},
 		computed: {
 			redirect() {
-				return this.route(this.route().current())
+				return window.location.href
 			}
 		},
 		methods: {
