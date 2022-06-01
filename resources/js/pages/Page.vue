@@ -7,7 +7,7 @@
 					<div class="text-end">
 						<img src="/img/icons/print.png" class="pointer" height="32px" @click="print" />
 					</div>
-					<div v-html="page.content"></div>
+					<div v-html="page.content" id="printable"></div>
 				</div>
 			</div>
 		</section>
@@ -17,6 +17,7 @@
 <script>
 	import AppLayout from '../components/AppLayout'
 	import { Head } from '@inertiajs/inertia-vue'
+	import 'print-js'
 	export default {
 		props: {
 			page: Object,
@@ -27,7 +28,11 @@
 		},
 		methods: {
 			print() {
-				window.print()
+				printJS({
+					documentTitle: 'AFYLA',
+					printable: 'printable',
+					type: 'html',
+				})
 			}
 		}
 	}

@@ -265,7 +265,7 @@
 			<p class="fs-2 text-center mb-4">YOU MAY ALSO LIKE</p>
 			<div ref="glider">
 				<div class="glider-track mx-auto">
-					<div class="recommendation px-3" v-for="item in product.recommendations" :key="item.id">
+					<div class="recommendation px-3" v-for="item in product.recommendations" :key="Math.random()">
 						<div class="position-relative">
 							<l :href="route('product', item.product.id)">
 								<img :src="item.product.gallery[0]" class="d-block w-100" />
