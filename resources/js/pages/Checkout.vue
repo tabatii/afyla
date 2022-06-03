@@ -311,7 +311,7 @@
 					name: `${this.user.firstname} ${this.user.lastname}`,
 					email: this.user.email,
 					order: this.uuid,
-					amount: ((this.getBagTotal - this.coupon.value) + this.getCompanyPrice),
+					amount: (this.getBagTotal - this.coupon.value) + this.getCompanyPrice,
 					operation: this.getFormatedPrice((this.getBagTotal - this.coupon.value) + this.getCompanyPrice),
 					successURL: this.route('naps.success', {id: this.uuid}),
 					timeoutURL: this.route('naps.timeout'),

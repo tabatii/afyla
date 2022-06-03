@@ -4,20 +4,20 @@
 			<meta head-key="description" name="description" :content="settings.description" />
 		</h>
 		<Notification v-model="notification" title="Thank you for joining us.">
-			<p class="mb-0">if this is your first time subscribing to our newsletter, you will receive a promo code in this email addres. use it in your first order.</p>
+			<p class="mb-0">If this is your first time subscribing to our newsletter, you will receive a promo code in this email address. You can use it in your first order.</p>
 		</Notification>
 		<div class="newsletter" v-if="!newsletter">
-			<div class="content">
+			<div class="content px-3 px-sm-5 py-5">
 				<button type="button" class="btn btn-close close" @click="closeNewsletter"></button>
 				<div class="row gy-4">
 					<div class="col-md-6 align-self-center order-2 order-md-1">
-						<p class="fs-4 fw-medium mb-4">JOIN OUR COMMUNITY</p>
-						<div class="mb-5">
-							<p>GET 25% OFF YOUR FIRST ORDER.</p>
-							<p>RECEIVE EARLY ACCESS TO PRE-SALE.</p>
-							<p>EXCLUSIVE SERVICES, SHOP FASTER.</p>
-							<p>CHECK YOUR ORDERS AND RETURNS.</p>
-							<p>SAVE YOUR FAVORITE ITEMS.</p>
+						<p class="fs-4 fw-medium mb-3 mb-sm-4">JOIN OUR COMMUNITY</p>
+						<div class="mb-3 mb-sm-5">
+							<p class="mb-2 mb-sm-3">GET 25% OFF YOUR FIRST ORDER.</p>
+							<p class="mb-2 mb-sm-3">RECEIVE EARLY ACCESS TO PRE-SALE.</p>
+							<p class="mb-2 mb-sm-3">EXCLUSIVE SERVICES, SHOP FASTER.</p>
+							<p class="mb-2 mb-sm-3">CHECK YOUR ORDERS AND RETURNS.</p>
+							<p class="mb-2 mb-sm-3">SAVE YOUR FAVORITE ITEMS.</p>
 						</div>
 						<form @submit.prevent="subscribe">
 							<div class="mb-3">
@@ -140,10 +140,9 @@
 	}
 	.newsletter .content {
 		position: relative;
-		width: 100%;
-		max-width: 800px;
+		width: 700px;
+		max-width: 100%;
 		overflow: auto;
-		padding: 3rem;
 		background-color: white;
 	}
 	.cookies {

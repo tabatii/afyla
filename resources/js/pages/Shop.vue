@@ -163,7 +163,6 @@
 										<span class="visually-hidden">Next</span>
 									</button>
 								</div>
-								<span class="new" v-if="product.new">NEW</span>
 								<span class="wishlist" @click="addToWishlist(product.id)">
 									<i class="bi fs-3" :class="[searchWishlist(product.id) ? 'bi-heart-fill text-danger' : 'bi-heart']"></i>
 								</span>
@@ -357,15 +356,6 @@
 	.product:hover .carousel-control-next {
 		visibility: visible;
 		opacity: 1;
-	}
-	.product .new {
-		position: absolute;
-		top: 14px;
-		left: -35px;
-		padding: 0 2.5rem;
-		font-weight: bold;
-		background-color: var(--bs-warning);
-		transform: rotate(-45deg);
 	}
 	.product .wishlist {
 		position: absolute;
