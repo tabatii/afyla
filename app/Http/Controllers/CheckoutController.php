@@ -32,7 +32,7 @@ class CheckoutController extends Controller
         if ($request->subscribe && !Subscription::where('email', $request->email)->exists()) {
             $this->subscribe($request->email);
         }
-        $this->saveBag($order->id);
+        $this->saveBag($order->id, $request->cookie('cookie_id'));
         return back();
     }
 
@@ -66,9 +66,9 @@ class CheckoutController extends Controller
         return back();
     }
 
-    public function saveBag($id)
+    public function saveBag($id, $cookie)
     {
-        $condition = auth()->check() ? ['user_id' => auth()->id()] : ['cookie_id' => $request->cookie('cookie_id')];
+        $condition = auth()->check() ? ['user_id' => auth()->id()] : ['cookie_id' => $cookie];
         $bag = Bag::with('product.subCategories.subCategory', 'size')->where($condition)->get();
         foreach ($bag as $item) {
             $subCategories = $item->product->subCategories->map(fn ($item) => $item->subCategory->name);

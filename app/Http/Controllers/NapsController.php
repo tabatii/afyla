@@ -10,20 +10,16 @@ class NapsController extends Controller
     public function success($id)
     {
         $this->afterPayment($id, 'naps');
-        return redirect()->route('orders');
+        return inertia('OrderSuccess');
     }
 
     public function timeout()
     {
-        return redirect()->route('checkout', [
-            'ref' => 'naps_timeout',
-        ]);
+        return inertia('OrderFail');
     }
 
     public function fail()
     {
-        return redirect()->route('checkout', [
-            'ref' => 'naps_fail',
-        ]);
+        return inertia('OrderFail');
     }
 }

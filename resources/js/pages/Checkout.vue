@@ -203,7 +203,7 @@
 							</div>
 							<div class="d-flex">
 								<span class="text-muted me-auto">Total:</span>
-								<span class="text-danger fw-medium text-end" v-text="getFormatedPrice((getBagTotal - coupon.value) + getCompanyPrice)"></span>
+								<span class="text-danger fw-medium text-end" v-text="getFormatedPrice(getTotal)"></span>
 							</div>
 							<hr />
 							<div class="d-flex">
@@ -296,6 +296,9 @@
 				var company = this.companies.find(c => c.id === this.shipping.company)
 				return company ? company.price : 0
 			},
+			getTotal() {
+				return (this.getBagTotal - this.coupon.value) + this.getCompanyPrice
+			},
 			uuid() {
 				return randomstring.generate({
 					charset: 'numeric',
@@ -304,15 +307,11 @@
 			},
 			napsData() {
 				return {
-					key: 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAh2q4viqQwzVWCKT1KRPvsiixEoNm8dg95gE7h4OUVuERp9csLKYHM9I9EaQ/SUYwgBBLHOslpe5qbvX3x1oAcksO5BT8SYHmtbgUpH1yZjcU1lI2/M3qyRUb03NQaF6vgxCOLGlLpDQqdg0jxl4ySDYu3bcMQto6J2eRAnIPIZkC/h4GQMwhBheFEHf7uMCqj8uNkNf5yU1Js9/Yj8FGbS1fSYwQ1ZQ7Jr94eUhCuTgjFKYUxD18QIPgYEnYbir4mKagtnF8fv3S1+COsVlUXkix77KGW5SYMbeJJYtOVTs1/Cr+/8eHRf5al5249binOJxWLkANpsZtLNI60i9UUQIDAQAB',
-					cmr: 1012202,
-					gal: 2007,
-					lang: 'EN',
 					name: `${this.user.firstname} ${this.user.lastname}`,
 					email: this.user.email,
 					order: this.uuid,
-					amount: (this.getBagTotal - this.coupon.value) + this.getCompanyPrice,
-					operation: this.getFormatedPrice((this.getBagTotal - this.coupon.value) + this.getCompanyPrice),
+					amount: this.getTotal,
+					operation: this.getFormatedPrice(this.getTotal),
 					successURL: this.route('naps.success', {id: this.uuid}),
 					timeoutURL: this.route('naps.timeout'),
 					failURL: this.route('naps.fail'),

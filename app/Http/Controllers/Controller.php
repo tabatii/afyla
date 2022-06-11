@@ -69,7 +69,7 @@ class Controller extends BaseController
 
         Coupon::where('id', $order->coupon_id)->update(['used' => true]);
 
-        Bag::where(auth()->check() ? ['user_id' => auth()->id()] : ['cookie_id' => $request->cookie('cookie_id')])->delete();
+        //Bag::where(auth()->check() ? ['user_id' => auth()->id()] : ['cookie_id' => $request->cookie('cookie_id')])->delete();
 
         foreach ($order->products as $item) {
             $size = ProductSize::where('product_id', $item->product_id)->where('size_id', $item->size_id)->first();
