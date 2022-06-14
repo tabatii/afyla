@@ -30,6 +30,16 @@ class Order extends Model
         return $this->hasMany(OrderProduct::class);
     }
 
+    public function delivery()
+    {
+        return $this->hasOne(DeliveryAddress::class);
+    }
+
+    public function billing()
+    {
+        return $this->hasOne(BillingAddress::class);
+    }
+
     public function coupon()
     {
         return $this->belongsTo(Coupon::class);

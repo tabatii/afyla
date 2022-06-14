@@ -46,7 +46,7 @@
 								uuid: this.uuid,
 							})
 						}).then(response => {
-							window.location.href = this.route('orders')
+							window.location.href = this.route('paypal.success', this.uuid)
 						})
 					}
 				}).render(this.$refs.paypal)

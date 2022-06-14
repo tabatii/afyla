@@ -67,6 +67,7 @@ Route::get('/naps/timeout', [\App\Http\Controllers\NapsController::class, 'timeo
 Route::get('/naps/fail', [\App\Http\Controllers\NapsController::class, 'fail'])->name('naps.fail');
 
 // Paypal routes
+Route::get('/paypal/success/{id}', [\App\Http\Controllers\PaypalController::class, 'success'])->name('paypal.success');
 Route::post('/paypal/create', [\App\Http\Controllers\PaypalController::class, 'create'])->name('paypal.create');
 Route::post('/paypal/capture', [\App\Http\Controllers\PaypalController::class, 'capture'])->name('paypal.capture');
 

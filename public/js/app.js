@@ -8368,6 +8368,11 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -8424,18 +8429,16 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
         order: this.uuid,
         amount: this.getTotal,
         operation: this.getFormatedPrice(this.getTotal),
-        successURL: this.route('naps.success', {
-          id: this.uuid
-        }),
+        successURL: this.route('naps.success', this.uuid),
         timeoutURL: this.route('naps.timeout'),
         failURL: this.route('naps.fail'),
         recallURL: null,
-        street: this.billing.street,
-        city: this.billing.city,
-        state: this.billing.state,
-        zip: this.billing.zip,
-        country: this.billing.country,
-        phone: this.billing.phone
+        street: this.address.billing.street,
+        city: this.address.billing.city,
+        state: this.address.billing.state,
+        zip: this.address.billing.zip,
+        country: this.address.billing.country,
+        phone: this.address.billing.phone
       };
     }
   },
@@ -8504,7 +8507,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       }
     },
     fillAddress: function fillAddress() {
-      for (var _i = 0, _Object$entries = Object.entries(this.address.data()); _i < _Object$entries.length; _i++) {
+      for (var _i = 0, _Object$entries = Object.entries(this.address.delivery); _i < _Object$entries.length; _i++) {
         var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
             key = _Object$entries$_i[0],
             value = _Object$entries$_i[1];
@@ -8513,16 +8516,20 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
           continue;
         }
 
-        this.address[key] = this.selected > -1 ? this.addresses[this.selected][key] : null;
+        this.address.delivery[key] = this.selected > -1 ? this.addresses[this.selected][key] : null;
       }
     },
     fillBilling: function fillBilling() {
-      for (var _i2 = 0, _Object$entries2 = Object.entries(this.billing); _i2 < _Object$entries2.length; _i2++) {
+      for (var _i2 = 0, _Object$entries2 = Object.entries(this.address.billing); _i2 < _Object$entries2.length; _i2++) {
         var _Object$entries2$_i = _slicedToArray(_Object$entries2[_i2], 2),
             key = _Object$entries2$_i[0],
             value = _Object$entries2$_i[1];
 
-        this.billing[key] = this.same ? this.address[key] : null;
+        if (key === 'uuid') {
+          continue;
+        }
+
+        this.address.billing[key] = this.same ? this.address.delivery[key] : null;
       }
     }
   },
@@ -8541,31 +8548,34 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
         subscribe: false
       }),
       address: this.$inertia.form({
-        uuid: null,
-        firstname: null,
-        lastname: null,
-        street: null,
-        city: null,
-        state: null,
-        zip: null,
-        country: null,
-        phone: null
+        delivery: {
+          uuid: null,
+          firstname: null,
+          lastname: null,
+          street: null,
+          city: null,
+          state: null,
+          zip: null,
+          country: null,
+          phone: null
+        },
+        billing: {
+          uuid: null,
+          firstname: null,
+          lastname: null,
+          street: null,
+          city: null,
+          state: null,
+          zip: null,
+          country: null,
+          phone: null
+        }
       }),
       shipping: this.$inertia.form({
         uuid: null,
         company: null,
         coupon: null
       }),
-      billing: {
-        firstname: null,
-        lastname: null,
-        street: null,
-        city: null,
-        state: null,
-        zip: null,
-        country: null,
-        phone: null
-      },
       coupon: {
         details: {},
         value: 0,
@@ -8577,7 +8587,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
   created: function created() {
     this.fillUser();
     this.user.uuid = this.uuid;
-    this.address.uuid = this.uuid;
+    this.address.delivery.uuid = this.uuid;
+    this.address.billing.uuid = this.uuid;
     this.shipping.uuid = this.uuid;
     this.shipping.company = this.companies.length > 0 ? this.companies[0].id : null;
     this.step = this.auth ? 2 : 1;
@@ -9875,7 +9886,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    uuid: String
+  }
 });
 
 /***/ }),
@@ -13141,7 +13169,7 @@ __webpack_require__.r(__webpack_exports__);
               uuid: _this.uuid
             })
           }).then(function (response) {
-            window.location.href = _this.route('orders');
+            window.location.href = _this.route('paypal.success', _this.uuid);
           });
         }
       }).render(this.$refs.paypal);
@@ -21600,7 +21628,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   "public": 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAh2q4viqQwzVWCKT1KRPvsiixEoNm8dg95gE7h4OUVuERp9csLKYHM9I9EaQ/SUYwgBBLHOslpe5qbvX3x1oAcksO5BT8SYHmtbgUpH1yZjcU1lI2/M3qyRUb03NQaF6vgxCOLGlLpDQqdg0jxl4ySDYu3bcMQto6J2eRAnIPIZkC/h4GQMwhBheFEHf7uMCqj8uNkNf5yU1Js9/Yj8FGbS1fSYwQ1ZQ7Jr94eUhCuTgjFKYUxD18QIPgYEnYbir4mKagtnF8fv3S1+COsVlUXkix77KGW5SYMbeJJYtOVTs1/Cr+/8eHRf5al5249binOJxWLkANpsZtLNI60i9UUQIDAQAB',
-  "private": ''
+  "private": 'MIIEuwIBADANBgkqhkiG9w0BAQEFAASCBKUwggShAgEAAoIBAQCHari+KpDDNVYIpPUpE++yKLESg2bx2D3mATuHg5RW4RGn1ywspgcz0j0RpD9JRjCAEEsc6yWl7mpu9ffHWgBySw7kFPxJgea1uBSkfXJmNxTWUjb8zerJFRvTc1BoXq+DEI4saUukNCp2DSPGXjJINi7dtwxC2jonZ5ECcg8hmQL+HgZAzCEGF4UQd/u4wKqPy42Q1/nJTUmz39iPwUZtLV9JjBDVlDsmv3h5SEK5OCMUphTEPXxAg+BgSdhuKviYpqC2cXx+/dLX4I6xWVReSLHvsoZblJgxt4kli05VOzX8Kv7/x4dF/lqXnbj1uKc4nFYuQA2mxm0s0jrSL1RRAgMBAAECggEAd/HWm1JWkSGwB84c/PqUqGiUl0Jer76K7SyQTvMENIP8wH69uPqCjKsevn6OM9gA454K+h1qZnQsQAaMJz6YAKRtFydjY7S05qabWitnZhRJ16BQ5lF6MgwJbpzITvn3Wg8S71GA13wBVDlFQ9JxlTaxAl+9c4WaVwbMEa93qZh0h/epXTffnRTHpBHeyRU/56KeKs5FfNokOrzTq7tH86SaiiMsRHTNu2us52OnA/jVDSx+UN9h2wWwCpn+9G/HKwZOZCur0DinjqKwXqEt9YPUuiHwgm3FjfMq1PuvNS6qwUG8KyUeVANsq4429BLtJcD40jF38mqynAl4sUfm8QKBgQDJhfa3KFUXC52MvlIqaoKOAxVA22fST2AH62lKi+HKgNSqJlOYzPozSHEqSAgGEIJl7ICC0wOoPcEWKrm0AdzejXC6s0C8z40b95n0NsCg1NJNaRR535AU4e6hk2frl34dIdPudn6HnwWuJuc/IB6i6VuBslkavmJ7zKJQYogDdQKBgQCsBf1B7Fh7fCTX/KgEQ6CfqDTh9zHWsk+mTWC8gOuwKSrvRtHl0uinD9+MsQscisrt3bGPpJ2ThmYltmKnhg1fXLKawunVv9W5OJBzMm/BcpoDAHSt8/mBZ0CBrhQApy1kEkMSZvpcUyZ7e/V/eTzaalSdjk3YC+tifsDD/8R97QKBgQCERbHSNl7jaXRX1PQJcy+OFuf0Ug6rM/5MNHA/xeDGEhmENPPZ73CqCHp+zhi2Ik/0pm8Tb32PCDmcWx7Y0AAw85VydgWf6HsuSC585RM6fXYr6TTPabYgfssqsp4bPKxCYtnAQ3Z5fh80V8Sg4mw5cgHl9zIVI7FwoLhJGuM7oQJ/evfNElLg7WTQ8ZSqhmHRcE/Nfbo25kKQrVCi1h1SXZsQFfuKD7+0j7fJFcl5J+4PIfpX81a5TbvFSTAXVal95a1d/0NV5HY9USoeGDr1qFNDxOGOhsrgkKA+fHTz14Op7t8fEwiJ73WBDMSPuY/w8DESS45uFwJuQPpa0cEDtQKBgGU3JzakWLGXJJGGtiY0r9iDM7BHdX/on2oye9WBZIUhqrYkIHYO8iz+eHmGQ3z320lLuJ9qsfWBXy8jw5tq2xMGwXoqsxETBnmoHWCejTarpiOLqg5OZnfvHSp4RhBSTN011NXVG1oCvaNL84Dr2OBgtZEg0sdwXVgozobu7pJY'
 });
 
 /***/ }),
@@ -65729,6 +65757,7 @@ var render = function () {
                               staticClass: "form-control input",
                               attrs: {
                                 type: "text",
+                                disabled: _vm.auth,
                                 placeholder: "First name",
                               },
                               domProps: { value: _vm.user.firstname },
@@ -65765,7 +65794,11 @@ var render = function () {
                                 },
                               ],
                               staticClass: "form-control input",
-                              attrs: { type: "text", placeholder: "Last name" },
+                              attrs: {
+                                type: "text",
+                                disabled: _vm.auth,
+                                placeholder: "Last name",
+                              },
                               domProps: { value: _vm.user.lastname },
                               on: {
                                 input: function ($event) {
@@ -65800,7 +65833,11 @@ var render = function () {
                                 },
                               ],
                               staticClass: "form-control input",
-                              attrs: { type: "text", placeholder: "Email" },
+                              attrs: {
+                                type: "text",
+                                disabled: _vm.auth,
+                                placeholder: "Email",
+                              },
                               domProps: { value: _vm.user.email },
                               on: {
                                 input: function ($event) {
@@ -65980,9 +66017,7 @@ var render = function () {
                                           }),
                                         ])
                                       : _c("span", [
-                                          _vm._v(
-                                            "\n\t\t\t\t\t\t\t\t\t\t\tSELECT ADDRESS\n\t\t\t\t\t\t\t\t\t\t\t"
-                                          ),
+                                          _vm._v("SELECT ADDRESS "),
                                           _c("i", {
                                             staticClass:
                                               "bi bi-caret-down-fill",
@@ -66075,8 +66110,9 @@ var render = function () {
                                       {
                                         name: "model",
                                         rawName: "v-model",
-                                        value: _vm.address.firstname,
-                                        expression: "address.firstname",
+                                        value: _vm.address.delivery.firstname,
+                                        expression:
+                                          "address.delivery.firstname",
                                       },
                                     ],
                                     staticClass: "form-control input",
@@ -66084,14 +66120,16 @@ var render = function () {
                                       type: "text",
                                       placeholder: "First name",
                                     },
-                                    domProps: { value: _vm.address.firstname },
+                                    domProps: {
+                                      value: _vm.address.delivery.firstname,
+                                    },
                                     on: {
                                       input: function ($event) {
                                         if ($event.target.composing) {
                                           return
                                         }
                                         _vm.$set(
-                                          _vm.address,
+                                          _vm.address.delivery,
                                           "firstname",
                                           $event.target.value
                                         )
@@ -66103,7 +66141,7 @@ var render = function () {
                                     staticClass: "text-danger",
                                     domProps: {
                                       textContent: _vm._s(
-                                        _vm.address.errors.firstname
+                                        _vm.address.errors["delivery.firstname"]
                                       ),
                                     },
                                   }),
@@ -66115,8 +66153,8 @@ var render = function () {
                                       {
                                         name: "model",
                                         rawName: "v-model",
-                                        value: _vm.address.lastname,
-                                        expression: "address.lastname",
+                                        value: _vm.address.delivery.lastname,
+                                        expression: "address.delivery.lastname",
                                       },
                                     ],
                                     staticClass: "form-control input",
@@ -66124,14 +66162,16 @@ var render = function () {
                                       type: "text",
                                       placeholder: "Last name",
                                     },
-                                    domProps: { value: _vm.address.lastname },
+                                    domProps: {
+                                      value: _vm.address.delivery.lastname,
+                                    },
                                     on: {
                                       input: function ($event) {
                                         if ($event.target.composing) {
                                           return
                                         }
                                         _vm.$set(
-                                          _vm.address,
+                                          _vm.address.delivery,
                                           "lastname",
                                           $event.target.value
                                         )
@@ -66143,7 +66183,7 @@ var render = function () {
                                     staticClass: "text-danger",
                                     domProps: {
                                       textContent: _vm._s(
-                                        _vm.address.errors.lastname
+                                        _vm.address.errors["delivery.lastname"]
                                       ),
                                     },
                                   }),
@@ -66155,8 +66195,8 @@ var render = function () {
                                       {
                                         name: "model",
                                         rawName: "v-model",
-                                        value: _vm.address.street,
-                                        expression: "address.street",
+                                        value: _vm.address.delivery.street,
+                                        expression: "address.delivery.street",
                                       },
                                     ],
                                     staticClass: "form-control input",
@@ -66164,14 +66204,16 @@ var render = function () {
                                       type: "text",
                                       placeholder: "Email",
                                     },
-                                    domProps: { value: _vm.address.street },
+                                    domProps: {
+                                      value: _vm.address.delivery.street,
+                                    },
                                     on: {
                                       input: function ($event) {
                                         if ($event.target.composing) {
                                           return
                                         }
                                         _vm.$set(
-                                          _vm.address,
+                                          _vm.address.delivery,
                                           "street",
                                           $event.target.value
                                         )
@@ -66183,7 +66225,7 @@ var render = function () {
                                     staticClass: "text-danger",
                                     domProps: {
                                       textContent: _vm._s(
-                                        _vm.address.errors.street
+                                        _vm.address.errors["delivery.street"]
                                       ),
                                     },
                                   }),
@@ -66195,8 +66237,8 @@ var render = function () {
                                       {
                                         name: "model",
                                         rawName: "v-model",
-                                        value: _vm.address.city,
-                                        expression: "address.city",
+                                        value: _vm.address.delivery.city,
+                                        expression: "address.delivery.city",
                                       },
                                     ],
                                     staticClass: "form-control input",
@@ -66204,14 +66246,16 @@ var render = function () {
                                       type: "text",
                                       placeholder: "City",
                                     },
-                                    domProps: { value: _vm.address.city },
+                                    domProps: {
+                                      value: _vm.address.delivery.city,
+                                    },
                                     on: {
                                       input: function ($event) {
                                         if ($event.target.composing) {
                                           return
                                         }
                                         _vm.$set(
-                                          _vm.address,
+                                          _vm.address.delivery,
                                           "city",
                                           $event.target.value
                                         )
@@ -66223,7 +66267,7 @@ var render = function () {
                                     staticClass: "text-danger",
                                     domProps: {
                                       textContent: _vm._s(
-                                        _vm.address.errors.city
+                                        _vm.address.errors["delivery.city"]
                                       ),
                                     },
                                   }),
@@ -66235,8 +66279,8 @@ var render = function () {
                                       {
                                         name: "model",
                                         rawName: "v-model",
-                                        value: _vm.address.state,
-                                        expression: "address.state",
+                                        value: _vm.address.delivery.state,
+                                        expression: "address.delivery.state",
                                       },
                                     ],
                                     staticClass: "form-control input",
@@ -66244,14 +66288,16 @@ var render = function () {
                                       type: "text",
                                       placeholder: "State",
                                     },
-                                    domProps: { value: _vm.address.state },
+                                    domProps: {
+                                      value: _vm.address.delivery.state,
+                                    },
                                     on: {
                                       input: function ($event) {
                                         if ($event.target.composing) {
                                           return
                                         }
                                         _vm.$set(
-                                          _vm.address,
+                                          _vm.address.delivery,
                                           "state",
                                           $event.target.value
                                         )
@@ -66263,7 +66309,7 @@ var render = function () {
                                     staticClass: "text-danger",
                                     domProps: {
                                       textContent: _vm._s(
-                                        _vm.address.errors.state
+                                        _vm.address.errors["delivery.state"]
                                       ),
                                     },
                                   }),
@@ -66275,8 +66321,8 @@ var render = function () {
                                       {
                                         name: "model",
                                         rawName: "v-model",
-                                        value: _vm.address.zip,
-                                        expression: "address.zip",
+                                        value: _vm.address.delivery.zip,
+                                        expression: "address.delivery.zip",
                                       },
                                     ],
                                     staticClass: "form-control input",
@@ -66284,14 +66330,16 @@ var render = function () {
                                       type: "text",
                                       placeholder: "Zip code",
                                     },
-                                    domProps: { value: _vm.address.zip },
+                                    domProps: {
+                                      value: _vm.address.delivery.zip,
+                                    },
                                     on: {
                                       input: function ($event) {
                                         if ($event.target.composing) {
                                           return
                                         }
                                         _vm.$set(
-                                          _vm.address,
+                                          _vm.address.delivery,
                                           "zip",
                                           $event.target.value
                                         )
@@ -66303,7 +66351,7 @@ var render = function () {
                                     staticClass: "text-danger",
                                     domProps: {
                                       textContent: _vm._s(
-                                        _vm.address.errors.zip
+                                        _vm.address.errors["delivery.zip"]
                                       ),
                                     },
                                   }),
@@ -66317,8 +66365,9 @@ var render = function () {
                                         {
                                           name: "model",
                                           rawName: "v-model",
-                                          value: _vm.address.country,
-                                          expression: "address.country",
+                                          value: _vm.address.delivery.country,
+                                          expression:
+                                            "address.delivery.country",
                                         },
                                       ],
                                       staticClass: "form-select input",
@@ -66340,7 +66389,7 @@ var render = function () {
                                                 return val
                                               })
                                           _vm.$set(
-                                            _vm.address,
+                                            _vm.address.delivery,
                                             "country",
                                             $event.target.multiple
                                               ? $$selectedVal
@@ -66376,7 +66425,7 @@ var render = function () {
                                     staticClass: "text-danger",
                                     domProps: {
                                       textContent: _vm._s(
-                                        _vm.address.errors.country
+                                        _vm.address.errors["delivery.country"]
                                       ),
                                     },
                                   }),
@@ -66388,8 +66437,8 @@ var render = function () {
                                       {
                                         name: "model",
                                         rawName: "v-model",
-                                        value: _vm.address.phone,
-                                        expression: "address.phone",
+                                        value: _vm.address.delivery.phone,
+                                        expression: "address.delivery.phone",
                                       },
                                     ],
                                     staticClass: "form-control input",
@@ -66397,14 +66446,16 @@ var render = function () {
                                       type: "text",
                                       placeholder: "Phone number",
                                     },
-                                    domProps: { value: _vm.address.phone },
+                                    domProps: {
+                                      value: _vm.address.delivery.phone,
+                                    },
                                     on: {
                                       input: function ($event) {
                                         if ($event.target.composing) {
                                           return
                                         }
                                         _vm.$set(
-                                          _vm.address,
+                                          _vm.address.delivery,
                                           "phone",
                                           $event.target.value
                                         )
@@ -66416,7 +66467,7 @@ var render = function () {
                                     staticClass: "text-danger",
                                     domProps: {
                                       textContent: _vm._s(
-                                        _vm.address.errors.phone
+                                        _vm.address.errors["delivery.phone"]
                                       ),
                                     },
                                   }),
@@ -66494,8 +66545,8 @@ var render = function () {
                                       {
                                         name: "model",
                                         rawName: "v-model",
-                                        value: _vm.billing.firstname,
-                                        expression: "billing.firstname",
+                                        value: _vm.address.billing.firstname,
+                                        expression: "address.billing.firstname",
                                       },
                                     ],
                                     staticClass: "form-control input",
@@ -66503,18 +66554,29 @@ var render = function () {
                                       type: "text",
                                       placeholder: "First name",
                                     },
-                                    domProps: { value: _vm.billing.firstname },
+                                    domProps: {
+                                      value: _vm.address.billing.firstname,
+                                    },
                                     on: {
                                       input: function ($event) {
                                         if ($event.target.composing) {
                                           return
                                         }
                                         _vm.$set(
-                                          _vm.billing,
+                                          _vm.address.billing,
                                           "firstname",
                                           $event.target.value
                                         )
                                       },
+                                    },
+                                  }),
+                                  _vm._v(" "),
+                                  _c("small", {
+                                    staticClass: "text-danger",
+                                    domProps: {
+                                      textContent: _vm._s(
+                                        _vm.address.errors["billing.firstname"]
+                                      ),
                                     },
                                   }),
                                 ]),
@@ -66525,8 +66587,8 @@ var render = function () {
                                       {
                                         name: "model",
                                         rawName: "v-model",
-                                        value: _vm.billing.lastname,
-                                        expression: "billing.lastname",
+                                        value: _vm.address.billing.lastname,
+                                        expression: "address.billing.lastname",
                                       },
                                     ],
                                     staticClass: "form-control input",
@@ -66534,18 +66596,29 @@ var render = function () {
                                       type: "text",
                                       placeholder: "Last name",
                                     },
-                                    domProps: { value: _vm.billing.lastname },
+                                    domProps: {
+                                      value: _vm.address.billing.lastname,
+                                    },
                                     on: {
                                       input: function ($event) {
                                         if ($event.target.composing) {
                                           return
                                         }
                                         _vm.$set(
-                                          _vm.billing,
+                                          _vm.address.billing,
                                           "lastname",
                                           $event.target.value
                                         )
                                       },
+                                    },
+                                  }),
+                                  _vm._v(" "),
+                                  _c("small", {
+                                    staticClass: "text-danger",
+                                    domProps: {
+                                      textContent: _vm._s(
+                                        _vm.address.errors["billing.lastname"]
+                                      ),
                                     },
                                   }),
                                 ]),
@@ -66556,8 +66629,8 @@ var render = function () {
                                       {
                                         name: "model",
                                         rawName: "v-model",
-                                        value: _vm.billing.street,
-                                        expression: "billing.street",
+                                        value: _vm.address.billing.street,
+                                        expression: "address.billing.street",
                                       },
                                     ],
                                     staticClass: "form-control input",
@@ -66565,18 +66638,29 @@ var render = function () {
                                       type: "text",
                                       placeholder: "Email",
                                     },
-                                    domProps: { value: _vm.billing.street },
+                                    domProps: {
+                                      value: _vm.address.billing.street,
+                                    },
                                     on: {
                                       input: function ($event) {
                                         if ($event.target.composing) {
                                           return
                                         }
                                         _vm.$set(
-                                          _vm.billing,
+                                          _vm.address.billing,
                                           "street",
                                           $event.target.value
                                         )
                                       },
+                                    },
+                                  }),
+                                  _vm._v(" "),
+                                  _c("small", {
+                                    staticClass: "text-danger",
+                                    domProps: {
+                                      textContent: _vm._s(
+                                        _vm.address.errors["billing.street"]
+                                      ),
                                     },
                                   }),
                                 ]),
@@ -66587,8 +66671,8 @@ var render = function () {
                                       {
                                         name: "model",
                                         rawName: "v-model",
-                                        value: _vm.billing.city,
-                                        expression: "billing.city",
+                                        value: _vm.address.billing.city,
+                                        expression: "address.billing.city",
                                       },
                                     ],
                                     staticClass: "form-control input",
@@ -66596,18 +66680,29 @@ var render = function () {
                                       type: "text",
                                       placeholder: "City",
                                     },
-                                    domProps: { value: _vm.billing.city },
+                                    domProps: {
+                                      value: _vm.address.billing.city,
+                                    },
                                     on: {
                                       input: function ($event) {
                                         if ($event.target.composing) {
                                           return
                                         }
                                         _vm.$set(
-                                          _vm.billing,
+                                          _vm.address.billing,
                                           "city",
                                           $event.target.value
                                         )
                                       },
+                                    },
+                                  }),
+                                  _vm._v(" "),
+                                  _c("small", {
+                                    staticClass: "text-danger",
+                                    domProps: {
+                                      textContent: _vm._s(
+                                        _vm.address.errors["billing.city"]
+                                      ),
                                     },
                                   }),
                                 ]),
@@ -66618,8 +66713,8 @@ var render = function () {
                                       {
                                         name: "model",
                                         rawName: "v-model",
-                                        value: _vm.billing.state,
-                                        expression: "billing.state",
+                                        value: _vm.address.billing.state,
+                                        expression: "address.billing.state",
                                       },
                                     ],
                                     staticClass: "form-control input",
@@ -66627,18 +66722,29 @@ var render = function () {
                                       type: "text",
                                       placeholder: "State",
                                     },
-                                    domProps: { value: _vm.billing.state },
+                                    domProps: {
+                                      value: _vm.address.billing.state,
+                                    },
                                     on: {
                                       input: function ($event) {
                                         if ($event.target.composing) {
                                           return
                                         }
                                         _vm.$set(
-                                          _vm.billing,
+                                          _vm.address.billing,
                                           "state",
                                           $event.target.value
                                         )
                                       },
+                                    },
+                                  }),
+                                  _vm._v(" "),
+                                  _c("small", {
+                                    staticClass: "text-danger",
+                                    domProps: {
+                                      textContent: _vm._s(
+                                        _vm.address.errors["billing.state"]
+                                      ),
                                     },
                                   }),
                                 ]),
@@ -66649,8 +66755,8 @@ var render = function () {
                                       {
                                         name: "model",
                                         rawName: "v-model",
-                                        value: _vm.billing.zip,
-                                        expression: "billing.zip",
+                                        value: _vm.address.billing.zip,
+                                        expression: "address.billing.zip",
                                       },
                                     ],
                                     staticClass: "form-control input",
@@ -66658,18 +66764,29 @@ var render = function () {
                                       type: "text",
                                       placeholder: "Zip code",
                                     },
-                                    domProps: { value: _vm.billing.zip },
+                                    domProps: {
+                                      value: _vm.address.billing.zip,
+                                    },
                                     on: {
                                       input: function ($event) {
                                         if ($event.target.composing) {
                                           return
                                         }
                                         _vm.$set(
-                                          _vm.billing,
+                                          _vm.address.billing,
                                           "zip",
                                           $event.target.value
                                         )
                                       },
+                                    },
+                                  }),
+                                  _vm._v(" "),
+                                  _c("small", {
+                                    staticClass: "text-danger",
+                                    domProps: {
+                                      textContent: _vm._s(
+                                        _vm.address.errors["billing.zip"]
+                                      ),
                                     },
                                   }),
                                 ]),
@@ -66682,8 +66799,8 @@ var render = function () {
                                         {
                                           name: "model",
                                           rawName: "v-model",
-                                          value: _vm.billing.country,
-                                          expression: "billing.country",
+                                          value: _vm.address.billing.country,
+                                          expression: "address.billing.country",
                                         },
                                       ],
                                       staticClass: "form-select input",
@@ -66705,7 +66822,7 @@ var render = function () {
                                                 return val
                                               })
                                           _vm.$set(
-                                            _vm.billing,
+                                            _vm.address.billing,
                                             "country",
                                             $event.target.multiple
                                               ? $$selectedVal
@@ -66736,6 +66853,15 @@ var render = function () {
                                     ],
                                     2
                                   ),
+                                  _vm._v(" "),
+                                  _c("small", {
+                                    staticClass: "text-danger",
+                                    domProps: {
+                                      textContent: _vm._s(
+                                        _vm.address.errors["billing.country"]
+                                      ),
+                                    },
+                                  }),
                                 ]),
                                 _vm._v(" "),
                                 _c("div", { staticClass: "col-6" }, [
@@ -66744,8 +66870,8 @@ var render = function () {
                                       {
                                         name: "model",
                                         rawName: "v-model",
-                                        value: _vm.billing.phone,
-                                        expression: "billing.phone",
+                                        value: _vm.address.billing.phone,
+                                        expression: "address.billing.phone",
                                       },
                                     ],
                                     staticClass: "form-control input",
@@ -66753,18 +66879,29 @@ var render = function () {
                                       type: "text",
                                       placeholder: "Phone number",
                                     },
-                                    domProps: { value: _vm.billing.phone },
+                                    domProps: {
+                                      value: _vm.address.billing.phone,
+                                    },
                                     on: {
                                       input: function ($event) {
                                         if ($event.target.composing) {
                                           return
                                         }
                                         _vm.$set(
-                                          _vm.billing,
+                                          _vm.address.billing,
                                           "phone",
                                           $event.target.value
                                         )
                                       },
+                                    },
+                                  }),
+                                  _vm._v(" "),
+                                  _c("small", {
+                                    staticClass: "text-danger",
+                                    domProps: {
+                                      textContent: _vm._s(
+                                        _vm.address.errors["billing.phone"]
+                                      ),
                                     },
                                   }),
                                 ]),
@@ -68073,13 +68210,13 @@ var render = function () {
                                     _vm._v(" "),
                                     _c("td", [
                                       _vm._v(
-                                        _vm._s(_vm.order.address_street) +
+                                        _vm._s(_vm.order.delivery.street) +
                                           ", " +
-                                          _vm._s(_vm.order.address_city) +
+                                          _vm._s(_vm.order.delivery.city) +
                                           ", " +
-                                          _vm._s(_vm.order.address_zip) +
+                                          _vm._s(_vm.order.delivery.zip) +
                                           ", " +
-                                          _vm._s(_vm.order.address_country)
+                                          _vm._s(_vm.order.delivery.country)
                                       ),
                                     ]),
                                   ]),
@@ -68090,7 +68227,7 @@ var render = function () {
                                     _c("td", {
                                       domProps: {
                                         textContent: _vm._s(
-                                          _vm.order.address_phone
+                                          _vm.order.delivery.phone
                                         ),
                                       },
                                     }),
@@ -70678,7 +70815,41 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row justify-content-center" }, [
+      _c("div", { staticClass: "col-5" }, [
+        _c("div", { staticClass: "card bg-light border-0 shadow-sm" }, [
+          _c("div", { staticClass: "card-body text-center px-5" }, [
+            _c("img", {
+              attrs: { src: "/img/icons/success.png", width: "150px" },
+            }),
+            _vm._v(" "),
+            _c(
+              "p",
+              { staticClass: "fs-3", staticStyle: { color: "#25ae88" } },
+              [_vm._v("Thank You")]
+            ),
+            _vm._v(" "),
+            _c("p", { staticClass: "mb-0" }, [
+              _vm._v("Your order has been confirmed."),
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "mb-0" }, [
+              _vm._v("The number of your order is "),
+              _c("b", { domProps: { textContent: _vm._s(_vm.uuid) } }),
+              _vm._v("."),
+            ]),
+            _vm._v(" "),
+            _c("p", [
+              _vm._v(
+                "We have already sent you a confirmation email with all the information and your tracking number."
+              ),
+            ]),
+          ]),
+        ]),
+      ]),
+    ]),
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -70982,13 +71153,13 @@ var render = function () {
                               { staticStyle: { "min-width": "200px" } },
                               [
                                 _vm._v(
-                                  _vm._s(order.address_street) +
+                                  _vm._s(order.delivery.street) +
                                     ", " +
-                                    _vm._s(order.address_city) +
+                                    _vm._s(order.delivery.city) +
                                     ", " +
-                                    _vm._s(order.address_zip) +
+                                    _vm._s(order.delivery.zip) +
                                     ", " +
-                                    _vm._s(order.address_country)
+                                    _vm._s(order.delivery.country)
                                 ),
                               ]
                             ),
@@ -70996,7 +71167,7 @@ var render = function () {
                             _c("td", {
                               staticClass: "text-nowrap",
                               domProps: {
-                                textContent: _vm._s(order.address_phone),
+                                textContent: _vm._s(order.delivery.phone),
                               },
                             }),
                             _vm._v(" "),

@@ -14,7 +14,7 @@ class PayPalController extends Controller
 
     public function __construct()
     {
-        $this->middleware('cookie');
+        $this->middleware('cookie')->except('success');
     }
 
     /**
@@ -110,5 +110,10 @@ class PayPalController extends Controller
         //$payment = $this->client()->execute(new OrdersCaptureRequest($request->capture));
         $this->afterPayment($request->uuid, 'paypal');
         return response()->json();
+    }
+
+    public function success($id)
+    {
+        return inertia('OrderSuccess', ['uuid' => $id]);
     }
 }

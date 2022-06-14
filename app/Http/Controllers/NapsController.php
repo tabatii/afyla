@@ -10,7 +10,7 @@ class NapsController extends Controller
     public function success($id)
     {
         $this->afterPayment($id, 'naps');
-        return inertia('OrderSuccess');
+        return inertia('OrderSuccess', ['uuid' => $id]);
     }
 
     public function timeout()

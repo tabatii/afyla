@@ -20,7 +20,7 @@ class OrderController extends Controller
 
     public function index()
     {
-        $orders = Order::with('products')->where('user_id', auth()->id())->status()->get();
+        $orders = Order::with('products', 'delivery', 'billing')->where('user_id', auth()->id())->status()->get();
         return inertia('Orders', compact('orders'));
     }
 
@@ -33,7 +33,7 @@ class OrderController extends Controller
 
     public function show($uuid)
     {
-        $order = Order::with('products')->where('uuid', $uuid)->status()->first();
+        $order = Order::with('products', 'delivery', 'billing')->where('uuid', $uuid)->status()->first();
         return response()->json(compact('order'));
     }
 }

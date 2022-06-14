@@ -110,11 +110,11 @@
 										<tbody>
 											<tr>
 												<td>Shipping address</td>
-												<td>{{ order.address_street }}, {{ order.address_city }}, {{ order.address_zip }}, {{ order.address_country }}</td>
+												<td>{{ order.delivery.street }}, {{ order.delivery.city }}, {{ order.delivery.zip }}, {{ order.delivery.country }}</td>
 											</tr>
 											<tr>
 												<td>Phone</td>
-												<td v-text="order.address_phone"></td>
+												<td v-text="order.delivery.phone"></td>
 											</tr>
 											<tr>
 												<td>Date</td>

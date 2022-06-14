@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CheckoutShippingRequest;
+use App\Http\Requests\CheckoutShippingMethodRequest;
 use App\Http\Requests\CheckoutAddressRequest;
 use App\Http\Requests\CheckoutUserRequest;
 use App\Models\Subscription;
 use App\Models\OrderProduct;
+use App\Models\Address;
 use App\Models\Order;
 use App\Models\Bag;
 
@@ -38,22 +39,58 @@ class CheckoutController extends Controller
 
     public function address(CheckoutAddressRequest $request)
     {
-        Order::updateOrCreate([
-            'uuid' => $request->uuid,
-        ], [
-            'address_firstname' => $request->firstname,
-            'address_lastname' => $request->lastname,
-            'address_street' => $request->street,
-            'address_city' => $request->city,
-            'address_state' => $request->state,
-            'address_zip' => $request->zip,
-            'address_country' => $request->country,
-            'address_phone' => $request->phone,
+        if (auth()->check()) {
+            Address::firstOrCreate([
+                'user_id' => auth()->id(),
+                'firstname' => $request->input('delivery.firstname'),
+                'lastname' => $request->input('delivery.lastname'),
+                'street' => $request->input('delivery.street'),
+                'city' => $request->input('delivery.city'),
+                'state' => $request->input('delivery.state'),
+                'zip' => $request->input('delivery.zip'),
+                'country' => $request->input('delivery.country'),
+                'phone' => $request->input('delivery.phone'),
+            ], [
+                'default' => false,
+            ]);
+            Address::firstOrCreate([
+                'user_id' => auth()->id(),
+                'firstname' => $request->input('billing.firstname'),
+                'lastname' => $request->input('billing.lastname'),
+                'street' => $request->input('billing.street'),
+                'city' => $request->input('billing.city'),
+                'state' => $request->input('billing.state'),
+                'zip' => $request->input('billing.zip'),
+                'country' => $request->input('billing.country'),
+                'phone' => $request->input('billing.phone'),
+            ], [
+                'default' => false,
+            ]);
+        }
+        Order::where('uuid', $request->input('delivery.uuid'))->first()->delivery()->create([
+            'firstname' => $request->input('delivery.firstname'),
+            'lastname' => $request->input('delivery.lastname'),
+            'street' => $request->input('delivery.street'),
+            'city' => $request->input('delivery.city'),
+            'state' => $request->input('delivery.state'),
+            'zip' => $request->input('delivery.zip'),
+            'country' => $request->input('delivery.country'),
+            'phone' => $request->input('delivery.phone'),
+        ]);
+        Order::where('uuid', $request->input('billing.uuid'))->first()->billing()->create([
+            'firstname' => $request->input('billing.firstname'),
+            'lastname' => $request->input('billing.lastname'),
+            'street' => $request->input('billing.street'),
+            'city' => $request->input('billing.city'),
+            'state' => $request->input('billing.state'),
+            'zip' => $request->input('billing.zip'),
+            'country' => $request->input('billing.country'),
+            'phone' => $request->input('billing.phone'),
         ]);
         return back();
     }
 
-    public function shipping(CheckoutShippingRequest $request)
+    public function shipping(CheckoutShippingMethodRequest $request)
     {
         Order::updateOrCreate([
             'uuid' => $request->uuid,

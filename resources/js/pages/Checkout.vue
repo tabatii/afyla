@@ -24,15 +24,15 @@
 								</div>
 								<div class="row gy-4">
 									<div class="col-6">
-										<input type="text" class="form-control input" v-model="user.firstname" placeholder="First name" />
+										<input type="text" class="form-control input" v-model="user.firstname" :disabled="auth" placeholder="First name" />
 										<small class="text-danger" v-text="user.errors.firstname"></small>
 									</div>
 									<div class="col-6">
-										<input type="text" class="form-control input" v-model="user.lastname" placeholder="Last name" />
+										<input type="text" class="form-control input" v-model="user.lastname" :disabled="auth" placeholder="Last name" />
 										<small class="text-danger" v-text="user.errors.lastname"></small>
 									</div>
 									<div class="col-12">
-										<input type="text" class="form-control input" v-model="user.email" placeholder="Email" />
+										<input type="text" class="form-control input" v-model="user.email" :disabled="auth" placeholder="Email" />
 										<small class="text-danger" v-text="user.errors.email"></small>
 									</div>
 									<div class="col-12">
@@ -61,10 +61,7 @@
 												{{ addresses[selected].street }}, {{ addresses[selected].city }}, {{ addresses[selected].state }}, {{ addresses[selected].zip }}
 												<i class="bi bi-caret-down-fill"></i>
 											</span>
-											<span v-else>
-												SELECT ADDRESS
-												<i class="bi bi-caret-down-fill"></i>
-											</span>
+											<span v-else>SELECT ADDRESS <i class="bi bi-caret-down-fill"></i></span>
 										</button>
 										<ul class="dropdown-menu shadow">
 											<li>
@@ -85,39 +82,39 @@
 									</div>
 									<div class="row gy-3 mt-0" v-if="selected === -1">
 										<div class="col-6">
-											<input type="text" class="form-control input" v-model="address.firstname" placeholder="First name" />
-											<small class="text-danger" v-text="address.errors.firstname"></small>
+											<input type="text" class="form-control input" v-model="address.delivery.firstname" placeholder="First name" />
+											<small class="text-danger" v-text="address.errors['delivery.firstname']"></small>
 										</div>
 										<div class="col-6">
-											<input type="text" class="form-control input" v-model="address.lastname" placeholder="Last name" />
-											<small class="text-danger" v-text="address.errors.lastname"></small>
+											<input type="text" class="form-control input" v-model="address.delivery.lastname" placeholder="Last name" />
+											<small class="text-danger" v-text="address.errors['delivery.lastname']"></small>
 										</div>
 										<div class="col-12">
-											<input type="text" class="form-control input" v-model="address.street" placeholder="Email" />
-											<small class="text-danger" v-text="address.errors.street"></small>
+											<input type="text" class="form-control input" v-model="address.delivery.street" placeholder="Email" />
+											<small class="text-danger" v-text="address.errors['delivery.street']"></small>
 										</div>
 										<div class="col-4">
-											<input type="text" class="form-control input" v-model="address.city" placeholder="City" />
-											<small class="text-danger" v-text="address.errors.city"></small>
+											<input type="text" class="form-control input" v-model="address.delivery.city" placeholder="City" />
+											<small class="text-danger" v-text="address.errors['delivery.city']"></small>
 										</div>
 										<div class="col-4">
-											<input type="text" class="form-control input" v-model="address.state" placeholder="State" />
-											<small class="text-danger" v-text="address.errors.state"></small>
+											<input type="text" class="form-control input" v-model="address.delivery.state" placeholder="State" />
+											<small class="text-danger" v-text="address.errors['delivery.state']"></small>
 										</div>
 										<div class="col-4">
-											<input type="text" class="form-control input" v-model="address.zip" placeholder="Zip code" />
-											<small class="text-danger" v-text="address.errors.zip"></small>
+											<input type="text" class="form-control input" v-model="address.delivery.zip" placeholder="Zip code" />
+											<small class="text-danger" v-text="address.errors['delivery.zip']"></small>
 										</div>
 										<div class="col-6">
-											<select class="form-select input" v-model="address.country">
+											<select class="form-select input" v-model="address.delivery.country">
 												<option :value="null">COUNTRY</option>
 												<option :value="country.name" v-text="country.name" v-for="(country, code) in countries" :key="code"></option>
 											</select>
-											<small class="text-danger" v-text="address.errors.country"></small>
+											<small class="text-danger" v-text="address.errors['delivery.country']"></small>
 										</div>
 										<div class="col-6">
-											<input type="text" class="form-control input" v-model="address.phone" placeholder="Phone number" />
-											<small class="text-danger" v-text="address.errors.phone"></small>
+											<input type="text" class="form-control input" v-model="address.delivery.phone" placeholder="Phone number" />
+											<small class="text-danger" v-text="address.errors['delivery.phone']"></small>
 										</div>
 									</div>
 								</div>
@@ -131,31 +128,39 @@
 									<p class="fw-medium">Billing Address :</p>
 									<div class="row gy-3">
 										<div class="col-6">
-											<input type="text" class="form-control input" v-model="billing.firstname" placeholder="First name" />
+											<input type="text" class="form-control input" v-model="address.billing.firstname" placeholder="First name" />
+											<small class="text-danger" v-text="address.errors['billing.firstname']"></small>
 										</div>
 										<div class="col-6">
-											<input type="text" class="form-control input" v-model="billing.lastname" placeholder="Last name" />
+											<input type="text" class="form-control input" v-model="address.billing.lastname" placeholder="Last name" />
+											<small class="text-danger" v-text="address.errors['billing.lastname']"></small>
 										</div>
 										<div class="col-12">
-											<input type="text" class="form-control input" v-model="billing.street" placeholder="Email" />
+											<input type="text" class="form-control input" v-model="address.billing.street" placeholder="Email" />
+											<small class="text-danger" v-text="address.errors['billing.street']"></small>
 										</div>
 										<div class="col-4">
-											<input type="text" class="form-control input" v-model="billing.city" placeholder="City" />
+											<input type="text" class="form-control input" v-model="address.billing.city" placeholder="City" />
+											<small class="text-danger" v-text="address.errors['billing.city']"></small>
 										</div>
 										<div class="col-4">
-											<input type="text" class="form-control input" v-model="billing.state" placeholder="State" />
+											<input type="text" class="form-control input" v-model="address.billing.state" placeholder="State" />
+											<small class="text-danger" v-text="address.errors['billing.state']"></small>
 										</div>
 										<div class="col-4">
-											<input type="text" class="form-control input" v-model="billing.zip" placeholder="Zip code" />
+											<input type="text" class="form-control input" v-model="address.billing.zip" placeholder="Zip code" />
+											<small class="text-danger" v-text="address.errors['billing.zip']"></small>
 										</div>
 										<div class="col-6">
-											<select class="form-select input" v-model="billing.country">
+											<select class="form-select input" v-model="address.billing.country">
 												<option :value="null">COUNTRY</option>
 												<option :value="country.name" v-text="country.name" v-for="(country, code) in countries" :key="code"></option>
 											</select>
+											<small class="text-danger" v-text="address.errors['billing.country']"></small>
 										</div>
 										<div class="col-6">
-											<input type="text" class="form-control input" v-model="billing.phone" placeholder="Phone number" />
+											<input type="text" class="form-control input" v-model="address.billing.phone" placeholder="Phone number" />
+											<small class="text-danger" v-text="address.errors['billing.phone']"></small>
 										</div>
 									</div>
 								</div>
@@ -312,16 +317,16 @@
 					order: this.uuid,
 					amount: this.getTotal,
 					operation: this.getFormatedPrice(this.getTotal),
-					successURL: this.route('naps.success', {id: this.uuid}),
+					successURL: this.route('naps.success', this.uuid),
 					timeoutURL: this.route('naps.timeout'),
 					failURL: this.route('naps.fail'),
 					recallURL: null,
-					street: this.billing.street,
-					city: this.billing.city,
-					state: this.billing.state,
-					zip: this.billing.zip,
-					country: this.billing.country,
-					phone: this.billing.phone,
+					street: this.address.billing.street,
+					city: this.address.billing.city,
+					state: this.address.billing.state,
+					zip: this.address.billing.zip,
+					country: this.address.billing.country,
+					phone: this.address.billing.phone,
 				}
 			}
 		},
@@ -383,16 +388,19 @@
 				}
 			},
 			fillAddress() {
-				for (var [key, value] of Object.entries(this.address.data())) {
+				for (var [key, value] of Object.entries(this.address.delivery)) {
 					if (key === 'uuid') {
 						continue
 					}
-					this.address[key] = this.selected > -1 ? this.addresses[this.selected][key] : null
+					this.address.delivery[key] = this.selected > -1 ? this.addresses[this.selected][key] : null
 				}
 			},
 			fillBilling() {
-				for (var [key, value] of Object.entries(this.billing)) {
-					this.billing[key] = this.same ? this.address[key] : null
+				for (var [key, value] of Object.entries(this.address.billing)) {
+					if (key === 'uuid') {
+						continue
+					}
+					this.address.billing[key] = this.same ? this.address.delivery[key] : null
 				}
 			}
 		},
@@ -411,31 +419,34 @@
 					subscribe: false,
 				}),
 				address: this.$inertia.form({
-					uuid: null,
-					firstname: null,
-					lastname: null,
-					street: null,
-					city: null,
-					state: null,
-					zip: null,
-					country: null,
-					phone: null,
+					delivery: {
+						uuid: null,
+						firstname: null,
+						lastname: null,
+						street: null,
+						city: null,
+						state: null,
+						zip: null,
+						country: null,
+						phone: null,
+					},
+					billing: {
+						uuid: null,
+						firstname: null,
+						lastname: null,
+						street: null,
+						city: null,
+						state: null,
+						zip: null,
+						country: null,
+						phone: null,
+					}
 				}),
 				shipping: this.$inertia.form({
 					uuid: null,
 					company: null,
 					coupon: null,
 				}),
-				billing: {
-					firstname: null,
-					lastname: null,
-					street: null,
-					city: null,
-					state: null,
-					zip: null,
-					country: null,
-					phone: null,
-				},
 				coupon: {
 					details: {},
 					value: 0,
@@ -447,7 +458,8 @@
 		created() {
 			this.fillUser()
 			this.user.uuid = this.uuid
-			this.address.uuid = this.uuid
+			this.address.delivery.uuid = this.uuid
+			this.address.billing.uuid = this.uuid
 			this.shipping.uuid = this.uuid
 			this.shipping.company = this.companies.length > 0 ? this.companies[0].id : null
 			this.step = this.auth ? 2 : 1

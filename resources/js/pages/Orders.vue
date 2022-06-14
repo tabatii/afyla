@@ -64,8 +64,8 @@
 								<td class="text-nowrap" v-text="order.uuid"></td>
 								<td class="text-nowrap" v-text="order.tracking_number"></td>
 								<td class="text-nowrap" v-text="getFormatedPrice(order.order_subtotal)"></td>
-								<td style="min-width:200px">{{ order.address_street }}, {{ order.address_city }}, {{ order.address_zip }}, {{ order.address_country }}</td>
-								<td class="text-nowrap" v-text="order.address_phone"></td>
+								<td style="min-width:200px">{{ order.delivery.street }}, {{ order.delivery.city }}, {{ order.delivery.zip }}, {{ order.delivery.country }}</td>
+								<td class="text-nowrap" v-text="order.delivery.phone"></td>
 								<td class="text-nowrap" v-text="order.created_at"></td>
 								<td class="text-nowrap" v-text="order.status.toUpperCase()"></td>
 								<td>

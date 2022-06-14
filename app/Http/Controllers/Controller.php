@@ -20,6 +20,24 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
+    public function afterPayment($uuid, $method)
+    {
+        $order = Order::with('products')->where('uuid', $uuid)->whereNull('status')->firstOrFail();
+        $order->payment_method = $method;
+        $order->status = Order::PROCESSING;
+        $order->save();
+
+        Coupon::where('id', $order->coupon_id)->update(['used' => true]);
+
+        //Bag::where(auth()->check() ? ['user_id' => auth()->id()] : ['cookie_id' => $request->cookie('cookie_id')])->delete();
+
+        foreach ($order->products as $item) {
+            $size = ProductSize::where('product_id', $item->product_id)->where('size_id', $item->size_id)->first();
+            $size->qty = $size->qty - $item->qty;
+            $size->save();
+        }
+    }
+
     public function getCoupon($id, $subtotal = null)
     {
         $coupon = Coupon::find($id);
@@ -58,24 +76,6 @@ class Controller extends BaseController
     {
         $company = ShippingCompany::find($id);
         return $company->price;
-    }
-
-    public function afterPayment($uuid, $method)
-    {
-        $order = Order::with('products')->where('uuid', $uuid)->whereNull('status')->firstOrFail();
-        $order->payment_method = $method;
-        $order->status = Order::PROCESSING;
-        $order->save();
-
-        Coupon::where('id', $order->coupon_id)->update(['used' => true]);
-
-        //Bag::where(auth()->check() ? ['user_id' => auth()->id()] : ['cookie_id' => $request->cookie('cookie_id')])->delete();
-
-        foreach ($order->products as $item) {
-            $size = ProductSize::where('product_id', $item->product_id)->where('size_id', $item->size_id)->first();
-            $size->qty = $size->qty - $item->qty;
-            $size->save();
-        }
     }
 
     public function subscribe($email)

@@ -23,14 +23,6 @@ return new class extends Migration
             $table->string('user_firstname')->nullable();
             $table->string('user_lastname')->nullable();
             $table->string('user_email')->nullable();
-            $table->string('address_firstname')->nullable();
-            $table->string('address_lastname')->nullable();
-            $table->string('address_street')->nullable();
-            $table->string('address_city')->nullable();
-            $table->string('address_state')->nullable();
-            $table->string('address_zip')->nullable();
-            $table->string('address_country')->nullable();
-            $table->string('address_phone')->nullable();
             $table->float('order_subtotal')->nullable();
             $table->float('order_shipping')->nullable();
             $table->string('payment_method')->nullable();
