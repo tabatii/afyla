@@ -112,8 +112,11 @@ class PayPalController extends Controller
         return response()->json();
     }
 
-    public function success($id)
+    public function success(Request $request, $id)
     {
-        return inertia('OrderSuccess', ['uuid' => $id]);
+        return inertia('OrderSuccess', [
+            'uuid' => $id,
+            'method' => 'paypal',
+        ]);
     }
 }

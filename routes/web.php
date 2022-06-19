@@ -62,6 +62,7 @@ Route::get('/collection/{id}', \App\Http\Controllers\CollectionController::class
 Route::get('/collection/{id}/looks', \App\Http\Controllers\LookController::class)->name('looks');
 
 // Naps routes
+Route::get('/naps/create/{id}', [\App\Http\Controllers\NapsController::class, 'create'])->name('naps.create');
 Route::get('/naps/success/{id}', [\App\Http\Controllers\NapsController::class, 'success'])->name('naps.success');
 Route::get('/naps/timeout', [\App\Http\Controllers\NapsController::class, 'timeout'])->name('naps.timeout');
 Route::get('/naps/fail', [\App\Http\Controllers\NapsController::class, 'fail'])->name('naps.fail');

@@ -20,6 +20,7 @@
 	export default {
 		props: {
 			uuid: String,
+			method: String,
 		}
 	}
 </script>

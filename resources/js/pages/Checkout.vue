@@ -191,7 +191,7 @@
 								</div>
 								<div class="row gx-2">
 									<div class="col-sm-6 col-lg-4">
-										<NapsCheckout :data="napsData"></NapsCheckout>
+										<NapsCheckout :uuid="uuid"></NapsCheckout>
 									</div>
 									<div class="col-sm-6 col-lg-4">
 										<PaypalCheckout :uuid="uuid"></PaypalCheckout>
@@ -309,25 +309,6 @@
 					charset: 'numeric',
 					length: 15,
 				})
-			},
-			napsData() {
-				return {
-					name: `${this.user.firstname} ${this.user.lastname}`,
-					email: this.user.email,
-					order: this.uuid,
-					amount: this.getTotal,
-					operation: this.getFormatedPrice(this.getTotal),
-					successURL: this.route('naps.success', this.uuid),
-					timeoutURL: this.route('naps.timeout'),
-					failURL: this.route('naps.fail'),
-					recallURL: null,
-					street: this.address.billing.street,
-					city: this.address.billing.city,
-					state: this.address.billing.state,
-					zip: this.address.billing.zip,
-					country: this.address.billing.country,
-					phone: this.address.billing.phone,
-				}
 			}
 		},
 		watch: {

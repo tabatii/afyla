@@ -5,12 +5,10 @@
 </template>
 
 <script>
-	import MXGateway from 'public/js/tramegatewaynapsv4.js'
-	import keys from '../naps.js'
 	import axios from 'axios'
 	export default {
 		props: {
-			data: Object,
+			uuid: String,
 		},
 		data() {
 			return {
@@ -18,15 +16,8 @@
 			}
 		},
 		created() {
-			axios.get(`https://api.apilayer.com/exchangerates_data/convert?from=USD&to=MAD&amount=${this.data.amount}`, {
-				headers: {apikey: 'xz9ay3pJexczn5OnyXPJF1LMHu4R6bAW'}
-			}).then(response => {
-				var mxgateway = new MXGateway(1012202, 2007, keys.public, 'EN')
-				var encrypted1 = mxgateway.cryptageTrame1(this.data.name, this.data.order, response.data.result, this.data.email, this.data.operation)
-				var encrypted2 = mxgateway.cryptageTrame2(this.data.successURL, this.data.timeoutURL)
-				var encrypted3 = mxgateway.cryptageTrame3(this.data.failURL, this.data.recallURL)
-				var encrypted4 = mxgateway.cryptageTrame4(this.data.phone, this.data.street, this.data.city, this.data.state, this.data.country, this.data.zip)
-				this.url = mxgateway.generateLien(encrypted1, encrypted2, encrypted3, encrypted4)
+			axios.get(this.route('naps.create', this.uuid)).then(response => {
+				this.url = response.data.url
 			})
 		}
 	}

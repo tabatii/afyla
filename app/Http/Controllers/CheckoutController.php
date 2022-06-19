@@ -22,6 +22,9 @@ class CheckoutController extends Controller
 
     public function user(CheckoutUserRequest $request)
     {
+        if (Order::where('uuid', $request->uuid)->status()->exists()) {
+            return inertia()->location(route('checkout'));
+        }
         $order = Order::updateOrCreate([
             'uuid' => $request->uuid,
         ], [
