@@ -73320,7 +73320,18 @@ var render = function () {
   return _c("div", { staticClass: "d-grid" }, [
     _c(
       "a",
-      { staticClass: "btn btn-dark btn-naps", attrs: { href: _vm.url } },
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.url,
+            expression: "url",
+          },
+        ],
+        staticClass: "btn btn-dark btn-naps",
+        attrs: { href: _vm.url },
+      },
       [_vm._v("PAY WITH CREDIT CARD")]
     ),
   ])

@@ -16,25 +16,16 @@ class NapsController extends Controller
         $naps = new NapsService(env('NAPS_CMR'), env('NAPS_GAL'));
         $naps->setPublicKey(env('NAPS_PUBLIC'));
 
-        $one = $naps->encrypt(1, [
+        $data = $naps->encrypt([
             'orderID' => $order->uuid,
             'email' => $order->user_email,
             'fullname' => $order->user_firstname.' '.$order->user_lastname,
             'price' => Currency::convert()->from('USD')->to('MAD')->amount($order->order_subtotal + $order->order_shipping)->get(),
             'details' => '$'.number_format($order->order_subtotal + $order->order_shipping, 2),
-        ]);
-
-        $two = $naps->encrypt(2, [
             'successURL' => route('naps.success', $order->uuid),
             'timeoutURL' => route('naps.timeout'),
-        ]);
-
-        $three = $naps->encrypt(3, [
             'failURL' => route('naps.fail'),
             'recallURL' => null,
-        ]);
-
-        $four = $naps->encrypt(4, [
             'street' => $order->billing->street,
             'city' => $order->billing->city,
             'state' => $order->billing->state,
@@ -44,7 +35,7 @@ class NapsController extends Controller
         ]);
 
         return response()->json([
-            'url' => $naps->generate($one, $two, $three, $four)
+            'url' => $naps->generate($data),
         ]);
     }
 

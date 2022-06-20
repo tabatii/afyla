@@ -55,14 +55,18 @@ class NapsService
         $this->private = openssl_pkey_get_private($private);
     }
 
-    public function encrypt(int $step, array $data)
+    public function encrypt(array $data)
     {
-        $method = 'step'.$step;
         $this->checkPublicKey();
-        return $this->$method($data);
+        return [
+            'data1' => $this->data1($data),
+            'data2' => $this->data2($data),
+            'data3' => $this->data3($data),
+            'data4' => $this->data4($data),
+        ];
     }
 
-    public function step1(array $data)
+    public function data1(array $data)
     {
         $array = [
             'nomprenom='.$data['fullname'],
@@ -82,7 +86,7 @@ class NapsService
         throw new \Exception('Encryption failed.');
     }
 
-    public function step2(array $data)
+    public function data2(array $data)
     {
         $array = [
             'successURL='.$data['successURL'],
@@ -98,7 +102,7 @@ class NapsService
         throw new \Exception('Encryption failed.');
     }
 
-    public function step3(array $data)
+    public function data3(array $data)
     {
         $array = [
             'failURL='.$data['failURL'],
@@ -114,7 +118,7 @@ class NapsService
         throw new \Exception('Encryption failed.');
     }
 
-    public function step4(array $data)
+    public function data4(array $data)
     {
         $array = [
             'tel='.$data['phone'],
@@ -147,13 +151,13 @@ class NapsService
         throw new \Exception('Decryption failed.');
     }
 
-    public function generate(string $one, string $two, string $three, string $four)
+    public function generate(array $encrypted)
     {
         $query = http_build_query([
-            'data1' => $one,
-            'data2' => $two,
-            'data3' => $three,
-            'data4' => $four,
+            'data1' => $encrypted['data1'],
+            'data2' => $encrypted['data2'],
+            'data3' => $encrypted['data3'],
+            'data4' => $encrypted['data4'],
             'cmr' => $this->cmr,
             'gal' => $this->gal,
         ]);
