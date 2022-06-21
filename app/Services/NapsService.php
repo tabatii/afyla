@@ -5,38 +5,28 @@ namespace App\Services;
 class NapsService
 {
 
+    private $url = 'https://pa2.naps.ma:8441/GW_PAIEMENT/faces/vues/paiement/gatenaps.xhtml';
+    private $lang = 'F';
+
     private $cmr;
     private $gal;
     private $public;
     private $private;
 
-    private $url;
-    private $lang;
-
-    public function __construct(string $cmr, string $gal, string $lang = null, string $url = null)
+    public function __construct(string $cmr, string $gal)
     {
-        $this->url = $url ?? 'https://pa2.naps.ma:8441/GW_PAIEMENT/faces/vues/paiement/gatenaps.xhtml';
-        $this->lang = $lang ?? 'F';
         $this->cmr = $cmr;
         $this->gal = $gal;
     }
 
-    public function checkPublicKey()
+    public function setDefaultUrl(string $url)
     {
-        if ($this->public === null) {
-            throw new \Exception('No public key provided.');
-        } elseif ($this->public === false) {
-            throw new \Exception('Unable to get public key for encryption.');
-        }
+        $this->url = $url;
     }
 
-    public function checkPrivateKey()
+    public function setDefaultLang(string $lang)
     {
-        if ($this->private === null) {
-            throw new \Exception('No private key provided.');
-        } elseif ($this->private === false) {
-            throw new \Exception('Unable to get private key for encryption.');
-        }
+        $this->lang = $lang;
     }
 
     public function setPublicKey(string $key)
@@ -66,78 +56,6 @@ class NapsService
         ];
     }
 
-    public function data1(array $data)
-    {
-        $array = [
-            'nomprenom='.$data['fullname'],
-            'idcommande='.$data['orderID'],
-            'montant='.$data['price'],
-            'email='.$data['email'],
-            'langue='.$this->lang,
-            'detailoperation='.$data['details'],
-            'fin1',
-        ];
-
-        $query = implode('&', $array);
-        if (openssl_public_encrypt($query, $encrypted, $this->public)) {
-            return base64_encode($encrypted);
-        }
-
-        throw new \Exception('Encryption failed.');
-    }
-
-    public function data2(array $data)
-    {
-        $array = [
-            'successURL='.$data['successURL'],
-            'timeoutURL='.$data['timeoutURL'],
-            'fin2',
-        ];
-
-        $query = implode('&', $array);
-        if (openssl_public_encrypt($query, $encrypted, $this->public)) {
-            return base64_encode($encrypted);
-        }
-
-        throw new \Exception('Encryption failed.');
-    }
-
-    public function data3(array $data)
-    {
-        $array = [
-            'failURL='.$data['failURL'],
-            'recallURL='.$data['recallURL'],
-            'fin3',
-        ];
-
-        $query = implode('&', $array);
-        if (openssl_public_encrypt($query, $encrypted, $this->public)) {
-            return base64_encode($encrypted);
-        }
-
-        throw new \Exception('Encryption failed.');
-    }
-
-    public function data4(array $data)
-    {
-        $array = [
-            'tel='.$data['phone'],
-            'address='.$data['street'],
-            'city='.$data['city'],
-            'state='.$data['state'],
-            'country='.$data['country'],
-            'postcode='.$data['zip'],
-            'fin4',
-        ];
-
-        $query = implode('&', $array);
-        if (openssl_public_encrypt($query, $encrypted, $this->public)) {
-            return base64_encode($encrypted);
-        }
-
-        throw new \Exception('Encryption failed.');
-    }
-
     public function decrypt(string $data)
     {
         $this->checkPrivateKey();
@@ -162,5 +80,95 @@ class NapsService
             'gal' => $this->gal,
         ]);
         return $this->url.'?'.$query;
+    }
+
+    private function checkPublicKey()
+    {
+        if ($this->public === null) {
+            throw new \Exception('No public key provided.');
+        } elseif ($this->public === false) {
+            throw new \Exception('Unable to get public key for encryption.');
+        }
+    }
+
+    private function checkPrivateKey()
+    {
+        if ($this->private === null) {
+            throw new \Exception('No private key provided.');
+        } elseif ($this->private === false) {
+            throw new \Exception('Unable to get private key for encryption.');
+        }
+    }
+
+    private function data1(array $data)
+    {
+        $array = [
+            'nomprenom='.$data['fullname'],
+            'idcommande='.$data['orderID'],
+            'montant='.$data['price'],
+            'email='.$data['email'],
+            'langue='.$this->lang,
+            'detailoperation='.$data['details'],
+            'fin1',
+        ];
+
+        $query = implode('&', $array);
+        if (openssl_public_encrypt($query, $encrypted, $this->public)) {
+            return base64_encode($encrypted);
+        }
+
+        throw new \Exception('Encryption failed.');
+    }
+
+    private function data2(array $data)
+    {
+        $array = [
+            'successURL='.$data['successURL'],
+            'timeoutURL='.$data['timeoutURL'],
+            'fin2',
+        ];
+
+        $query = implode('&', $array);
+        if (openssl_public_encrypt($query, $encrypted, $this->public)) {
+            return base64_encode($encrypted);
+        }
+
+        throw new \Exception('Encryption failed.');
+    }
+
+    private function data3(array $data)
+    {
+        $array = [
+            'failURL='.$data['failURL'],
+            'recallURL='.$data['recallURL'],
+            'fin3',
+        ];
+
+        $query = implode('&', $array);
+        if (openssl_public_encrypt($query, $encrypted, $this->public)) {
+            return base64_encode($encrypted);
+        }
+
+        throw new \Exception('Encryption failed.');
+    }
+
+    private function data4(array $data)
+    {
+        $array = [
+            'tel='.$data['phone'],
+            'address='.$data['street'],
+            'city='.$data['city'],
+            'state='.$data['state'],
+            'country='.$data['country'],
+            'postcode='.$data['zip'],
+            'fin4',
+        ];
+
+        $query = implode('&', $array);
+        if (openssl_public_encrypt($query, $encrypted, $this->public)) {
+            return base64_encode($encrypted);
+        }
+
+        throw new \Exception('Encryption failed.');
     }
 }

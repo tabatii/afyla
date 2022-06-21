@@ -16,36 +16,39 @@ class NapsController extends Controller
         $naps = new NapsService(env('NAPS_CMR'), env('NAPS_GAL'));
         $naps->setPublicKey(env('NAPS_PUBLIC'));
 
-        $data = $naps->encrypt([
+        $encrypted = $naps->encrypt([
+            // Order information
             'orderID' => $order->uuid,
-            'email' => $order->user_email,
-            'fullname' => $order->user_firstname.' '.$order->user_lastname,
             'price' => Currency::convert()->from('USD')->to('MAD')->amount($order->order_subtotal + $order->order_shipping)->get(),
             'details' => '$'.number_format($order->order_subtotal + $order->order_shipping, 2),
-            'successURL' => route('naps.success', $order->uuid),
-            'timeoutURL' => route('naps.timeout'),
-            'failURL' => route('naps.fail'),
-            'recallURL' => null,
+            // User information
+            'fullname' => $order->user_firstname.' '.$order->user_lastname,
+            'email' => $order->user_email,
             'street' => $order->billing->street,
             'city' => $order->billing->city,
             'state' => $order->billing->state,
             'zip' => $order->billing->postcode,
             'country' => $order->billing->country,
             'phone' => $order->billing->phone,
+            // Redirect links
+            'successURL' => route('naps.success', $order->uuid),
+            'timeoutURL' => route('naps.timeout'),
+            'failURL' => route('naps.fail'),
+            'recallURL' => null,
         ]);
 
         return response()->json([
-            'url' => $naps->generate($data),
+            'url' => $naps->generate($encrypted),
         ]);
     }
 
     public function success(Request $request, $id)
     {
-        if ($data = $request->query('data')) {
+        if ($encrypted = $request->query('data')) {
 
             $naps = new NapsService(env('NAPS_CMR'), env('NAPS_GAL'));
             $naps->setPrivateKey(env('NAPS_PRIVATE'));
-            parse_str($naps->decrypt($data), $decrypted);
+            parse_str($naps->decrypt($encrypted), $decrypted);
 
             if ($decrypted['id_commande'] == $id) {
                 $this->afterPayment($id, 'naps');
