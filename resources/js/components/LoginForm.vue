@@ -27,12 +27,12 @@
 				<input type="password" class="form-control input" v-model="login.password" placeholder="Password" />
 				<small class="text-danger" v-text="login.errors.password"></small>
 			</div>
-			<div class="d-flex flex-column flex-sm-row mb-3">
-				<div class="form-check me-auto">
+			<div class="d-flex flex-column flex-sm-row flex-wrap mb-3">
+				<div class="form-check flex-shrink-0 me-auto">
 					<input type="checkbox" class="form-check-input shadow-none" :id="`remember${_uid}`" v-model="login.remember" />
 					<label class="form-check-label" :for="`remember${_uid}`">REMEMBER ME</label>
 				</div>
-				<l href="#" @click.prevent="tab = true">FORGOT PASSWORD ?</l>
+				<l href="#" class="flex-shrink-0" @click.prevent="tab = true">FORGOT PASSWORD ?</l>
 			</div>
 			<div class="d-grid gap-2">
 				<button type="submit" class="btn btn-primary py-3" :disabled="login.processing">SIGN IN</button>

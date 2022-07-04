@@ -20,6 +20,11 @@ class OrderProduct extends Model
 
     public $additional_attributes = ['details'];
 
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
+
     public function getDetailsAttribute()
     {
         return "{$this->title} ({$this->size})";

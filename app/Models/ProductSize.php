@@ -39,7 +39,7 @@ class ProductSize extends Model
             $soldout = Soldout::where('product_id', $model->product_id)->where('size_id', $model->size_id)->first();
             $model->load('product', 'size');
             if ($model->qty > 0 && $soldout) {
-                Mail::to($soldout->email)->send(new SoldoutMail($model->product, $model->size));
+                Mail::to($soldout->email)->queue(new SoldoutMail($model->product, $model->size));
                 $soldout->delete();
             }
         });

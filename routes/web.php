@@ -24,6 +24,8 @@ Route::inertia('/faq', 'Faq')->name('faq');
 Route::get('/pages/{slug}', \App\Http\Controllers\PageController::class)->name('page');
 Route::get('/search', \App\Http\Controllers\SearchController::class)->name('search');
 
+Route::get('/feedback', \App\Http\Controllers\FeedbackController::class)->name('feedback');
+
 // Contact routes
 Route::get('/contact', [\App\Http\Controllers\ContactController::class, 'create'])->name('contact');
 Route::post('/contact', [\App\Http\Controllers\ContactController::class, 'store']);

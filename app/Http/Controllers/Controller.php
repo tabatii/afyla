@@ -28,9 +28,8 @@ class Controller extends BaseController
             $order->status = Order::PROCESSING;
             $order->save();
 
-            Coupon::where('id', $order->coupon_id)->update(['used' => true]);
-
             Bag::where(auth()->check() ? ['user_id' => auth()->id()] : ['cookie_id' => $request->cookie('cookie_id')])->delete();
+            Coupon::where('id', $order->coupon_id)->update(['used' => true]);
 
             foreach ($order->products as $item) {
                 $size = ProductSize::where('product_id', $item->product_id)->where('size_id', $item->size_id)->first();
@@ -94,7 +93,7 @@ class Controller extends BaseController
             $coupon->expires_at = now()->addMonths(6)->toDateString();
             $coupon->save();
 
-            Mail::to($email)->send(new SubscribeMail($coupon->code, 6));
+            Mail::to($email)->queue(new SubscribeMail($coupon->code, 6));
         }
     }
 }

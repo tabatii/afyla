@@ -5,6 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\OrderProcessing;
+use App\Mail\OrderShipped;
 
 class Order extends Model
 {
@@ -58,7 +61,13 @@ class Order extends Model
     protected static function booted()
     {
         static::updated(function ($model) {
-            // send email
+            if ($model->status === static::PROCESSING) {
+                Mail::to($model->user_email)->queue(new OrderProcessing($model));
+            } elseif ($model->status === static::SHIPPED) {
+                Mail::to($model->user_email)->queue(new OrderShipped($model));
+            } elseif ($model->status === static::DELIVERED) {
+                //
+            }
         });
     }
 }

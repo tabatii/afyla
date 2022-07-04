@@ -2,24 +2,31 @@
 	<AppLayout>
 		<h title="Checkout"></h>
 		<section class="py-5" style="margin-bottom:200px">
-			<div class="container">
+			<div class="container-fluid">
 				<div class="row gx-0 gy-4">
-					<div class="col-lg-8">
+					<div class="col-lg-8 border-end">
 						<div class="px-sm-5">
 							<div v-if="step === 1">
-								<div class="d-flex mb-5">
-									<span class="fw-medium">PERSONAL INFORMATION</span>
+								<h1 class="text-center mb-5">CHECKOUT</h1>
+								<div class="d-flex mb-4">
+									<span class="me-auto">SIGN IN</span>
 								</div>
-								<div class="mb-5">
-									<LoginForm></LoginForm>
-								</div>
-								<div class="d-grid">
-									<button type="button" class="btn btn-primary py-3" @click="step = 2">CONTINUE AS GUEST</button>
+								<div class="row gx-5 gy-4">
+									<div class="col-xl-6">
+										<LoginForm></LoginForm>
+									</div>
+									<div class="col-xl-6">
+										<div class="d-flex flex-column justify-content-center h-100">
+											<div class="d-grid">
+												<button type="button" class="btn btn-primary py-3" @click="step = 2">CONTINUE AS GUEST</button>
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
 							<div v-else-if="step === 2">
 								<div class="d-flex mb-5">
-									<span class="fw-medium me-auto">PERSONAL INFORMATION</span>
+									<span class="me-auto">1. PERSONAL INFORMATION</span>
 									<span class="underline pointer" v-if="!auth" @click="step = 1">BACK</span>
 								</div>
 								<div class="row gy-4">
@@ -50,7 +57,7 @@
 							</div>
 							<div v-else-if="step === 3">
 								<div class="d-flex mb-5">
-									<span class="fw-medium me-auto">SHIPPING INFORMATION</span>
+									<span class="me-auto">2. SHIPPING INFORMATION</span>
 									<span class="underline pointer" @click="step = 2">BACK</span>
 								</div>
 								<div>
@@ -90,7 +97,7 @@
 											<small class="text-danger" v-text="address.errors['delivery.lastname']"></small>
 										</div>
 										<div class="col-12">
-											<input type="text" class="form-control input" v-model="address.delivery.street" placeholder="Email" />
+											<input type="text" class="form-control input" v-model="address.delivery.street" placeholder="Your address" />
 											<small class="text-danger" v-text="address.errors['delivery.street']"></small>
 										</div>
 										<div class="col-4">
@@ -98,22 +105,22 @@
 											<small class="text-danger" v-text="address.errors['delivery.city']"></small>
 										</div>
 										<div class="col-4">
-											<input type="text" class="form-control input" v-model="address.delivery.state" placeholder="State" />
-											<small class="text-danger" v-text="address.errors['delivery.state']"></small>
-										</div>
-										<div class="col-4">
 											<input type="text" class="form-control input" v-model="address.delivery.zip" placeholder="Zip code" />
 											<small class="text-danger" v-text="address.errors['delivery.zip']"></small>
 										</div>
-										<div class="col-6">
+										<div class="col-4">
+											<input type="text" class="form-control input" v-model="address.delivery.state" placeholder="State / province" />
+											<small class="text-danger" v-text="address.errors['delivery.state']"></small>
+										</div>
+										<div class="col-4">
 											<select class="form-select input" v-model="address.delivery.country">
-												<option :value="null">COUNTRY</option>
+												<option :value="null">Country</option>
 												<option :value="country.name" v-text="country.name" v-for="(country, code) in countries" :key="code"></option>
 											</select>
 											<small class="text-danger" v-text="address.errors['delivery.country']"></small>
 										</div>
-										<div class="col-6">
-											<input type="text" class="form-control input" v-model="address.delivery.phone" placeholder="Phone number" />
+										<div class="col-4">
+											<input type="text" class="form-control input" v-model="address.delivery.phone" placeholder="Telephone" />
 											<small class="text-danger" v-text="address.errors['delivery.phone']"></small>
 										</div>
 									</div>
@@ -136,7 +143,7 @@
 											<small class="text-danger" v-text="address.errors['billing.lastname']"></small>
 										</div>
 										<div class="col-12">
-											<input type="text" class="form-control input" v-model="address.billing.street" placeholder="Email" />
+											<input type="text" class="form-control input" v-model="address.billing.street" placeholder="Your address" />
 											<small class="text-danger" v-text="address.errors['billing.street']"></small>
 										</div>
 										<div class="col-4">
@@ -144,22 +151,22 @@
 											<small class="text-danger" v-text="address.errors['billing.city']"></small>
 										</div>
 										<div class="col-4">
-											<input type="text" class="form-control input" v-model="address.billing.state" placeholder="State" />
-											<small class="text-danger" v-text="address.errors['billing.state']"></small>
-										</div>
-										<div class="col-4">
 											<input type="text" class="form-control input" v-model="address.billing.zip" placeholder="Zip code" />
 											<small class="text-danger" v-text="address.errors['billing.zip']"></small>
 										</div>
-										<div class="col-6">
+										<div class="col-4">
+											<input type="text" class="form-control input" v-model="address.billing.state" placeholder="State / province" />
+											<small class="text-danger" v-text="address.errors['billing.state']"></small>
+										</div>
+										<div class="col-4">
 											<select class="form-select input" v-model="address.billing.country">
-												<option :value="null">COUNTRY</option>
+												<option :value="null">Country</option>
 												<option :value="country.name" v-text="country.name" v-for="(country, code) in countries" :key="code"></option>
 											</select>
 											<small class="text-danger" v-text="address.errors['billing.country']"></small>
 										</div>
-										<div class="col-6">
-											<input type="text" class="form-control input" v-model="address.billing.phone" placeholder="Phone number" />
+										<div class="col-4">
+											<input type="text" class="form-control input" v-model="address.billing.phone" placeholder="Telephone" />
 											<small class="text-danger" v-text="address.errors['billing.phone']"></small>
 										</div>
 									</div>
@@ -170,7 +177,7 @@
 							</div>
 							<div v-else-if="step === 4">
 								<div class="d-flex mb-5">
-									<span class="fw-medium me-auto">SHIPPING METHOD</span>
+									<span class="me-auto">3. SHIPPING METHOD</span>
 									<span class="underline pointer" @click="step = 3">BACK</span>
 								</div>
 								<div class="mb-4">
@@ -186,7 +193,7 @@
 							</div>
 							<div v-else-if="step === 5">
 								<div class="d-flex mb-5">
-									<span class="fw-medium me-auto">PAYMENT</span>
+									<span class="me-auto">4. PAYMENT</span>
 									<span class="underline pointer" @click="step = 4">BACK</span>
 								</div>
 								<div class="row gx-2">
@@ -202,25 +209,25 @@
 					</div>
 					<div class="col-lg-4">
 						<div class="px-sm-5">
-							<div class="d-flex align-items-baseline">
+							<div class="d-flex align-items-baseline mb-2">
 								<img src="/img/icons/bag.png" class="me-2" height="16px" />
-								<span>{{ bag.length }} Item(s)</span>
+								<span>{{ bag.length }} ITEM(S)</span>
 							</div>
 							<div class="d-flex">
-								<span class="text-muted me-auto">Total:</span>
-								<span class="text-danger fw-medium text-end" v-text="getFormatedPrice(getTotal)"></span>
+								<span class="me-auto">SUBTOTAL:</span>
+								<span class="text-end" v-text="getFormatedPrice(getTotal)"></span>
 							</div>
-							<hr />
-							<div class="d-flex">
-								<span class="text-muted me-auto">Shipping:</span>
-								<span class="fw-medium text-end">{{ getCompanyPrice === 0 ? 'Free' : getFormatedPrice(getCompanyPrice) }}</span>
+							<hr class="my-4" />
+							<div class="d-flex mb-2">
+								<span class="me-auto">Shipping:</span>
+								<span class="text-end">{{ getCompanyPrice === 0 ? 'Free' : getFormatedPrice(getCompanyPrice) }}</span>
 							</div>
-							<div class="d-flex">
-								<span class="text-muted me-auto">VAT (included):</span>
-								<span class="fw-medium text-end" v-text="getFormatedPrice(getTax(getBagTotal))"></span>
+							<div class="d-flex mb-2">
+								<span class="me-auto">Estimated tax:</span>
+								<span class="text-end" v-text="getFormatedPrice(getTax(getBagTotal))"></span>
 							</div>
-							<div class="d-flex align-items-baseline">
-								<span class="text-muted me-auto">Promo code:</span>
+							<div class="d-flex align-items-baseline flex-wrap flex-xl-nowrap">
+								<span class="flex-shrink-0 me-auto pe-2">Promo code:</span>
 								<div>
 									<div class="d-flex">
 										<input type="text" class="form-control form-control-sm border shadow-none me-1" v-model="coupon.code" placeholder="Code" />
@@ -229,7 +236,7 @@
 									<small class="text-danger" v-text="coupon.error"></small>
 								</div>
 							</div>
-							<hr />
+							<hr class="my-4" />
 							<div v-for="(item, i) in bag" :key="Math.random()">
 								<div class="d-flex">
 									<div style="width:20%">
@@ -238,23 +245,23 @@
 									<div class="ps-2" style="width:80%">
 										<div class="d-flex mb-2">
 											<p class="pe-2 me-auto mb-0" v-text="item.product.title"></p>
-											<div class="flex-shrink-0 fw-medium">
-												<del class="text-muted me-1" v-text="getFormatedPrice(item.product.price)" v-if="item.product.discount"></del>
-												<span class="text-danger" v-text="getFormatedPrice(item.product.price, item.product.discount)" v-if="item.product.discount"></span>
+											<div class="flex-shrink-0">
+												<del class="d-block me-1" v-text="getFormatedPrice(item.product.price)" v-if="item.product.discount"></del>
+												<span class="d-block text-danger" v-text="getFormatedPrice(item.product.price, item.product.discount)" v-if="item.product.discount"></span>
 												<span v-text="getFormatedPrice(item.product.price)" v-else></span>
 											</div>
 										</div>
 										<div>
 											<span>Size:</span>
-											<span class="text-muted" v-text="item.size.name"></span>
+											<span v-text="item.size.name"></span>
 										</div>
 										<div>
 											<span>Qty:</span>
-											<span class="text-muted" v-text="item.qty"></span>
+											<span v-text="item.qty"></span>
 										</div>
 									</div>
 								</div>
-								<hr />
+								<hr v-if="i < bag.length - 1" />
 							</div>
 						</div>
 					</div>

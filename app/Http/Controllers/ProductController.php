@@ -25,7 +25,7 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = Product::with('categories.category', 'colors.color', 'sizes.size', 'materials.material', 'recommendations.product')
-                          ->where('id', $id)->public()->first();
+                          ->where('id', $id)->public()->firstOrFail();
         return inertia('Product', compact('product'));
     }
 }

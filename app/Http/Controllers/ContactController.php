@@ -16,7 +16,7 @@ class ContactController extends Controller
 
     public function store(ContactRequest $request)
     {
-        Mail::to(env('MAIL_FROM_ADDRESS'))->send(new Contact($request->validated()));
+        Mail::to(env('MAIL_FROM_ADDRESS'))->queue(new Contact($request->validated()));
         return back();
     }
 }

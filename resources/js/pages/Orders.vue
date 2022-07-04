@@ -31,7 +31,7 @@
 											<tr class="align-middle" v-for="(product, i) in orders[index].products" :key="Math.random()">
 												<td v-text="i+1"></td>
 												<td>
-													<a :href="route('product', product.id)" class="text-dark underline" target="_blank" v-text="product.title"></a>
+													<a :href="route('product', product.product_id)" class="text-dark underline" target="_blank" v-text="product.title"></a>
 												</td>
 												<td v-text="product.category"></td>
 												<td v-text="product.qty"></td>
