@@ -49,11 +49,11 @@
 										</div>
 									</div>
 									<div class="col-6" v-if="!auth && user.save">
-										<input type="text" class="form-control input" v-model="user.password" placeholder="Password" />
+										<input type="password" class="form-control input" v-model="user.password" placeholder="Password" />
 										<small class="text-danger" v-text="user.errors.password"></small>
 									</div>
 									<div class="col-6" v-if="!auth && user.save">
-										<input type="text" class="form-control input" v-model="user.password_confirmation" placeholder="Confirm password" />
+										<input type="password" class="form-control input" v-model="user.password_confirmation" placeholder="Confirm password" />
 									</div>
 									<div class="col-12" v-if="!auth && user.save">
 										<div class="form-check">
@@ -231,11 +231,11 @@
 								<span class="text-end" v-text="getFormatedPrice(getTotal)"></span>
 							</div>
 							<hr class="my-4" />
-							<div class="d-flex mb-2">
+							<div class="d-flex mb-3">
 								<span class="me-auto">Shipping:</span>
 								<span class="text-end">{{ getCompanyPrice === 0 ? 'Free' : getFormatedPrice(getCompanyPrice) }}</span>
 							</div>
-							<div class="d-flex mb-2">
+							<div class="d-flex mb-3">
 								<span class="me-auto">Estimated tax:</span>
 								<span class="text-end" v-text="getFormatedPrice(getTax(getBagTotal))"></span>
 							</div>

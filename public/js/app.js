@@ -60543,7 +60543,7 @@ var render = function () {
                                   ],
                                   staticClass: "form-control input",
                                   attrs: {
-                                    type: "text",
+                                    type: "password",
                                     placeholder: "Password",
                                   },
                                   domProps: { value: _vm.user.password },
@@ -60585,7 +60585,7 @@ var render = function () {
                                   ],
                                   staticClass: "form-control input",
                                   attrs: {
-                                    type: "text",
+                                    type: "password",
                                     placeholder: "Confirm password",
                                   },
                                   domProps: {
@@ -61871,7 +61871,7 @@ var render = function () {
                     _vm._v(" "),
                     _c("hr", { staticClass: "my-4" }),
                     _vm._v(" "),
-                    _c("div", { staticClass: "d-flex mb-2" }, [
+                    _c("div", { staticClass: "d-flex mb-3" }, [
                       _c("span", { staticClass: "me-auto" }, [
                         _vm._v("Shipping:"),
                       ]),
@@ -61887,7 +61887,7 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "d-flex mb-2" }, [
+                    _c("div", { staticClass: "d-flex mb-3" }, [
                       _c("span", { staticClass: "me-auto" }, [
                         _vm._v("Estimated tax:"),
                       ]),
