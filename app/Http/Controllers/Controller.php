@@ -28,7 +28,7 @@ class Controller extends BaseController
             $order->status = Order::PROCESSING;
             $order->save();
 
-            Bag::where(auth()->check() ? ['user_id' => auth()->id()] : ['cookie_id' => $request->cookie('cookie_id')])->delete();
+            Bag::where(auth()->check() ? ['user_id' => auth()->id()] : ['cookie_id' => request()->cookie('cookie_id')])->delete();
             Coupon::where('id', $order->coupon_id)->update(['used' => true]);
 
             foreach ($order->products as $item) {
@@ -61,7 +61,7 @@ class Controller extends BaseController
 
     public function getSubtotal()
     {
-        $condition = auth()->check() ? ['user_id' => auth()->id()] : ['cookie_id' => $request->cookie('cookie_id')];
+        $condition = auth()->check() ? ['user_id' => auth()->id()] : ['cookie_id' => request()->cookie('cookie_id')];
         $bag = Bag::with('product')->where($condition)->get();
         return $bag->sum(function ($item) {
             return $this->getPrice($item->product->price, $item->product->discount) * $item->qty;

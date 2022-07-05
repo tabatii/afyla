@@ -9,6 +9,7 @@ use App\Models\Subscription;
 use App\Models\OrderProduct;
 use App\Models\Address;
 use App\Models\Order;
+use App\Models\User;
 use App\Models\Bag;
 
 class CheckoutController extends Controller
@@ -33,6 +34,16 @@ class CheckoutController extends Controller
             'user_lastname' => $request->lastname,
             'user_email' => $request->email,
         ]);
+        if ($request->save) {
+            $user = new User;
+            $user->firstname = $request->firstname;
+            $user->lastname = $request->lastname;
+            $user->email = $request->email;
+            $user->password = bcrypt($request->password);
+            if ($user->save()) {
+                $user->sendEmailVerificationNotification();
+            }
+        }
         if ($request->subscribe && !Subscription::where('email', $request->email)->exists()) {
             $this->subscribe($request->email);
         }

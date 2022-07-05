@@ -44,6 +44,19 @@
 									</div>
 									<div class="col-12">
 										<div class="form-check">
+											<input type="checkbox" class="form-check-input shadow-none" id="save" v-model="user.save" />
+											<label class="form-check-label" for="save">Save your information</label>
+										</div>
+									</div>
+									<div class="col-6" v-if="!auth && user.save">
+										<input type="text" class="form-control input" v-model="user.password" placeholder="Password" />
+										<small class="text-danger" v-text="user.errors.password"></small>
+									</div>
+									<div class="col-6" v-if="!auth && user.save">
+										<input type="text" class="form-control input" v-model="user.password_confirmation" placeholder="Confirm password" />
+									</div>
+									<div class="col-12" v-if="!auth && user.save">
+										<div class="form-check">
 											<input type="checkbox" class="form-check-input shadow-none" id="sub" v-model="user.subscribe" />
 											<label class="form-check-label" for="sub">Subscribe to Newsletter</label>
 										</div>
@@ -403,7 +416,10 @@
 					uuid: null,
 					firstname: null,
 					lastname: null,
+					password: null,
+					password_confirmation: null,
 					email: null,
+					save: false,
 					subscribe: false,
 				}),
 				address: this.$inertia.form({

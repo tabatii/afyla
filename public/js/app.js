@@ -8380,6 +8380,19 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -8532,7 +8545,10 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
         uuid: null,
         firstname: null,
         lastname: null,
+        password: null,
+        password_confirmation: null,
         email: null,
+        save: false,
         subscribe: false
       }),
       address: this.$inertia.form({
@@ -60460,20 +60476,20 @@ var render = function () {
                                   {
                                     name: "model",
                                     rawName: "v-model",
-                                    value: _vm.user.subscribe,
-                                    expression: "user.subscribe",
+                                    value: _vm.user.save,
+                                    expression: "user.save",
                                   },
                                 ],
                                 staticClass: "form-check-input shadow-none",
-                                attrs: { type: "checkbox", id: "sub" },
+                                attrs: { type: "checkbox", id: "save" },
                                 domProps: {
-                                  checked: Array.isArray(_vm.user.subscribe)
-                                    ? _vm._i(_vm.user.subscribe, null) > -1
-                                    : _vm.user.subscribe,
+                                  checked: Array.isArray(_vm.user.save)
+                                    ? _vm._i(_vm.user.save, null) > -1
+                                    : _vm.user.save,
                                 },
                                 on: {
                                   change: function ($event) {
-                                    var $$a = _vm.user.subscribe,
+                                    var $$a = _vm.user.save,
                                       $$el = $event.target,
                                       $$c = $$el.checked ? true : false
                                     if (Array.isArray($$a)) {
@@ -60483,21 +60499,21 @@ var render = function () {
                                         $$i < 0 &&
                                           _vm.$set(
                                             _vm.user,
-                                            "subscribe",
+                                            "save",
                                             $$a.concat([$$v])
                                           )
                                       } else {
                                         $$i > -1 &&
                                           _vm.$set(
                                             _vm.user,
-                                            "subscribe",
+                                            "save",
                                             $$a
                                               .slice(0, $$i)
                                               .concat($$a.slice($$i + 1))
                                           )
                                       }
                                     } else {
-                                      _vm.$set(_vm.user, "subscribe", $$c)
+                                      _vm.$set(_vm.user, "save", $$c)
                                     }
                                   },
                                 },
@@ -60507,12 +60523,152 @@ var render = function () {
                                 "label",
                                 {
                                   staticClass: "form-check-label",
-                                  attrs: { for: "sub" },
+                                  attrs: { for: "save" },
                                 },
-                                [_vm._v("Subscribe to Newsletter")]
+                                [_vm._v("Save your information")]
                               ),
                             ]),
                           ]),
+                          _vm._v(" "),
+                          !_vm.auth && _vm.user.save
+                            ? _c("div", { staticClass: "col-6" }, [
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.user.password,
+                                      expression: "user.password",
+                                    },
+                                  ],
+                                  staticClass: "form-control input",
+                                  attrs: {
+                                    type: "text",
+                                    placeholder: "Password",
+                                  },
+                                  domProps: { value: _vm.user.password },
+                                  on: {
+                                    input: function ($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.$set(
+                                        _vm.user,
+                                        "password",
+                                        $event.target.value
+                                      )
+                                    },
+                                  },
+                                }),
+                                _vm._v(" "),
+                                _c("small", {
+                                  staticClass: "text-danger",
+                                  domProps: {
+                                    textContent: _vm._s(
+                                      _vm.user.errors.password
+                                    ),
+                                  },
+                                }),
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          !_vm.auth && _vm.user.save
+                            ? _c("div", { staticClass: "col-6" }, [
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.user.password_confirmation,
+                                      expression: "user.password_confirmation",
+                                    },
+                                  ],
+                                  staticClass: "form-control input",
+                                  attrs: {
+                                    type: "text",
+                                    placeholder: "Confirm password",
+                                  },
+                                  domProps: {
+                                    value: _vm.user.password_confirmation,
+                                  },
+                                  on: {
+                                    input: function ($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.$set(
+                                        _vm.user,
+                                        "password_confirmation",
+                                        $event.target.value
+                                      )
+                                    },
+                                  },
+                                }),
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          !_vm.auth && _vm.user.save
+                            ? _c("div", { staticClass: "col-12" }, [
+                                _c("div", { staticClass: "form-check" }, [
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.user.subscribe,
+                                        expression: "user.subscribe",
+                                      },
+                                    ],
+                                    staticClass: "form-check-input shadow-none",
+                                    attrs: { type: "checkbox", id: "sub" },
+                                    domProps: {
+                                      checked: Array.isArray(_vm.user.subscribe)
+                                        ? _vm._i(_vm.user.subscribe, null) > -1
+                                        : _vm.user.subscribe,
+                                    },
+                                    on: {
+                                      change: function ($event) {
+                                        var $$a = _vm.user.subscribe,
+                                          $$el = $event.target,
+                                          $$c = $$el.checked ? true : false
+                                        if (Array.isArray($$a)) {
+                                          var $$v = null,
+                                            $$i = _vm._i($$a, $$v)
+                                          if ($$el.checked) {
+                                            $$i < 0 &&
+                                              _vm.$set(
+                                                _vm.user,
+                                                "subscribe",
+                                                $$a.concat([$$v])
+                                              )
+                                          } else {
+                                            $$i > -1 &&
+                                              _vm.$set(
+                                                _vm.user,
+                                                "subscribe",
+                                                $$a
+                                                  .slice(0, $$i)
+                                                  .concat($$a.slice($$i + 1))
+                                              )
+                                          }
+                                        } else {
+                                          _vm.$set(_vm.user, "subscribe", $$c)
+                                        }
+                                      },
+                                    },
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "label",
+                                    {
+                                      staticClass: "form-check-label",
+                                      attrs: { for: "sub" },
+                                    },
+                                    [_vm._v("Subscribe to Newsletter")]
+                                  ),
+                                ]),
+                              ])
+                            : _vm._e(),
                           _vm._v(" "),
                           _c("div", { staticClass: "col-12" }, [
                             _c(

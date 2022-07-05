@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rules\Password;
+use Illuminate\Validation\Rule;
 
 class CheckoutUserRequest extends FormRequest
 {
@@ -28,7 +30,14 @@ class CheckoutUserRequest extends FormRequest
             'firstname' => 'required|string|max:50',
             'lastname' => 'required|string|max:50',
             'email' => 'required|email|max:100',
+            'save' => 'required|boolean',
             'subscribe' => 'required|boolean',
+            'password' => [
+                Rule::requiredIf($this->save === true),
+                'nullable',
+                Password::defaults(),
+                'confirmed',
+            ],
         ];
     }
 }
