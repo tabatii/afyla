@@ -63,11 +63,11 @@ class Order extends Model
     {
         static::updated(function ($model) {
             if ($model->status === static::PROCESSING) {
-                //Mail::to($model->user_email)->queue(new OrderProcessing($model));
+                Mail::to($model->user_email)->queue(new OrderProcessing($model));
             } elseif ($model->status === static::SHIPPED) {
-                //Mail::to($model->user_email)->queue(new OrderShipped($model));
+                Mail::to($model->user_email)->queue(new OrderShipped($model));
             } elseif ($model->status === static::DELIVERED) {
-                //Mail::to($model->user_email)->queue(new OrderDelivered($model));
+                Mail::to($model->user_email)->queue(new OrderDelivered($model));
             }
         });
     }

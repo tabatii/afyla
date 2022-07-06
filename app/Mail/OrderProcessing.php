@@ -30,6 +30,6 @@ class OrderProcessing extends Mailable
      */
     public function build()
     {
-        return $this->subject('Subject')->view('emails.order.processing');
+        return $this->subject('Your order "'.$this->order->uuid.'" has been received.')->view('emails.order.processing');
     }
 }

@@ -30,6 +30,6 @@ class OrderShipped extends Mailable
      */
     public function build()
     {
-        return $this->subject('Subject')->view('emails.order.shipped');
+        return $this->subject('IT’S COMING TO YOU.')->view('emails.order.shipped');
     }
 }

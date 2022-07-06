@@ -30,6 +30,6 @@ class OrderDelivered extends Mailable
      */
     public function build()
     {
-        return $this->subject('Subject')->view('emails.order.delivered');
+        return $this->subject('HOW WAS YOUR EXPERIENCE AT AFYLA ?')->view('emails.order.delivered');
     }
 }
