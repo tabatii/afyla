@@ -51,7 +51,7 @@ class NapsController extends Controller
             parse_str($naps->decrypt($encrypted), $decrypted);
 
             if ($decrypted['id_commande'] == $id) {
-                $this->afterPayment($id, 'naps');
+                $this->afterPayment($id, 'credit card');
                 return inertia('OrderSuccess', [
                     'uuid' => $id,
                     'method' => 'naps',

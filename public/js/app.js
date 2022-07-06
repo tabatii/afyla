@@ -65408,6 +65408,7 @@ var staticRenderFns = [
           _c("div", { staticClass: "card bg-light border-0 shadow-sm" }, [
             _c("div", { staticClass: "card-body text-center px-5" }, [
               _c("img", {
+                staticClass: "mb-3",
                 attrs: { src: "/img/icons/success.png", width: "150px" },
               }),
               _vm._v(" "),

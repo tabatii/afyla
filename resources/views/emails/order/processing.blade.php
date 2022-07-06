@@ -3,6 +3,9 @@
 <head>
 	<meta charset="utf-8" />
 	<style>
+		* {
+			font-size: 16px;
+		}
 		.link {
 			text-decoration: none;
 		}
@@ -26,7 +29,7 @@
 </head>
 <body>
 	<div class="mail-container">
-		<h1 class="text-center"><a href="{{route('home')}}" class="text-dark fw-bold text-decoration-none" target="_blank">AFYLA</a></h1>
+		<h1 class="text-center"><a href="{{route('home')}}" class="text-dark fw-bold text-decoration-none" target="_blank" style="font-size:inherit">AFYLA</a></h1>
 		<ul class="nav nav-pills nav-fill mb-3">
 			<li class="nav-item">
 				<a href="{{route('shop')}}" class="nav-link text-dark link" target="_blank">SHOP</a>

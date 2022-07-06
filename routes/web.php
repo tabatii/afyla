@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/mails', function () {
     $order = App\Models\Order::with('billing', 'delivery')->first();
-    return view('emails.order.processing', compact('order'));
+    return view('emails.order.delivered', compact('order'));
 });
 
 Route::get('/', \App\Http\Controllers\HomeController::class)->name('home');
