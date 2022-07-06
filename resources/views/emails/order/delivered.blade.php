@@ -44,7 +44,7 @@
 					<tr>
 						@for($i = 1; $i <= 10; $i++)
 							<td class="text-center p-0">
-								<a href="{{route('feedback', ['score' => $i])}}" class="d-block py-3" target="_blank">{{$i}}</a>
+								<a href="{{route('feedback', ['uuid' => $order->uuid,'score' => $i])}}" class="d-block py-3" target="_blank">{{$i}}</a>
 							</td>
 						@endfor
 					</tr>
