@@ -20,5 +20,6 @@ class FeedbackController extends Controller
         ], [
             'score' => $request->score,
         ]);
+        return inertia('Feedback');
     }
 }
