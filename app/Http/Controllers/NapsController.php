@@ -54,7 +54,7 @@ class NapsController extends Controller
                 $this->afterPayment($id, 'credit card');
                 return inertia('OrderSuccess', [
                     'uuid' => $id,
-                    'method' => 'naps',
+                    'method' => 'credit card',
                 ]);
             }
         }
