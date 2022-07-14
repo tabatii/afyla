@@ -73,7 +73,7 @@
 							</div>
 							<div class="d-flex">
 								<span class="text-muted me-auto">Total:</span>
-								<span class="text-danger fw-medium text-end" v-text="getFormatedPrice(getBagTotal + getCompanyPrice)"></span>
+								<span class="fw-medium text-end" v-text="getFormatedPrice(getBagTotal + getCompanyPrice)"></span>
 							</div>
 							<div class="d-flex mb-3">
 								<span class="text-muted me-auto">VAT (included):</span>

@@ -32,6 +32,12 @@ class CheckoutUserRequest extends FormRequest
             'email' => 'required|email|max:100',
             'save' => 'required|boolean',
             'subscribe' => 'required|boolean',
+            'email' => [
+                'required',
+                'email',
+                'max:100',
+                $this->save === true ? 'unique:users' : undefined,
+            ],
             'password' => [
                 Rule::requiredIf($this->save === true),
                 'nullable',

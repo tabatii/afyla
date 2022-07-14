@@ -8466,6 +8466,11 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
           } else if (target === 'shipping') {
             _this2.step = 5;
           }
+        },
+        onError: function onError() {
+          if (target === 'address') {
+            _this2.same = false;
+          }
         }
       });
     },
@@ -8539,7 +8544,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       loading: false,
       orderID: null,
       step: 0,
-      same: true,
+      same: false,
       selected: -1,
       user: this.$inertia.form({
         uuid: null,
@@ -60294,7 +60299,7 @@ var render = function () {
                         ]),
                         _vm._v(" "),
                         _c("span", {
-                          staticClass: "text-danger fw-medium text-end",
+                          staticClass: "fw-medium text-end",
                           domProps: {
                             textContent: _vm._s(
                               _vm.getFormatedPrice(
@@ -60572,66 +60577,68 @@ var render = function () {
                             }),
                           ]),
                           _vm._v(" "),
-                          _c("div", { staticClass: "col-12" }, [
-                            _c("div", { staticClass: "form-check" }, [
-                              _c("input", {
-                                directives: [
-                                  {
-                                    name: "model",
-                                    rawName: "v-model",
-                                    value: _vm.user.save,
-                                    expression: "user.save",
-                                  },
-                                ],
-                                staticClass: "form-check-input shadow-none",
-                                attrs: { type: "checkbox", id: "save" },
-                                domProps: {
-                                  checked: Array.isArray(_vm.user.save)
-                                    ? _vm._i(_vm.user.save, null) > -1
-                                    : _vm.user.save,
-                                },
-                                on: {
-                                  change: function ($event) {
-                                    var $$a = _vm.user.save,
-                                      $$el = $event.target,
-                                      $$c = $$el.checked ? true : false
-                                    if (Array.isArray($$a)) {
-                                      var $$v = null,
-                                        $$i = _vm._i($$a, $$v)
-                                      if ($$el.checked) {
-                                        $$i < 0 &&
-                                          _vm.$set(
-                                            _vm.user,
-                                            "save",
-                                            $$a.concat([$$v])
-                                          )
-                                      } else {
-                                        $$i > -1 &&
-                                          _vm.$set(
-                                            _vm.user,
-                                            "save",
-                                            $$a
-                                              .slice(0, $$i)
-                                              .concat($$a.slice($$i + 1))
-                                          )
-                                      }
-                                    } else {
-                                      _vm.$set(_vm.user, "save", $$c)
-                                    }
-                                  },
-                                },
-                              }),
-                              _vm._v(" "),
-                              _c(
-                                "label",
-                                {
-                                  staticClass: "form-check-label",
-                                  attrs: { for: "save" },
-                                },
-                                [_vm._v("Save your information")]
-                              ),
-                            ]),
-                          ]),
+                          !_vm.auth
+                            ? _c("div", { staticClass: "col-12" }, [
+                                _c("div", { staticClass: "form-check" }, [
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.user.save,
+                                        expression: "user.save",
+                                      },
+                                    ],
+                                    staticClass: "form-check-input shadow-none",
+                                    attrs: { type: "checkbox", id: "save" },
+                                    domProps: {
+                                      checked: Array.isArray(_vm.user.save)
+                                        ? _vm._i(_vm.user.save, null) > -1
+                                        : _vm.user.save,
+                                    },
+                                    on: {
+                                      change: function ($event) {
+                                        var $$a = _vm.user.save,
+                                          $$el = $event.target,
+                                          $$c = $$el.checked ? true : false
+                                        if (Array.isArray($$a)) {
+                                          var $$v = null,
+                                            $$i = _vm._i($$a, $$v)
+                                          if ($$el.checked) {
+                                            $$i < 0 &&
+                                              _vm.$set(
+                                                _vm.user,
+                                                "save",
+                                                $$a.concat([$$v])
+                                              )
+                                          } else {
+                                            $$i > -1 &&
+                                              _vm.$set(
+                                                _vm.user,
+                                                "save",
+                                                $$a
+                                                  .slice(0, $$i)
+                                                  .concat($$a.slice($$i + 1))
+                                              )
+                                          }
+                                        } else {
+                                          _vm.$set(_vm.user, "save", $$c)
+                                        }
+                                      },
+                                    },
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "label",
+                                    {
+                                      staticClass: "form-check-label",
+                                      attrs: { for: "save" },
+                                    },
+                                    [_vm._v("Save your information")]
+                                  ),
+                                ]),
+                              ])
+                            : _vm._e(),
                           _vm._v(" "),
                           !_vm.auth && _vm.user.save
                             ? _c("div", { staticClass: "col-6" }, [

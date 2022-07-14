@@ -42,7 +42,7 @@
 										<input type="text" class="form-control input" v-model="user.email" :disabled="auth" placeholder="Email" />
 										<small class="text-danger" v-text="user.errors.email"></small>
 									</div>
-									<div class="col-12">
+									<div class="col-12" v-if="!auth">
 										<div class="form-check">
 											<input type="checkbox" class="form-check-input shadow-none" id="save" v-model="user.save" />
 											<label class="form-check-label" for="save">Save your information</label>
@@ -352,6 +352,11 @@
 						} else if (target === 'shipping') {
 							this.step = 5
 						}
+					},
+					onError: () => {
+						if (target === 'address') {
+							this.same = false
+						}
 					}
 				})
 			},
@@ -410,7 +415,7 @@
 				loading: false,
 				orderID: null,
 				step: 0,
-				same: true,
+				same: false,
 				selected: -1,
 				user: this.$inertia.form({
 					uuid: null,
