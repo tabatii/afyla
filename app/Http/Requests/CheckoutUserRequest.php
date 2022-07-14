@@ -29,14 +29,11 @@ class CheckoutUserRequest extends FormRequest
             'uuid' => 'required|digits:15',
             'firstname' => 'required|string|max:50',
             'lastname' => 'required|string|max:50',
-            'email' => 'required|email|max:100',
-            'save' => 'required|boolean',
-            'subscribe' => 'required|boolean',
             'email' => [
                 'required',
                 'email',
-                'max:100',
                 $this->save === true ? 'unique:users' : undefined,
+                'max:100',
             ],
             'password' => [
                 Rule::requiredIf($this->save === true),
@@ -44,6 +41,8 @@ class CheckoutUserRequest extends FormRequest
                 Password::defaults(),
                 'confirmed',
             ],
+            'save' => 'required|boolean',
+            'subscribe' => 'required|boolean',
         ];
     }
 }

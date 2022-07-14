@@ -12,11 +12,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/mails', function () {
-    $order = App\Models\Order::with('billing', 'delivery')->first();
-    \Illuminate\Support\Facades\Mail::to('anatanjaawi@gmail.com')->queue(new \App\Mail\OrderProcessing($order));
-    return view('emails.order.shipped', compact('order'));
-});
 
 Route::get('/', \App\Http\Controllers\HomeController::class)->name('home');
 
