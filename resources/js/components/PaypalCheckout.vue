@@ -1,5 +1,8 @@
 <template>
-	<div class="btn-paypal" ref="paypal"></div>
+	<div class="position-relative">
+		<div class="btn-disabled" v-show="!accepted"></div>
+		<div class="btn-paypal" ref="paypal"></div>
+	</div>
 </template>
 
 <script>
@@ -7,6 +10,7 @@
 	export default {
 		props: {
 			uuid: String,
+			accepted: Boolean,
 		},
 		computed: {
 			headers () {
@@ -62,3 +66,15 @@
 		}
 	}
 </script>
+
+<style scoped>
+	.btn-disabled {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 1;
+		background-color: rgba(255, 255, 255, .65);
+	}
+</style>

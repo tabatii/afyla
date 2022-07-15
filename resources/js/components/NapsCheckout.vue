@@ -1,6 +1,6 @@
 <template>
 	<div class="d-grid">
-		<a :href="url" class="btn btn-dark btn-naps" v-show="url">PAY WITH CREDIT CARD</a>
+		<a :href="url" class="btn btn-dark btn-naps" :class="{disabled: !accepted}" v-show="url">PAY WITH CREDIT CARD</a>
 	</div>
 </template>
 
@@ -9,6 +9,7 @@
 	export default {
 		props: {
 			uuid: String,
+			accepted: Boolean,
 		},
 		data() {
 			return {

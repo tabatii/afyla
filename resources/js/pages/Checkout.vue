@@ -209,12 +209,21 @@
 									<span class="me-auto">4. PAYMENT</span>
 									<span class="underline pointer" @click="step = 4">BACK</span>
 								</div>
+								<div class="mb-3">
+									<div class="form-check">
+										<input type="checkbox" class="form-check-input shadow-none" id="accept" v-model="accept" />
+										<label class="form-check-label" for="accept">
+											<span>I AGREE TO</span>
+											<a :href="route('page', 'terms-conditions-of-sale')" target="_blank">TERMS & CONDITIONS OF SALE</a>
+										</label>
+									</div>
+								</div>
 								<div class="row gx-2">
 									<div class="col-sm-6 col-lg-4">
-										<NapsCheckout :uuid="uuid"></NapsCheckout>
+										<NapsCheckout :uuid="uuid" :accepted="accept"></NapsCheckout>
 									</div>
 									<div class="col-sm-6 col-lg-4">
-										<PaypalCheckout :uuid="uuid"></PaypalCheckout>
+										<PaypalCheckout :uuid="uuid" :accepted="accept"></PaypalCheckout>
 									</div>
 								</div>
 							</div>
@@ -413,6 +422,7 @@
 		data() {
 			return {
 				loading: false,
+				accept: false,
 				orderID: null,
 				step: 0,
 				same: false,

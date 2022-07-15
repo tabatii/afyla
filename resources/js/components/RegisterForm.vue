@@ -63,7 +63,10 @@
 				</div>
 				<div class="form-check">
 					<input type="checkbox" class="form-check-input shadow-none" id="agree" v-model="register.agree" />
-					<label class="form-check-label" for="agree">I AGREE TO TERMS & CONDITIONS</label><br />
+					<label class="form-check-label" for="agree">
+						<span>I AGREE TO</span>
+						<a :href="route('page', 'terms-conditions-of-use')" target="_blank">TERMS & CONDITIONS</a>
+					</label><br />
 					<small class="text-danger" v-text="register.errors.agree"></small>
 				</div>
 			</div>

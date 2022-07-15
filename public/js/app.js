@@ -8393,6 +8393,15 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -8542,6 +8551,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
   data: function data() {
     return {
       loading: false,
+      accept: false,
       orderID: null,
       step: 0,
       same: false,
@@ -13014,7 +13024,8 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
-    uuid: String
+    uuid: String,
+    accepted: Boolean
   },
   data: function data() {
     return {
@@ -13154,10 +13165,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
-    uuid: String
+    uuid: String,
+    accepted: Boolean
   },
   computed: {
     headers: function headers() {
@@ -13422,6 +13437,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var countries_list__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(countries_list__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
+//
+//
+//
 //
 //
 //
@@ -23894,6 +23912,30 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, "\nul[data-v-061d6052] {\n\tposition: absolute;\n\ttop: 0;\n\tright: 0;\n\tmin-width: 200px;\n\tpadding: .5rem;\n\tmargin: 0;\n\tlist-style: none;\n\tbackground-color: white;\n}\nspan[data-v-061d6052] {\n\tfont-size: .875rem;\n}\ni[data-v-061d6052] {\n\tfont-size: 1.3rem;\n\tline-height: 1;\n\tvertical-align: middle;\n}\ni.bi-check[data-v-061d6052] {\n\tcolor: var(--bs-success);\n}\ni.bi-x[data-v-061d6052] {\n\tcolor: var(--bs-danger);\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PaypalCheckout.vue?vue&type=style&index=0&id=3a0b8404&scoped=true&lang=css&":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PaypalCheckout.vue?vue&type=style&index=0&id=3a0b8404&scoped=true&lang=css& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\n.btn-disabled[data-v-3a0b8404] {\n\tposition: absolute;\n\ttop: 0;\n\tleft: 0;\n\tright: 0;\n\tbottom: 0;\n\tz-index: 1;\n\tbackground-color: rgba(255, 255, 255, .65);\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -55345,6 +55387,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PaypalCheckout.vue?vue&type=style&index=0&id=3a0b8404&scoped=true&lang=css&":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PaypalCheckout.vue?vue&type=style&index=0&id=3a0b8404&scoped=true&lang=css& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_PaypalCheckout_vue_vue_type_style_index_0_id_3a0b8404_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./PaypalCheckout.vue?vue&type=style&index=0&id=3a0b8404&scoped=true&lang=css& */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PaypalCheckout.vue?vue&type=style&index=0&id=3a0b8404&scoped=true&lang=css&");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_PaypalCheckout_vue_vue_type_style_index_0_id_3a0b8404_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_PaypalCheckout_vue_vue_type_style_index_0_id_3a0b8404_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PopUp.vue?vue&type=style&index=0&id=77019f71&scoped=true&lang=css&":
 /*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PopUp.vue?vue&type=style&index=0&id=77019f71&scoped=true&lang=css& ***!
@@ -57088,23 +57160,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _PaypalCheckout_vue_vue_type_template_id_3a0b8404___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PaypalCheckout.vue?vue&type=template&id=3a0b8404& */ "./resources/js/components/PaypalCheckout.vue?vue&type=template&id=3a0b8404&");
+/* harmony import */ var _PaypalCheckout_vue_vue_type_template_id_3a0b8404_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PaypalCheckout.vue?vue&type=template&id=3a0b8404&scoped=true& */ "./resources/js/components/PaypalCheckout.vue?vue&type=template&id=3a0b8404&scoped=true&");
 /* harmony import */ var _PaypalCheckout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PaypalCheckout.vue?vue&type=script&lang=js& */ "./resources/js/components/PaypalCheckout.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _PaypalCheckout_vue_vue_type_style_index_0_id_3a0b8404_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./PaypalCheckout.vue?vue&type=style&index=0&id=3a0b8404&scoped=true&lang=css& */ "./resources/js/components/PaypalCheckout.vue?vue&type=style&index=0&id=3a0b8404&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
+;
 
 
 /* normalize component */
-;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _PaypalCheckout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _PaypalCheckout_vue_vue_type_template_id_3a0b8404___WEBPACK_IMPORTED_MODULE_0__.render,
-  _PaypalCheckout_vue_vue_type_template_id_3a0b8404___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  _PaypalCheckout_vue_vue_type_template_id_3a0b8404_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _PaypalCheckout_vue_vue_type_template_id_3a0b8404_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
-  null,
+  "3a0b8404",
   null
   
 )
@@ -58381,6 +58455,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/PaypalCheckout.vue?vue&type=style&index=0&id=3a0b8404&scoped=true&lang=css&":
+/*!*************************************************************************************************************!*\
+  !*** ./resources/js/components/PaypalCheckout.vue?vue&type=style&index=0&id=3a0b8404&scoped=true&lang=css& ***!
+  \*************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_PaypalCheckout_vue_vue_type_style_index_0_id_3a0b8404_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader/dist/cjs.js!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./PaypalCheckout.vue?vue&type=style&index=0&id=3a0b8404&scoped=true&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PaypalCheckout.vue?vue&type=style&index=0&id=3a0b8404&scoped=true&lang=css&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/PopUp.vue?vue&type=style&index=0&id=77019f71&scoped=true&lang=css&":
 /*!****************************************************************************************************!*\
   !*** ./resources/js/components/PopUp.vue?vue&type=style&index=0&id=77019f71&scoped=true&lang=css& ***!
@@ -58977,19 +59064,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/PaypalCheckout.vue?vue&type=template&id=3a0b8404&":
-/*!***********************************************************************************!*\
-  !*** ./resources/js/components/PaypalCheckout.vue?vue&type=template&id=3a0b8404& ***!
-  \***********************************************************************************/
+/***/ "./resources/js/components/PaypalCheckout.vue?vue&type=template&id=3a0b8404&scoped=true&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/components/PaypalCheckout.vue?vue&type=template&id=3a0b8404&scoped=true& ***!
+  \***********************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PaypalCheckout_vue_vue_type_template_id_3a0b8404___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PaypalCheckout_vue_vue_type_template_id_3a0b8404___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PaypalCheckout_vue_vue_type_template_id_3a0b8404_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PaypalCheckout_vue_vue_type_template_id_3a0b8404_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PaypalCheckout_vue_vue_type_template_id_3a0b8404___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./PaypalCheckout.vue?vue&type=template&id=3a0b8404& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PaypalCheckout.vue?vue&type=template&id=3a0b8404&");
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PaypalCheckout_vue_vue_type_template_id_3a0b8404_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./PaypalCheckout.vue?vue&type=template&id=3a0b8404&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PaypalCheckout.vue?vue&type=template&id=3a0b8404&scoped=true&");
 
 
 /***/ }),
@@ -61920,11 +62007,84 @@ var render = function () {
                           ),
                         ]),
                         _vm._v(" "),
+                        _c("div", { staticClass: "mb-3" }, [
+                          _c("div", { staticClass: "form-check" }, [
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.accept,
+                                  expression: "accept",
+                                },
+                              ],
+                              staticClass: "form-check-input shadow-none",
+                              attrs: { type: "checkbox", id: "accept" },
+                              domProps: {
+                                checked: Array.isArray(_vm.accept)
+                                  ? _vm._i(_vm.accept, null) > -1
+                                  : _vm.accept,
+                              },
+                              on: {
+                                change: function ($event) {
+                                  var $$a = _vm.accept,
+                                    $$el = $event.target,
+                                    $$c = $$el.checked ? true : false
+                                  if (Array.isArray($$a)) {
+                                    var $$v = null,
+                                      $$i = _vm._i($$a, $$v)
+                                    if ($$el.checked) {
+                                      $$i < 0 &&
+                                        (_vm.accept = $$a.concat([$$v]))
+                                    } else {
+                                      $$i > -1 &&
+                                        (_vm.accept = $$a
+                                          .slice(0, $$i)
+                                          .concat($$a.slice($$i + 1)))
+                                    }
+                                  } else {
+                                    _vm.accept = $$c
+                                  }
+                                },
+                              },
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "label",
+                              {
+                                staticClass: "form-check-label",
+                                attrs: { for: "accept" },
+                              },
+                              [
+                                _c("span", [_vm._v("I AGREE TO")]),
+                                _vm._v(" "),
+                                _c(
+                                  "a",
+                                  {
+                                    attrs: {
+                                      href: _vm.route(
+                                        "page",
+                                        "terms-conditions-of-sale"
+                                      ),
+                                      target: "_blank",
+                                    },
+                                  },
+                                  [_vm._v("TERMS & CONDITIONS OF SALE")]
+                                ),
+                              ]
+                            ),
+                          ]),
+                        ]),
+                        _vm._v(" "),
                         _c("div", { staticClass: "row gx-2" }, [
                           _c(
                             "div",
                             { staticClass: "col-sm-6 col-lg-4" },
-                            [_c("NapsCheckout", { attrs: { uuid: _vm.uuid } })],
+                            [
+                              _c("NapsCheckout", {
+                                attrs: { uuid: _vm.uuid, accepted: _vm.accept },
+                              }),
+                            ],
                             1
                           ),
                           _vm._v(" "),
@@ -61933,7 +62093,7 @@ var render = function () {
                             { staticClass: "col-sm-6 col-lg-4" },
                             [
                               _c("PaypalCheckout", {
-                                attrs: { uuid: _vm.uuid },
+                                attrs: { uuid: _vm.uuid, accepted: _vm.accept },
                               }),
                             ],
                             1
@@ -73693,6 +73853,7 @@ var render = function () {
           },
         ],
         staticClass: "btn btn-dark btn-naps",
+        class: { disabled: !_vm.accepted },
         attrs: { href: _vm.url },
       },
       [_vm._v("PAY WITH CREDIT CARD")]
@@ -73808,10 +73969,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PaypalCheckout.vue?vue&type=template&id=3a0b8404&":
-/*!**************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PaypalCheckout.vue?vue&type=template&id=3a0b8404& ***!
-  \**************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PaypalCheckout.vue?vue&type=template&id=3a0b8404&scoped=true&":
+/*!**************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PaypalCheckout.vue?vue&type=template&id=3a0b8404&scoped=true& ***!
+  \**************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -73824,7 +73985,21 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { ref: "paypal", staticClass: "btn-paypal" })
+  return _c("div", { staticClass: "position-relative" }, [
+    _c("div", {
+      directives: [
+        {
+          name: "show",
+          rawName: "v-show",
+          value: !_vm.accepted,
+          expression: "!accepted",
+        },
+      ],
+      staticClass: "btn-disabled",
+    }),
+    _vm._v(" "),
+    _c("div", { ref: "paypal", staticClass: "btn-paypal" }),
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -74596,7 +74771,20 @@ var render = function () {
               _c(
                 "label",
                 { staticClass: "form-check-label", attrs: { for: "agree" } },
-                [_vm._v("I AGREE TO TERMS & CONDITIONS")]
+                [
+                  _c("span", [_vm._v("I AGREE TO")]),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: _vm.route("page", "terms-conditions-of-use"),
+                        target: "_blank",
+                      },
+                    },
+                    [_vm._v("TERMS & CONDITIONS")]
+                  ),
+                ]
               ),
               _c("br"),
               _vm._v(" "),

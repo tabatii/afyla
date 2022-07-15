@@ -32,7 +32,7 @@ class CheckoutUserRequest extends FormRequest
             'email' => [
                 'required',
                 'email',
-                $this->save === true ? 'unique:users' : undefined,
+                $this->save === true ? 'unique:users' : null,
                 'max:100',
             ],
             'password' => [
