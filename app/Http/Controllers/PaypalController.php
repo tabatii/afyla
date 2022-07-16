@@ -112,11 +112,11 @@ class PayPalController extends Controller
         return response()->json();
     }
 
-    public function success(Request $request, $id)
+    public function success($id)
     {
+        $order = Order::where('uuid', $id)->firstOrFail();
         return inertia('OrderSuccess', [
-            'uuid' => $id,
-            'method' => 'paypal',
+            'order' => $order,
         ]);
     }
 }
