@@ -3,23 +3,23 @@
 		<h title="Contact Us"></h>
 		<section class="bg-primary pb-5">
 			<div class="container py-5">
-				<p class="fs-2">CONTACT US</p>
+				<p class="fs-4">CONTACT US</p>
 				<p>Thank you for reaching out. We would be glad to help you and assist you about any request. Please fill the form below.</p>
 				<form @submit.prevent="send">
 					<div class="row gy-4">
 						<div class="col-sm-6">
 							<label>FULL NAME*</label>
-							<input type="text" class="form-control border shadow-none py-3" v-model="form.name" />
+							<input type="text" class="form-control border shadow-none py-2" v-model="form.name" />
 							<small class="text-danger" v-text="form.errors.name"></small>
 						</div>
 						<div class="col-sm-6">
 							<label>EMAIL*</label>
-							<input type="text" class="form-control border shadow-none py-3" v-model="form.email" />
+							<input type="text" class="form-control border shadow-none py-2" v-model="form.email" />
 							<small class="text-danger" v-text="form.errors.email"></small>
 						</div>
 						<div class="col-sm-6">
 							<label>TOPIC*</label>
-							<select class="form-select border shadow-none py-3" v-model="form.topic">
+							<select class="form-select border shadow-none py-2" v-model="form.topic">
 								<option :value="t" v-text="t" v-for="t in topics" :key="Math.random()"></option>
 							</select>
 							<small class="text-danger" v-text="form.errors.topic"></small>

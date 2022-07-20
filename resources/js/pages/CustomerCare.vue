@@ -176,7 +176,7 @@
 							<p class="fw-medium mb-0">SHOPPING</p>
 							<p>To make a purchase in <l :href="route('home')">www.afylaworld.com</l> you don’t need to register, however we suggest you create an account to access exclusive areas and services dedicated to our customers. You can browse our home page and discover the product categories we have and that lead you to our online shops.</p>
 							<p class="fw-medium mb-0"><i class="bi bi-search"></i> SEARCH</p>
-							<p>You can also use our search tool located the head of all the pages. You easily click on the search button and type the item’s name you are looking for.. We offer you suggestions of each shop we have, before even writing something. We use a very advanced search feature to make it easier for you</p>
+							<p>You can also use our search tool located the head of all the pages. You easily click on the search button and type the item’s name you are looking for. We offer you suggestions of each shop we have, before even writing something. We use a very advanced search feature to make it easier for you</p>
 							<p class="fw-medium mb-0"><i class="bi bi-list"></i> MENU</p>
 							<p class="mb-0">In our menu tab, you can find the different shops we have.</p>
 							<p class="mb-0">“WHAT’S NEW” is the link to a listing all the newest products and last arrivals.</p>
@@ -256,9 +256,6 @@
 								</div>
 								<div class="col-sm-4 col-lg-3 col-xl-2">
 									<img src="/img/icons/applepay.png" width="64px" />
-								</div>
-								<div class="col-sm-4 col-lg-3 col-xl-2">
-									<img src="/img/icons/afterpay.png" width="64px" />
 								</div>
 							</div>
 							<p>Payment will include only the price of the products. The costs of the shipping and delivery are totally free. Under no circumstances will You be charged more than the product price relative to the payment method chosen by You.</p>

@@ -9131,9 +9131,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 
 
@@ -9188,7 +9185,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia-vue */ "./node_modules/@inertiajs/inertia-vue/dist/index.js");
 /* harmony import */ var accordion_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! accordion-js */ "./node_modules/accordion-js/dist/accordion.min.js");
 /* harmony import */ var accordion_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(accordion_js__WEBPACK_IMPORTED_MODULE_3__);
-//
 //
 //
 //
@@ -10354,10 +10350,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_PopUp__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/PopUp */ "./resources/js/components/PopUp.vue");
 /* harmony import */ var glider_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! glider-js */ "./node_modules/glider-js/glider.js");
 /* harmony import */ var glider_js__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(glider_js__WEBPACK_IMPORTED_MODULE_11__);
-//
-//
-//
-//
 //
 //
 //
@@ -62586,7 +62578,7 @@ var render = function () {
       _vm._v(" "),
       _c("section", { staticClass: "bg-primary pb-5" }, [
         _c("div", { staticClass: "container py-5" }, [
-          _c("p", { staticClass: "fs-2" }, [_vm._v("CONTACT US")]),
+          _c("p", { staticClass: "fs-4" }, [_vm._v("CONTACT US")]),
           _vm._v(" "),
           _c("p", [
             _vm._v(
@@ -62618,7 +62610,7 @@ var render = function () {
                         expression: "form.name",
                       },
                     ],
-                    staticClass: "form-control border shadow-none py-3",
+                    staticClass: "form-control border shadow-none py-2",
                     attrs: { type: "text" },
                     domProps: { value: _vm.form.name },
                     on: {
@@ -62649,7 +62641,7 @@ var render = function () {
                         expression: "form.email",
                       },
                     ],
-                    staticClass: "form-control border shadow-none py-3",
+                    staticClass: "form-control border shadow-none py-2",
                     attrs: { type: "text" },
                     domProps: { value: _vm.form.email },
                     on: {
@@ -62682,7 +62674,7 @@ var render = function () {
                           expression: "form.topic",
                         },
                       ],
-                      staticClass: "form-select border shadow-none py-3",
+                      staticClass: "form-select border shadow-none py-2",
                       on: {
                         change: function ($event) {
                           var $$selectedVal = Array.prototype.filter
@@ -63592,7 +63584,7 @@ var render = function () {
                     _vm._v(" "),
                     _c("p", [
                       _vm._v(
-                        "You can also use our search tool located the head of all the pages. You easily click on the search button and type the item’s name you are looking for.. We offer you suggestions of each shop we have, before even writing something. We use a very advanced search feature to make it easier for you"
+                        "You can also use our search tool located the head of all the pages. You easily click on the search button and type the item’s name you are looking for. We offer you suggestions of each shop we have, before even writing something. We use a very advanced search feature to make it easier for you"
                       ),
                     ]),
                     _vm._v(" "),
@@ -64021,15 +64013,6 @@ var render = function () {
                           },
                         }),
                       ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-sm-4 col-lg-3 col-xl-2" }, [
-                        _c("img", {
-                          attrs: {
-                            src: "/img/icons/afterpay.png",
-                            width: "64px",
-                          },
-                        }),
-                      ]),
                     ]),
                     _vm._v(" "),
                     _c("p", [
@@ -64446,11 +64429,21 @@ var render = function () {
                         _vm._v(" "),
                         _c("div", { staticClass: "ac-panel" }, [
                           _c("div", { staticClass: "ac-text text-muted" }, [
-                            _c("p", [
-                              _vm._v(
-                                "You can check the status of your order at any time on the Follow your order page."
-                              ),
-                            ]),
+                            _c(
+                              "p",
+                              [
+                                _vm._v(
+                                  "You can check the status of your order at any time on the "
+                                ),
+                                _c(
+                                  "l",
+                                  { attrs: { href: _vm.route("customer") } },
+                                  [_vm._v("Follow your order page")]
+                                ),
+                                _vm._v("."),
+                              ],
+                              1
+                            ),
                           ]),
                         ]),
                       ]),
@@ -64517,7 +64510,7 @@ var render = function () {
                           _c("div", { staticClass: "ac-text text-muted" }, [
                             _c("p", [
                               _vm._v(
-                                "Promotional Codes allow you to enjoy exclusive initiatives and promotions. If you are signed up for our newsletter, you will receive regular Promotional Codes for all active promotions. The code can only be used on one order. You can enter it on the promotional code section on the Checkout. If the code doesn’t work, check the date and validity, as well as which items and categories the newsletter received says are covered by the promotion."
+                                "Promotional Codes allow you to enjoy exclusive initiatives and promotions. If you are signed up for our newsletter, you will receive regular Promotional Codes for all active promotions. You can enter it on the promotional code section during the Checkout. If the code doesn’t work, check the date and validity, as well as which items and categories the newsletter received says are covered by the promotion."
                               ),
                             ]),
                           ]),
@@ -64587,7 +64580,7 @@ var render = function () {
                             _vm._v(" "),
                             _c("p", [
                               _vm._v(
-                                "4. Give the package to the courier: We will contact the courier to schedule a pickup and shipment of your return or We can hand you the courier’s contact an arrange a pick up that will suit you better. Or You can drop the package off at Our carrier shipping location. All returns shipped using the prepaid shipping label is complimentary."
+                                "4. Give the package to the courier: We will contact the courier to schedule a pickup and shipment of your return or We can hand you the courier’s contact to arrange a pick up that will suit you better. Or You can drop the package off at Our carrier shipping location. All returns shipped using the prepaid shipping label is complimentary."
                               ),
                             ]),
                           ]),
@@ -64664,11 +64657,21 @@ var render = function () {
                         _vm._v(" "),
                         _c("div", { staticClass: "ac-panel" }, [
                           _c("div", { staticClass: "ac-text text-muted" }, [
-                            _c("p", [
-                              _vm._v(
-                                "You can check the status of your order at any time on the Follow your return page."
-                              ),
-                            ]),
+                            _c(
+                              "p",
+                              [
+                                _vm._v(
+                                  "You can check the status of your order at any time on the "
+                                ),
+                                _c(
+                                  "l",
+                                  { attrs: { href: _vm.route("customer") } },
+                                  [_vm._v("Follow your return page")]
+                                ),
+                                _vm._v("."),
+                              ],
+                              1
+                            ),
                           ]),
                         ]),
                       ]),
@@ -65200,22 +65203,6 @@ var render = function () {
                                 "You can track your order via the FedEx Worldwide express website."
                               ),
                             ]),
-                            _vm._v(" "),
-                            _c(
-                              "p",
-                              [
-                                _vm._v(
-                                  "If you want to choose your own shipping method, please "
-                                ),
-                                _c(
-                                  "l",
-                                  { attrs: { href: _vm.route("contact") } },
-                                  [_vm._v("Contact Us")]
-                                ),
-                                _vm._v("."),
-                              ],
-                              1
-                            ),
                           ]),
                         ]),
                       ]),
@@ -65303,13 +65290,14 @@ var render = function () {
                             _c(
                               "p",
                               [
+                                _vm._v("yes, "),
                                 _c(
                                   "l",
                                   { attrs: { href: _vm.route("contact") } },
                                   [_vm._v("Contact Us")]
                                 ),
                                 _vm._v(
-                                  " so we can assist you with help you require"
+                                  " so we can assist you with help you require."
                                 ),
                               ],
                               1
@@ -67637,26 +67625,6 @@ var render = function () {
                                   }),
                                   _vm._v(" "),
                                   _c("p", [_vm._v("Apple Pay")]),
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "col-sm-4 col-lg-3 col-xl-2 text-start text-sm-center",
-                                },
-                                [
-                                  _c("img", {
-                                    attrs: {
-                                      src: "/img/icons/afterpay.png",
-                                      width: "64px",
-                                    },
-                                  }),
-                                  _vm._v(" "),
-                                  _c("p", [
-                                    _vm._v("Pay monthly with afterpay"),
-                                  ]),
                                 ]
                               ),
                             ]),

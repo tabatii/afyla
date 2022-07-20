@@ -188,10 +188,6 @@
 												<img src="/img/icons/applepay.png" width="64px" />
 												<p>Apple Pay</p>
 											</div>
-											<div class="col-sm-4 col-lg-3 col-xl-2 text-start text-sm-center">
-												<img src="/img/icons/afterpay.png" width="64px" />
-												<p>Pay monthly with afterpay</p>
-											</div>
 										</div>
 										<p>Payment will include only the price of the products. The costs of the shipping and delivery are totally free. Under no circumstances will You be charged more than the product price relative to the payment method chosen by You.</p>
 										<p>The full transaction value will be charged to your credit card after we have verified your card details, received credit authorisation, confirmed availability and prepared your order for shipping.</p>

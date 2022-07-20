@@ -89,7 +89,7 @@
 									</div>
 									<div class="ac-panel">
 										<div class="ac-text text-muted">
-											<p>You can check the status of your order at any time on the Follow your order page.</p>
+											<p>You can check the status of your order at any time on the <l :href="route('customer')">Follow your order page</l>.</p>
 										</div>
 									</div>
 								</div>
@@ -111,7 +111,7 @@
 									</div>
 									<div class="ac-panel">
 										<div class="ac-text text-muted">
-											<p>Promotional Codes allow you to enjoy exclusive initiatives and promotions. If you are signed up for our newsletter, you will receive regular Promotional Codes for all active promotions. The code can only be used on one order. You can enter it on the promotional code section on the Checkout. If the code doesn’t work, check the date and validity, as well as which items and categories the newsletter received says are covered by the promotion.</p>
+											<p>Promotional Codes allow you to enjoy exclusive initiatives and promotions. If you are signed up for our newsletter, you will receive regular Promotional Codes for all active promotions. You can enter it on the promotional code section during the Checkout. If the code doesn’t work, check the date and validity, as well as which items and categories the newsletter received says are covered by the promotion.</p>
 										</div>
 									</div>
 								</div>
@@ -140,7 +140,7 @@
 											<p>1. Contact us: Our team of advisors will assist you on the return by offering a complete service or pick up by the courier company's. They will also provide the documents needed by email. Contact us by choosing the subject “Returns”. You can also email or call us.</p>
 											<p>2. Complete the questions in the form: You will receive a “Return form” with questions on it. You should complete them and include the form in the packaging.</p>
 											<p>3. Prepare the packaging: Including the return form completed and with the documents requested by our advisors team.</p>
-											<p>4. Give the package to the courier: We will contact the courier to schedule a pickup and shipment of your return or We can hand you the courier’s contact an arrange a pick up that will suit you better. Or You can drop the package off at Our carrier shipping location. All returns shipped using the prepaid shipping label is complimentary.</p>
+											<p>4. Give the package to the courier: We will contact the courier to schedule a pickup and shipment of your return or We can hand you the courier’s contact to arrange a pick up that will suit you better. Or You can drop the package off at Our carrier shipping location. All returns shipped using the prepaid shipping label is complimentary.</p>
 										</div>
 									</div>
 								</div>
@@ -170,7 +170,7 @@
 									</div>
 									<div class="ac-panel">
 										<div class="ac-text text-muted">
-											<p>You can check the status of your order at any time on the Follow your return page.</p>
+											<p>You can check the status of your order at any time on the <l :href="route('customer')">Follow your return page</l>.</p>
 										</div>
 									</div>
 								</div>
@@ -348,7 +348,6 @@
 									<div class="ac-panel">
 										<div class="ac-text text-muted">
 											<p>You can track your order via the FedEx Worldwide express website.</p>
-											<p>If you want to choose your own shipping method, please <l :href="route('contact')">Contact Us</l>.</p>
 										</div>
 									</div>
 								</div>
@@ -378,7 +377,7 @@
 									</div>
 									<div class="ac-panel">
 										<div class="ac-text text-muted">
-											<p><l :href="route('contact')">Contact Us</l> so we can assist you with help you require</p>
+											<p>yes, <l :href="route('contact')">Contact Us</l> so we can assist you with help you require.</p>
 										</div>
 									</div>
 								</div>
