@@ -10979,6 +10979,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -68437,6 +68443,13 @@ var render = function () {
                       },
                     },
                   }),
+                  _vm._v(" "),
+                  _c("small", {
+                    staticClass: "text-danger",
+                    domProps: {
+                      textContent: _vm._s(_vm.form.errors.firstname),
+                    },
+                  }),
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-sm-6" }, [
@@ -68460,6 +68473,11 @@ var render = function () {
                         _vm.$set(_vm.form, "lastname", $event.target.value)
                       },
                     },
+                  }),
+                  _vm._v(" "),
+                  _c("small", {
+                    staticClass: "text-danger",
+                    domProps: { textContent: _vm._s(_vm.form.errors.lastname) },
                   }),
                 ]),
                 _vm._v(" "),
@@ -68522,6 +68540,11 @@ var render = function () {
                     ],
                     2
                   ),
+                  _vm._v(" "),
+                  _c("small", {
+                    staticClass: "text-danger",
+                    domProps: { textContent: _vm._s(_vm.form.errors.country) },
+                  }),
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-sm-8" }, [
@@ -68700,6 +68723,11 @@ var render = function () {
                       ),
                     ]),
                   ]),
+                  _vm._v(" "),
+                  _c("small", {
+                    staticClass: "text-danger",
+                    domProps: { textContent: _vm._s(_vm.form.errors.birthday) },
+                  }),
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-sm-4" }, [
@@ -68723,6 +68751,11 @@ var render = function () {
                         _vm.$set(_vm.form, "phone", $event.target.value)
                       },
                     },
+                  }),
+                  _vm._v(" "),
+                  _c("small", {
+                    staticClass: "text-danger",
+                    domProps: { textContent: _vm._s(_vm.form.errors.phone) },
                   }),
                 ]),
                 _vm._v(" "),
@@ -68784,6 +68817,12 @@ var render = function () {
                       },
                       [_vm._v("SUBSCRIBE TO THE NEWSLETTER")]
                     ),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("small", {
+                      staticClass: "text-danger",
+                      domProps: { textContent: _vm._s(_vm.form.errors.phone) },
+                    }),
                   ]),
                 ]),
                 _vm._v(" "),

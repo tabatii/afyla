@@ -29,7 +29,7 @@ class ProfileRequest extends FormRequest
             'country' => 'required|string|max:50',
             'birthday' => 'required|date',
             'phone' => 'nullable|string|max:20',
-            'subscribe' => 'nullable|accepted',
+            'subscribe' => 'required|boolean',
         ];
     }
 }
