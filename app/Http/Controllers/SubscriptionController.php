@@ -12,7 +12,7 @@ class SubscriptionController extends Controller
         $request->validate([
             'email' => 'required|email|max:100|unique:subscriptions',
         ], [
-            'email.unique' => 'This :attribute is already subscribed.'
+            'email.unique' => 'You are already subscribed.'
         ]);
 
         $this->subscribe($request->email);

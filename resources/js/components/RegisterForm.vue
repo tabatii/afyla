@@ -59,7 +59,8 @@
 			<div class="mb-3">
 				<div class="form-check">
 					<input type="checkbox" class="form-check-input shadow-none" id="subscribe" v-model="register.subscribe" />
-					<label class="form-check-label" for="subscribe">I SUBSCRIBE FOR EXCLUSIVE UPDATES</label>
+					<label class="form-check-label" for="subscribe">I SUBSCRIBE FOR EXCLUSIVE UPDATES</label><br />
+					<small class="text-danger" v-text="register.errors.subscribe"></small>
 				</div>
 				<div class="form-check">
 					<input type="checkbox" class="form-check-input shadow-none" id="agree" v-model="register.agree" />

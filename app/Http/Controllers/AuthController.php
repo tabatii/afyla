@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Validation\ValidationException;
 use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\LoginRequest;
+use App\Models\Subscription;
 use App\Models\Wishlist;
 use App\Models\User;
 use App\Models\Bag;
@@ -20,6 +22,15 @@ class AuthController extends Controller
 
     public function register(RegisterRequest $request)
     {
+        if ($request->subscribe) {
+            if (Subscription::where('email', $request->email)->exists()) {
+                return back()->withErrors([
+                    'subscribe' => __('validation.custom.subscribe.unique'),
+                ]);
+            }
+            $this->subscribe($user->email);
+        }
+
         $user = new User;
         $user->firstname = $request->firstname;
         $user->lastname = $request->lastname;
@@ -28,10 +39,6 @@ class AuthController extends Controller
         $user->country = $request->country;
         $user->birthday = Carbon::parse($request->birthday);
         $user->save();
-
-        if ($request->subscribe) {
-            $this->subscribe($user->email);
-        }
 
         auth()->login($user);
         $user->sendEmailVerificationNotification();

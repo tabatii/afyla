@@ -109,8 +109,12 @@
 									<table class="table table-bordered border-secondary mb-2">
 										<tbody>
 											<tr>
-												<td>Shipping address</td>
+												<td>Delivery address</td>
 												<td>{{ order.delivery.street }}, {{ order.delivery.city }}, {{ order.delivery.zip }}, {{ order.delivery.country }}</td>
+											</tr>
+											<tr>
+												<td>Billing address</td>
+												<td>{{ order.billing.street }}, {{ order.billing.city }}, {{ order.billing.zip }}, {{ order.billing.country }}</td>
 											</tr>
 											<tr>
 												<td>Phone</td>
@@ -137,7 +141,7 @@
 										<thead>
 											<tr class="align-middle">
 												<th scope="col">#</th>
-												<th scope="col">TITLE</th>
+												<th scope="col">DESCRIPTION</th>
 												<th scope="col">CATEGORY</th>
 												<th scope="col">QUANTITY</th>
 												<th scope="col">SIZE</th>

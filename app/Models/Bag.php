@@ -25,4 +25,12 @@ class Bag extends Model
     {
         return $this->belongsTo(Size::class);
     }
+
+    public function scopeAuthOrGuest($query)
+    {
+        if (auth()->check()) {
+            return $query->whereNotNull('user_id')->where('user_id', auth()->id());
+        }
+        return $query->whereNotNull('cookie_id')->where('cookie_id', request()->cookie('cookie_id'));
+    }
 }

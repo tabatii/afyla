@@ -58,7 +58,16 @@
 									<div class="col-12" v-if="!auth && user.save">
 										<div class="form-check">
 											<input type="checkbox" class="form-check-input shadow-none" id="sub" v-model="user.subscribe" />
-											<label class="form-check-label" for="sub">Subscribe to Newsletter</label>
+											<label class="form-check-label" for="sub">Subscribe to Newsletter</label><br />
+											<small class="text-danger" v-text="user.errors.subscribe"></small>
+										</div>
+										<div class="form-check">
+											<input type="checkbox" class="form-check-input shadow-none" id="agree2" v-model="user.agree" />
+											<label class="form-check-label" for="agree2">
+												<span>I AGREE TO</span>
+												<a :href="route('page', 'terms-conditions-of-use')" target="_blank">TERMS & CONDITIONS</a>
+											</label><br />
+											<small class="text-danger" v-text="user.errors.agree"></small>
 										</div>
 									</div>
 									<div class="col-12">
@@ -436,6 +445,7 @@
 					email: null,
 					save: false,
 					subscribe: false,
+					agree: false,
 				}),
 				address: this.$inertia.form({
 					delivery: {

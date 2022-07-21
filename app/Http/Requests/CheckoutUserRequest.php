@@ -43,6 +43,17 @@ class CheckoutUserRequest extends FormRequest
             ],
             'save' => 'required|boolean',
             'subscribe' => 'required|boolean',
+            'agree' => [
+                'required',
+                $this->save === true ? 'accepted' : null,
+            ],
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'agree.accepted' => 'You must agree to our terms and conditions.',
         ];
     }
 }

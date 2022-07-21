@@ -141,8 +141,8 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'subscribe' => [
+            'unique' => 'You are already subscribed.',
         ],
     ],
 

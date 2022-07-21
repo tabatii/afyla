@@ -8402,6 +8402,15 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -8564,7 +8573,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
         password_confirmation: null,
         email: null,
         save: false,
-        subscribe: false
+        subscribe: false,
+        agree: false
       }),
       address: this.$inertia.form({
         delivery: {
@@ -8841,6 +8851,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia-vue */ "./node_modules/@inertiajs/inertia-vue/dist/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
+//
+//
+//
+//
 //
 //
 //
@@ -12512,7 +12526,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     closeNewsletter: function closeNewsletter() {
       js_cookie__WEBPACK_IMPORTED_MODULE_5__["default"].set('newsletter-popup', 'hide', {
-        expires: 7
+        expires: 2
       });
       this.newsletter = js_cookie__WEBPACK_IMPORTED_MODULE_5__["default"].get('newsletter-popup');
     },
@@ -13526,6 +13540,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -13896,8 +13911,8 @@ __webpack_require__.r(__webpack_exports__);
       loading: false,
       form: this.$inertia.form({
         id: null,
-        from: 'tabatii@outlook.fr',
-        to: 'anatanjaawi@gmail.com'
+        from: null,
+        to: null
       })
     };
   },
@@ -60941,6 +60956,101 @@ var render = function () {
                                     },
                                     [_vm._v("Subscribe to Newsletter")]
                                   ),
+                                  _c("br"),
+                                  _vm._v(" "),
+                                  _c("small", {
+                                    staticClass: "text-danger",
+                                    domProps: {
+                                      textContent: _vm._s(
+                                        _vm.user.errors.subscribe
+                                      ),
+                                    },
+                                  }),
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-check" }, [
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.user.agree,
+                                        expression: "user.agree",
+                                      },
+                                    ],
+                                    staticClass: "form-check-input shadow-none",
+                                    attrs: { type: "checkbox", id: "agree2" },
+                                    domProps: {
+                                      checked: Array.isArray(_vm.user.agree)
+                                        ? _vm._i(_vm.user.agree, null) > -1
+                                        : _vm.user.agree,
+                                    },
+                                    on: {
+                                      change: function ($event) {
+                                        var $$a = _vm.user.agree,
+                                          $$el = $event.target,
+                                          $$c = $$el.checked ? true : false
+                                        if (Array.isArray($$a)) {
+                                          var $$v = null,
+                                            $$i = _vm._i($$a, $$v)
+                                          if ($$el.checked) {
+                                            $$i < 0 &&
+                                              _vm.$set(
+                                                _vm.user,
+                                                "agree",
+                                                $$a.concat([$$v])
+                                              )
+                                          } else {
+                                            $$i > -1 &&
+                                              _vm.$set(
+                                                _vm.user,
+                                                "agree",
+                                                $$a
+                                                  .slice(0, $$i)
+                                                  .concat($$a.slice($$i + 1))
+                                              )
+                                          }
+                                        } else {
+                                          _vm.$set(_vm.user, "agree", $$c)
+                                        }
+                                      },
+                                    },
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "label",
+                                    {
+                                      staticClass: "form-check-label",
+                                      attrs: { for: "agree2" },
+                                    },
+                                    [
+                                      _c("span", [_vm._v("I AGREE TO")]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "a",
+                                        {
+                                          attrs: {
+                                            href: _vm.route(
+                                              "page",
+                                              "terms-conditions-of-use"
+                                            ),
+                                            target: "_blank",
+                                          },
+                                        },
+                                        [_vm._v("TERMS & CONDITIONS")]
+                                      ),
+                                    ]
+                                  ),
+                                  _c("br"),
+                                  _vm._v(" "),
+                                  _c("small", {
+                                    staticClass: "text-danger",
+                                    domProps: {
+                                      textContent: _vm._s(
+                                        _vm.user.errors.agree
+                                      ),
+                                    },
+                                  }),
                                 ]),
                               ])
                             : _vm._e(),
@@ -63311,7 +63421,7 @@ var render = function () {
                               [
                                 _c("tbody", [
                                   _c("tr", [
-                                    _c("td", [_vm._v("Shipping address")]),
+                                    _c("td", [_vm._v("Delivery address")]),
                                     _vm._v(" "),
                                     _c("td", [
                                       _vm._v(
@@ -63322,6 +63432,22 @@ var render = function () {
                                           _vm._s(_vm.order.delivery.zip) +
                                           ", " +
                                           _vm._s(_vm.order.delivery.country)
+                                      ),
+                                    ]),
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("tr", [
+                                    _c("td", [_vm._v("Billing address")]),
+                                    _vm._v(" "),
+                                    _c("td", [
+                                      _vm._v(
+                                        _vm._s(_vm.order.billing.street) +
+                                          ", " +
+                                          _vm._s(_vm.order.billing.city) +
+                                          ", " +
+                                          _vm._s(_vm.order.billing.zip) +
+                                          ", " +
+                                          _vm._s(_vm.order.billing.country)
                                       ),
                                     ]),
                                   ]),
@@ -63408,7 +63534,7 @@ var render = function () {
                                     ]),
                                     _vm._v(" "),
                                     _c("th", { attrs: { scope: "col" } }, [
-                                      _vm._v("TITLE"),
+                                      _vm._v("DESCRIPTION"),
                                     ]),
                                     _vm._v(" "),
                                     _c("th", { attrs: { scope: "col" } }, [
@@ -74828,6 +74954,14 @@ var render = function () {
                 },
                 [_vm._v("I SUBSCRIBE FOR EXCLUSIVE UPDATES")]
               ),
+              _c("br"),
+              _vm._v(" "),
+              _c("small", {
+                staticClass: "text-danger",
+                domProps: {
+                  textContent: _vm._s(_vm.register.errors.subscribe),
+                },
+              }),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-check" }, [

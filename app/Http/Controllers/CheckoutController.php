@@ -26,6 +26,7 @@ class CheckoutController extends Controller
         if (Order::where('uuid', $request->uuid)->status()->exists()) {
             return inertia()->location(route('checkout'));
         }
+
         $order = Order::updateOrCreate([
             'uuid' => $request->uuid,
         ], [
@@ -34,7 +35,16 @@ class CheckoutController extends Controller
             'user_lastname' => $request->lastname,
             'user_email' => $request->email,
         ]);
+
         if ($request->save) {
+            if ($request->subscribe) {
+                if (Subscription::where('email', $request->email)->exists()) {
+                    return back()->withErrors([
+                        'subscribe' => __('validation.custom.subscribe.unique'),
+                    ]);
+                }
+                $this->subscribe($user->email);
+            }
             $user = new User;
             $user->firstname = $request->firstname;
             $user->lastname = $request->lastname;
@@ -44,9 +54,7 @@ class CheckoutController extends Controller
                 $user->sendEmailVerificationNotification();
             }
         }
-        if ($request->subscribe && !Subscription::where('email', $request->email)->exists()) {
-            $this->subscribe($request->email);
-        }
+
         $this->saveBag($order->id, $request->cookie('cookie_id'));
         return back();
     }

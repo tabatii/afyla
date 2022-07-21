@@ -120,8 +120,8 @@
 				loading: false,
 				form: this.$inertia.form({
 					id: null,
-					from: 'tabatii@outlook.fr',
-					to: 'anatanjaawi@gmail.com',
+					from: null,
+					to: null,
 				})
 			}
 		},
