@@ -73337,12 +73337,20 @@ var render = function () {
                       "div",
                       { staticStyle: { width: "20%" } },
                       [
-                        _c("l", { attrs: { href: _vm.route("product", 1) } }, [
-                          _c("img", {
-                            staticClass: "d-block w-100",
-                            attrs: { src: item.product.gallery[0] },
-                          }),
-                        ]),
+                        _c(
+                          "l",
+                          {
+                            attrs: {
+                              href: _vm.route("product", item.product.id),
+                            },
+                          },
+                          [
+                            _c("img", {
+                              staticClass: "d-block w-100",
+                              attrs: { src: item.product.gallery[0] },
+                            }),
+                          ]
+                        ),
                       ],
                       1
                     ),

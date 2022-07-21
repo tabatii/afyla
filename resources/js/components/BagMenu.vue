@@ -15,7 +15,7 @@
 			<div class="p-4">
 				<div class="d-flex mb-3" v-for="(item, i) in bag" :key="Math.random()">
 					<div style="width:20%">
-						<l :href="route('product', 1)">
+						<l :href="route('product', item.product.id)">
 							<img :src="item.product.gallery[0]" class="d-block w-100" />
 						</l>
 					</div>
