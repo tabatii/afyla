@@ -9,9 +9,11 @@
 				</div>
 				<div class="col-sm-6">
 					<input type="text" class="form-control border shadow-none py-3" v-model="form.firstname" placeholder="FIRST NAME" />
+					<small class="text-danger" v-text="register.errors.firstname"></small>
 				</div>
 				<div class="col-sm-6">
 					<input type="text" class="form-control border shadow-none py-3" v-model="form.lastname" placeholder="LAST NAME" />
+					<small class="text-danger" v-text="register.errors.lastname"></small>
 				</div>
 				<div class="col-sm-6">
 					<input type="text" class="form-control border shadow-none bg-white py-3" :value="auth.email" placeholder="EMAIL" disabled />
@@ -21,6 +23,7 @@
 						<option :value="null">COUNTRY</option>
 						<option :value="country.name" v-text="country.name" v-for="(country, code) in countries" :key="Math.random()"></option>
 					</select>
+					<small class="text-danger" v-text="register.errors.country"></small>
 				</div>
 				<div class="col-sm-8">
 					<div class="row gx-2">
@@ -43,14 +46,17 @@
 							</select>
 						</div>
 					</div>
+					<small class="text-danger" v-text="register.errors.birthday"></small>
 				</div>
 				<div class="col-sm-4">
 					<input type="text" class="form-control border shadow-none py-3" v-model="form.phone" placeholder="PHONE" />
+					<small class="text-danger" v-text="register.errors.phone"></small>
 				</div>
 				<div class="col-12">
 					<div class="form-check">
 						<input type="checkbox" class="form-check-input shadow-none bg-white border-0" id="subscribe" v-model="form.subscribe" />
-						<label class="form-check-label" for="subscribe" style="user-select:none">SUBSCRIBE TO THE NEWSLETTER</label>
+						<label class="form-check-label" for="subscribe" style="user-select:none">SUBSCRIBE TO THE NEWSLETTER</label><br />
+						<small class="text-danger" v-text="register.errors.phone"></small>
 					</div>
 				</div>
 				<div class="col-12 d-flex justify-content-end">
