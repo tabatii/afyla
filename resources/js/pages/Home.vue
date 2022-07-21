@@ -1,6 +1,6 @@
 <template>
 	<AppLayout>
-		<h title="Home"></h>
+		<h title="AFYLA"></h>
 		<section>
 			<div id="slider" class="carousel slide overflow-hidden" data-bs-ride="carousel">
 				<div class="carousel-inner">

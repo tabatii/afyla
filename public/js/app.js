@@ -65816,7 +65816,7 @@ var render = function () {
   return _c(
     "AppLayout",
     [
-      _c("h", { attrs: { title: "Home" } }),
+      _c("h", { attrs: { title: "AFYLA" } }),
       _vm._v(" "),
       _c("section", [
         _c(
