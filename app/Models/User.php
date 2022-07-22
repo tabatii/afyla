@@ -67,4 +67,9 @@ class User extends \TCG\Voyager\Models\User
     {
         $this->notify(new \App\Notifications\QueuedVerifyEmail);
     }
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new \App\Notifications\QueuedResetPassword($token));
+    }
 }

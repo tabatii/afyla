@@ -50,6 +50,7 @@ class HandleInertiaRequests extends Middleware
             'categories' => Category::with('subCategories')->get(),
             'collections' => Collection::all(),
             'settings' => [
+                'contact_email' => setting('site.contact_email'),
                 'description' => setting('site.description'),
                 'phone' => setting('site.phone'),
                 'email' => setting('site.email'),

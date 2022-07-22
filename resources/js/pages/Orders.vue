@@ -9,7 +9,7 @@
 			<div v-else>
 				<div class="modal fade" id="details" tabindex="-1">
 					<div class="modal-dialog modal-lg">
-						<div class="modal-content">
+						<div class="modal-content bg-primary">
 							<div class="modal-header border-0">
 								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 							</div>
@@ -20,7 +20,7 @@
 										<thead>
 											<tr class="align-middle">
 												<th scope="col">#</th>
-												<th scope="col">TITLE</th>
+												<th scope="col">DESCRIPTION</th>
 												<th scope="col">CATEGORY</th>
 												<th scope="col">QUANTITY</th>
 												<th scope="col">SIZE</th>
@@ -53,7 +53,6 @@
 								<th class="text-nowrap" scope="col">TRACKING N°</th>
 								<th class="text-nowrap" scope="col">AMOUNT</th>
 								<th class="text-nowrap" scope="col">ADDRESS</th>
-								<th class="text-nowrap" scope="col">PHONE</th>
 								<th class="text-nowrap" scope="col">DATE</th>
 								<th class="text-nowrap" scope="col">STATUS</th>
 								<th class="text-nowrap" scope="col">DETAILS</th>
@@ -65,11 +64,12 @@
 								<td class="text-nowrap" v-text="order.tracking_number"></td>
 								<td class="text-nowrap" v-text="getFormatedPrice(order.order_subtotal)"></td>
 								<td style="min-width:200px">{{ order.delivery.street }}, {{ order.delivery.city }}, {{ order.delivery.zip }}, {{ order.delivery.country }}</td>
-								<td class="text-nowrap" v-text="order.delivery.phone"></td>
 								<td class="text-nowrap" v-text="order.created_at"></td>
 								<td class="text-nowrap" v-text="order.status.toUpperCase()"></td>
 								<td>
-									<button type="button" class="btn btn-sm btn-secondary" data-bs-toggle="modal" data-bs-target="#details" @click="index = i">DETAILS</button>
+									<button type="button" class="btn btn-sm btn-secondary" data-bs-toggle="modal" data-bs-target="#details" @click="index = i">
+										<i class="bi bi-info-circle"></i>
+									</button>
 								</td>
 							</tr>
 						</tbody>

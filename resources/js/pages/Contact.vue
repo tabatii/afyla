@@ -41,7 +41,7 @@
 								</div>
 								<div class="col-sm-4 col-lg-3">
 									<div class="d-grid">
-										<a :href="'mailto:'+settings.email" class="btn btn-light py-3">
+										<a :href="'mailto:'+settings.contact_email" class="btn btn-light py-3">
 											<img src="/img/icons/mail.png" class="me-3" height="26px" />
 											<span>EMAIL US</span>
 										</a>

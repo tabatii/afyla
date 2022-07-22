@@ -37,7 +37,7 @@
 						<div class="row gy-4">
 							<div class="col-sm-4">
 								<div class="d-grid d-sm-block text-center">
-									<a :href="'mailto:'+settings.email" class="btn btn-primary">
+									<a :href="'mailto:'+settings.contact_email" class="btn btn-primary">
 										<img src="/img/icons/mail.png" class="me-3" height="26px" />
 										<span>EMAIL US</span>
 									</a>
@@ -103,7 +103,7 @@
 								<del class="text-muted" v-text="getFormatedPrice(product.price)" v-if="product.discount"></del>
 								<span v-text="getFormatedPrice(product.price)" v-else></span>
 							</div>
-							<span class="me-auto">Enjoy free shipping and return</span>
+							<span class="me-auto">Enjoy free shipping and returns</span>
 							<div v-if="size">
 								<span v-if="getSizeQty < 1"><i class="bi bi-circle-fill text-danger"></i> Sold out</span>
 								<span v-else-if="getSizeQty > 5"><i class="bi bi-circle-fill text-success"></i> Available</span>
@@ -258,10 +258,10 @@
 			</div>
 		</section>
 		<section class="bg-primary position-relative carousel-dark p-0 p-sm-5">
-			<p class="fs-2 text-center mb-4">YOU MAY ALSO LIKE</p>
+			<p class="fs-4 text-center mb-4">YOU MAY ALSO LIKE</p>
 			<div ref="glider">
 				<div class="glider-track mx-auto">
-					<div class="recommendation px-3" v-for="item in product.recommendations" :key="Math.random()">
+					<div class="recommendation px-3" v-for="item in product.recommendations" :key="item.product.id">
 						<div class="position-relative">
 							<l :href="route('product', item.product.id)">
 								<img :src="item.product.gallery[0]" class="d-block w-100" />
@@ -293,7 +293,7 @@
 		</section>
 		<section class="bg-primary py-5">
 			<div class="container-fluid px-3 px-sm-5">
-				<p class="fs-2 text-center mb-4">YOUR REVIEW MATTERS TO US</p>
+				<p class="fs-4 text-center mb-4">YOUR REVIEW MATTERS TO US</p>
 				<Notification v-model="notification" title="Thank you.">
 					<p class="mb-0">Your review has been saved.</p>
 				</Notification>
@@ -301,12 +301,12 @@
 					<div class="row gy-4">
 						<div class="col-sm-6">
 							<label>FULL NAME*</label>
-							<input type="text" class="form-control border shadow-none py-3" v-model="review.name" />
+							<input type="text" class="form-control border shadow-none py-2" v-model="review.name" />
 							<small class="text-danger" v-text="review.errors.name"></small>
 						</div>
 						<div class="col-sm-6">
 							<label>EMAIL*</label>
-							<input type="text" class="form-control border shadow-none py-3" v-model="review.email" />
+							<input type="text" class="form-control border shadow-none py-2" v-model="review.email" />
 							<small class="text-danger" v-text="review.errors.email"></small>
 						</div>
 						<div class="col-12">

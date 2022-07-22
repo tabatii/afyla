@@ -62897,7 +62897,9 @@ var render = function () {
                           "a",
                           {
                             staticClass: "btn btn-light py-3",
-                            attrs: { href: "mailto:" + _vm.settings.email },
+                            attrs: {
+                              href: "mailto:" + _vm.settings.contact_email,
+                            },
                           },
                           [
                             _c("img", {
@@ -66260,7 +66262,7 @@ var render = function () {
                 },
                 [
                   _c("div", { staticClass: "modal-dialog modal-lg" }, [
-                    _c("div", { staticClass: "modal-content" }, [
+                    _c("div", { staticClass: "modal-content bg-primary" }, [
                       _c("div", { staticClass: "modal-header border-0" }, [
                         _c("button", {
                           staticClass: "btn-close",
@@ -66293,7 +66295,7 @@ var render = function () {
                                   ]),
                                   _vm._v(" "),
                                   _c("th", { attrs: { scope: "col" } }, [
-                                    _vm._v("TITLE"),
+                                    _vm._v("DESCRIPTION"),
                                   ]),
                                   _vm._v(" "),
                                   _c("th", { attrs: { scope: "col" } }, [
@@ -66447,15 +66449,6 @@ var render = function () {
                             staticClass: "text-nowrap",
                             attrs: { scope: "col" },
                           },
-                          [_vm._v("PHONE")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "th",
-                          {
-                            staticClass: "text-nowrap",
-                            attrs: { scope: "col" },
-                          },
                           [_vm._v("DATE")]
                         ),
                         _vm._v(" "),
@@ -66527,13 +66520,6 @@ var render = function () {
                             _c("td", {
                               staticClass: "text-nowrap",
                               domProps: {
-                                textContent: _vm._s(order.delivery.phone),
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c("td", {
-                              staticClass: "text-nowrap",
-                              domProps: {
                                 textContent: _vm._s(order.created_at),
                               },
                             }),
@@ -66561,7 +66547,7 @@ var render = function () {
                                     },
                                   },
                                 },
-                                [_vm._v("DETAILS")]
+                                [_c("i", { staticClass: "bi bi-info-circle" })]
                               ),
                             ]),
                           ]
@@ -67132,7 +67118,9 @@ var render = function () {
                           "a",
                           {
                             staticClass: "btn btn-primary",
-                            attrs: { href: "mailto:" + _vm.settings.email },
+                            attrs: {
+                              href: "mailto:" + _vm.settings.contact_email,
+                            },
                           },
                           [
                             _c("img", {
@@ -67385,7 +67373,7 @@ var render = function () {
                   ]),
                   _vm._v(" "),
                   _c("span", { staticClass: "me-auto" }, [
-                    _vm._v("Enjoy free shipping and return"),
+                    _vm._v("Enjoy free shipping and returns"),
                   ]),
                   _vm._v(" "),
                   _vm.size
@@ -68016,7 +68004,7 @@ var render = function () {
           staticClass: "bg-primary position-relative carousel-dark p-0 p-sm-5",
         },
         [
-          _c("p", { staticClass: "fs-2 text-center mb-4" }, [
+          _c("p", { staticClass: "fs-4 text-center mb-4" }, [
             _vm._v("YOU MAY ALSO LIKE"),
           ]),
           _vm._v(" "),
@@ -68027,7 +68015,7 @@ var render = function () {
               _vm._l(_vm.product.recommendations, function (item) {
                 return _c(
                   "div",
-                  { key: Math.random(), staticClass: "recommendation px-3" },
+                  { key: item.product.id, staticClass: "recommendation px-3" },
                   [
                     _c(
                       "div",
@@ -68176,7 +68164,7 @@ var render = function () {
           "div",
           { staticClass: "container-fluid px-3 px-sm-5" },
           [
-            _c("p", { staticClass: "fs-2 text-center mb-4" }, [
+            _c("p", { staticClass: "fs-4 text-center mb-4" }, [
               _vm._v("YOUR REVIEW MATTERS TO US"),
             ]),
             _vm._v(" "),
@@ -68223,7 +68211,7 @@ var render = function () {
                           expression: "review.name",
                         },
                       ],
-                      staticClass: "form-control border shadow-none py-3",
+                      staticClass: "form-control border shadow-none py-2",
                       attrs: { type: "text" },
                       domProps: { value: _vm.review.name },
                       on: {
@@ -68254,7 +68242,7 @@ var render = function () {
                           expression: "review.email",
                         },
                       ],
-                      staticClass: "form-control border shadow-none py-3",
+                      staticClass: "form-control border shadow-none py-2",
                       attrs: { type: "text" },
                       domProps: { value: _vm.review.email },
                       on: {
@@ -71741,8 +71729,8 @@ var render = function () {
                 _vm._v(" "),
                 _c("a", {
                   staticClass: "underline",
-                  attrs: { href: "mailto:" + _vm.settings.email },
-                  domProps: { textContent: _vm._s(_vm.settings.email) },
+                  attrs: { href: "mailto:" + _vm.settings.contact_email },
+                  domProps: { textContent: _vm._s(_vm.settings.contact_email) },
                 }),
               ]),
               _vm._v(" "),

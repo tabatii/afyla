@@ -26,7 +26,7 @@
 							<a class="underline me-2" :href="'tel:'+settings.phone">
 								{{ settings.phone[0] === '+' ? settings.phone : `+${settings.phone}` }}
 							</a>
-							<a class="underline" :href="'mailto:'+settings.email" v-text="settings.email"></a>
+							<a class="underline" :href="'mailto:'+settings.contact_email" v-text="settings.contact_email"></a>
 						</li>
 						<li class="nav-item">
 							Shop Assistant via
